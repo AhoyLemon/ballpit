@@ -1,0 +1,5886 @@
+// FONTS
+$font:'Cabin', sans-serif;
+$medium:400;
+$bold:700;
+
+//COLORS 
+$green: #0f9d58;
+$red: #e04a3f;
+$blue: #4a8bf5;
+$black: #444;
+$grey:#bbb;
+$white: #f9f9f9;
+$body: $white;
+
+%clearfix {
+  &:after { content: ""; display: table;clear: both; }
+}
+
+// STUFF THAT SHOULD BE KILLED IN THE PHP
+.rich_editor_frame { display: none; }
+.post_separator { display: none; }
+
+/// WRAPPER STUFF ///
+body { background: $white; font-family: 'Cabin', sans-serif; margin: 0; padding: 0; font-size:14px; }
+.wrapper { width:95%; min-width: 300px; margin: 0 auto; }
+form { padding: 0; margin: 0; }
+
+// LINKS /////
+a:link, a:visited {	color: $green;	text-decoration: none; }
+a:hover { text-decoration: underline; cursor: pointer; }
+
+// DEFAULT STYLES //////
+table { empty-cells: show; }
+body#help_popup { padding: 1em; }
+body, td, th, tr { color: $black; }
+
+// SVG INHERITS COLOR
+svg * { fill:currentColor; }
+  //unless
+svg .inferno * { fill:red; }
+
+// INPUT
+input, button, select, textarea { color: #000; background: $white; border: 1px solid $black; font-family: 'Cabin', sans-serif; outline:none;
+  &:hover, &:active { border-color:$blue; outline:none; }
+}
+textarea { font-size:115%; }
+input.input_check, input.input_radio { border: none; background: none; }
+input[disabled] { opacity: 0.6; }
+
+//-- BUTTONS 
+%button { border:none; padding: 0.7em 3em;
+  &:hover { border:none; }
+}
+%red-button { @extend %button; background-color: $red; 
+  &:hover { background:saturate($red,20%); color:$white;} 
+  &:active { background:darken($red,20%); }
+}
+%blue-button { @extend %button; background-color:$blue;
+  &:hover { background:saturate($blue,20%); color:$white; }
+  &:active { background:darken($blue,20%); }
+}
+
+.button_submit, .button_reset {	background:$red; cursor: pointer; font-weight: normal; border:none;  @extend %red-button; }
+
+h3.catbg input.input_check { margin: 9px 7px 0 7px; }
+
+
+/* Standard horizontal rule.. ([hr], etc.) */
+
+hr, .hrcolor { height: 1px; border: 0; color: #999; background-color: #989898; }
+
+h1, h2, h3, h4, h5, h6 { color: $black; font-size: 1em; margin: 0; padding: 0; }
+a.navPages { color:$blue; }
+
+
+/* Fieldsets are used to group elements. */
+
+fieldset
+
+{
+
+  border: 1px solid #c4c4c4;
+
+  padding: 1em;
+
+  margin: 0 0 0.5em 0;
+
+}
+
+fieldset legend
+
+{
+
+  font-weight: bold;
+
+  color: #222;
+
+}
+
+/* No image should have a border when linked. */
+
+a img
+
+{
+
+  border: 0;
+
+}
+
+
+
+/* Define strong as bold, and em as italics */
+
+strong
+
+{
+
+  font-weight: bold;
+
+}
+
+
+
+em
+
+{
+
+  font-style: italic;
+
+}
+
+/* Alternative for u tag */
+
+.underline
+
+{
+
+  text-decoration: underline;
+
+}
+
+
+
+/* Common classes to easy styling.
+
+------------------------------------------------------- */
+
+
+
+.floatright
+
+{
+
+  float: right;
+
+}
+
+.floatleft
+
+{
+
+  float: left;
+
+}
+
+
+
+.flow_auto
+
+{
+
+  overflow: auto;
+
+}
+
+.flow_hidden
+
+{
+
+  overflow: hidden;
+
+}
+
+.flow_hidden .windowbg, .flow_hidden .windowbg2
+
+{
+
+  margin-top: 2px;
+
+}
+
+.clear
+
+{
+
+  clear: both;
+
+}
+
+.clear_left
+
+{
+
+  clear: left;
+
+}
+
+.clear_right
+
+{
+
+  clear: right;
+
+}
+
+
+
+/* Default font sizes: small (8pt), normal (10pt), and large (14pt). */
+
+.smalltext, tr.smalltext th
+
+{
+
+  font-size: 11px;
+
+}
+
+.middletext
+
+{
+
+  font-size: 12px;
+
+  line-height: 1em;
+
+}
+
+.normaltext
+
+{
+
+  font-size: 16px;
+
+  line-height: 1.2em;
+
+}
+
+.largetext
+
+{
+
+  font-size: 18px;
+
+}
+
+.centertext
+
+{
+
+  margin: 0 auto;
+
+  text-align: center;
+
+}
+
+.righttext
+
+{
+
+  margin-left: auto;
+
+  margin-right: 0;
+
+  text-align: right;
+
+}
+
+.lefttext
+
+{
+
+  margin-left: 0;
+
+  margin-right: auto;
+
+  text-align: left;
+
+}
+
+.double_height
+
+{
+
+  line-height: 2em;
+
+}
+
+/* some common padding styles */
+
+.main_section, .lower_padding
+
+{
+
+  padding-bottom: 0.5em;
+
+}
+
+/* a quick reset list class. */
+
+ul.reset, ul.reset li
+
+{
+
+  padding: 0;
+
+  margin: 0;
+
+  list-style: none;
+
+}
+
+
+
+/* Some BBC related styles.
+
+------------------------------------------------------- */
+
+
+
+/* A quote, perhaps from another post. */
+
+blockquote.bbc_standard_quote, blockquote.bbc_alternate_quote
+
+{
+  font-size:90%; color:#666;
+
+  background: url(../images/theme/quote.png) 0.1em 0.1em no-repeat;
+
+  border: 1px solid #999;
+
+  padding: 1.1em 1.4em;
+
+  margin: 0.1em 0 0.3em 0;
+
+  overflow: auto;
+
+}
+
+
+
+/* Alterate blockquote stylings */
+
+blockquote.bbc_standard_quote
+
+{
+
+  background-color: #fff;
+
+}
+
+blockquote.bbc_alternate_quote
+
+{
+
+  background-color: #fff;
+
+}
+
+
+
+/* A code block - maybe PHP ;). */
+
+code.bbc_code
+
+{
+
+  display: block;
+
+  font-family: "dejavu sans mono", "monaco", "lucida console", "courier new", monospace;
+
+  font-size: x-small;
+
+  background: #fff;
+
+  border-top: 2px solid #999;
+
+  border-bottom: 2px solid #999;
+
+  line-height: 1.5em;
+
+  padding: 3px 1em;
+
+  overflow: auto;
+
+  white-space: nowrap;
+
+  /* Show a scrollbar after about 24 lines. */
+
+  max-height: 24em;
+
+}
+
+
+
+/* The "Quote:" and "Code:" header parts... */
+
+.codeheader, .quoteheader
+
+{
+
+  color: #333;
+
+  font-size: 90%;
+
+  font-weight: bold;
+
+  padding: 0 0.3em;
+
+}
+
+
+
+/* For links to change the code stuff... */
+
+.codeoperation
+
+{
+
+  font-weight: normal;
+
+}
+
+
+
+/* Styling for BBC tags */
+
+.bbc_size { line-height: 1.4em; }
+.bbc_color a { color: inherit; }
+.bbc_img  { border: 0; }
+.bbc_table { font: inherit; color: inherit;
+  td { font: inherit; color: inherit; vertical-align: top; }
+}
+.bbc_u { text-decoration: underline; }
+.bbc_list { text-align: left; }
+.bbc_tt { font-family: "dejavu sans mono", "monaco", "lucida console", "courier new", monospace; }
+
+
+//////////////////// Generally, those [?] icons.  This makes your cursor a help icon.
+
+.help { cursor: help; }
+
+
+/* /me uses this a lot. (emote, try typing /me in a post.) */
+
+.meaction { color: red; }
+
+
+
+/* Highlighted text - such as search results. */
+
+.highlight { font-weight: bold; color: #ff7200 !important; font-size: 1.1em; }
+
+
+
+/* A more discreet highlight color, for selected membergroups etc. */
+/* A more discreet highlight color, for selected membergroups etc. */
+
+.highlight2
+
+{
+
+  background-color: #D1E1EF;
+
+  color: #000 !important;
+
+}
+
+
+
+/* Generic, mostly color-related, classes.
+
+------------------------------------------------------- */
+
+
+
+.titlebg, .titlebg2, tr.titlebg th, tr.titlebg td, tr.titlebg2 td
+
+{
+
+  color: #999;
+
+  font-size: 1.1em;
+
+  font-weight: bold;
+
+  background: #f9f9f9;
+
+}
+
+.catbg, .catbg2, tr.catbg td, tr.catbg2 td, tr.catbg th, tr.catbg2 th
+
+{
+
+  color: #999;
+
+  font-size: 1.1em;
+
+  font-weight: bold;
+
+  background: #f9f9f9;
+
+}
+
+
+
+/* adjust the table versions of headers */
+
+tr.titlebg th, tr.titlebg2 th, td.titlebg, td.titlebg2, tr.catbg th, tr.catbg2 th, td.catbg, td.catbg2
+
+{
+
+  padding: 0 6px;
+
+}
+
+tr.titlebg th a:link, tr.titlebg th a:visited, tr.titlebg2 td a:link, tr.titlebg2 td a:visited
+
+{
+
+  color: #fff;
+
+}
+
+tr.catbg th a:link, tr.catbg th a:visited, tr.catbg2 td a:link, tr.catbg2 td a:visited
+
+{
+
+  color: #999;
+
+}
+
+.catbg select
+
+{
+
+  height: 1.5em;
+
+  font-size: 0.85em;
+
+}
+
+
+/* the page navigation area */
+
+.pagesection { font-size:1.2em; overflow: hidden; margin-bottom: 1px; }
+
+div.pagesection div.floatright input
+
+{
+
+  margin-top: 3px;
+
+}
+
+
+
+.pagelinks
+
+{
+
+  padding: 0.6em 0 0.4em 0;
+
+}
+
+
+
+/* Colors for background of posts requiring approval */
+
+.approvebg
+
+{
+
+  color: #000;
+
+  background-color: #ffeaea;
+
+}
+
+.approvebg2
+
+{
+
+  color: #000;
+
+  background-color: #fff2f2;
+
+}
+
+
+
+/* Color for background of *topics* requiring approval */
+
+.approvetbg
+
+{
+
+  color: #000;
+
+  background-color: #e4a17c;
+
+}
+
+.approvetbg2
+
+{
+
+  color: #000;
+
+  background-color: #f3bd9f;
+
+}
+
+
+
+/* Locked posts get a different shade, too! */
+
+.lockedbg, .lockedbg2 { opacity:0.4; }
+
+/* Posts and personal messages displayed throughout the forum. */
+
+.post, .personalmessage { font-size:1.1em; }
+
+
+
+/* All the signatures used in the forum.  If your forum users use Mozilla, Opera, or Safari, you might add max-height here ;). */
+
+.signature, .attachments
+
+{
+
+  width: 98%;
+
+  overflow: auto;
+
+  clear: right;
+
+  padding: 1em 0 3px 0;
+
+  border-top: 1px solid #999;
+
+  line-height: 1.4em;
+
+  font-size: 0.85em;
+
+}
+
+.custom_fields_above_signature
+
+{
+
+  width: 98%;
+
+  clear: right;
+
+  padding: 1em 0 3px 0;
+
+  border-top: 1px solid #999;
+
+  line-height: 1.4em;
+
+  font-size: 0.85em;
+
+}
+
+
+
+/* Sometimes there will be an error when you post */
+
+.error
+
+{
+
+  color: red;
+
+}
+
+
+
+/* Messages that somehow need to attract the attention. */
+
+.alert
+
+{
+
+  color: red;
+
+}
+
+
+
+/* Calendar colors for birthdays, events and holidays */
+
+.birthday
+
+{
+
+  color: #920ac4;
+
+}
+
+
+
+.event
+
+{
+
+  color: #078907;
+
+}
+
+
+
+.holiday
+
+{
+
+  color: #000080;
+
+}
+
+
+
+/* Colors for warnings */
+
+.warn_mute
+
+{
+
+  color: red;
+
+}
+
+
+
+.warn_moderate
+
+{
+
+  color: #ffa500;
+
+}
+
+
+
+.warn_watch, .success
+
+{
+
+  color: green;
+
+}
+
+
+
+a.moderation_link, a.moderation_link:visited
+
+{
+
+  color: red;
+
+  font-weight: bold;
+
+}
+
+
+
+/* a descriptive style 
+
+.description_board, .plainbox{
+
+  padding: 0.5em 1em;
+
+  font-size: 0.9em;
+
+  line-height: 1.4em;
+
+  border: 1px solid #dcdcdc;
+
+  background: #f9f9f9;
+
+  margin: 0.2em 1px 1em 1px;
+
+}
+
+.description_board
+
+{
+
+  margin: 1em 1px 0 1px;
+
+}
+*/
+
+
+
+/* an informative style */
+
+.information
+
+{
+
+  padding: 0.5em 1em;
+
+  font-size: 0.9em;
+
+  line-height: 1.3em;
+
+  border: 1px solid #999;
+
+  background: #f0f6f0;
+
+  margin: 0.2em 1px 1em 1px;
+
+}
+
+.information p
+
+{
+
+  padding: 1em;
+
+  margin: 0;
+
+}
+
+p.para2
+
+{
+
+  padding: 1em 0 3.5em 0;
+
+  margin: 0;
+
+}
+
+/* AJAX notification bar
+
+------------------------------------------------------- */
+
+#ajax_in_progress
+
+{
+
+  background: url(../images/theme/loadingbar.png) repeat-x;
+
+  color: #f96f00;
+
+  text-align: center;
+
+  font-size: 16pt;
+
+  padding: 8px;
+
+  width: 100%;
+
+  height: 66px;
+
+  line-height: 25px;
+
+  position: fixed;
+
+  top: 0;
+
+  left: 0;
+
+}
+
+
+
+#ajax_in_progress a
+
+{
+
+  color: orange;
+
+  text-decoration: underline;
+
+  font-size: smaller;
+
+  float: right;
+
+  margin-right: 20px;
+
+}
+
+
+
+/* Lists with settings use these a lot.
+
+------------------------------------------------------- */
+
+dl.settings
+
+{
+
+  clear: right;
+
+  overflow: auto;
+
+  margin: 0 0 10px 0;
+
+  padding: 0;
+
+}
+
+dl.settings dt
+
+{
+
+  width: 40%;
+
+  float: left;
+
+  margin: 0 0 10px 0;
+
+  padding: 0;
+
+  clear: both;
+
+}
+
+dl.settings dt.settings_title
+
+{
+
+  width: 100%;
+
+  float: none;
+
+  margin: 0 0 10px 0;
+
+  padding: 5px 0 0 0;
+
+  font-weight: bold;
+
+  clear: both;
+
+}
+
+dl.settings dt.windowbg
+
+{
+
+  width: 98%;
+
+  float: left;
+
+  margin: 0 0 3px 0;
+
+  padding: 0 0 5px 0;
+
+  clear: both;
+
+}
+
+dl.settings dd
+
+{
+
+  width: 56%;
+
+  float: right;
+
+  margin: 0 0 3px 0;
+
+  padding: 0;
+
+}
+
+dl.settings img
+
+{
+
+  margin: 0 10px 0 0;
+
+}
+
+/* help icons */
+
+dl.settings dt a img
+
+{
+
+  position: relative;
+
+  top: 2px;
+
+}
+
+
+.cat_bar {
+  a { 
+    &.unread, &.collapse {float: right; height:1.2rem; width: 1.2rem; }
+    &.unread { color:$blue; }
+    &.collapse { color:$red; }
+  }
+}
+
+
+
+
+/* Styles for rounded headers.
+
+------------------------------------------------------- */
+/*
+
+h3.catbg, h3.catbg2, h3.titlebg, h4.titlebg, h4.catbg {	overflow: hidden; height: 34px;	line-height: 34px; font-size: 1.2em; font-weight: normal; }
+
+h3.catbg a:link, h3.catbg a:visited, h4.catbg a:link, h4.catbg a:visited, h3.catbg, .table_list tbody.header td, .table_list tbody.header td a {	color: #666; }
+
+h3.catbg a:hover, h4.catbg a:hover, .table_list tbody.header td a:hover
+
+{
+
+  text-decoration: none;
+
+}
+
+h3.catbg2 a:hover
+
+{
+
+  text-decoration: none;
+
+}
+
+h3.titlebg a, h3.titlebg, h4.titlebg, h4.titlebg a
+
+{
+
+  color: #999;
+
+}
+
+h3.titlebg a:hover, h4.titlebg a:hover
+
+{
+
+  text-decoration: none;
+
+}
+
+h3.catbg img.icon, h4.titlebg img.icon
+
+{
+
+  vertical-align: middle;
+
+  margin: -2px 5px 0 0;
+
+}
+
+h4.catbg a.toggle img
+
+{
+
+  vertical-align: middle;
+
+  margin: -2px 5px 0 5px;
+
+}
+
+h4.catbg, h4.catbg2 , h3.catbg , h3.catbg2 , .table_list tbody.header td.catbg
+
+{
+
+  background: #f9f9f9;
+
+  padding-right: 9px;
+
+}
+
+h4.titlebg, h3.titlebg
+
+{
+
+  background: #f9f9f9;
+
+  padding-right: 9px;
+
+}
+
+h4.titlebg img.icon
+
+{
+
+  float: left;
+
+  margin: 8px 8px 0 0;
+
+}
+
+div.cat_bar { padding-left: 9px; }
+
+div.title_bar
+
+{
+
+  background: #f9f9f9;
+
+  padding-left: 9px;
+
+  height: 34px;
+
+  overflow: hidden;
+
+  margin-bottom: 1px;
+
+}
+
+*/
+
+/* rounded bars needs a different background here */
+
+
+/*
+div.title_barIC
+
+{
+
+  background: #f9f9f9;
+
+  padding-left: 9px;
+
+  height: 34px;
+
+  overflow: hidden;
+
+  margin-bottom: 1px;
+
+}
+
+#upshrinkHeaderIC p.pminfo
+
+{
+
+  margin: 0;
+
+  padding: 0.5em;
+
+}
+
+img#upshrink_ic, img#newsupshrink
+
+{
+
+  float: right;
+
+  margin: 10px 5px 0 0;
+
+}
+
+table.table_list a.unreadlink, table.table_list a.collapse
+
+{
+
+  float: right;
+
+}
+
+table.table_list a.collapse
+
+{
+
+  margin: 10px 5px 0 1em;
+
+  height: 34px;
+
+  line-height: 34px;
+
+}
+
+*/
+
+
+
+/* The half-round header bars for some tables. */
+
+.table_grid tr.catbg, .table_grid tr.titlebg
+
+{
+
+  font-size: 0.95em;
+
+  border-bottom: 1px solid #fff;
+
+}
+
+.table_grid tr.catbg th, .table_grid tr.titlebg th
+
+{
+
+  height: 31px;
+
+  line-height: 31px;
+
+}
+
+tr.catbg th.first_th
+
+{
+
+  background: #f9f9f9;
+
+}
+
+tr.catbg th.last_th
+
+{
+
+  background: #f9f9f9
+
+}
+
+tr.titlebg th.last_th
+
+{
+
+  background: #f9f9f9;
+
+}
+
+.table_grid th.last_th input
+
+{
+
+  margin: 0 2px;
+
+}
+
+.table_grid th.lefttext
+
+{
+
+  padding: 0 0.7em;
+
+}
+
+
+
+/* a general table class */
+
+table.table_grid
+
+{
+
+  border-collapse: collapse;
+
+  margin-top: 0.1em;
+
+}
+
+table.table_grid td
+
+{
+
+  padding: 3px;
+
+  border-bottom: 1px solid #fff;
+
+  border-right: 1px solid #fff;
+
+}
+
+
+
+/* GenericList */
+
+.additional_row
+
+{
+
+  padding: 0.5em 0 0.5em 0;
+
+}
+
+table.table_grid {
+  th { white-space: nowrap; text-align: left; font-weight: 400; text-transform: uppercase; font-size: 1.2em; letter-spacing: .2em; }
+  
+  
+  td {
+    &.stats { width: 15%; }
+  }
+}
+
+/* table_grid styles for Profile > Show Permissions. */
+
+#permissions table.table_grid  td
+
+{
+
+  padding: 0.4em 0.8em;
+
+  cursor: default;
+
+} 
+
+
+
+/* Common styles used to add corners to divisions.
+
+------------------------------------------------------- */
+
+
+/*
+.windowbg span.topslice
+
+{
+
+  display: block;
+
+  padding-left: 20px;
+
+  background: #f9f9f9;
+
+}
+
+.windowbg span.topslice span
+
+{
+
+  display: block;
+
+  background: #f9f9f9;
+
+  height: 11px;
+
+}
+
+.windowbg span.botslice
+
+{
+
+  display: block;
+
+  padding-left: 20px;
+
+  background: #f9f9f9;
+
+  font-size: 5px;
+
+  line-height: 5px;
+
+  margin-bottom: 0.2em;
+
+}
+
+.windowbg span.botslice span
+
+{
+
+  display: block;
+
+  background: #f9f9f9;
+
+  height: 11px;
+
+}
+
+
+
+.windowbg2 span.topslice
+
+{
+
+  display: block;
+
+  padding-left: 20px;
+
+  background: #f9f9f9;
+
+}
+
+.windowbg2 span.topslice span
+
+{
+
+  display: block;
+
+  background: #f9f9f9;
+
+  height: 11px;
+
+}
+
+.windowbg2 span.botslice
+
+{
+
+  display: block;
+
+  padding-left: 20px;
+
+  background: #f9f9f9;
+
+  font-size: 5px;
+
+  line-height: 5px;
+
+  margin-bottom: 0.2em;
+
+}
+
+.windowbg2 span.botslice span
+
+{
+
+  display: block;
+
+  background: #f9f9f9;
+
+  height: 11px;
+
+}
+
+.approvebg span.topslice
+
+{
+
+  display: block;
+
+  padding-left: 20px;
+
+  background: #f9f9f9;
+
+}
+
+.approvebg span.topslice span
+
+{
+
+  display: block;
+
+  background: #f9f9f9;
+
+  height: 11px;
+
+}
+
+.approvebg span.botslice
+
+{
+
+  display: block;
+
+  padding-left: 20px;
+
+  background: #f9f9f9;
+
+  margin-bottom: 0.2em;
+
+}
+
+.approvebg span.botslice span
+
+{
+
+  display: block;
+
+  background: #f9f9f9;
+
+  height: 11px;
+
+}
+
+.postbg
+
+{
+
+  border-left: 1px solid #7f7f7f;
+
+  border-right: 1px solid #7f7f7f;
+
+}
+*/
+
+
+/* The main content area.
+
+------------------------------------------------------- */
+
+.content
+
+{
+
+  padding: 0.5em 1.2em;
+
+  margin: 0;
+
+  border: none;
+
+}
+
+.content p
+
+{
+
+  margin: 0 0 0.5em 0;
+
+}
+
+
+
+/* Styles used by the auto suggest control.
+
+------------------------------------------------------- */
+
+.auto_suggest_div
+
+{
+
+  border: 1px solid #000;
+
+  position: absolute;
+
+  visibility: hidden;
+
+}
+
+.auto_suggest_item
+
+{
+
+  background-color: #ddd;
+
+}
+
+.auto_suggest_item_hover
+
+{
+
+  background-color: #888;
+
+  cursor: pointer;
+
+  color: #eee;
+
+}
+
+
+
+/* Styles for the standard dropdown menus.
+
+------------------------------------------------------- */
+
+#main_menu
+
+{
+
+  padding: 0 0.5em;
+
+  float: left;
+
+  margin: 0;
+
+  width: 98%;
+
+}
+
+
+
+.dropmenu, .dropmenu ul
+
+{
+
+  list-style: none;
+
+  line-height: 1em;
+
+  padding: 0;
+
+  margin: 0;
+
+}
+
+.dropmenu
+
+{
+
+  padding: 0 0.5em;
+
+}
+
+.dropmenu a
+
+{
+
+  display: block;
+
+  color: #000;
+
+  text-decoration: none;
+
+}
+
+.dropmenu a span
+
+{
+
+  display: block;
+
+  padding: 0 0 0 5px;
+
+  font-size: 0.9em;
+
+}
+
+/* the background's first level only */
+
+.dropmenu li a.firstlevel
+
+{
+
+  margin-right: 8px;
+
+}
+
+.dropmenu li a.firstlevel span.firstlevel
+
+{
+
+  display: block;
+
+  position: relative;
+
+  left: -5px;
+
+  padding-left: 5px;
+
+  height: 22px;
+
+  line-height: 20px;
+
+  white-space: pre;
+
+}
+
+.dropmenu li
+
+{
+
+  float: left;
+
+  padding: 0;
+
+  margin: 0;
+
+  position: relative;
+
+}
+
+.dropmenu li ul
+
+{
+
+  z-index: 90;
+
+  display: none;
+
+  position: absolute;
+
+  width: 19.2em;
+
+  font-weight: normal;
+
+  border-bottom: 1px solid #f1f1f1;
+
+  background: #f9f9f9;
+
+  padding: 7px 0 0 0;
+
+}
+
+.dropmenu li li
+
+{
+
+  width: 19em;
+
+  margin: 0;
+
+  border-left: 1px solid #f1f1f1;
+
+  border-right: 1px solid #f1f1f1;
+
+}
+
+.dropmenu li li a span
+
+{
+
+  display: block;
+
+  padding: 8px;
+
+}
+
+.dropmenu li ul ul
+
+{
+
+  margin: -1.8em 0 0 13em;
+
+}
+
+
+
+/* the active button */
+
+.dropmenu li a.active
+
+{
+
+  background: #2f3030;
+
+  color: #fff;
+
+  font-weight: bold;
+
+}
+
+.dropmenu li a.active span.firstlevel
+
+{
+
+  background: #2f3030;
+
+}
+
+/* the hover effects */
+
+.dropmenu li a.firstlevel:hover, .dropmenu li:hover a.firstlevel
+
+{
+
+  background: #2f3030;
+
+  color: #999;
+
+  cursor: pointer;
+
+  text-decoration: none;
+
+}
+
+.dropmenu li a.firstlevel:hover span.firstlevel, .dropmenu li:hover a.firstlevel span.firstlevel
+
+{
+
+  background: #2f3030;
+
+}
+
+/* the hover effects on level2 and 3 */
+
+.dropmenu li li a:hover, .dropmenu li li:hover>a
+
+{
+
+  background: #f1f1f1;
+
+  color: #999;
+
+  text-decoration: none;
+
+}
+
+.dropmenu li:hover ul ul, .dropmenu li:hover ul ul ul
+
+{
+
+  top: -999em;
+
+}
+
+.dropmenu li li:hover ul
+
+{
+
+  top: auto;
+
+}
+
+.dropmenu li:hover ul
+
+{
+
+  display: block;
+
+}
+
+.dropmenu li li.additional_items
+
+{
+
+  background-color: #fff;
+
+}
+
+
+
+/* The dropdown menu toggle image */
+
+#menu_toggle
+
+{
+
+  float: right;
+
+  margin-right: 10px;
+
+  padding-top: 3px;
+
+}
+
+#menu_toggle span
+
+{
+
+  position: relative;
+
+  right: 5000px;
+
+}
+
+
+
+/* Styles for the standard button lists.
+
+------------------------------------------------------- */
+
+.buttonlist ul li {  list-style: none; float: left;
+  a { font-size:0.8em; display: block; color: $red; padding: .3em .6em; margin-left: 12px; text-transform: uppercase; cursor: pointer;
+    &:hover { background:$red; color: $white; text-decoration: none; }
+    &.active { font-weight: bold; }
+  }
+}
+
+#adm_submenus
+
+{
+
+  padding-left: 2em;
+
+  overflow: hidden;
+
+}
+
+
+
+h3, h4
+
+{
+
+  padding-bottom: 3px;
+
+}
+
+
+
+/* The navigation list (i.e. linktree) */
+
+.navigate_section
+
+{
+
+  padding: 0.5em;
+
+  margin: 0 0 0 0;
+
+}
+
+.navigate_section ul
+
+{
+
+  display: block;
+
+  margin: 0;
+
+  font-size: 0.9em;
+
+  padding: 0.5em 0;
+
+  overflow: hidden;
+
+  list-style: none;
+
+  clear: both;
+
+  width: 100%;
+
+}
+
+.navigate_section ul li
+
+{
+
+  float: left;
+
+  padding: 0 0.5em 0 0;
+
+  font-size: 0.95em;
+
+}
+
+.navigate_section ul li a
+
+{
+
+  white-space: pre;
+
+}
+
+select.qaction, input.qaction
+
+{
+
+  font-size: 0.85em;
+
+  padding: 0;
+
+}
+
+#mlist table tbody td.windowbg2
+
+{
+
+  text-align: center;
+
+}
+
+
+
+/* Styles for a typical table.
+
+------------------------------------------------------- */
+
+table.table_list
+
+{
+
+  width: 100%;
+
+}
+
+table.table_list p
+
+{
+
+  padding: 0;
+
+  margin: 0;
+
+}
+
+table.table_list td, table.table_list th
+
+{
+
+  padding: 5px;
+
+}
+
+table.table_list tbody.header td
+
+{
+
+  padding: 0;
+
+}
+
+table.table_list tbody.content td.lastpost
+
+{
+
+  line-height: 1.3em;
+
+  font-size: 95%;
+
+  width: 24%;
+
+}
+
+table.table_list tbody.content td.icon { text-align: center; width: 6%; }
+svg.star { max-height: 4em; max-width: 4em; }
+
+
+
+/* Styles for the board index.
+
+------------------------------------------------- */
+
+.table_list tbody.content td.children { font-size:0.9em;
+  //a { color:$blue; }
+}
+
+p.moderators
+
+{
+
+  font-size: 0.8em;
+
+  font-family: verdana, sans-serif;
+
+}
+
+/* hide the table header/footer parts - but its here for those needing to style it */
+
+#boardindex_table .table_list thead, #boardindex_table .table_list tfoot
+
+{
+
+  display: none;
+
+}
+
+
+
+/* the posting icons */
+
+#posting_icons li { margin-right: 1em; }
+
+#postbuttons_upper ul li a span
+
+{
+
+  line-height: 19px;
+
+  padding: 0 0 0 6px;
+
+}
+
+.nextlinks
+
+{
+
+  text-align: right;
+
+  margin-top: -1px;
+
+}
+
+.nextlinks_bottom
+
+{
+
+  clear: right;
+
+  text-align: right;
+
+}
+
+.mark_read
+
+{
+
+  padding: 0 0.5em;
+
+}
+
+
+
+/* the newsfader */
+
+#newsfader
+
+{
+
+  margin: 0 2px;
+
+}
+
+#smfFadeScroller
+
+{
+
+  text-align: center;
+
+  padding: 0 2em;
+
+  overflow: auto;
+
+  margin: 1em 0;
+
+  color: #575757; /* shouldn't be shorthand style due to a JS bug in IE! */
+
+}
+
+
+
+/* Styles for the info center on the board index.
+
+---------------------------------------------------- */
+
+
+
+#upshrinkHeaderIC
+
+{
+
+  margin-top: 4px;
+
+}
+
+dl#ic_recentposts
+
+{
+
+  margin: 0 0 0.5em 0;
+
+  padding: 0.5em;
+
+  line-height: 1.3em;
+
+}
+
+dl#ic_recentposts dt
+
+{
+
+  float: left;
+
+}
+
+dl#ic_recentposts dd
+
+{
+
+  text-align: right;
+
+}
+
+#upshrinkHeaderIC p
+
+{
+
+  margin: 0 0 0.5em 0;
+
+  padding: 0.5em;
+
+}
+
+#upshrinkHeaderIC p.last
+
+{
+
+  margin: 0;
+
+  padding: 0.5em;
+
+  border-top: 2px dotted #bbb;
+
+}
+
+#upshrinkHeaderIC p.inline
+
+{
+
+  border: none;
+
+  margin: 0;
+
+  padding: 0.2em 0.5em 0.2em 0.5em;
+
+}
+
+#upshrinkHeaderIC p.stats
+
+{
+
+  font-size: 1.1em;
+
+  padding-top: 8px;
+
+}
+
+form#ic_login
+
+{
+
+  padding: 0.5em;
+
+  height: 2em;
+
+}
+
+form#ic_login ul li
+
+{
+
+  margin: 0;
+
+  padding: 0;
+
+  float: left;
+
+  width: 20%;
+
+  text-align: center;
+
+}
+
+form#ic_login ul li label
+
+{
+
+  display: block;
+
+}
+
+
+
+/* the small stats */
+
+#index_common_stats
+
+{
+
+  display: block;
+
+  margin: 0 0 0.5em 0;
+
+  text-align: right;
+
+  font-size: 0.9em;
+
+  position: relative;
+
+  top: -20px;
+
+  line-height: 1px;
+
+}
+a.subject { color:$blue; }
+a.new-post-icon { background-image: url("../svg/new-post.svg"); background-repeat: no-repeat; -webkit-background-size: contain; background-size: contain; background-position: center; display: inline-block; height: 17px; width: 29px; }
+a.jump-to-new { color:$blue;
+  &.subject-level { display: block; float:left; height: 2.2em; width: 2.2em; margin-right: 10px; }
+}
+.new-post-in-child { display: inline-block; height: 1.2em; width: 1.2em; }
+
+img.new_posts { display: none; }
+
+/* Styles for the message (topic) index.
+
+---------------------------------------------------- */
+
+div.table_frame .table_list
+
+{
+
+  border-collapse: collapse;
+
+  margin: 2px 0;
+
+}
+
+.table_frame .table_list td.icon, .table_frame .table_list td.info, .table_frame .table_list td.stats
+
+{
+
+  border-right: 2px solid white;
+
+}
+
+#messageindex
+
+{
+
+  clear: both;
+
+}
+
+/* the page navigation area */
+
+.childboards
+
+{
+
+  margin-bottom: 0.2em;
+
+}
+
+#childboards h3
+
+{
+
+  padding-bottom: 0;
+
+}
+
+#childboards .table_list thead
+
+{
+
+  display: none;
+
+}
+
+#childboards .table_list
+
+{
+
+  margin-bottom: 1em;
+
+}
+
+.lastpost img
+
+{
+
+  float: right;
+
+  padding: 4px;
+
+}
+
+
+
+/* Styles for the display template (topic view).
+
+---------------------------------------------------- */
+
+
+
+#postbuttons div.buttons
+
+{
+
+  padding: 0.5em;
+
+  width: 40%;
+
+  float: right;
+
+}
+
+#postbuttons div.middletext
+
+{
+
+  width: 60%;
+
+}
+
+#postbuttons span
+
+{
+
+  display: block;
+
+  text-align: right;
+
+}
+
+#postbuttons span.lower
+
+{
+
+  clear: right;
+
+}
+
+#postbuttons .buttonlist
+
+{
+
+  float: right;
+
+}
+
+#postbuttons #pagelinks
+
+{
+
+  padding-top: 1em;
+
+}
+
+#moderationbuttons
+
+{
+
+  overflow: hidden;
+
+}
+
+/* Events */
+
+.linked_events
+
+{
+
+  padding: 1em 0;
+
+}
+
+.edit_event
+
+{
+
+  margin: 0 1em;
+
+  vertical-align: middle;
+
+}
+
+/* Poll question */
+
+#poll
+
+{
+
+  overflow: hidden;
+
+}
+
+#poll .content
+
+{
+
+  padding: 0 1em;
+
+}
+
+h4#pollquestion
+
+{
+
+  padding: 0 0 0.5em 2em;
+
+}
+
+
+
+/* Poll vote options */
+
+#poll_options ul.options
+
+{
+
+  border-top: 1px solid #999;
+
+  padding: 1em 2.5em 0 2em;
+
+  margin: 0 0 1em 0;
+
+}
+
+#poll_options div.submitbutton
+
+{
+
+  border-bottom: 1px solid #999;
+
+  clear: both;
+
+  padding: 0 0 1em 2em;
+
+  margin: 0 0 1em 0;
+
+}
+
+
+
+/* Poll results */
+
+#poll_options dl.options
+
+{
+
+  border: solid #999;
+
+  border-width: 1px 0;
+
+  padding: 1em 2.5em 1em 2em;
+
+  margin: 0 1em 1em 0;
+
+  line-height: 1.1em !important;
+
+}
+
+
+
+#poll_options dl.options dt
+
+{
+
+  padding: 0.3em 0;
+
+  width: 30%;
+
+  float: left;
+
+  margin: 0;
+
+  clear: left;
+
+}
+
+
+
+#poll_options dl.options .voted
+
+{
+
+  font-weight: bold;
+
+}
+
+
+
+#poll_options dl.options dd
+
+{
+
+  margin: 0 0 0 2em;
+
+  padding: 0.1em 0 0 0;
+
+  width: 60%;
+
+  max-width: 450px;
+
+  float: left;
+
+}
+
+
+
+#poll_options dl.options .percentage
+
+{
+
+  display: block;
+
+  float: right;
+
+  padding: 0.2em 0 0.3em 0;
+
+}
+
+
+
+/* Poll notices */
+
+#poll_options p
+
+{
+
+  margin: 0 1.5em 0.2em 1.5em;
+
+  padding: 0 0.5em 0.5em 0.5em;
+
+}
+
+
+
+div#pollmoderation
+
+{
+
+  margin: 0;
+
+  padding: 0;
+
+  overflow: auto;
+
+}
+
+
+
+/* onto the posts */
+
+#forumposts, #personal_messages { clear: both;
+  .cat_bar { border-bottom: 1px solid $grey; margin-bottom: 0.5em; padding-bottom: 0.5em; }
+  h3 { font-weight: $medium; color: $grey; font-size: 1.1rem; line-height: 170%; letter-spacing: 0.2em;
+    span#author { margin: 0 7.7em 0 0; }
+    img { float: left; margin: 4px 0.5em 0 0; }
+  }
+  .windowbg, .windowbg2 { border-bottom:1px solid $grey; padding-bottom: 1em; margin-bottom: 1em; @extend %clearfix; }
+  .modified { float: left; }
+  .reportlinks { margin-right: 1.5em; text-align: right; clear: right; }
+  .signature { margin: 1em 0 0 0; }
+  span.botslice { clear: both; }
+}
+
+p#whoisviewing
+
+{
+
+  margin: 0;
+
+  padding: 0.5em;
+
+}
+
+/* poster and postarea + moderation area underneath */
+
+.postarea, .moderatorbar
+
+{
+
+  margin: 0 0 0 160px;
+
+}
+
+.postarea div.flow_hidden
+
+{
+
+  width: 100%;
+
+}
+
+
+
+.moderatorbar
+
+{
+
+  clear: right;
+
+}
+
+/* poster details and list of items */
+
+.messageicon img
+
+{
+
+  padding: 6px 3px;
+
+}
+
+.keyinfo
+
+{
+
+  float: left;
+
+  width: 50%;
+
+}
+
+.modifybutton { clear: right; float: right; margin: 6px 20px 10px 0; text-align: right; color: #334466;	}
+
+/* The quick buttons */
+
+div.quickbuttons_wrap { padding: 0.2em 0; width: 100%; float: left; }
+ul.quickbuttons { margin: 0 11px 0 0; clear: right; float: right; padding-top: 5px; text-align: right; font: bold 0.85em;
+  li { float: left; display: inline; padding: 0 0 0 1.3em;
+    &:bulb { padding-left:0; }
+    a { display: block;	height: 20px; line-height: 18px; float: left; color:#d74937;
+      &:hover svg  { text-decoration:none !important; -webkit-transform: scale(1.3); transform: scale(1.3); }
+      &:active svg  { text-decoration:none !important; -webkit-transform: scale(0.8); transform: scale(0.8); }
+    }
+    img, svg { height:2.2em; width:2.2em; pointer-events: none; }
+    a svg * { fill:$red; }
+    &.bulb { padding-left: 0; }
+    &.bulb.count { text-align:center; padding-top:3px; color:#fff; width:2.2em; height:20px; background-image:url(../images/bulb-count.svg); background-position:center right; background-repeat: no-repeat; padding-right:4px;
+      span { font-size:14px; line-height: 19px; }
+    }
+    &.bulb.lit svg * { fill:$black; }
+    &.bulb.bright svg * { -webkit-animation: brightbulb 4s infinite; animation: brightbulb 4s infinite; }
+    &.bulb a svg * { fill:$red !important; }
+  }
+}
+
+
+
+@-webkit-keyframes brightbulb {
+  0%   { fill:#444; }
+  50%  { fill:#e2af0e; }
+  100% { fill:#444; }
+}@keyframes brightbulb {
+  0%   { fill:#444; }
+  50%  { fill:#e2af0e; }
+  100% { fill:#444; }
+}
+
+.post
+
+{
+
+  margin-top: 0.5em;
+
+  clear: right;
+
+}
+
+.inner { padding-top: 1em; border-top: 1px solid $grey; }
+
+img.smiley { height:1em; min-height: 16px; }
+
+
+
+.attachments hr
+
+{
+
+  clear: both;
+
+  margin: 1em 0 1em 0;
+
+}
+
+.attachments
+
+{
+
+  padding: 1em 0 2em 0;
+
+}
+
+.attachments div
+
+{
+
+  padding: 0 0.5em;
+
+}
+
+
+
+/* Styles for the quick reply area.
+
+---------------------------------------------------- */
+
+
+
+#quickreplybox
+
+{
+
+  padding-bottom: 1px;
+
+}
+
+#quickReplyOptions form textarea
+
+{
+
+  height: 100px;
+
+  width: 635px;
+
+  max-width: 100%;
+
+  min-width: 100%;
+
+  margin: 0.25em 0 1em 0;
+
+}
+
+/* The jump to box */
+
+#display_jump_to
+
+{
+
+  clear: both;
+
+  padding: 5px;
+
+  margin-top: 6px;
+
+  text-align: right;
+
+}
+
+/* Styles for edit post section
+
+---------------------------------------------------- */
+
+
+#post_header, .postbox { padding: 0.5em; overflow: hidden;
+  dt { float: left;	padding: 0;	max-width: 15%;	margin: .5em .8em 0 0; text-align:right; font-size:16px; }
+  dd { float: left; padding: 0; width: 83%; margin: .3em 0;
+    input { font-size:1.4em; border-left:none; border-top:none; border-right: none; width:100%; background-color: transparent;
+      &:hover, &:active { outline: none; border-color:$blue; }
+    }
+  }
+}
+ul.post_options
+
+{
+
+  margin: 0 0 0 1em;
+
+  padding: 0;
+
+  list-style: none;
+
+  overflow: hidden;
+
+}
+
+ul.post_options li
+
+{
+
+  margin: 0.2em 0;
+
+  width: 49%;
+
+  float: left;
+
+}
+
+#postAdditionalOptionsHeader
+
+{
+
+  margin-top: 1em;
+
+}
+
+#postMoreOptions
+
+{
+
+  border-bottom: 1px solid #999;
+
+  padding: 0.5em;
+
+}
+
+#postAttachment, #postAttachment2
+
+{
+
+  overflow: hidden;
+
+  margin: .5em 0;
+
+  padding: 0;
+
+  border-bottom: 1px solid #999;
+
+  padding: 0.5em;
+
+}
+
+#postAttachment dd, #postAttachment2 dd
+
+{
+
+  margin: .3em 0 .3em 1em;
+
+}
+
+#postAttachment dt, #postAttachment2 dt
+
+{
+
+  font-weight: bold;
+
+}
+
+#postAttachment3
+
+{
+
+  margin-left: 1em;
+
+}
+
+#shortcuts { float: left;  }
+
+.post_verification
+
+{
+
+  margin-top: .5em;
+
+}
+
+.post_verification #verification_control
+
+{
+
+  margin: .3em 0 .3em 1em;
+
+}
+
+/* The BBC buttons */
+
+#bbcBox_message {
+  > div { display: inline; }
+  select { font-size:1em !important; }
+  img { margin: 0 1px 0 0; }
+}
+
+
+
+// POST BUTTONS ////////
+
+#post_confirm_buttons {
+  input[value=Preview] { @extend %blue-button; }
+}
+
+/* Styles for edit event section
+
+---------------------------------------------------- */
+
+#post_event fieldset
+
+{
+
+  padding: 0.5em;
+
+  clear: both;
+
+}
+
+#post_event #event_main input
+
+{
+
+  margin: 0 0 1em 0;
+
+  float: left;
+
+}
+
+#post_event #event_main div.smalltext
+
+{
+
+  width: 33em;
+
+  float: right;
+
+}
+
+#post_event div.event_options
+
+{
+
+  float: right;
+
+}
+
+#post_event ul.event_main, ul.event_options
+
+{
+
+  padding: 0;
+
+  overflow: hidden;
+
+}
+
+#post_event ul.event_main li
+
+{
+
+  list-style-type: none;
+
+  margin: 0.2em 0;
+
+  width: 49%;
+
+  float: left;
+
+}
+
+#post_event ul.event_options
+
+{
+
+  margin: 0;
+
+  padding: 0 0 .7em .7em;
+
+}
+
+#post_event ul.event_options li
+
+{
+
+  list-style-type: none;
+
+  margin: 0;
+
+  float: left;
+
+}
+
+#post_event #event_main select, #post_event ul.event_options li select, #post_event ul.event_options li .input_check
+
+{
+
+  margin: 0 1em 0 0;
+
+}
+
+
+
+/* Styles for edit poll section.
+
+---------------------------------------------------- */
+
+
+
+#edit_poll
+
+{
+
+  overflow: hidden;
+
+}
+
+#edit_poll fieldset
+
+{
+
+  padding: 0.5em;
+
+  clear: both;
+
+  overflow: hidden;
+
+}
+
+#edit_poll fieldset input
+
+{
+
+  margin-left: 8.1em;
+
+}
+
+#edit_poll ul.poll_main li
+
+{
+
+  padding-left: 1em;
+
+}
+
+#edit_poll ul.poll_main input
+
+{
+
+  margin-left: 1em;
+
+}
+
+#edit_poll ul.poll_main, dl.poll_options
+
+{
+
+  overflow: hidden;
+
+  padding: 0 0 .7em .7em;
+
+  list-style: none;
+
+}
+
+#edit_poll ul.poll_main li
+
+{
+
+  margin: 0.2em 0;
+
+}
+
+#edit_poll dl.poll_options dt
+
+{
+
+  width: 33%;
+
+  padding: 0 0 0 1em;
+
+}
+
+#edit_poll dl.poll_options dd
+
+{
+
+  width: 65%;
+
+}
+
+#edit_poll dl.poll_options dd input
+
+{
+
+  margin-left: 0; 
+
+}
+
+
+
+/* Styles for the recent messages section.
+
+---------------------------------------------------- */
+
+
+
+#readbuttons_top .pagelinks, #readbuttons .pagelinks
+
+{
+
+  padding-bottom: 1em;
+
+  width: 60%;
+
+}
+
+#readbuttons .pagelinks
+
+{
+
+  padding-top: 1em;
+
+}
+
+#recent
+
+{
+
+  clear: both;
+
+}
+
+
+
+/* Styles for the move topic section.
+
+---------------------------------------------------- */
+
+
+
+#move_topic dl
+
+{
+
+  margin-bottom: 0;
+
+}
+
+#move_topic dl.settings dt
+
+{
+
+  width: 40%;
+
+}
+
+#move_topic dl.settings dd
+
+{
+
+  width: 59%;
+
+}
+
+.move_topic
+
+{
+
+  width: 710px;
+
+  margin: auto;
+
+  text-align: left;
+
+}
+
+div.move_topic fieldset
+
+{
+
+  padding: 0.5em;
+
+}
+
+
+
+/* Styles for the send topic section.
+
+---------------------------------------------------- */
+
+
+
+fieldset.send_topic
+
+{
+
+  border: none;
+
+  padding: 0.5em;
+
+}
+
+dl.send_topic
+
+{
+
+  margin-bottom: 0;
+
+}
+
+dl.send_mail dt
+
+{
+
+  width: 35%;
+
+}
+
+dl.send_mail dd
+
+{
+
+  width: 64%;
+
+}
+
+
+
+/* Styles for the report topic section.
+
+---------------------------------------------------- */
+
+
+
+#report_topic dl
+
+{
+
+  margin-bottom: 0;
+
+}
+
+#report_topic dl.settings dt
+
+{
+
+  width: 20%;
+
+}
+
+#report_topic dl.settings dd
+
+{
+
+  width: 79%;
+
+}
+
+
+
+/* Styles for the split topic section.
+
+---------------------------------------------------- */
+
+
+
+div#selected, div#not_selected
+
+{
+
+  width: 49%;
+
+}
+
+ul.split_messages li.windowbg, ul.split_messages li.windowbg2
+
+{
+
+  margin: 1px;
+
+}
+
+ul.split_messages li a.split_icon
+
+{
+
+  padding: 0 0.5em;
+
+}
+
+ul.split_messages div.post
+
+{
+
+  padding: 1em 0 0 0;
+
+  border-top: 1px solid #fff;
+
+}
+
+
+
+/* Styles for the merge topic section.
+
+---------------------------------------------------- */
+
+ul.merge_topics li
+
+{
+
+  list-style-type: none;
+
+}
+
+dl.merge_topic dt
+
+{
+
+  width: 25%;
+
+}
+
+dl.merge_topic dd
+
+{
+
+  width: 74%;
+
+}
+
+fieldset.merge_options
+
+{
+
+  clear: both;
+
+}
+
+.custom_subject
+
+{
+
+  margin: 0.5em 0;
+
+}
+
+
+
+/* Styles for the login areas.
+
+------------------------------------------------------- */
+
+
+.login { width: 300px; min-width: 280px; width:40vh; margin: 0 auto; }
+.login * { box-sizing: border-box; }
+.login input[type=text], .login input[type=password], .login input[type=number] { display: block; width: 100%; font-size:22px; line-height: 30px;  font-family:'Droid Sans', sans-serif; text-align:center; }
+.login input[type=checkbox] { height: 6.5vh; width: 100%; padding: 0; margin: 0; }
+.login input.openid_login { background-image: url(../svg/openid-logo.svg); background-position: left center; background-size: contain; background-repeat: no-repeat; padding-left:0; }
+.login table { width:100%; }
+.login .half { width:49%; text-align: center; vertical-align: middle; }
+.login .half input { height:40px; }
+.login .half label { display: block; text-align: center; }
+.login .button_submit { font-size: 200%; width: 100%; }
+
+
+
+.login dl
+
+{
+
+  overflow: auto;
+
+  clear: right;
+
+}
+
+.login dt, .login dd
+
+{
+
+  margin: 0 0 0.4em 0;
+
+  width: 44%;
+
+  padding: 0.1em;
+
+}
+
+.login dt
+
+{
+
+  float: left;
+
+  clear: both;
+
+  text-align: right;
+
+  font-weight: bold;
+
+}
+
+.login dd
+
+{
+
+  width: 54%;
+
+  float: right;
+
+  text-align: left;
+
+}
+
+.login p
+
+{
+
+  text-align: center;
+
+}
+
+
+
+/* Styles for the registration section.
+
+------------------------------------------------------- */
+
+.register_error
+
+{
+
+  border: 1px dashed red;
+
+  padding: 5px;
+
+  margin: 0 1ex 1ex 1ex;
+
+}
+
+.register_error span
+
+{
+
+  text-decoration: underline;
+
+}
+
+
+
+/* Additional profile fields */
+
+dl.register_form
+
+{
+
+  margin: 0;
+
+  clear: right;
+
+}
+
+
+
+dl.register_form dt
+
+{
+
+  font-weight: normal;
+
+  float: left;
+
+  clear: both;
+
+  width: 50%;
+
+  margin: 0.5em 0 0 0;
+
+}
+
+
+
+dl.register_form dt strong
+
+{
+
+  font-weight: bold;
+
+}
+
+
+
+dl.register_form dt span
+
+{
+
+  display: block;
+
+}
+
+
+
+dl.register_form dd
+
+{
+
+  float: left;
+
+  width: 49%;
+
+  margin: 0.5em 0 0 0;
+
+}
+
+
+
+#confirm_buttons
+
+{
+
+  text-align: center;
+
+  padding: 1em 0;
+
+}
+
+
+
+.coppa_contact
+
+{
+
+  padding: 4px;
+
+  width: 32ex;
+
+  background-color: #fff;
+
+  color: #000;
+
+  margin-left: 5ex;
+
+  border: 1px solid #000;
+
+}
+
+
+
+.valid_input
+
+{
+
+  background-color: #f5fff0;
+
+}
+
+.invalid_input
+
+{
+
+  background-color: #fff0f0;
+
+}
+
+
+
+/* Styles for maintenance mode.
+
+------------------------------------------------------- */
+
+#maintenance_mode
+
+{
+
+  width: 75%;
+
+  min-width: 520px;
+
+  text-align: left;
+
+}
+
+#maintenance_mode img.floatleft
+
+{
+
+  margin-right: 1em;
+
+}
+
+
+
+/* common for all admin sections */
+
+h3.titlebg img
+
+{
+
+  vertical-align: middle;
+
+  margin-right: 0.5em;
+
+  margin-top: -1px;
+
+}
+
+tr.titlebg td
+
+{
+
+  padding-left: 0.7em;
+
+}
+
+#admin_menu
+
+{
+
+  min-height: 2em;
+
+  padding-left: 0;
+
+}
+
+#admin_content { clear: left; padding-top: 0.5em; }
+
+#admin_content .table_grid tr.windowbg2 td { background-color:#f6f6f6; }
+
+#admin_content .table_grid tr.windowbg:hover td, #admin_content .table_grid tr.windowbg2:hover td { background-color:#fafcd8; }
+
+/* Custom profile fields like to play with us some times. */
+
+#admin_content .custom_field
+
+{
+
+  margin-bottom: 15px;
+
+}
+
+#admin_login .centertext
+
+{
+
+  padding: 1em;
+
+}
+
+#admin_login .centertext .error
+
+{
+
+  padding: 0 0 1em 0;
+
+}
+
+
+
+/* Styles for sidebar menus.
+
+------------------------------------------------------- */
+
+.left_admmenu, .left_admmenu ul, .left_admmenu li
+
+{
+
+  padding: 0;
+
+  margin: 0;
+
+  list-style: none;
+
+}
+
+#left_admsection
+
+{
+
+  width: 160px;
+
+  float: left;
+
+  padding-right: 10px;
+
+}
+
+.adm_section h4.titlebg
+
+{
+
+  font-size: 95%;
+
+  margin-bottom: 5px;
+
+}
+
+#main_container
+
+{
+
+  position: relative;
+
+}
+
+.left_admmenu li
+
+{
+
+  padding: 0 0 0 0.5em;
+
+}
+
+.left_admmenu
+
+{
+
+  margin-bottom: 0.5em;
+
+}
+
+#main_admsection
+
+{
+
+  position: relative;
+
+  left: 0;
+
+  right: 0;
+
+  overflow: hidden;
+
+}
+
+
+
+tr.windowbg td, tr.windowbg2 td, tr.approvebg td, tr.highlight2 td
+
+{
+
+  padding: 0.3em 0.7em;
+
+}
+
+#credits p
+
+{
+
+  padding: 0;
+
+  font-style: italic;
+
+  margin: 0;
+
+}
+
+
+
+/* Styles for generic tables.
+
+------------------------------------------------------- */
+
+.topic_table {
+  table { width: 100%;
+    thead { }
+  }
+  td {
+    &.stats { font-size: 0.9em; }
+    &.subject p { padding: 0; margin: 0; }
+  }
+  .icon1, .icon2 { text-align: center;
+    svg { max-height: 3em; max-width: 3em; }
+  }
+  .lastpost { font-size: 0.9em; line-height: 1.3em; padding: 4px;
+    a.skip { color:$blue; float: right; height: 1.7em; width: 1.7em;
+      svg { height: 1.8em; }
+    }
+  }
+}
+
+td.icon.child-icon {
+  a { color:$black; }
+  svg { transform:scale(0.6); -webkit-transform:scale(0.6); }
+}
+
+#topic_icons { margin: 1em 0 0 0;
+
+}
+
+ul.icon_glossary { list-style: none; border: 1px solid $grey; padding: 0.5em; position: relative; font-size:0.75rem;
+  li { display: inline-block; padding-right: 2em; }
+  svg { display: inline-block; height: 2.4em; width: 2.4em; vertical-align: middle; }
+  
+  &:before { content: 'GLOSSARY'; position: absolute; top: -1em; color:$grey; font-size:1.2em; }
+}
+
+#topic_icons .description
+
+{
+
+  margin: 0;
+
+}
+
+
+/* Styles for (fatal) errors.
+
+------------------------------------------------- */
+
+
+
+#fatal_error
+
+{
+
+  width: 80%;
+
+  margin: auto;
+
+}
+
+
+
+.errorbox
+
+{
+
+  padding: 1em;
+
+  border: 1px solid #cc3344;
+
+  color: #000;
+
+  background-color: #ffe4e9;
+
+  margin-bottom: 1em;
+
+}
+
+.errorbox h3
+
+{
+
+  padding: 0;
+
+  margin: 0;
+
+  font-size: 1.1em;
+
+  text-decoration: underline;
+
+}
+
+.errorbox p
+
+{
+
+  margin: 1em 0 0 0;
+
+}
+
+.errorbox p.alert
+
+{
+
+  padding: 0;
+
+  margin: 0;
+
+  float: left;
+
+  width: 1em;
+
+  font-size: 1.5em;
+
+}
+
+
+
+/* Styles for the profile section.
+
+------------------------------------------------- */
+
+
+
+dl { overflow: auto; margin: 0; padding: 0; }
+
+
+
+/* The basic user info on the left */
+
+#basicinfo
+
+{
+
+  width: 20%;
+
+  float: left;
+
+}
+#basicinfo .content { padding: 0; }
+
+#detailedinfo
+
+{
+
+  width: 79.5%;
+
+  float: right;
+
+}
+
+#basicinfo h4
+
+{
+
+  font-size: 135%;
+
+  font-weight: 100;
+
+  line-height: 105%;
+
+  white-space: pre-wrap;
+
+  overflow: hidden;
+
+}
+
+#basicinfo h4 span.position
+
+{
+
+  font-size: 80%;
+
+  font-weight: 100;
+
+  display: block;
+
+}
+
+#basicinfo ul
+
+{
+
+  list-style-type: none;
+
+  margin: 10px 0 0 0;
+
+}
+
+#basicinfo ul li
+
+{
+
+  display: block;
+
+  float: left;
+
+  margin-right: 5px;
+
+  height: 20px;
+
+}
+
+#basicinfo span#userstatus
+
+{
+
+  display: block;
+
+  clear: both;
+
+}
+
+#basicinfo span#userstatus img
+
+{
+
+  vertical-align: middle;
+
+}
+
+#detailedinfo div.content dl, #tracking div.content dl
+
+{
+
+  clear: right;
+
+  overflow: auto;
+
+  margin: 0 0 18px 0;
+
+  padding: 0 0 15px 0;
+
+  border-bottom: 1px #999 solid;
+
+}
+
+#tracking div.content dt
+
+{
+
+  width: 35%;
+
+  float: left;
+
+  margin: 0 0 3px 0;
+
+  padding: 0;
+
+  font-weight: bold;
+
+  clear: both;
+
+}
+
+#tracking div.content dd
+
+{
+
+  width: 65%;
+
+  float: left;
+
+  margin: 0 0 3px 0;
+
+  padding: 0;
+
+}
+
+#detailedinfo div.content dl.noborder
+
+{
+
+  border-bottom: 0;
+
+}
+
+#detailedinfo div.content dt.clear
+
+{
+
+  width: 100%;
+
+}
+
+.signature, .custom_fields_above_signature
+
+{
+
+  border-top: 1px #999 solid;
+
+}
+
+.signature h5
+
+{
+
+  font-size: 0.85em;
+
+  margin-bottom: 10px;
+
+}
+
+#personal_picture
+
+{
+
+  display: block;
+
+  margin-bottom: 0.3em;
+
+}
+
+#avatar_server_stored div
+
+{
+
+  float: left;
+
+}
+
+#avatar_upload
+
+{
+
+  overflow: auto;
+
+}
+
+#main_admsection #basicinfo, #main_admsection #detailedinfo
+
+{
+
+  width: 100%;
+
+}
+
+#main_admsection #basicinfo h4
+
+{
+
+  float: left;
+
+  width: 35%;
+
+}
+
+#main_admsection #basicinfo img.avatar
+
+{
+
+  float: right;
+
+  vertical-align: top;
+
+}
+
+#main_admsection #basicinfo ul
+
+{
+
+  clear: left;
+
+}
+
+#main_admsection #basicinfo span#userstatus
+
+{
+
+  clear: left;
+
+}
+
+#main_admsection #basicinfo p#infolinks
+
+{
+
+  display: none;
+
+  clear: both;
+
+}
+
+#main_admsection #basicinfo .botslice
+
+{
+
+  clear: both;
+
+}
+
+
+
+/* Simple feedback messages */
+
+div#profile_error, div#profile_success
+
+{
+
+  margin: 0 0 1em 0;
+
+  padding: 1em 2em;
+
+  border: 1px solid;
+
+}
+
+div#profile_error
+
+{
+
+  border-color: red;
+
+  color: red;
+
+  background: #fee;
+
+}
+
+
+
+div#profile_error span
+
+{
+
+  text-decoration: underline;
+
+}
+
+
+
+div#profile_success
+
+{
+
+  border-color: green;
+
+  color: green;
+
+  background: #efe;
+
+}
+
+
+
+/* Profile statistics */
+
+#generalstats div.content dt
+
+{
+
+  width: 50%;
+
+  float: left;
+
+  margin: 0 0 3px 0;
+
+  padding: 0;
+
+  font-weight: bold;
+
+  clear: both;
+
+}
+
+#generalstats div.content dd
+
+{
+
+  width: 50%;
+
+  float: left;
+
+  margin: 0 0 3px 0;
+
+  padding: 0;
+
+}
+
+
+
+/* Activity by time */
+
+#activitytime
+
+{
+
+  margin: 6px 0;
+
+}
+
+.activity_stats
+
+{
+
+  margin: 0;
+
+  padding: 0;
+
+  list-style: none;
+
+}
+
+.activity_stats li
+
+{
+
+  margin: 0;
+
+  padding: 0;
+
+  width: 4.16%;
+
+  float: left;
+
+}
+
+.activity_stats li span
+
+{
+
+  display: block;
+
+  border: solid #000;
+
+  border-width: 1px 1px 0 0;
+
+  text-align: center;
+
+}
+
+.activity_stats li.last span
+
+{
+
+  border-right: none;
+
+}
+
+.activity_stats li div.bar
+
+{
+
+  margin: 0 auto;
+
+  width: 15px;
+
+}
+
+.activity_stats li div.bar div
+
+{
+
+  background: #6294CE;
+
+}
+
+.activity_stats li div.bar span
+
+{
+
+  position: absolute;
+
+  top: -1000em;
+
+  left: -1000em;
+
+}
+
+
+
+/* Most popular boards by posts and activity */
+
+#popularposts
+
+{
+
+  width: 49.5%;
+
+  float: left;
+
+}
+
+#popularactivity
+
+{
+
+  width: 49.5%;
+
+  float: right;
+
+}
+
+
+
+#popularposts div.content dt, #popularactivity div.content dt
+
+{
+
+  width: 65%;
+
+  float: left;
+
+  margin: 0 0 3px 0;
+
+  padding: 0;
+
+  font-weight: bold;
+
+  clear: both;
+
+}
+
+#popularposts div.content dd, #popularactivity div.content dd
+
+{
+
+  width: 35%;
+
+  float: left;
+
+  margin: 0 0 3px 0;
+
+  padding: 0;
+
+}
+
+
+
+.profile_pie
+
+{
+
+  background-image: url(../images/stats_pie.png);
+
+  float: left;
+
+  height: 20px;
+
+  width: 20px;
+
+  margin: 0 1em 0 0;
+
+  padding: 0;
+
+  text-indent: -1000em;
+
+}
+
+
+
+/* View posts */
+
+.topic .time
+
+{
+
+  float: right;
+
+}
+
+
+
+.counter
+
+{
+
+  margin: 0 0 0 0;
+
+  padding: 0.2em 0.5em 0.1em 0.2em;
+
+  font-size: 2.2em;
+
+  font-weight: bold;
+
+  color: #3f3f3f;
+
+  float: left;
+
+}
+
+.list_posts
+
+{
+
+  border-top: 2px solid #b3b3bf;
+
+  padding-top: 12px;
+
+  margin-top: 6px;
+
+  overflow: auto;
+
+}
+
+
+
+.core_posts { margin-bottom: 3px;
+  .list_posts img { max-width: 100%;  max-height: 300px;
+  }
+  .list_posts blockquote img { max-height: 180px ; }
+}
+
+
+
+.topic h4
+
+{
+
+  margin: 3px 0;
+
+}
+
+
+
+.topic .post
+
+{
+
+  margin: 0 1em;
+
+  min-height: 80px;
+
+  height: auto !important;
+
+  height: 80px;
+
+}
+
+
+
+.topic .mod_icons
+
+{
+
+  text-align: right;
+
+  margin-right: 1em;
+
+}
+
+
+
+#tracking div.content dl
+
+{
+
+  border-bottom: 0;
+
+  margin: 0;
+
+  padding: 0;
+
+}
+
+
+
+#creator dl
+
+{
+
+  margin: 0;
+
+}
+
+#creator dt
+
+{
+
+  width: 40%;
+
+  float: left;
+
+  clear: both;
+
+  margin: 0 0 10px 0;
+
+}
+
+#creator dd
+
+{
+
+  float: right;
+
+  width: 55%;
+
+  margin: 0 0 10px 2px;
+
+  overflow: auto;
+
+}
+
+
+
+.ignoreboards
+
+{
+
+  margin: 0 2%;
+
+  padding: 0;
+
+  width: 45%;
+
+}
+
+.ignoreboards a
+
+{
+
+  font-weight: bold;
+
+  border-bottom: 1px solid #c4c4c4;
+
+  padding: 0.1em 0;
+
+}
+
+.ignoreboards a:hover
+
+{
+
+  text-decoration: none;
+
+  border-bottom: 1px solid #334466;
+
+}
+
+.ignoreboards ul
+
+{
+
+  margin: 0;
+
+  padding: 0;
+
+}
+
+.ignoreboards li
+
+{
+
+  list-style: none;
+
+  float: left;
+
+  clear: both;
+
+}
+
+.ignoreboards li.category
+
+{
+
+  margin: 0.7em 0 0 0;
+
+  width: 100%;
+
+}
+
+.ignoreboards li ul
+
+{
+
+  margin: 0.2em 0 0 0;
+
+}
+
+.ignoreboards li.category ul li.board
+
+{
+
+  width: 93%;
+
+}
+
+
+
+#theme_settings
+
+{
+
+  overflow: auto;
+
+  margin: 0;
+
+  padding: 0;
+
+}
+
+
+
+#theme_settings li
+
+{
+
+  list-style: none;
+
+  margin: 10px 0;
+
+  padding: 0;
+
+}
+
+/* Paid Subscriptions */
+
+#paid_subscription
+
+{
+
+  width: 100%;
+
+}
+
+#paid_subscription dl.settings
+
+{
+
+  margin-bottom: 0;
+
+}
+
+#paid_subscription dl.settings dd, #paid_subscription dl.settings dt
+
+{
+
+  margin-bottom: 4px;
+
+}
+
+/* Pick theme */
+
+#pick_theme
+
+{
+
+  width: 100%;
+
+  float: left;
+
+}
+
+/*Issue a warning*/
+
+#warn_body{
+
+  width: 80%;
+
+  font-size: 0.9em;
+
+}
+
+
+
+/* Styles for the statistics center.
+
+------------------------------------------------- */
+
+#statistics
+
+{
+
+  padding: 0.5em 0;
+
+}
+
+#statistics div.title_bar
+
+{
+
+  margin: 4px 0 -2px 0;
+
+}
+
+#statistics h3.catbg
+
+{
+
+  text-align: center;
+
+}
+
+#statistics div.content
+
+{
+
+  min-height: 210px;
+
+}
+
+#statistics div.top_row
+
+{
+
+  min-height: 150px;
+
+}
+
+#stats_left, #top_posters, #top_topics_replies, #top_topics_starter
+
+{
+
+  float: left;
+
+  width: 49.5%;
+
+}
+
+#stats_right, #top_boards, #top_topics_views, #most_online
+
+{
+
+  float: right;
+
+  width: 49.5%;
+
+}
+
+dl.stats
+
+{
+
+  clear: both;
+
+  overflow: hidden;
+
+  margin: 0;
+
+  padding: 0;
+
+}
+
+dl.stats dt
+
+{
+
+  width: 49%;
+
+  float: left;
+
+  margin: 0 0 4px 0;
+
+  line-height: 16px;
+
+  padding: 0;
+
+  clear: both;
+
+  font-size: 1em;
+
+}
+
+dl.stats dd
+
+{
+
+  text-align: right;
+
+  width: 50%;
+
+  font-size: 1em;
+
+  float: right;
+
+  margin: 0 0 4px 0;
+
+  line-height: 16px;
+
+  padding: 0;
+
+}
+
+.statsbar div.bar
+
+{
+
+  float: left;
+
+  background: url(../images/bar_stats.png) no-repeat;
+
+  display: block;
+
+  margin: 0 4px;
+
+  height: 16px;
+
+}
+
+.statsbar div.bar div
+
+{
+
+  position: relative;
+
+  right: -4px;
+
+  padding: 0 4px 0 0;
+
+  background: url(../images/bar_stats.png) no-repeat 100%;
+
+  height: 16px;
+
+}
+
+tr.windowbg2 th.stats_month
+
+{
+
+  width: 25%;
+
+  padding: 0 2em;
+
+  text-align: left;
+
+}
+
+tr.windowbg2 td.stats_day
+
+{
+
+  padding: 0 3.5em;
+
+  text-align: left;
+
+}
+
+
+
+/* Styles for the personal messages section.
+
+------------------------------------------------- */
+
+
+
+#personal_messages h3 span#author, #personal_messages h3 span#topic_title
+
+{
+
+  float: left;
+
+}
+
+#personal_messages h3 span#author
+
+{
+
+  margin: 0 0 0 0.5em;
+
+}
+
+#personal_messages h3 span#topic_title
+
+{
+
+  margin: 0 0 0 9em;
+
+}
+
+#personal_messages div.labels
+
+{
+
+  padding: 0 1em 0 0;
+
+}
+
+#personal_messages .capacity_bar
+
+{
+
+  background: #f0f4f7;
+
+  display: block;
+
+  margin: 0.5em 0 0 1em;
+
+  height: 1em;
+
+  border: 1px solid #adadad;
+
+  width: 10em;
+
+}
+
+#personal_messages .capacity_bar span
+
+{
+
+  border-right: 1px solid #adadad;
+
+  display: block;
+
+  height: 1em;
+
+}
+
+#personal_messages .capacity_bar span.empty
+
+{
+
+  background: #a6d69d;
+
+}
+
+#personal_messages .capacity_bar span.filled
+
+{
+
+  background: #eea800;
+
+}
+
+#personal_messages .capacity_bar span.full
+
+{
+
+  background: #f10909;
+
+}
+
+#personal_messages .reportlinks
+
+{
+
+  padding: 0.5em 1.3em;
+
+}
+
+#searchLabelsExpand li
+
+{
+
+  padding: 0.3em 0.5em;
+
+}
+
+#manrules div.righttext
+
+{
+
+  padding: 0.3em 0.1em;
+
+}
+
+dl.addrules dt.floatleft
+
+{
+
+  width: 15em;
+
+  color: #333;
+
+  padding: 0 1.25em 0.5em 1.25em;
+
+}
+
+#addrule fieldset
+
+{
+
+  clear: both;
+
+}
+
+
+
+/* Styles for the calendar section.
+
+------------------------------------------------- */
+
+.calendar_table
+
+{
+
+  margin-bottom: 0.7em;
+
+}
+
+
+
+/* Used to indicate the current day in the grid. */
+
+.calendar_today
+
+{
+
+  background-color: #fff;
+
+}
+
+
+
+#month_grid
+
+{
+
+  width: 200px;
+
+  text-align: center;
+
+  float: left;
+
+}
+
+#month_grid div.cat_bar
+
+{
+
+  height: 25px;
+
+}
+
+#month_grid h3.catbg
+
+{
+
+  height: 25px;
+
+  line-height: 27px;
+
+}
+
+#month_grid table
+
+{
+
+  width: 200px;
+
+}
+
+#main_grid table
+
+{
+
+  width: 100%;
+
+  padding-bottom: 4px;
+
+}
+
+#main_grid table h3.catbg
+
+{
+
+  text-align: center;
+
+  height: 29px;
+
+  border-top: 2px solid #fff;
+
+  border-bottom: none;
+
+}
+
+#main_grid table.weeklist td.windowbg
+
+{
+
+  text-align: center;
+
+  height: 49px;
+
+  width: 25px;
+
+  font-size: large;
+
+  padding: 0 7px;
+
+  border-bottom: 2px solid #fff;
+
+}
+
+#main_grid table.weeklist td.weekdays
+
+{
+
+  height: 49px;
+
+  width: 100%;
+
+  padding: 4px;
+
+  text-align: left;
+
+  vertical-align: middle;
+
+  border-bottom: 2px solid #fff;
+
+}
+
+#main_grid h3.weekly
+
+{
+
+  text-align: center;
+
+  padding-left: 0;
+
+  font-size: large;
+
+  height: 29px;
+
+}
+
+#main_grid h3 span.floatleft, #main_grid h3 span.floatright
+
+{
+
+  display: block;
+
+  font-weight: bold;
+
+}
+
+#main_grid table th.days
+
+{
+
+  width: 14%;
+
+  padding: 4px 0;
+
+}
+
+#main_grid table.weeklist h4.titlebg
+
+{
+
+  margin: 0 0 0 0;
+
+  height: 23px;
+
+  line-height: 27px;
+
+}
+
+#main_grid table td.weeks
+
+{
+
+  vertical-align: middle;
+
+  text-align: center;
+
+  font-weight: bold;
+
+  font-size: large;
+
+}
+
+#main_grid table td.days
+
+{
+
+  vertical-align: top;
+
+  text-align: center;
+
+}
+
+
+
+a.modify_event
+
+{
+
+  color: red;
+
+}
+
+
+
+span.hidelink
+
+{
+
+  font-style: italic;
+
+}
+
+
+
+#calendar_navigation
+
+{
+
+  text-align: center;
+
+}
+
+
+
+/* Styles for the memberlist section.
+
+------------------------------------------------- */
+
+#mlist_search
+
+{
+
+  margin: auto;
+
+  width: 500px;
+
+}
+
+
+
+/* Styles for the basic search section.
+
+------------------------------------------------- */
+
+#searchform, #simple_search p
+
+{
+
+  padding: 0.5em;
+
+  margin: 0;
+
+}
+
+#simple_search, #simple_search p, #advanced_search
+
+{
+
+  text-align: center !important;
+
+  margin: 0;
+
+}
+
+#search_error
+
+{
+
+  font-style: italic;
+
+  padding: 0.3em 1em;
+
+}
+
+#search_term_input
+
+{
+
+  font-size: 115%;
+
+  margin: 0 0 1em;
+
+}
+
+
+
+/* Styles for the advanced search section.
+
+------------------------------------------------- */
+
+#searchform fieldset { text-align: left; padding: 0; border: none }
+#advanced_search dl#search_options { margin: 0 auto; width: 600px; padding-top: 1em; overflow: hidden; }
+#advanced_search dt { clear: both; float: left; padding: 0.2em; text-align: right; width: 20%; }
+#advanced_search dd { width: 75%; float: left; padding: 0.2em; margin: 0 0 0 0.5em; text-align: left; }
+#searchform p.clear { clear: both; }
+
+@media only screen and (min-width:768px) {
+  .post { line-height: 125%; }
+}
+
+
+@media only screen and (max-width: 600px) {
+  #advanced_search #search_options { display: none; }
+  #advanced_search select[name=searchtype] { display: none; }
+  #advanced_search + .flow_hidden .title_bar { display: none; }
+  #advanced_search .enhanced strong { display: none; }
+  #advanced_search .upperframe, #advanced_search .lowerframe { display: none; }
+  #advanced_search + .flow_hidden .upperframe, #advanced_search + .flow_hidden .lowerframe { display: none; }
+
+  #advanced_search .input_text { font-size: 22px; width: 100%; }
+  #advanced_search em.smalltext { display: block; }
+  #advanced_search + .flow_hidden input[type=submit] { display: block; width: 100%; font-size: 200%; }
+
+
+}
+
+
+
+/* Styles for the search results page.
+
+------------------------------------------------- */
+
+.search_results_posts
+
+{
+
+  overflow: hidden;
+
+}
+
+.search_results_posts .buttons
+
+{
+
+  padding: 5px 1em 0 0;
+
+}
+
+
+
+/* Styles for the help section.
+
+------------------------------------------------- */
+
+
+
+#help_container
+
+{
+
+  margin: 4px 0 0 0;
+
+  padding: 0 0 8px 0;
+
+}
+
+#helpmain
+
+{
+
+  padding: 0 1em;
+
+}
+
+#helpmain p
+
+{
+
+  margin: 0 0 1.5em 0;
+
+  line-height: 1.5em;
+
+}
+
+#helpmain ul
+
+{
+
+  line-height: 1.5em;
+
+}
+
+
+
+/* Styles for print media.
+
+------------------------------------------------------- */
+
+@media print
+
+{
+
+  #headerarea
+
+  {
+
+    display: none;
+
+  }
+
+
+
+  .tborder
+
+  {
+
+    border: none;
+
+  }
+
+}
+
+
+
+/***************Giggle by Mick G. idesign360.com********************/
+
+
+
+#top_banner {
+
+  background: #2d2d2d;
+
+  border-bottom: 1px solid #000000;
+
+  color: #aba9a9;
+
+  font-size: 12px;
+
+  height: 29px;
+
+  overflow-x: hidden;
+
+  overflow-y: hidden;
+
+  color: #aba9a9;
+
+  padding: 0;
+
+}
+
+
+
+#time {
+
+  float: left;
+
+  color: #aba9a9;
+
+  font-weight: bold;
+
+  line-height: 29px;
+
+}
+
+
+
+#time span {
+
+  color: #aba9a9;
+
+  padding-right: 15px;
+
+}
+
+
+
+#header { background-color:#f1f1f1; overflow:hidden; border-bottom:1px solid $grey; }
+
+
+#logo a { float:left; display:block; background:url(../svg/snake4.svg) left center no-repeat; background-size:contain; height:120px; width:445px; }
+
+
+
+.statusbar { background-color: #FBF7AA;	border-bottom:1px solid #F9E98E; color: #A27D35; padding:12px; }
+
+.statusbar h2 { color: #A27D35; }
+
+.statusbar p { margin:0; padding:0; }
+
+.hidethis { display:none; }
+
+#top_banner .user { float: right; width: 66%; height: 29px; margin-top: 1px; padding: 1px; color: #999; text-align:right; }
+
+
+
+#top_banner .user p { float: right; margin:0 10px; padding: 0; }
+
+
+
+#top_banner .user img.avatar {
+
+  width: 25px;
+
+  height: 25px;
+
+  border: 1px solid #aba9a9;
+
+}
+
+#top_banner .user ul {
+
+  margin: 0;
+
+  padding-left: 10px;
+
+}
+
+
+
+#top_banner .user ul li {
+
+  margin-bottom: 2px;
+
+}
+
+
+
+#top_banner .user ul li.greeting {
+
+  font-weight: bold;
+
+  line-height: 29px;
+
+  color: #aba9a9;
+
+  font-size: 12px;
+
+}
+
+#guest_form {
+
+  text-align: right;
+
+}
+
+
+
+#guest_form .info {
+
+  padding: 6px 0;
+
+}
+
+
+
+/* div container containing the form  */
+
+
+
+/* Style the search input field. */
+
+#search_box { margin:20px; float:right;  width:320px;
+  .inputbox { color:$black; padding: 0 0 0 6px; width: 250px; height: 31px; font-size: 1em; background: #fff; border:1px solid $grey; }
+  [type="submit"] { float: right; width:70px; height: 31px; font-size:0; color: transparent; background: url(../images/custom/ico-search.png) no-repeat $blue center; border: 1px solid $grey; border-left:none; cursor:pointer;
+    &:hover { background: url(../images/custom/ico-search.png) no-repeat center lighten($blue,10%); }
+  }
+}
+
+
+/* Clear floats */
+
+.fclear {clear:both}
+
+
+
+#bar { background: #fff;  height: 46px; border-bottom: 1px solid $grey; height: 40px; }
+
+
+
+#navigation { position: relative; height: 40px; z-index: 1000; padding: 0; margin: 0;
+  ul { margin: 0; padding: 0; }
+  li { float: left; margin: 0; padding: 0; position: relative; list-style: none;
+    a { display: block; line-height: 40px; padding: 0 8px; color:$black; font-size:12px;
+      &.active { border-bottom:3px solid $red; color:$red; font-weight: $bold; height: 36px; margin:2px 8px 0 8px; padding:0 8px; }
+      &:hover { color:$green; }
+    }
+    li { width: 200px; height: auto; padding: 0;
+      a:hover { color:$green; }
+    }
+    ul { background:white; position: absolute; width:200px; left:-999px; border:1px solid $grey; }
+  }
+}
+
+/*
+
+#navigation li a:hover, #navigation li:hover a, #navigation li.sfhover a {
+  background: #fff;
+
+  color: #222222;
+
+  text-decoration: none;
+
+}
+
+#navigation li:hover li a, #navigation li ul li a:hover {
+
+  color: #777777;
+
+  background: #f1f1f1;
+
+}
+*/
+
+/*
+#navigation li ul {
+
+  background: #fff;
+
+  position: absolute;
+
+  width: 200px;
+
+  left: -999em;
+
+  margin-left: -1px;
+
+  border: 1px solid #f1f1f1;
+
+  padding-top: 5px;
+
+  padding-bottom: 5px;
+
+  -webkit-box-shadow: 1px 1px 10px 2px rgba(8, 8, 8, 0.1);
+
+  box-shadow: 1px 1px 10px 2px rgba(8, 8, 8, 0.1);
+
+}
+**/
+
+#navigation li ul ul {
+
+  margin: -27px 0 0 195px;
+
+}
+
+#navigation ul li li:hover, #navigation ul li li.hover {
+
+  position: static;
+
+}
+
+#navigation li:hover ul ul, #navigation li:hover ul ul ul, #navigation li.sfhover ul ul, #navigation li.sfhover ul ul ul {
+
+  left: -999em;
+
+}
+
+#navigation li:hover ul, #navigation li.sfhover ul {
+
+  left: 3px;
+
+}
+
+#navigation li li:hover ul, #navigation li li li:hover ul, #navigation li li.sfhover ul, #navigation li li li.sfhover ul {
+
+  left: 0;
+
+}
+
+#main_body_section { background: #f9f9f9; }
+
+
+
+#main_content_section {
+
+  padding: 0 8px 5px;
+
+}
+
+#footer { text-align: center; background: #f9f9f9; color: #222; padding: 20px; font-size: 12px; clear:both; }
+
+
+
+#footer ul li {
+
+  display: inline;
+
+  padding-right: 5px;
+
+}
+
+#footer ul li.copyright {
+
+  display: block;
+
+}
+
+#footer p {
+
+  margin: 0;
+
+}
+
+
+
+/** To prevent overflowing embedded images in posts **/
+
+.postarea .post .inner img { max-width:98% }
+
+
+
+/** Profile View **/
+
+#profileview {
+  .extra-profile-info {
+    svg { height: 2em; width: 2em; }
+  }
+  #basicinfo li { display:inline; }
+  dt { clear: both; float: left; width: 12em; text-align: right; font-weight: $bold; padding-right: 1em; }
+}
+
+
+
+/** Karma Styles **/
+.post_wrapper { width:100%;
+  .poster { float: left; width: 12em; max-width: 120px;
+    a { color:$blue;
+      &.modify-karma { color:$blue; }
+    }
+    h4, ul { padding: 0; margin: 0; }
+    li {
+      &.stars { padding-top: 0.5em; padding-bottom: 0.5em; }
+      &.avatar { overflow: hidden; }
+      &.warning { line-height: 1.2em; padding-top: 1em;
+        a img { vertical-align: bottom; padding: 0 0.2em; }
+      }
+    }
+    ul {
+      ul { margin: 0.3em 1em 0 0; padding: 0;
+        li { display: inline-block; }
+        svg { height: 1.4rem; width: 1.4rem; }
+      }
+    }
+  }
+}
+.avatar img, img.avatar { max-width:100%; height:auto; display: block; margin: auto; }
+
+.karma_allow svg { width:4em; height:4em; }
+
+.messageicon { float: left;	margin: 0 0.5em 0 0; display:none; }
+
+
+
+.bulbedpost .post .inner { background-image:url("../images/bulbstar.png"); background-position:top left; background-repeat:repeat-x; border-top:none; padding-top:35px;}
+
+/** Handling images in posts **/
+#preview_section img { max-width:98%; }
+.postarea .post blockquote.bbc_standard_quote img, #preview_section blockquote img { max-width:200px; max-height:120px; }
+
+//// [nsfw] tag
+figure.nsfw{ background-color:rgba(68,68,68,0.1); border:2px solid rgba(68,68,68,0.5); margin:1em;
+  strong{ font-weight:700; }
+  figcaption{ font-size:1.2em; text-align:center; background-image:url(../images/nsfw_weiner.png); padding:2.5em 2em 2.5em 120px; background-position:top left; background-repeat:no-repeat;
+    a { color:$green; cursor:pointer;
+      &:hover{text-decoration:underline}
+    }
+  }
+  .holder{ text-align:center; display:none; padding-bottom:1em; }
+}
+
+//// [spoiler] tag
+span.spoiler { cursor:pointer;
+  &:before, &:after { content:"SPOILER"; color:#0f9d58; font-weight:900; padding:0 0.2em; text-shadow:none; }
+  &:before {  margin-left:0.5em; margin-right:0.2em; border-right:1px solid #0f9d58; }
+  &:after { margin-left:0.2em; margin-right:0.5em; border-left:1px solid #0f9d58; }
+
+  text-shadow: 0 0 0.3em rgba(#444,0.7); color: transparent; transition:all 0.35s ease;
+  img { filter:blur(8px); -webkit-filter:blur(8px); }
+  &:hover { text-shadow:0 0 0.23em rgba(#444, 0.8); background-color:rgba(yellow,0.1);
+    img { filter:blur(8px) saturate(8); -webkit-filter:blur(8px) saturate(8); }
+  }
+
+  &.spoiled { color:#444; text-shadow:none;
+    img { filter:none; -webkit-filter:none; }
+    &:before, &:after { content:"SPOILED" }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  html, body { min-width:320px; }
+  .wrapper { width:100%; }
+  #header { background-image:none; }
+  #search_box { display:none; }
+  #bar { height: auto; overflow: hidden; display: none; }
+  #bar #navigation { border-bottom: none; }
+  #bar #navigation * { box-sizing: border-box; }
+  #navigation li { text-align: center; width: 33%; }
+  #navigation li ul { display: none; }
+  #top_banner .user { width:100%; text-align:center; }
+  a.hamburger { display: block; float: right; height: 50px; width: 50px; margin-top: 37px; margin-right: 10px; background-image: url(../svg/hambooger.svg); background-size: contain; }
+  #logo a { margin:0 auto; background-image: url(../svg/new-logo.svg); width:200px; background-size:contain; background-position: center; }
+  .navigate_section { padding:0; }
+  /** Table Knockouts **/
+  #messageindex table tr td:nth-child(3), #messageindex table tr td:nth-child(4), #messageindex table tr th:nth-child(4), #messageindex table tr th:nth-child(3) { display:none; }
+  #unread table tr td:nth-child(3), #unread table tr td:nth-child(4), #unread table tr th:nth-child(4), #unread table tr th:nth-child(3) { display:none; }
+  tbody.content td:nth-child(3), tbody.content td:nth-child(4) { display:none; }
+  #messageindex table tr td:nth-child(3)  { display:none; }
+  table.table_list tbody.content td.icon  { width: 16%; padding: 0; }
+  .table_grid td.icon1 { width: 16%; padding: 0; }
+  .pagelinks { text-align:center; font-size:20px; float:none !important; clear:both; }
+  .pagelinks a { padding:7px; }
+  figure.nsfw{ margin: 0; }
+
+  /** Posts View **/
+  #forumposts, #personal_messages {
+    .windowbg, .windowbg2 { margin-top:20px; }
+    h3 { letter-spacing: normal; }
+  }
+  .poster { width:auto; float:left; }
+  .post .inner { padding: 0; margin: 0; }
+  .postarea div.flow_hidden { width:auto; min-height: 2.2em; }
+  ul.quickbuttons { margin:0; }
+  .poster ul { display:none; }
+  .postarea { margin:0; }
+  .keyinfo { width:100%; float:none; display:none; }
+  .inner { border:none; }
+  .moderatorbar { margin:0; }
+  #message_index_jump_to { float: none; clear: both;
+    select { max-width: 100%; }
+  }
+
+  /// WRITE POST //
+  #post_header dd { width:100%; font-size:160%; }
+  textarea.editor { font-size:160%; max-width:98%; }
+  #post_confirm_buttons { clear: both; float: none;
+    input[value=Preview] { width:49%; }
+    input[value=Post] { width: 49%; }
+  }
+  
+  // PROFILE VIEW //
+  #profileview {
+    #basicinfo, #detailedinfo { float: none; width: 100%; }
+  }
+
+
+  /** Poke Friendly Links **/
+  .pagesection .pagelinks { font-size:180%; }
+  .pagelinks a { padding-left:5px; padding-right:5px; }
+  .table_grid tbody .subject > div > a { float:right; height: 34px; width: 39px; }
+  .table_grid tbody .subject > div > a > img { width:24px; height:24px; }
+
+
+  div.post div.youtube { width:100%; position: relative; padding-bottom: 56.25% !important; padding-top: 30px !important; height: 0; overflow: hidden;
+    iframe, object, embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+  }
+
+}
