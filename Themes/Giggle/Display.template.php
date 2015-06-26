@@ -78,11 +78,9 @@ function template_main()
 
 				<div class="cat_bar">
 
-					<h3 class="catbg">
-
-						<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/topic/png/', $context['poll']['is_locked'] ? 'normal_poll_locked' : 'normal_poll', '.png" alt="" class="icon" /> ', $txt['poll'], '</span>
-
-					</h3>
+					<h3 class="catbg">', 
+						$txt['poll'], 
+					'</h3>
 
 				</div>
 
@@ -824,27 +822,13 @@ function template_main()
 						</div>
 
 						<div class="postarea">
-
 							<div class="flow_hidden">
-
 								<div class="keyinfo">
-
-									<div class="messageicon" style="display:none;">
-
-										<img src="', $message['icon_url'] . '" alt=""', $message['can_modify'] ? ' id="msg_icon_' . $message['id'] . '"' : '', ' />
-
-									</div>
-
 									<h5 id="subject_', $message['id'], '">
-
 										<a href="', $message['href'], '" rel="nofollow">', $message['subject'], '</a>
-
 									</h5>
-
 									<div class="smalltext">&#171; <strong>', !empty($message['counter']) ? $txt['reply_noun'] . ' #' . $message['counter'] : '', ' ', $txt['on'], ':</strong> ', $message['time'], ' &#187;</div>
-
 									<div id="msg_', $message['id'], '_quick_mod"></div>
-
 								</div>';
 
 
@@ -861,13 +845,7 @@ function template_main()
 
 		if ($message['can_approve'])
 
-			echo '
-
-									<li class="approve_button"><a href="', $scripturl, '?action=moderate;area=postmod;sa=approve;topic=', $context['current_topic'], '.', $context['start'], ';msg=', $message['id'], ';', $context['session_var'], '=', $context['session_id'], '">', $txt['approve'], '</a></li>';
-
-
-
-		
+			echo '<li class="approve_button"><a href="', $scripturl, '?action=moderate;area=postmod;sa=approve;topic=', $context['current_topic'], '.', $context['start'], ';msg=', $message['id'], ';', $context['session_var'], '=', $context['session_id'], '">', $txt['approve'], '</a></li>';
 
 				// BULBMOD CHANGE START	
 

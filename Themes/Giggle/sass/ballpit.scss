@@ -1184,7 +1184,7 @@ table.table_list a.collapse
 
 
 
-/* The half-round header bars for some tables. */
+/*
 
 .table_grid tr.catbg, .table_grid tr.titlebg
 
@@ -1206,30 +1206,6 @@ table.table_list a.collapse
 
 }
 
-tr.catbg th.first_th
-
-{
-
-  background: #f9f9f9;
-
-}
-
-tr.catbg th.last_th
-
-{
-
-  background: #f9f9f9
-
-}
-
-tr.titlebg th.last_th
-
-{
-
-  background: #f9f9f9;
-
-}
-
 .table_grid th.last_th input
 
 {
@@ -1245,10 +1221,6 @@ tr.titlebg th.last_th
   padding: 0 0.7em;
 
 }
-
-
-
-/* a general table class */
 
 table.table_grid
 
@@ -1271,6 +1243,7 @@ table.table_grid td
   border-right: 1px solid #fff;
 
 }
+*/
 
 
 
@@ -5737,6 +5710,13 @@ span.hidelink
 .postarea .post .inner img { max-width:98% }
 
 
+// Site stats (bottom of the home page
+
+.home-footer-summary {
+	h3 { color: #999; font-size:1.35em; letter-spacing: 0.2em; font-weight: $medium; text-transform: uppercase; }
+	.forum-stats { margin-bottom: 1.5em; padding-left: 0.5em; border-left: 0.35em solid $grey; border-bottom:1px solid $grey; }
+}
+
 
 /** Profile View **/
 
@@ -5766,7 +5746,9 @@ span.hidelink
     }
     ul {
       ul { margin: 0.3em 1em 0 0; padding: 0;
-        li { display: inline-block; }
+        li { display: inline-block; padding-right: 0.2em;
+					&:hover { transform: scale(1.2); }
+				}
         svg { height: 1.4rem; width: 1.4rem; }
       }
     }

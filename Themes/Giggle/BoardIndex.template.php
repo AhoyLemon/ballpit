@@ -291,11 +291,7 @@ function template_info_center()
 
 	// Here's where the "Info Center" starts...
 	echo '
-	<span class="clear upperframe"><span></span></span>
-	<div class="roundframe" style="clear:both;"><div class="innerframe">
-		<div class="cat_bar">
-			<h3 class="catbg">', sprintf($txt['info_center_title'], $context['forum_name_html_safe']), '</h3>
-		</div>
+	<div class="home-footer-summary">
 		<div id="upshrinkHeaderIC"', empty($options['collapse_header_ic']) ? '' : ' style="display: none;"', '>';
 
 	// This is the "Recent Posts" bar.
@@ -396,32 +392,27 @@ function template_info_center()
 	{
 		echo '
 			<div class="title_barIC">
-				<h4 class="titlebg">
-					<span class="ie6_header">
-						<img class="icon" src="', $settings['images_url'], '/icons/statistics.png" alt="', $txt['forum_stats'], '" />
-						', $txt['forum_stats'], '
-					</span>
-				</h4>
+				<h3>
+					ballp.it stats
+				</h3>
 			</div>
-			<p>
+			<div class="forum-stats">
 				', $context['common_stats']['total_posts'], ' ', $txt['posts_made'], ' ', $txt['in'], ' ', $context['common_stats']['total_topics'], ' ', $txt['topics'], ' ', $txt['by'], ' ', $context['common_stats']['total_members'], ' ', $txt['members'], '. ', !empty($settings['show_latest_member']) ? $txt['latest_member'] . ': <strong> ' . $context['common_stats']['latest_member']['link'] . '</strong>' : '', '<br />
 				', (!empty($context['latest_post']) ? $txt['latest_post'] . ': <strong>&quot;' . $context['latest_post']['link'] . '&quot;</strong>  ( ' . $context['latest_post']['time'] . ' )<br />' : ''), '
 				<a href="', $scripturl, '?action=recent">', $txt['recent_view'], '</a>', $context['show_stats'] ? '<br />
 				<a href="' . $scripturl . '?action=stats">' . $txt['more_stats'] . '</a>' : '', '
-			</p>';
+			</div>';
 	}
 
 	// "Users online" - in order of activity.
 	echo '
 			<div class="title_barIC">
-				<h4 class="titlebg">
-					<span class="ie6_header">
-						', $context['show_who'] ? '<a href="' . $scripturl . '?action=who' . '">' : '', '<img class="icon" src="', $settings['images_url'], '/icons/users.png', '" alt="', $txt['online_users'], '" />', $context['show_who'] ? '</a>' : '', '
-						', $txt['online_users'], '
-					</span>
-				</h4>
+				<h3>
+					Users Online
+				</h3>
 			</div>
-			<p class="inline stats">
+			<div class="forum-stats">
+				<h4>
 				', $context['show_who'] ? '<a href="' . $scripturl . '?action=who">' : '', comma_format($context['num_guests']), ' ', $context['num_guests'] == 1 ? $txt['guest'] : $txt['guests'], ', ' . comma_format($context['num_users_online']), ' ', $context['num_users_online'] == 1 ? $txt['user'] : $txt['users'];
 
 	// Handle hidden users and buddies.
@@ -437,7 +428,7 @@ function template_info_center()
 		echo ' (' . implode(', ', $bracketList) . ')';
 
 	echo $context['show_who'] ? '</a>' : '', '
-			</p>
+			</h4>
 			<p class="inline smalltext">';
 
 	// Assuming there ARE users online... each user in users_online has an id, username, name, group, href, and link.
@@ -457,7 +448,8 @@ function template_info_center()
 			<p class="last smalltext">
 				', $txt['most_online_today'], ': <strong>', comma_format($modSettings['mostOnlineToday']), '</strong>.
 				', $txt['most_online_ever'], ': ', comma_format($modSettings['mostOnline']), ' (', timeformat($modSettings['mostDate']), ')
-			</p>';
+			</p>
+		</div>';
 
 	// If they are logged in, but statistical information is off... show a personal message bar.
 	if ($context['user']['is_logged'] && !$settings['show_stats_index'])
@@ -481,8 +473,7 @@ function template_info_center()
 
 	echo '
 		</div>
-	</div></div>
-	<span class="lowerframe"><span></span></span>';
+	</div>';
 
 	// Info center collapse object.
 	echo '
