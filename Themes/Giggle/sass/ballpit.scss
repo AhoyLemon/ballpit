@@ -2651,7 +2651,7 @@ ul.quickbuttons { margin: 0 11px 0 0; clear: right; float: right; padding-top: 5
   }
 }
 
-.bulber-list { clear: both; background: #eee; font-size: 0.8em; padding: 0.5em 1em; border: 1px solid #bbb; text-align: right;
+.bulber-list { clear: both; background: #eee; font-size: 0.8em; padding: 0.5em 1em; margin-top: 0.5em; margin-bottom:0.5em; border: 1px solid #bbb; text-align: right;
 	label { margin-right: 0.3em;
 		&:after { content:':'; }
 	}
