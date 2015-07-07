@@ -1073,15 +1073,8 @@ function template_main()
 
 		if ($message['can_approve'] || $context['can_reply'] || $message['can_modify'] || $message['can_remove'] || $context['can_split'] || $context['can_restore_msg'])
 
-			echo '
-
-								</ul>';
-
-
-
-		echo '
-
-							</div>';
+			echo '</ul>';
+		echo '</div>';
 
 
 
@@ -1124,6 +1117,17 @@ function template_main()
 								<div class="inner" id="msg_', $message['id'], '"', '>', $message['body'], '</div>
 
 							</div>';
+		
+		if ($message['bulbs_total'] > 0) {
+			echo '<div class="bulber-list">
+				<label>Bulbed by</label>';
+			foreach ($message['bulbers'] as &$bulber)
+			{
+				echo '<span>' . $bulber['bulber_name'] . '</span>';
+			};
+			
+			echo '</div>';
+		}
 
 
 

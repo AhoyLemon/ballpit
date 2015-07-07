@@ -2651,6 +2651,15 @@ ul.quickbuttons { margin: 0 11px 0 0; clear: right; float: right; padding-top: 5
   }
 }
 
+.bulber-list { clear: both; background: #eee; font-size: 0.8em; padding: 0.5em 1em; border: 1px solid #bbb; text-align: right;
+	label { margin-right: 0.3em;
+		&:after { content:':'; }
+	}
+	span { font-weight: $bold; margin-right: 0.3em;
+		&:after { content:','; }
+		&:last-child:after { content:''; }
+	}
+}
 
 
 @-webkit-keyframes brightbulb {
@@ -2663,15 +2672,7 @@ ul.quickbuttons { margin: 0 11px 0 0; clear: right; float: right; padding-top: 5
   100% { fill:#444; }
 }
 
-.post
-
-{
-
-  margin-top: 0.5em;
-
-  clear: right;
-
-}
+.post { clear: right; margin-top: 0.5em; }
 
 .inner { padding-top: 1em; border-top: 1px solid $grey; }
 
@@ -5762,7 +5763,11 @@ span.hidelink
 
 
 
-.bulbedpost .post .inner { background-image:url("../images/bulbstar.png"); background-position:top left; background-repeat:repeat-x; border-top:none; padding-top:35px;}
+.bulbedpost {
+	.post {
+		.inner { background-image: url("../svg/bulbstar.svg"); background-position: top left; background-repeat: repeat-x; border-top: none; border-top-width: initial; border-top-style: none; border-top-color: initial; padding-top: 35px; background-size: 50px;}
+	}
+}
 
 /** Handling images in posts **/
 #preview_section img { max-width:98%; }

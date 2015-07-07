@@ -180,7 +180,7 @@ function template_html_above()
 
 	echo '
 
-	<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/ballpit.css?lastUpdated=06.25.2015" />';
+	<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/ballpit.css?lastUpdated=07.07.2015" />';
   
     echo '
     <!-- FAVICON -->
