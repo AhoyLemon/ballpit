@@ -20,6 +20,18 @@
 
  */
 
+/* BOOTS RAINGEAR'S BULBER CODE EXAMPLE:
+	foreach ($message['bulbers'] as &$bulber)
+	{
+		echo '<a href="' . $scripturl . '?action=profile;u=' . $bulber['bulber_id'] . '">' . $bulber['bulber_name'] . '</a><br>';
+	};
+	
+	or just
+	foreach ($message['bulbers'] as &$bulber)
+	{
+		echo $bulber['bulber_name'] . '<br>';
+	};
+*/
 
 
 function template_main()
