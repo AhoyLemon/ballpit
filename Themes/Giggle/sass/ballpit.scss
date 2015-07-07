@@ -60,18 +60,15 @@ input[disabled] { opacity: 0.6; }
   &:active { background:darken($blue,20%); }
 }
 
+h1, h2, h3, h4, h5, h6 { margin: 0; }
+
 .button_submit, .button_reset {	background:$red; cursor: pointer; font-weight: normal; border:none;  @extend %red-button; }
 
 h3.catbg input.input_check { margin: 9px 7px 0 7px; }
 
 
 /* Standard horizontal rule.. ([hr], etc.) */
-
-hr, .hrcolor { height: 1px; border: 0; color: #999; background-color: #989898; }
-
-h1, h2, h3, h4, h5, h6 { color: $black; font-size: 1em; margin: 0; padding: 0; }
 a.navPages { color:$blue; }
-
 
 /* Fieldsets are used to group elements. */
 
@@ -142,28 +139,13 @@ em
 
 
 /* Common classes to easy styling.
-
 ------------------------------------------------------- */
 
-
-
-.floatright
-
-{
-
-  float: right;
-
-}
-
-.floatleft
-
-{
-
-  float: left;
-
-}
-
-
+.floatright { float: right; }
+.floatleft { float: left; }
+.clear { clear: both; }
+.clear_left { clear: left; }
+.clear_right { clear: right; }
 
 .flow_auto
 
@@ -180,39 +162,6 @@ em
   overflow: hidden;
 
 }
-
-.flow_hidden .windowbg, .flow_hidden .windowbg2
-
-{
-
-  margin-top: 2px;
-
-}
-
-.clear
-
-{
-
-  clear: both;
-
-}
-
-.clear_left
-
-{
-
-  clear: left;
-
-}
-
-.clear_right
-
-{
-
-  clear: right;
-
-}
-
 
 
 /* Default font sizes: small (8pt), normal (10pt), and large (14pt). */
@@ -463,17 +412,7 @@ code.bbc_code
 
 
 /* A more discreet highlight color, for selected membergroups etc. */
-/* A more discreet highlight color, for selected membergroups etc. */
-
-.highlight2
-
-{
-
-  background-color: #D1E1EF;
-
-  color: #000 !important;
-
-}
+.highlight2 { background-color: #D1E1EF; color: #000 !important; }
 
 
 
@@ -2557,7 +2496,7 @@ div#pollmoderation
 /* onto the posts */
 
 #forumposts, #personal_messages { clear: both;
-  .cat_bar { border-bottom: 1px solid $grey; margin-bottom: 0.5em; padding-bottom: 0.5em; }
+  .cat_bar { border-bottom: 1px solid $grey; margin-bottom: 0.5em; }
   h3 { font-weight: $medium; color: $grey; font-size: 1.1rem; line-height: 170%; letter-spacing: 0.2em;
     span#author { margin: 0 7.7em 0 0; }
     img { float: left; margin: 4px 0.5em 0 0; }
@@ -2617,14 +2556,8 @@ p#whoisviewing
 
 }
 
-.keyinfo
-
-{
-
-  float: left;
-
-  width: 50%;
-
+.keyinfo { float: left; width: 50%;
+	h5 { font-size: 1rem; font-weight:$medium; letter-spacing: 0.15em; }
 }
 
 .modifybutton { clear: right; float: right; margin: 6px 20px 10px 0; text-align: right; color: #334466;	}
@@ -2678,42 +2611,15 @@ ul.quickbuttons { margin: 0 11px 0 0; clear: right; float: right; padding-top: 5
 
 img.smiley { height:1em; min-height: 16px; }
 
-
-
-.attachments hr
-
-{
-
-  clear: both;
-
-  margin: 1em 0 1em 0;
-
-}
-
-.attachments
-
-{
-
-  padding: 1em 0 2em 0;
-
-}
-
-.attachments div
-
-{
-
-  padding: 0 0.5em;
-
+.attachments { padding: 1em 0 2em 0;
+	hr { clear: both; margin: 1em 0 1em 0; }
+	div { padding: 0 0.5em; }
 }
 
 
 
 /* Styles for the quick reply area.
-
 ---------------------------------------------------- */
-
-
-
 #quickreplybox
 
 {
@@ -5485,7 +5391,8 @@ span.hidelink
 
 
 .statusbar { background-color: #FBF7AA;	border-bottom:1px solid #F9E98E; color: #A27D35; padding:12px;
-	h2 { color: #A27D35; }
+	h2 { color: #A27D35; font-size: 1rem; margin: 0; }
+	a { color:$red; }
 	p { margin:0; padding:0; }
 }
 
