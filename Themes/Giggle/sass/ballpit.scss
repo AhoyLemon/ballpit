@@ -5484,77 +5484,28 @@ span.hidelink
 
 
 
-.statusbar { background-color: #FBF7AA;	border-bottom:1px solid #F9E98E; color: #A27D35; padding:12px; }
-
-.statusbar h2 { color: #A27D35; }
-
-.statusbar p { margin:0; padding:0; }
+.statusbar { background-color: #FBF7AA;	border-bottom:1px solid #F9E98E; color: #A27D35; padding:12px;
+	h2 { color: #A27D35; }
+	p { margin:0; padding:0; }
+}
 
 .hidethis { display:none; }
 
-#top_banner .user { float: right; width: 66%; height: 29px; margin-top: 1px; padding: 1px; color: #999; text-align:right; }
-
-
-
-#top_banner .user p { float: right; margin:0 10px; padding: 0; }
-
-
-
-#top_banner .user img.avatar {
-
-  width: 25px;
-
-  height: 25px;
-
-  border: 1px solid #aba9a9;
-
+#top_banner  {
+	.user { float: right; width: 66%; height: 29px; margin-top: 1px; padding: 1px; color: #999; text-align:right;
+		p { float: right; margin:0 10px; padding: 0; }
+		img.avatar { width: 25px; height: 25px; }
+		ul { margin: 0; padding-left: 10px;
+			li { margin-bottom: 2px;
+				&.greeting { font-weight: bold; line-height: 29px; color: #aba9a9; font-size: 12px; }
+			}
+		}
+	}
 }
 
-#top_banner .user ul {
-
-  margin: 0;
-
-  padding-left: 10px;
-
+#guest_form { text-align: right;
+	.info { padding: 6px 0; }
 }
-
-
-
-#top_banner .user ul li {
-
-  margin-bottom: 2px;
-
-}
-
-
-
-#top_banner .user ul li.greeting {
-
-  font-weight: bold;
-
-  line-height: 29px;
-
-  color: #aba9a9;
-
-  font-size: 12px;
-
-}
-
-#guest_form {
-
-  text-align: right;
-
-}
-
-
-
-#guest_form .info {
-
-  padding: 6px 0;
-
-}
-
-
 
 /* div container containing the form  */
 
@@ -5574,11 +5525,7 @@ span.hidelink
 
 .fclear {clear:both}
 
-
-
 #bar { background: #fff;  height: 46px; border-bottom: 1px solid $grey; height: 40px; }
-
-
 
 #navigation { position: relative; height: 40px; z-index: 1000; padding: 0; margin: 0;
   ul { margin: 0; padding: 0; }
@@ -5591,6 +5538,7 @@ span.hidelink
       a:hover { color:$green; }
     }
     ul { background:white; position: absolute; width:200px; left:-999px; border:1px solid $grey; }
+		&:hover ul { left: 0; }
   }
 }
 
@@ -5638,7 +5586,6 @@ span.hidelink
   box-shadow: 1px 1px 10px 2px rgba(8, 8, 8, 0.1);
 
 }
-**/
 
 #navigation li ul ul {
 
@@ -5669,41 +5616,16 @@ span.hidelink
   left: 0;
 
 }
+**/
 
-#main_body_section { background: #f9f9f9; }
+#main_content_section { padding: 0 8px 5px; }
 
-
-
-#main_content_section {
-
-  padding: 0 8px 5px;
-
+#footer { text-align: center; background: #f9f9f9; color: #222; padding: 20px; font-size: 12px; clear:both;
+	ul li { display: inline; padding-right: 5px;
+		&.copyright { display: block; }
+	}
+	p { margin: 0; }
 }
-
-#footer { text-align: center; background: #f9f9f9; color: #222; padding: 20px; font-size: 12px; clear:both; }
-
-
-
-#footer ul li {
-
-  display: inline;
-
-  padding-right: 5px;
-
-}
-
-#footer ul li.copyright {
-
-  display: block;
-
-}
-
-#footer p {
-
-  margin: 0;
-
-}
-
 
 
 /** To prevent overflowing embedded images in posts **/
