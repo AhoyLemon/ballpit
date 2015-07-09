@@ -2329,168 +2329,37 @@ div.table_frame .table_list
 
 /* Poll question */
 
-#poll
-
-{
-
-  overflow: hidden;
-
+#poll { overflow: hidden;
+	.content { padding: 0 1em; }
+	ul.options { border-top: 1px solid $grey; padding: 0.5em 1em; margin: 0 0 1em 0; }
+	div.submitbutton { border-bottom: 1px solid $grey; clear: both; padding: 0 0 1em 2em; margin: 0 0 1em 0; }
+	dl.options { border: solid $grey; border-width: 1px 0; padding: 0.5em 1em; margin-bottom: 1em;
+		dt { padding: 0.3em 0; width: 30%; float: left; margin: 0; clear: left; }
+		.voted { font-weight: bold; }
+		dd { margin:0; padding:2px 0; width: 60%; max-width: 450px; float: left; }
+		.percentage { display: block; float: right; padding: 0.2em 0 0.3em 0; }
+		
+		dt:hover { font-size:120%; color:#0d846d;
+			& + dd { font-size:120%; color:#0d846d;
+				.bar { background:#0d846d; }
+			}
+		}
+		dd.statsbar:hover { font-size:120%; color:#0d846d;
+			.bar { background:#0d846d; }
+		}
+	}
 }
 
-#poll .content
-
-{
-
-  padding: 0 1em;
-
+// POLL BARS
+.statsbar {
+	.bar { float: left; background:#444; display: block; height: 20px;
+		//div { position: relative; right: -4px; padding: 0 4px 0 0; background: url(../images/bar_stats.png) no-repeat 100%; height: 16px; }
+	}
 }
-
-h4#pollquestion
-
-{
-
-  padding: 0 0 0.5em 2em;
-
-}
-
-
-
-/* Poll vote options */
-
-#poll_options ul.options
-
-{
-
-  border-top: 1px solid #999;
-
-  padding: 1em 2.5em 0 2em;
-
-  margin: 0 0 1em 0;
-
-}
-
-#poll_options div.submitbutton
-
-{
-
-  border-bottom: 1px solid #999;
-
-  clear: both;
-
-  padding: 0 0 1em 2em;
-
-  margin: 0 0 1em 0;
-
-}
-
-
-
-/* Poll results */
-
-#poll_options dl.options
-
-{
-
-  border: solid #999;
-
-  border-width: 1px 0;
-
-  padding: 1em 2.5em 1em 2em;
-
-  margin: 0 1em 1em 0;
-
-  line-height: 1.1em !important;
-
-}
-
-
-
-#poll_options dl.options dt
-
-{
-
-  padding: 0.3em 0;
-
-  width: 30%;
-
-  float: left;
-
-  margin: 0;
-
-  clear: left;
-
-}
-
-
-
-#poll_options dl.options .voted
-
-{
-
-  font-weight: bold;
-
-}
-
-
-
-#poll_options dl.options dd
-
-{
-
-  margin: 0 0 0 2em;
-
-  padding: 0.1em 0 0 0;
-
-  width: 60%;
-
-  max-width: 450px;
-
-  float: left;
-
-}
-
-
-
-#poll_options dl.options .percentage
-
-{
-
-  display: block;
-
-  float: right;
-
-  padding: 0.2em 0 0.3em 0;
-
-}
-
-
 
 /* Poll notices */
-
-#poll_options p
-
-{
-
-  margin: 0 1.5em 0.2em 1.5em;
-
-  padding: 0 0.5em 0.5em 0.5em;
-
-}
-
-
-
-div#pollmoderation
-
-{
-
-  margin: 0;
-
-  padding: 0;
-
-  overflow: auto;
-
-}
-
+#poll_options p { margin: 0 1.5em 0.2em 1.5em; padding: 0 0.5em 0.5em 0.5em; }
+div#pollmoderation { margin: 0; padding: 0; overflow: auto; }
 
 
 /* onto the posts */
@@ -4718,38 +4587,6 @@ dl.stats dd
   line-height: 16px;
 
   padding: 0;
-
-}
-
-.statsbar div.bar
-
-{
-
-  float: left;
-
-  background: url(../images/bar_stats.png) no-repeat;
-
-  display: block;
-
-  margin: 0 4px;
-
-  height: 16px;
-
-}
-
-.statsbar div.bar div
-
-{
-
-  position: relative;
-
-  right: -4px;
-
-  padding: 0 4px 0 0;
-
-  background: url(../images/bar_stats.png) no-repeat 100%;
-
-  height: 16px;
 
 }
 
