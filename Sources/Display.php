@@ -392,7 +392,7 @@ function Display()
 		// Search for members who have this topic set in their GET data.
 		$request = $smcFunc['db_query']('', '
 			SELECT
-				lo.id_member, lo.log_time, mem.real_name, mem.member_name, mem.show_online,
+				lo.id_member, lo.log_time, mem.real_name, mem.real_name, mem.show_online,
 				mg.online_color, mg.id_group, mg.group_name
 			FROM {db_prefix}log_online AS lo
 				LEFT JOIN {db_prefix}members AS mem ON (mem.id_member = lo.id_member)
