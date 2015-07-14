@@ -5405,11 +5405,13 @@ span.hidelink
     }
     h4, ul { padding: 0; margin: 0; }
     li {
-      &.stars { padding-top: 0.5em; padding-bottom: 0.5em; }
-      &.avatar { overflow: hidden; }
+      //&.stars { padding-top: 0.5em; padding-bottom: 0.5em; }
+      &.avatar { overflow: hidden; margin-top: 5px; margin-bottom: 5px; }
       &.warning { line-height: 1.2em; padding-top: 1em;
         a img { vertical-align: bottom; padding: 0 0.2em; }
       }
+			.count-label { display: inline-block; width: 5em; text-align: right; }
+			.count { font-weight:$bold; transform: scale(1.2); font-size:1.3em; }
     }
     ul {
       ul { margin: 0.3em 1em 0 0; padding: 0;

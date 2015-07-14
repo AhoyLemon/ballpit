@@ -561,9 +561,7 @@ function template_main()
 
 								<li class="postgroup">', $message['member']['post_group'], '</li>';
 
-			echo '
-
-								<li class="stars">', $message['member']['group_stars'], '</li>';
+//			echo '<li class="stars">', $message['member']['group_stars'], '</li>';
 
 
 
@@ -591,7 +589,7 @@ function template_main()
 
 				echo '
 
-								<li class="postcount">', $txt['member_postcount'], ': ', $message['member']['posts'], '</li>';
+								<li class="postcount"><label class="count-label">', $txt['member_postcount'], ':</label> <span class="count">', $message['member']['posts'], '</span></li>';
 
 
 
@@ -601,7 +599,7 @@ function template_main()
 
 				echo '
 
-								<li class="karma">', $modSettings['karmaLabel'], ' ', $message['member']['karma']['good'] - $message['member']['karma']['bad'], '</li>';
+								<li class="karma"><label class="count-label">', $modSettings['karmaLabel'], '</label> <span class="count">', $message['member']['karma']['good'] - $message['member']['karma']['bad'], '</span></li>';
 
 			elseif ($modSettings['karmaMode'] == '2')
 
