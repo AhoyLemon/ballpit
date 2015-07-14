@@ -5275,7 +5275,7 @@ span.hidelink
   ul { margin: 0; padding: 0; }
   li { float: left; margin: 0; padding: 0; position: relative; list-style: none;
     a { display: block; line-height: 40px; padding: 0 8px; color:$black; font-size:12px;
-      &.active { border-bottom:3px solid $red; color:$red; font-weight: $bold; height: 36px; margin:2px 8px 0 8px; padding:0 8px; }
+      &.active { font-weight:$bold; padding: 0 1em; background-color: $black; color:$white; }
       &:hover { color:$green; }
     }
     li { width: 200px; height: auto; padding: 0;
