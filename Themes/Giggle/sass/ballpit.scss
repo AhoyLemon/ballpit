@@ -2448,7 +2448,8 @@ ul.quickbuttons { margin: 0 11px 0 0; clear: right; float: right; padding-top: 5
       span { font-size:14px; line-height: 19px; }
     }
     &.bulb.lit svg * { fill:$black; }
-    &.bulb.bright svg * { -webkit-animation: brightbulb 4s infinite; animation: brightbulb 4s infinite; }
+		&.bulb.bright { animation: glowbulb 4s infinite; }
+    //&.bulb.bright svg * { fill:#119; -webkit-animation: brightbulb 4s infinite; animation: brightbulb 4s infinite; }
     &.bulb a svg * { fill:$red !important; }
   }
 }
@@ -2472,6 +2473,12 @@ ul.quickbuttons { margin: 0 11px 0 0; clear: right; float: right; padding-top: 5
   0%   { fill:#444; }
   50%  { fill:#e2af0e; }
   100% { fill:#444; }
+}
+
+@keyframes glowbulb {
+  0%   { color:$black; }
+  50%  { color:#ffd04d; }
+  100% { color:$black; }
 }
 
 .post { clear: right; margin-top: 0.5em; }
