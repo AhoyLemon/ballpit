@@ -179,8 +179,8 @@ function template_html_above()
 	// The ?fin20 part of this link is just here to make sure browsers don't cache it wrongly.
 
 	echo '
-
-	<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/ballpit.css?lastUpdated=07.07.2015" />';
+    <meta charset="windows-1252">
+	<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/ballpit.css?lastUpdated=07.14.2015" />';
   
     echo '
     <!-- FAVICON -->
@@ -282,8 +282,6 @@ function template_html_above()
 
 
 	echo '
-
-	<meta http-equiv="Content-Type" content="text/html; charset=', $context['character_set'], '" />
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 
 	<meta name="description" content="', $context['page_title_html_safe'], '" />', !empty($context['meta_keywords']) ? '
@@ -654,13 +652,16 @@ function template_body_below()
 	<div id="footer">
 
 		<ul class="reset">
-			<li class="copyright">ballp.it is owned and operated by <a href="http://thefpl.us">The F Plus</a></li>
+			<li class="copyright">ballp.it is owned and operated by <b>The F Plus</b></li>
 			<li class="copyright">', theme_copyright(), '</li>
 			<li><a id="button_xhtml" href="http://validator.w3.org/check?uri=referer" target="_blank" class="new_win" title="Valid HTML5"><span>HTML5</span></a></li>
 			', !empty($modSettings['xmlnews_enable']) && (!empty($modSettings['allow_guestAccess']) || $context['user']['is_logged']) ? '<li><a id="button_rss" href="' . $scripturl . '?action=.xml;type=rss" class="new_win"><span>' . $txt['rss'] . '</span></a></li>' : '', '
 			<li><a id="button_wap2" href="', $scripturl , '?wap2" class="new_win"><span>', $txt['wap2'], '</span></a></li>
 			<li class="last"><a href="https://github.com/AhoyLemon/ballpit">GitHub repo</a></li>
-		</ul>';
+		</ul>
+        <a class="bottom-left-link" href="http://thefpl.us" title="Visit The F Plus&apos; website">
+    <img src="http://ballp.it/Themes/Giggle/svg/fplus-symbol.svg" class="logo" alt="F Plus logo (off center)" />
+  </a>';
 
 
 
