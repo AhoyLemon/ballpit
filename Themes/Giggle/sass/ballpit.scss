@@ -2481,11 +2481,13 @@ ul.quickbuttons { margin: 0 11px 0 0; clear: right; float: right; padding-top: 5
   100% { color:$black; }
 }
 
-.post { clear: right; margin-top: 0.5em; }
+.post { clear: right; margin-top: 0.5em;
+  li { padding-bottom: 1em; }
+}
 
 .inner { padding-top: 1em; border-top: 1px solid $grey; }
 
-img.smiley { height:1em; min-height: 16px; }
+img.smiley { height:1.15em; min-height: 16px; }
 
 .attachments { padding: 1em 0 2em 0;
 	hr { clear: both; margin: 1em 0 1em 0; }
@@ -3418,6 +3420,8 @@ tr.titlebg td
   padding: 0 0 1em 0;
 
 }
+
+#smileyForm img[id*="smiley"] { max-width: 3em; max-height: 3em; }
 
 
 
