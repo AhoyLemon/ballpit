@@ -104,13 +104,6 @@ function template_main()
 						<div class="cat_bar">
 							<h3 class="catbg">';
 
-		// If this category even can collapse, show a link to collapse it.
-		if ($category['can_collapse'])
-			echo '
-                <a class="collapse" href="', $category['collapse_href'], '" title="Collapse This Section">
-                  <svg viewBox="0 0 32 32" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#IconCollapse"></use></svg>
-                </a>';
-
 		if (!$context['user']['is_guest'] && !empty($category['show_unread']))
 			echo '
 								<a class="unread" href="', $scripturl, '?action=unread;c=', $category['id'], '" title="Unread posts in this board">
@@ -118,7 +111,7 @@ function template_main()
 								</a>';
 
 		echo '
-								', $category['link'], '
+								<span class="category-name">', $category['name'], '</span>
 							</h3>
 						</div>
 					</td>
