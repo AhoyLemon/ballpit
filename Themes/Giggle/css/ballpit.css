@@ -14,7 +14,7 @@
 
 body {
   background: #f9f9f9;
-  font-family: 'Cabin', sans-serif;
+  font-family: "Cabin", sans-serif;
   margin: 0;
   padding: 0;
   font-size: 14px;
@@ -247,58 +247,6 @@ ul.reset, ul.reset li {
   list-style: none;
 }
 
-/* Some BBC related styles.
-
-------------------------------------------------------- */
-/* A quote, perhaps from another post. */
-blockquote.bbc_standard_quote, blockquote.bbc_alternate_quote {
-  font-size: 90%;
-  color: #666;
-  background: url(../images/theme/quote.png) 0.1em 0.1em no-repeat;
-  border: 1px solid #999;
-  padding: 1.1em 1.4em;
-  margin: 0.1em 0 0.3em 0;
-  overflow: auto;
-}
-
-/* Alterate blockquote stylings */
-blockquote.bbc_standard_quote {
-  background-color: #fff;
-}
-
-blockquote.bbc_alternate_quote {
-  background-color: #fff;
-}
-
-/* A code block - maybe PHP ;). */
-code.bbc_code {
-  display: block;
-  font-family: "dejavu sans mono", "monaco", "lucida console", "courier new", monospace;
-  font-size: x-small;
-  background: #fff;
-  border-top: 2px solid #999;
-  border-bottom: 2px solid #999;
-  line-height: 1.5em;
-  padding: 3px 1em;
-  overflow: auto;
-  white-space: nowrap;
-  /* Show a scrollbar after about 24 lines. */
-  max-height: 24em;
-}
-
-/* The "Quote:" and "Code:" header parts... */
-.codeheader, .quoteheader {
-  color: #333;
-  font-size: 90%;
-  font-weight: bold;
-  padding: 0 0.3em;
-}
-
-/* For links to change the code stuff... */
-.codeoperation {
-  font-weight: normal;
-}
-
 /* Styling for BBC tags */
 .bbc_size {
   line-height: 1.4em;
@@ -339,38 +287,21 @@ code.bbc_code {
   cursor: help;
 }
 
-/* /me uses this a lot. (emote, try typing /me in a post.) */
-.meaction {
-  color: red;
-}
-
 /* Highlighted text - such as search results. */
 .highlight {
   font-weight: bold;
-  color: #ff7200 !important;
+  color: #f1f1a0;
   font-size: 1.1em;
-}
-
-/* A more discreet highlight color, for selected membergroups etc. */
-.highlight2 {
-  background-color: #D1E1EF;
-  color: #000 !important;
 }
 
 /* Generic, mostly color-related, classes.
 
 ------------------------------------------------------- */
-.titlebg, .titlebg2, tr.titlebg th, tr.titlebg td, tr.titlebg2 td {
-  color: #999;
-  font-size: 1.1em;
-  font-weight: bold;
-  background: #f9f9f9;
-}
-
+.titlebg, .titlebg2, tr.titlebg th, tr.titlebg td, tr.titlebg2 td,
 .catbg, .catbg2, tr.catbg td, tr.catbg2 td, tr.catbg th, tr.catbg2 th {
-  color: #999;
+  color: #444;
   font-size: 1.1em;
-  font-weight: bold;
+  font-weight: 700;
   background: #f9f9f9;
 }
 
@@ -500,32 +431,6 @@ a.moderation_link, a.moderation_link:visited {
   font-weight: bold;
 }
 
-/* a descriptive style 
-
-.description_board, .plainbox{
-
-  padding: 0.5em 1em;
-
-  font-size: 0.9em;
-
-  line-height: 1.4em;
-
-  border: 1px solid #dcdcdc;
-
-  background: #f9f9f9;
-
-  margin: 0.2em 1px 1em 1px;
-
-}
-
-.description_board
-
-{
-
-  margin: 1em 1px 0 1px;
-
-}
-*/
 /* an informative style */
 .information {
   padding: 0.5em 1em;
@@ -650,7 +555,7 @@ h3.catbg a:hover, h4.catbg a:hover, .table_list tbody.header td a:hover
 
 {
 
-  text-decoration: none;
+text-decoration: none;
 
 }
 
@@ -658,7 +563,7 @@ h3.catbg2 a:hover
 
 {
 
-  text-decoration: none;
+text-decoration: none;
 
 }
 
@@ -666,7 +571,7 @@ h3.titlebg a, h3.titlebg, h4.titlebg, h4.titlebg a
 
 {
 
-  color: #999;
+color: #999;
 
 }
 
@@ -674,7 +579,7 @@ h3.titlebg a:hover, h4.titlebg a:hover
 
 {
 
-  text-decoration: none;
+text-decoration: none;
 
 }
 
@@ -682,9 +587,9 @@ h3.catbg img.icon, h4.titlebg img.icon
 
 {
 
-  vertical-align: middle;
+vertical-align: middle;
 
-  margin: -2px 5px 0 0;
+margin: -2px 5px 0 0;
 
 }
 
@@ -692,9 +597,9 @@ h4.catbg a.toggle img
 
 {
 
-  vertical-align: middle;
+vertical-align: middle;
 
-  margin: -2px 5px 0 5px;
+margin: -2px 5px 0 5px;
 
 }
 
@@ -702,9 +607,9 @@ h4.catbg, h4.catbg2 , h3.catbg , h3.catbg2 , .table_list tbody.header td.catbg
 
 {
 
-  background: #f9f9f9;
+background: #f9f9f9;
 
-  padding-right: 9px;
+padding-right: 9px;
 
 }
 
@@ -712,9 +617,9 @@ h4.titlebg, h3.titlebg
 
 {
 
-  background: #f9f9f9;
+background: #f9f9f9;
 
-  padding-right: 9px;
+padding-right: 9px;
 
 }
 
@@ -722,9 +627,9 @@ h4.titlebg img.icon
 
 {
 
-  float: left;
+float: left;
 
-  margin: 8px 8px 0 0;
+margin: 8px 8px 0 0;
 
 }
 
@@ -734,15 +639,15 @@ div.title_bar
 
 {
 
-  background: #f9f9f9;
+background: #f9f9f9;
 
-  padding-left: 9px;
+padding-left: 9px;
 
-  height: 34px;
+height: 34px;
 
-  overflow: hidden;
+overflow: hidden;
 
-  margin-bottom: 1px;
+margin-bottom: 1px;
 
 }
 
@@ -753,15 +658,15 @@ div.title_barIC
 
 {
 
-  background: #f9f9f9;
+background: #f9f9f9;
 
-  padding-left: 9px;
+padding-left: 9px;
 
-  height: 34px;
+height: 34px;
 
-  overflow: hidden;
+overflow: hidden;
 
-  margin-bottom: 1px;
+margin-bottom: 1px;
 
 }
 
@@ -769,9 +674,9 @@ div.title_barIC
 
 {
 
-  margin: 0;
+margin: 0;
 
-  padding: 0.5em;
+padding: 0.5em;
 
 }
 
@@ -779,9 +684,9 @@ img#upshrink_ic, img#newsupshrink
 
 {
 
-  float: right;
+float: right;
 
-  margin: 10px 5px 0 0;
+margin: 10px 5px 0 0;
 
 }
 
@@ -789,7 +694,7 @@ table.table_list a.unreadlink, table.table_list a.collapse
 
 {
 
-  float: right;
+float: right;
 
 }
 
@@ -797,11 +702,11 @@ table.table_list a.collapse
 
 {
 
-  margin: 10px 5px 0 1em;
+margin: 10px 5px 0 1em;
 
-  height: 34px;
+height: 34px;
 
-  line-height: 34px;
+line-height: 34px;
 
 }
 
@@ -812,9 +717,9 @@ table.table_list a.collapse
 
 {
 
-  font-size: 0.95em;
+font-size: 0.95em;
 
-  border-bottom: 1px solid #fff;
+border-bottom: 1px solid #fff;
 
 }
 
@@ -822,9 +727,9 @@ table.table_list a.collapse
 
 {
 
-  height: 31px;
+height: 31px;
 
-  line-height: 31px;
+line-height: 31px;
 
 }
 
@@ -832,7 +737,7 @@ table.table_list a.collapse
 
 {
 
-  margin: 0 2px;
+margin: 0 2px;
 
 }
 
@@ -840,7 +745,7 @@ table.table_list a.collapse
 
 {
 
-  padding: 0 0.7em;
+padding: 0 0.7em;
 
 }
 
@@ -848,9 +753,9 @@ table.table_grid
 
 {
 
-  border-collapse: collapse;
+border-collapse: collapse;
 
-  margin-top: 0.1em;
+margin-top: 0.1em;
 
 }
 
@@ -858,11 +763,11 @@ table.table_grid td
 
 {
 
-  padding: 3px;
+padding: 3px;
 
-  border-bottom: 1px solid #fff;
+border-bottom: 1px solid #fff;
 
-  border-right: 1px solid #fff;
+border-right: 1px solid #fff;
 
 }
 */
@@ -898,11 +803,11 @@ table.table_grid td.stats {
 
 {
 
-  display: block;
+display: block;
 
-  padding-left: 20px;
+padding-left: 20px;
 
-  background: #f9f9f9;
+background: #f9f9f9;
 
 }
 
@@ -910,11 +815,11 @@ table.table_grid td.stats {
 
 {
 
-  display: block;
+display: block;
 
-  background: #f9f9f9;
+background: #f9f9f9;
 
-  height: 11px;
+height: 11px;
 
 }
 
@@ -922,17 +827,17 @@ table.table_grid td.stats {
 
 {
 
-  display: block;
+display: block;
 
-  padding-left: 20px;
+padding-left: 20px;
 
-  background: #f9f9f9;
+background: #f9f9f9;
 
-  font-size: 5px;
+font-size: 5px;
 
-  line-height: 5px;
+line-height: 5px;
 
-  margin-bottom: 0.2em;
+margin-bottom: 0.2em;
 
 }
 
@@ -940,11 +845,11 @@ table.table_grid td.stats {
 
 {
 
-  display: block;
+display: block;
 
-  background: #f9f9f9;
+background: #f9f9f9;
 
-  height: 11px;
+height: 11px;
 
 }
 
@@ -954,11 +859,11 @@ table.table_grid td.stats {
 
 {
 
-  display: block;
+display: block;
 
-  padding-left: 20px;
+padding-left: 20px;
 
-  background: #f9f9f9;
+background: #f9f9f9;
 
 }
 
@@ -966,11 +871,11 @@ table.table_grid td.stats {
 
 {
 
-  display: block;
+display: block;
 
-  background: #f9f9f9;
+background: #f9f9f9;
 
-  height: 11px;
+height: 11px;
 
 }
 
@@ -978,17 +883,17 @@ table.table_grid td.stats {
 
 {
 
-  display: block;
+display: block;
 
-  padding-left: 20px;
+padding-left: 20px;
 
-  background: #f9f9f9;
+background: #f9f9f9;
 
-  font-size: 5px;
+font-size: 5px;
 
-  line-height: 5px;
+line-height: 5px;
 
-  margin-bottom: 0.2em;
+margin-bottom: 0.2em;
 
 }
 
@@ -996,11 +901,11 @@ table.table_grid td.stats {
 
 {
 
-  display: block;
+display: block;
 
-  background: #f9f9f9;
+background: #f9f9f9;
 
-  height: 11px;
+height: 11px;
 
 }
 
@@ -1008,11 +913,11 @@ table.table_grid td.stats {
 
 {
 
-  display: block;
+display: block;
 
-  padding-left: 20px;
+padding-left: 20px;
 
-  background: #f9f9f9;
+background: #f9f9f9;
 
 }
 
@@ -1020,11 +925,11 @@ table.table_grid td.stats {
 
 {
 
-  display: block;
+display: block;
 
-  background: #f9f9f9;
+background: #f9f9f9;
 
-  height: 11px;
+height: 11px;
 
 }
 
@@ -1032,13 +937,13 @@ table.table_grid td.stats {
 
 {
 
-  display: block;
+display: block;
 
-  padding-left: 20px;
+padding-left: 20px;
 
-  background: #f9f9f9;
+background: #f9f9f9;
 
-  margin-bottom: 0.2em;
+margin-bottom: 0.2em;
 
 }
 
@@ -1046,11 +951,11 @@ table.table_grid td.stats {
 
 {
 
-  display: block;
+display: block;
 
-  background: #f9f9f9;
+background: #f9f9f9;
 
-  height: 11px;
+height: 11px;
 
 }
 
@@ -1058,9 +963,9 @@ table.table_grid td.stats {
 
 {
 
-  border-left: 1px solid #7f7f7f;
+border-left: 1px solid #7f7f7f;
 
-  border-right: 1px solid #7f7f7f;
+border-right: 1px solid #7f7f7f;
 
 }
 */
@@ -3729,80 +3634,6 @@ span.hidelink {
   left: 0;
 }
 
-/*
-
-#navigation li a:hover, #navigation li:hover a, #navigation li.sfhover a {
-  background: #fff;
-
-  color: #222222;
-
-  text-decoration: none;
-
-}
-
-#navigation li:hover li a, #navigation li ul li a:hover {
-
-  color: #777777;
-
-  background: #f1f1f1;
-
-}
-*/
-/*
-#navigation li ul {
-
-  background: #fff;
-
-  position: absolute;
-
-  width: 200px;
-
-  left: -999em;
-
-  margin-left: -1px;
-
-  border: 1px solid #f1f1f1;
-
-  padding-top: 5px;
-
-  padding-bottom: 5px;
-
-  -webkit-box-shadow: 1px 1px 10px 2px rgba(8, 8, 8, 0.1);
-
-  box-shadow: 1px 1px 10px 2px rgba(8, 8, 8, 0.1);
-
-}
-
-#navigation li ul ul {
-
-  margin: -27px 0 0 195px;
-
-}
-
-#navigation ul li li:hover, #navigation ul li li.hover {
-
-  position: static;
-
-}
-
-#navigation li:hover ul ul, #navigation li:hover ul ul ul, #navigation li.sfhover ul ul, #navigation li.sfhover ul ul ul {
-
-  left: -999em;
-
-}
-
-#navigation li:hover ul, #navigation li.sfhover ul {
-
-  left: 3px;
-
-}
-
-#navigation li li:hover ul, #navigation li li li:hover ul, #navigation li li.sfhover ul, #navigation li li li.sfhover ul {
-
-  left: 0;
-
-}
-**/
 #main_content_section {
   padding: 0 8px 5px;
 }
@@ -4273,4 +4104,48 @@ span.spoiler.spoiled:before, span.spoiler.spoiled:after {
     width: 100%;
     height: 100%;
   }
+}
+
+code.bbc_code {
+  display: block;
+  font-family: "dejavu sans mono", "monaco", "lucida console", "courier new", monospace;
+  font-size: 0.8em;
+  background: #f9f9f9;
+  border: 2px solid #bbb;
+  line-height: 1.5em;
+  padding: 1em;
+  overflow: auto;
+  white-space: nowrap;
+  max-height: 24em;
+}
+
+.quoteheader {
+  font-size: 90%;
+  width: auto;
+  display: inline-block;
+  border: 1px solid #bbb;
+  border-bottom: 1px solid #fff;
+  background: #fff;
+  margin-bottom: -1px;
+  padding: 0.25em 1em;
+}
+
+.codeheader {
+  background: #bbb;
+  display: inline-block;
+  padding: 0.25em 1em;
+  color: #fff;
+  font-size: 90%;
+}
+
+blockquote.bbc_standard_quote,
+blockquote.bbc_alternate_quote {
+  font-size: 90%;
+  color: #444;
+  background: url(../images/theme/quote.png) 0.6em 0.6em no-repeat;
+  background-color: #fff;
+  border: 1px solid #bbb;
+  padding: 1.5em 1em 1em 2.5em;
+  margin: 0.1em 0 0.3em 0;
+  overflow: auto;
 }
