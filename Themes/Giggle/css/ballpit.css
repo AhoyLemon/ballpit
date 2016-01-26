@@ -57,15 +57,11 @@ svg * {
   fill: currentColor;
 }
 
-svg .inferno * {
-  fill: red;
-}
-
 input, button, select, textarea {
-  color: #000;
+  color: #444;
   background: #f9f9f9;
   border: 1px solid #444;
-  font-family: 'Cabin', sans-serif;
+  font-family: "Cabin", sans-serif;
   outline: none;
 }
 
@@ -126,6 +122,18 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
+strong {
+  font-weight: 700;
+}
+
+em {
+  font-style: italic;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
 .button_submit, .button_reset {
   background: #e04a3f;
   cursor: pointer;
@@ -150,27 +158,12 @@ fieldset {
 }
 
 fieldset legend {
-  font-weight: bold;
-  color: #222;
+  font-weight: 700;
+  color: #444;
 }
 
-/* No image should have a border when linked. */
 a img {
   border: 0;
-}
-
-/* Define strong as bold, and em as italics */
-strong {
-  font-weight: bold;
-}
-
-em {
-  font-style: italic;
-}
-
-/* Alternative for u tag */
-.underline {
-  text-decoration: underline;
 }
 
 /* Common classes to easy styling.
@@ -203,23 +196,22 @@ em {
   overflow: hidden;
 }
 
-/* Default font sizes: small (8pt), normal (10pt), and large (14pt). */
 .smalltext, tr.smalltext th {
-  font-size: 11px;
+  font-size: 0.8em;
 }
 
 .middletext {
-  font-size: 12px;
+  font-size: 0.85rem;
   line-height: 1em;
 }
 
 .normaltext {
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.2em;
 }
 
 .largetext {
-  font-size: 18px;
+  font-size: 1.2rem;
 }
 
 .centertext {
@@ -1256,7 +1248,7 @@ table.table_grid td.stats {
   font-size: 0.8em;
   display: block;
   color: #e04a3f;
-  padding: 0.3em 0.6em;
+  padding: .3em .6em;
   margin-left: 12px;
   text-transform: uppercase;
   cursor: pointer;
@@ -2011,7 +2003,7 @@ img.smiley {
   float: left;
   padding: 0;
   max-width: 15%;
-  margin: 0.5em 0.8em 0 0;
+  margin: .5em .8em 0 0;
   text-align: right;
   font-size: 16px;
 }
@@ -2068,7 +2060,7 @@ ul.post_options li {
 }
 
 #postAttachment dd, #postAttachment2 dd {
-  margin: 0.3em 0 0.3em 1em;
+  margin: .3em 0 .3em 1em;
 }
 
 #postAttachment dt, #postAttachment2 dt {
@@ -2088,7 +2080,7 @@ ul.post_options li {
 }
 
 .post_verification #verification_control {
-  margin: 0.3em 0 0.3em 1em;
+  margin: .3em 0 .3em 1em;
 }
 
 /* The BBC buttons */
@@ -2140,7 +2132,7 @@ ul.post_options li {
 
 #post_event ul.event_options {
   margin: 0;
-  padding: 0 0 0.7em 0.7em;
+  padding: 0 0 .7em .7em;
 }
 
 #post_event ul.event_options li {
@@ -2180,7 +2172,7 @@ ul.post_options li {
 
 #edit_poll ul.poll_main, dl.poll_options {
   overflow: hidden;
-  padding: 0 0 0.7em 0.7em;
+  padding: 0 0 .7em .7em;
   list-style: none;
 }
 

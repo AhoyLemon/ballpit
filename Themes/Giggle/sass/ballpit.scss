@@ -26,8 +26,10 @@ body { background: $white; font-family: 'Cabin', sans-serif; margin: 0; padding:
 form { padding: 0; margin: 0; }
 
 // LINKS /////
-a:link, a:visited {	color: $green;	text-decoration: none; }
-a:hover { text-decoration: underline; cursor: pointer; }
+a {
+  &:link, &:visited { color: $green; text-decoration: none; }
+  &:hover { text-decoration: underline; cursor: pointer; }
+}
 
 // DEFAULT STYLES //////
 table { empty-cells: show; }
@@ -36,11 +38,9 @@ body, td, th, tr { color: $black; }
 
 // SVG INHERITS COLOR
 svg * { fill:currentColor; }
-  //unless
-svg .inferno * { fill:red; }
 
 // INPUT
-input, button, select, textarea { color: #000; background: $white; border: 1px solid $black; font-family: 'Cabin', sans-serif; outline:none;
+input, button, select, textarea { color: $black; background: $white; border: 1px solid $black; font-family: $font; outline:none;
   &:hover, &:active { border-color:$blue; outline:none; }
 }
 textarea { font-size:115%; }
@@ -61,6 +61,10 @@ input[disabled] { opacity: 0.6; }
 }
 
 h1, h2, h3, h4, h5, h6 { margin: 0; }
+strong { font-weight: $bold; }
+em { font-style: italic; }
+.underline { text-decoration: underline; }
+
 
 .button_submit, .button_reset {	background:$red; cursor: pointer; font-weight: normal; border:none;  @extend %red-button; }
 
@@ -72,71 +76,13 @@ a.navPages { color:$blue; }
 
 /* Fieldsets are used to group elements. */
 
-fieldset
-
-{
-
-  border: 1px solid #c4c4c4;
-
-  padding: 1em;
-
-  margin: 0 0 0.5em 0;
-
+fieldset { border: 1px solid #c4c4c4; padding: 1em; margin: 0 0 0.5em 0;
+  legend { font-weight:$bold; color: $black; }
 }
 
-fieldset legend
+// No image should have a border when linked.
 
-{
-
-  font-weight: bold;
-
-  color: #222;
-
-}
-
-/* No image should have a border when linked. */
-
-a img
-
-{
-
-  border: 0;
-
-}
-
-
-
-/* Define strong as bold, and em as italics */
-
-strong
-
-{
-
-  font-weight: bold;
-
-}
-
-
-
-em
-
-{
-
-  font-style: italic;
-
-}
-
-/* Alternative for u tag */
-
-.underline
-
-{
-
-  text-decoration: underline;
-
-}
-
-
+a img { border: 0; }
 
 /* Common classes to easy styling.
 ------------------------------------------------------- */
@@ -146,103 +92,20 @@ em
 .clear { clear: both; }
 .clear_left { clear: left; }
 .clear_right { clear: right; }
+.flow_auto { overflow: auto; }
+.flow_hidden { overflow: hidden; }
 
-.flow_auto
+// Default font sizes: small (8pt), normal (10pt), and large (14pt).
+.smalltext, tr.smalltext th { font-size: 0.8em; }
+.middletext { font-size: 0.85rem; line-height: 1em; }
+.normaltext { font-size: 1rem; line-height: 1.2em; }
+.largetext { font-size: 1.2rem; }
 
-{
+.centertext { margin: 0 auto; text-align: center; }
+.righttext { margin-left: auto; margin-right: 0; text-align: right; }
+.lefttext { margin-left: 0; margin-right: auto; text-align: left; }
 
-  overflow: auto;
-
-}
-
-.flow_hidden
-
-{
-
-  overflow: hidden;
-
-}
-
-
-/* Default font sizes: small (8pt), normal (10pt), and large (14pt). */
-
-.smalltext, tr.smalltext th
-
-{
-
-  font-size: 11px;
-
-}
-
-.middletext
-
-{
-
-  font-size: 12px;
-
-  line-height: 1em;
-
-}
-
-.normaltext
-
-{
-
-  font-size: 16px;
-
-  line-height: 1.2em;
-
-}
-
-.largetext
-
-{
-
-  font-size: 18px;
-
-}
-
-.centertext
-
-{
-
-  margin: 0 auto;
-
-  text-align: center;
-
-}
-
-.righttext
-
-{
-
-  margin-left: auto;
-
-  margin-right: 0;
-
-  text-align: right;
-
-}
-
-.lefttext
-
-{
-
-  margin-left: 0;
-
-  margin-right: auto;
-
-  text-align: left;
-
-}
-
-.double_height
-
-{
-
-  line-height: 2em;
-
-}
+.double_height { line-height: 2em; }
 
 /* some common padding styles */
 
