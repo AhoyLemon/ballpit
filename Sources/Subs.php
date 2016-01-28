@@ -1596,6 +1596,7 @@ function parse_bbc($message, $smileys = true, $cache_id = '', $parse_tags = arra
 				'tag' => 'nsfw',
 				'before' => '<figure class="nsfw"><figcaption><span><strong>NSFW</strong> content. </span><a>Click to show.</a></figcaption><div class="holder" style="display:none;">',
 				'after' => '</div></figure>',
+                'block_level' => true,
 			),
 			array(
 				'tag' => 'video',
