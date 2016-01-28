@@ -437,11 +437,14 @@ function template_info_center()
 	}
 
 	echo '
-			</p>
+			</p>';
+  /**
 			<p class="last smalltext">
 				', $txt['most_online_today'], ': <strong>', comma_format($modSettings['mostOnlineToday']), '</strong>.
 				', $txt['most_online_ever'], ': ', comma_format($modSettings['mostOnline']), ' (', timeformat($modSettings['mostDate']), ')
 			</p>
+  **/
+    echo '
 		</div>';
 
 	// If they are logged in, but statistical information is off... show a personal message bar.
