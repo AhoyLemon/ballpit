@@ -556,11 +556,20 @@ table.table_grid th {
   letter-spacing: .2em;
 }
 
+table.table_grid th svg {
+  width: 1em;
+  height: 1em;
+}
+
 table.table_grid td.stats {
   width: 15%;
 }
 
-table.table_grid svg {
+table.table_grid a.blue {
+  color: #4a8bf5;
+}
+
+table.table_grid a.blue svg {
   width: 1em;
   height: 1em;
 }

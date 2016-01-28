@@ -609,11 +609,15 @@ dl.settings dt a img
 }
 
 table.table_grid {
-  th { white-space: nowrap; text-align: left; font-weight: 400; text-transform: uppercase; font-size: 1.2em; letter-spacing: .2em; }
+  th { white-space: nowrap; text-align: left; font-weight: 400; text-transform: uppercase; font-size: 1.2em; letter-spacing: .2em;
+    svg { width:1em; height: 1em; }
+  }
   td {
     &.stats { width: 15%; }
   }
-  svg { width:1em; height: 1em; }
+  a.blue { color:$blue;
+    svg { width:1em; height: 1em; }
+  }
 }
 
 /* table_grid styles for Profile > Show Permissions. */

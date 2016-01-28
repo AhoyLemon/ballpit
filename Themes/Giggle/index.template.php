@@ -179,8 +179,8 @@ function template_html_above()
 	// The ?fin20 part of this link is just here to make sure browsers don't cache it wrongly.
 
 	echo '
-    <meta charset="windows-1252">
-	<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/ballpit.css?lastUpdated=07.14.2015" />';
+    <meta charset="iso-8859-1">
+	<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/ballpit.css?lastUpdated=01.27.2016" />';
   
     echo '
     <!-- FAVICON -->
