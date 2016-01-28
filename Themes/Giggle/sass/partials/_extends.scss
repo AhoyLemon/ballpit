@@ -1,0 +1,16 @@
+%clearfix {
+  &:after { content: ""; display: table;clear: both; }
+}
+
+//-- BUTTONS 
+%button { border:none; padding: 0.7em 3em;
+  &:hover { border:none; }
+}
+%red-button { @extend %button; background-color: $red; 
+  &:hover { background:saturate($red,20%); color:$white;} 
+  &:active { background:darken($red,20%); }
+}
+%blue-button { @extend %button; background-color:$blue;
+  &:hover { background:saturate($blue,20%); color:$white; }
+  &:active { background:darken($blue,20%); }
+}

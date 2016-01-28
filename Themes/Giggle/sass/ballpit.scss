@@ -1,8 +1,5 @@
 @import "partials/_variables";
-
-%clearfix {
-  &:after { content: ""; display: table;clear: both; }
-}
+@import "partials/_extends";
 
 // STUFF THAT SHOULD BE KILLED IN THE PHP
 .rich_editor_frame { display: none; }
@@ -35,19 +32,6 @@ textarea { font-size:115%; }
 input.input_check, input.input_radio { border: none; background: none; }
 input[disabled] { opacity: 0.6; }
 
-//-- BUTTONS 
-%button { border:none; padding: 0.7em 3em;
-  &:hover { border:none; }
-}
-%red-button { @extend %button; background-color: $red; 
-  &:hover { background:saturate($red,20%); color:$white;} 
-  &:active { background:darken($red,20%); }
-}
-%blue-button { @extend %button; background-color:$blue;
-  &:hover { background:saturate($blue,20%); color:$white; }
-  &:active { background:darken($blue,20%); }
-}
-
 h1, h2, h3, h4, h5, h6 { margin: 0; }
 strong { font-weight: $bold; }
 em { font-style: italic; }
@@ -57,7 +41,6 @@ em { font-style: italic; }
 .button_submit, .button_reset {	background:$red; cursor: pointer; font-weight: normal; border:none;  @extend %red-button; }
 
 h3.catbg input.input_check { margin: 9px 7px 0 7px; }
-
 
 /* Standard horizontal rule.. ([hr], etc.) */
 a.navPages { color:$blue; }
@@ -118,59 +101,33 @@ ul.reset, ul.reset li { padding: 0; margin: 0; list-style: none; }
 
 
 //////////////////// Generally, those [?] icons.  This makes your cursor a help icon.
-
 .help { cursor: help; }
 
 /* Highlighted text - such as search results. */
-
 .highlight { font-weight: bold; color: $yellow; font-size: 1.1em; }
 
 
-/* Generic, mostly color-related, classes.
-
-------------------------------------------------------- */
-
+// Generic, mostly color-related, classes.
 .titlebg, .titlebg2, tr.titlebg th, tr.titlebg td, tr.titlebg2 td,
 .catbg, .catbg2, tr.catbg td, tr.catbg2 td, tr.catbg th, tr.catbg2 th
-{ color: $black; font-size: 1.1em; font-weight: $bold; background: $white; }
+{ color: $black; font-size: 1.1em; font-weight: $bold; }
 
-
-
-/* adjust the table versions of headers */
-
+// adjust the table versions of headers
 tr.titlebg th, tr.titlebg2 th, td.titlebg, td.titlebg2, tr.catbg th, tr.catbg2 th, td.catbg, td.catbg2
+{ padding: 0 6px; }
 
-{
-
-  padding: 0 6px;
-
-}
-
+/**
 tr.titlebg th a:link, tr.titlebg th a:visited, tr.titlebg2 td a:link, tr.titlebg2 td a:visited
-
 {
 
   color: #fff;
 
 }
+**/
 
-tr.catbg th a:link, tr.catbg th a:visited, tr.catbg2 td a:link, tr.catbg2 td a:visited
+tr.catbg th a:link, tr.catbg th a:visited, tr.catbg2 td a:link, tr.catbg2 td a:visited { color: #999; }
 
-{
-
-  color: #999;
-
-}
-
-.catbg select
-
-{
-
-  height: 1.5em;
-
-  font-size: 0.85em;
-
-}
+.catbg select { height: 1.5em; font-size: 0.85em; }
 
 
 /* the page navigation area */
