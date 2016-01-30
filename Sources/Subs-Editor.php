@@ -1587,6 +1587,13 @@ function create_control_richedit($editorOptions)
 				'after' => '[/url]',
 				'description' => $txt['hyperlink']
 			),
+            array(
+				'image' => 'quote',
+				'code' => 'quote',
+				'before' => '[quote]',
+				'after' => '[/quote]',
+				'description' => $txt['bbc_quote']
+			),
 			array(
 				'image' => 'email',
 				'code' => 'email',
@@ -1600,6 +1607,20 @@ function create_control_richedit($editorOptions)
 				'before' => '[ftp]',
 				'after' => '[/ftp]',
 				'description' => $txt['ftp']
+			),
+            array(
+				'image' => 'nsfw',
+				'code' => 'nsfw',
+				'before' => '[nsfw]',
+				'after' => '[/nsfw]',
+				'description' => 'NSFW content'
+			),
+            array(
+				'image' => 'spoiler',
+				'code' => 'spoiler',
+				'before' => '[spoiler]',
+				'after' => '[/spoiler]',
+				'description' => 'Spoiler'
 			),
 			array(),
 			array(
@@ -1623,7 +1644,6 @@ function create_control_richedit($editorOptions)
 				'after' => '[/move]',
 				'description' => $txt['marquee']
 			),
-			array(),
 			array(
 				'image' => 'sup',
 				'code' => 'sup',
@@ -1661,14 +1681,6 @@ function create_control_richedit($editorOptions)
 				'description' => $txt['bbc_code']
 			),
 			array(
-				'image' => 'quote',
-				'code' => 'quote',
-				'before' => '[quote]',
-				'after' => '[/quote]',
-				'description' => $txt['bbc_quote']
-			),
-			array(),
-			array(
 				'image' => 'list',
 				'code' => 'list',
 				'before' => '[list]\n[li]',
@@ -1687,6 +1699,14 @@ function create_control_richedit($editorOptions)
 				'code' => 'hr',
 				'before' => '[hr]',
 				'description' => $txt['horizontal_rule']
+			),
+            array(),
+            array(
+				'image' => 'video',
+				'code' => 'video',
+				'before' => '[video]',
+				'after' => '[/video]',
+				'description' => 'looped video (webm, ogg, mp4)'
 			),
 		);
 

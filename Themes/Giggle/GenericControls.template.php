@@ -124,7 +124,7 @@ function template_control_richedit($editor_id, $smileyContainer = null, $bbcCont
 							{
 								sType: \'button\',
 								bEnabled: ', empty($context['disabled_tags'][$tag['code']]) ? 'true' : 'false', ',
-								sImage: ', JavaScriptEscape($settings['images_url'] . '/bbc/' . $tag['image'] . '.gif'), ',
+								sImage: ', JavaScriptEscape('UBB'. $tag['image']), ',
 								sCode: ', JavaScriptEscape($tag['code']), ',
 								sBefore: ', JavaScriptEscape($tag['before']), ',
 								sAfter: ', isset($tag['after']) ? JavaScriptEscape($tag['after']) : 'null', ',
@@ -213,11 +213,12 @@ function template_control_richedit($editor_id, $smileyContainer = null, $bbcCont
 			echo '
 					],
 					sButtonTemplate: ', JavaScriptEscape('
-						<img id="%buttonId%" src="%buttonSrc%" align="bottom" width="23" height="22" alt="%buttonDescription%" title="%buttonDescription%" />
-					'), ',
-					sButtonBackgroundImage: ', JavaScriptEscape($settings['images_url'] . '/bbc/bbc_bg.gif'), ',
-					sButtonBackgroundImageHover: ', JavaScriptEscape($settings['images_url'] . '/bbc/bbc_hoverbg.gif'), ',
-					sActiveButtonBackgroundImage: ', JavaScriptEscape($settings['images_url'] . '/bbc/bbc_hoverbg.gif'), ',
+                      <a id="%buttonId%" title="%buttonDescription%">
+                        <svg alt="%buttonDescription%" viewBox="0 0 32 32"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#%buttonSrc%"></use></svg>
+                      </a>'), ',
+					// sButtonBackgroundImage: ', JavaScriptEscape($settings['images_url'] . '/bbc/bbc_bg.gif'), ',
+					// sButtonBackgroundImageHover: ', JavaScriptEscape($settings['images_url'] . '/bbc/bbc_hoverbg.gif'), ',
+					// sActiveButtonBackgroundImage: ', JavaScriptEscape($settings['images_url'] . '/bbc/bbc_hoverbg.gif'), ',
 					sDividerTemplate: ', JavaScriptEscape('
 						<img src="' . $settings['images_url'] . '/bbc/divider.gif" alt="|" style="margin: 0 3px 0 3px;" />
 					'), ',

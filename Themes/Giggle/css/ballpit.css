@@ -666,9 +666,15 @@ ul.post_options li { margin: 0.2em 0; width: 49%; float: left; }
 .post_verification #verification_control { margin: .3em 0 .3em 1em; }
 
 /* The BBC buttons */
+#bbcBox_message a { text-decoration: none; color: #666; margin-right: 0.25em; }
+
+#bbcBox_message a:hover { color: #e04a3f; }
+
+#bbcBox_message svg { height: 1.4em; width: 1.4em; }
+
 #bbcBox_message > div { display: inline; }
 
-#bbcBox_message select { font-size: 1em !important; }
+#bbcBox_message select { font-size: 0.8em !important; padding-top: 0.25em; padding-bottom: 0.25em; }
 
 #bbcBox_message img { margin: 0 1px 0 0; }
 
