@@ -223,7 +223,7 @@ function template_control_richedit($editor_id, $smileyContainer = null, $bbcCont
 						<img src="' . $settings['images_url'] . '/bbc/divider.gif" alt="|" style="margin: 0 3px 0 3px;" />
 					'), ',
 					sSelectTemplate: ', JavaScriptEscape('
-						<select name="%selectName%" id="%selectId%" style="margin-bottom: 1ex; font-size: x-small;">
+						<select name="%selectName%" id="%selectId%">
 							%selectOptions%
 						</select>
 					'), ',

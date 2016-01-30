@@ -1723,12 +1723,14 @@ function create_control_richedit($editorOptions)
 				'before' => '',
 				'description' => $txt['unformat_text'],
 			);
+            /**
 			$context['bbc_tags'][count($context['bbc_tags']) - 1][] = array(
 				'image' => 'toggle',
 				'code' => 'toggle',
 				'before' => '',
 				'description' => $txt['toggle_view'],
 			);
+            **/
 		}
 
 		foreach ($context['bbc_tags'] as $row => $tagRow)
