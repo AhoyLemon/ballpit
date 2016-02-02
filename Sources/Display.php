@@ -1209,10 +1209,16 @@ function prepareDisplayContext($reset = false)
 		ORDER BY timestamp ASC',
 		array('message' => $message['id_msg'],)
 	);
-	$bulbers = array();	
+	$bulbers = array();
+	$icanbulb = true;
 	while ($row = $smcFunc['db_fetch_assoc']($request))
+	{
+		if ($row['bulber_id'] == $user_info['id'])
+		{
+			$icanbulb = false;
+		}
 		array_push($bulbers, $row);
-	
+	}
 	$smcFunc['db_free_result']($request);
 	// BULBMOD END
 	
@@ -1246,6 +1252,7 @@ function prepareDisplayContext($reset = false)
 		'can_remove' => allowedTo('delete_any') || (allowedTo('delete_replies') && $context['user']['started']) || (allowedTo('delete_own') && $message['id_member'] == $user_info['id'] && (empty($modSettings['edit_disable_time']) || $message['poster_time'] + $modSettings['edit_disable_time'] * 60 > time())),
 		'bulbs_total' => $message['bulbs_total'],	//BULBMOD
 		'bulbers' => $bulbers,	//BULBMOD
+		'icanbulb' => $icanbulb, //BULBMOD
 		'can_see_ip' => allowedTo('moderate_forum') || ($message['id_member'] == $user_info['id'] && !empty($user_info['id'])),
 	);
 
