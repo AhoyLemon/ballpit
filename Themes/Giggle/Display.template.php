@@ -865,7 +865,8 @@ function template_main()
 
 				{
 
-					if (($message['member']['id'] == $context['user']['id']) || ($context['bulb_voted'] == 1))
+					//if (($message['member']['id'] == $context['user']['id']) || ($context['bulb_voted'] == 1))
+					if (($message['member']['id'] == $context['user']['id']) || ($message['icanbulb'] == false))
 
 					{
 
