@@ -93,8 +93,8 @@ function BulbMessage()
 
 
 
-/*
-	// check if topic has already been bulbed by user
+
+	// check if message has already been bulbed by user
 
 	$request = $smcFunc['db_query']('', '
 
@@ -104,7 +104,7 @@ function BulbMessage()
 
 		WHERE id_voter = {int:id_voter}
 
-			AND id_topic = {int:id_topic}
+			AND id_message = {int:id_message}
 
 		LIMIT 1',
 
@@ -112,7 +112,7 @@ function BulbMessage()
 
 			'id_voter' => $user_info['id'],
 
-			'id_topic' => $topic
+			'id_message' => $message
 
 		)
 
@@ -120,12 +120,20 @@ function BulbMessage()
 
 	
 
-	if ($smcFunc['db_num_rows']($request) != 0)
-
-		fatal_lang_error('bulb_already_bulbed', false);		
+	if ($smcFunc['db_num_rows']($request) != 0)	
+	{
+		if ($user_info['id'] == 3694)
+		{
+			fatal_lang_error('bulb_already_bulbed_fw',false);
+		}
+		else
+		{
+			fatal_lang_error('bulb_already_bulbed', false);
+		}		
+	}
 
 	$smcFunc['db_free_result']($request);
-*/
+
 
 
 		
