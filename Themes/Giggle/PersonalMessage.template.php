@@ -543,10 +543,13 @@ function template_subject_list()
 	global $context, $options, $settings, $modSettings, $txt, $scripturl;
 
 	echo '
+  <div class="topic_table">
 	<table width="100%" class="table_grid">
 	<thead>
 		<tr class="catbg">
-			<th align="center" width="4%" class="first_th"><a href="', $scripturl, '?action=pm;view;f=', $context['folder'], ';start=', $context['start'], ';sort=', $context['sort_by'], ($context['sort_direction'] == 'up' ? '' : ';desc'), ($context['current_label_id'] != -1 ? ';l=' . $context['current_label_id'] : ''), '"><img src="', $settings['images_url'], '/im_switch.gif" alt="', $txt['pm_change_view'], '" title="', $txt['pm_change_view'], '" width="16" height="16" /></a></th>
+			<th align="center" width="4%" class="first_th">
+        <a href="', $scripturl, '?action=pm;view;f=', $context['folder'], ';start=', $context['start'], ';sort=', $context['sort_by'], ($context['sort_direction'] == 'up' ? '' : ';desc'), ($context['current_label_id'] != -1 ? ';l=' . $context['current_label_id'] : ''), '"><img src="', $settings['images_url'], '/im_switch.gif" alt="', $txt['pm_change_view'], '" title="', $txt['pm_change_view'], '" width="16" height="16" /></a>
+      </th>
 			<th class="lefttext" width="22%">
 				<a href="', $scripturl, '?action=pm;f=', $context['folder'], ';start=', $context['start'], ';sort=date', $context['sort_by'] == 'date' && $context['sort_direction'] == 'up' ? ';desc' : '', $context['current_label_id'] != -1 ? ';l=' . $context['current_label_id'] : '', '">', $txt['date'], $context['sort_by'] == 'date' ? ' <img src="' . $settings['images_url'] . '/sort_' . $context['sort_direction'] . '.gif" alt="" />' : '', '</a>
 			</th>
@@ -591,6 +594,7 @@ function template_subject_list()
 	echo '
 	</tbody>
 	</table>
+  </div>
 	<div class="pagesection">
 		<div class="floatleft">', $txt['pages'], ': ', $context['page_index'], '</div>
 		<div class="floatright">&nbsp;';
@@ -1006,6 +1010,7 @@ function template_send()
 	// Showing BBC?
 	if ($context['show_bbc'])
 	{
+    include 'ubbIcons.php';
 		echo '
 				<div id="bbcBox_message"></div>';
 	}
@@ -1035,7 +1040,7 @@ function template_send()
 				<p id="shortcuts" class="smalltext">
 					', $context['browser']['is_firefox'] ? $txt['shortcuts_firefox'] : $txt['shortcuts'], '
 				</p>
-				<p id="post_confirm_strip" class="righttext">
+				<p id="post_confirm_buttons" class="righttext">
 					', template_control_richedit_buttons($context['post_box_name']), '
 				</p>
 				<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
