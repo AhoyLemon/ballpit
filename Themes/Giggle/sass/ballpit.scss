@@ -4572,6 +4572,11 @@ span.hidelink
     .inner { background-image: url("../svg/bulbstar.svg"); background-position: top left; background-repeat: repeat-x; border-top: none; border-top-width: initial; border-top-style: none; border-top-color: initial; padding-top: 35px; background-size: 50px;}
   }
 }
+.superbulbedpost {
+  .post {
+    .inner { padding-top:2.5em; padding-bottom: 2.5em; font-size:1.5em; line-height: 1.85em; letter-spacing: 0.2em; }
+  }
+}
 
 /** Handling images in posts **/
 #preview_section img { max-width:98%; }

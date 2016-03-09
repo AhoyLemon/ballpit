@@ -481,9 +481,14 @@ function template_main()
 
 				<div class="', $message['approved'] ? ($message['alternate'] == 0 ? 'windowbg' : 'windowbg2') : 'approvebg';
 
-				if ($message['bulbs_total'] > 2)
+				if ($message['bulbs_total'] > 5)
 
 					echo ' bulbedpost';
+    
+        if ($message['bulbs_total'] > 15)
+
+					echo ' superbulbedpost';
+    
 
 					echo '">
 
@@ -874,7 +879,7 @@ function template_main()
 
 							echo '';
 
-						elseif ($message['bulbs_total'] < 5)
+						elseif ($message['bulbs_total'] < 11)
 
 					 		echo '<li class="bulb count"><span>'.$message['bulbs_total'].'</span></li><li class="bulb lit" id = "bulb_lit_' . $message['id'] . '">
                               <svg viewBox="0 0 32 32" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#IconBulb"></use></svg>
@@ -897,7 +902,7 @@ function template_main()
 							 <svg viewBox="0 0 32 32" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#IconBulb"></use></svg>
 							</a></li>';
 
-						elseif ($message['bulbs_total'] < 5)
+						elseif ($message['bulbs_total'] < 11)
 
 					 		echo '<li class="bulb count"><span>'.$message['bulbs_total'].'</span></li><li class="bulb lit" id = "bulb_lit_' . $message['id'] . '"><a href="', $scripturl, '?action=bulb;msg=', $message['id'], ';topic=', $context['current_topic'], '" alt="bulb" title="Bulb this post as INSIGHTFUL">
                               <svg viewBox="0 0 32 32" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#IconBulb"></use></svg>
