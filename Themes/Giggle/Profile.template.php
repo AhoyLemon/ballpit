@@ -1521,10 +1521,13 @@ function template_profile_theme_settings()
 	// Choose WYSIWYG settings?
 	if (empty($modSettings['disable_wysiwyg']))
 		echo '
+            <!--
 							<li>
 								<input type="hidden" name="default_options[wysiwyg_default]" value="0" />
 								<label for="wysiwyg_default"><input type="checkbox" name="default_options[wysiwyg_default]" id="wysiwyg_default" value="1"', !empty($context['member']['options']['wysiwyg_default']) ? ' checked="checked"' : '', ' class="input_check" /> ', $txt['wysiwyg_default'], '</label>
-							</li>';
+							</li>
+              -->
+              ';
 
 	if (empty($modSettings['disableCustomPerPage']))
 	{
@@ -1563,6 +1566,7 @@ function template_profile_theme_settings()
 							</li>';
 
 	echo '
+    <!--
 							<li>
 								<label for="display_quick_reply">', $txt['display_quick_reply'], '</label>
 								<select name="default_options[display_quick_reply]" id="display_quick_reply">
@@ -1579,6 +1583,7 @@ function template_profile_theme_settings()
 									<option value="2"', !empty($context['member']['options']['display_quick_mod']) && $context['member']['options']['display_quick_mod'] != 1 ? ' selected="selected"' : '', '>', $txt['display_quick_mod_image'], '</option>
 								</select>
 							</li>
+              -->
 						</ul>
 						<dl>
 							<dd></dd>';
