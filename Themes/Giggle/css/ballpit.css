@@ -16,6 +16,12 @@
 
 #post_confirm_buttons input[value=Preview]:active { background: #0b55ce; }
 
+@-webkit-keyframes spin { from { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+  to { -webkit-transform: rotate(360deg); transform: rotate(360deg); } }
+
+@keyframes spin { from { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+  to { -webkit-transform: rotate(360deg); transform: rotate(360deg); } }
+
 .rich_editor_frame { display: none; }
 
 .post_separator { display: none; }
@@ -1408,6 +1414,10 @@ span.hidelink { font-style: italic; }
 .bulbedpost .post .inner { background-image: url("../svg/bulbstar.svg"); background-position: top left; background-repeat: repeat-x; border-top: none; border-top-width: initial; border-top-style: none; border-top-color: initial; padding-top: 35px; background-size: 50px; }
 
 .superbulbedpost .post .inner { padding-top: 2.5em; padding-bottom: 2.5em; font-size: 1.5em; line-height: 1.85em; letter-spacing: 0.2em; }
+
+.thousandbulbedpost .post .inner, .thousandbulbedpost .poster, .thousandbulbedpost .quickbuttons, .thousandbulbedpost svg, .thousandbulbedpost img, .thousandbulbedpost .keyinfo { -webkit-animation: spin 2s linear infinite; animation: spin 2s linear infinite; -webkit-transform-origin: center; -ms-transform-origin: center; transform-origin: center; }
+
+.thousandbulbedpost .flow_hidden { overflow: visible; }
 
 /** Handling images in posts **/
 #preview_section img { max-width: 98%; }

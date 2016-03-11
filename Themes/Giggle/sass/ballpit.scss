@@ -4578,6 +4578,13 @@ span.hidelink
   }
 }
 
+
+
+.thousandbulbedpost {
+  .post .inner, .poster, .quickbuttons, svg, img, .keyinfo { animation: spin 2s linear infinite; transform-origin: center; }
+  .flow_hidden { overflow: visible; }
+}
+
 /** Handling images in posts **/
 #preview_section img { max-width:98%; }
 .postarea .post blockquote.bbc_standard_quote img, #preview_section blockquote img { max-width:200px; max-height:120px; }

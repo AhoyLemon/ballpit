@@ -488,7 +488,11 @@ function template_main()
         if ($message['bulbs_total'] > 15)
 
 					echo ' superbulbedpost';
-    
+      
+        if ($message['bulbs_total'] > 887)
+
+					echo ' thousandbulbedpost';
+          
 
 					echo '">
 

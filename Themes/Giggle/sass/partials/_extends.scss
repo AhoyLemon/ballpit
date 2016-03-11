@@ -14,3 +14,8 @@
   &:hover { background:saturate($blue,20%); color:$white; }
   &:active { background:darken($blue,20%); }
 }
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
