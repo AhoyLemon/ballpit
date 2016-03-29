@@ -94,8 +94,8 @@ function template_main()
 	foreach ($context['categories'] as $category)
 	{
 		// If theres no parent boards we can see, avoid showing an empty category (unless its collapsed)
-		if (empty($category['boards']) && !$category['is_collapsed'])
-			continue;
+		//if (empty($category['boards']) && !$category['is_collapsed'])
+		//	continue;
 
 		echo '
 			<tbody class="header" id="category_', $category['id'], '">
@@ -117,11 +117,7 @@ function template_main()
 					</td>
 				</tr>
 			</tbody>';
-
-		// Assuming the category hasn't been collapsed...
-		if (!$category['is_collapsed'])
-		{
-
+    
 		echo '
 			<tbody class="content" id="category_', $category['id'], '_boards">';
 			/* Each board in each category's boards has:
@@ -220,7 +216,6 @@ function template_main()
 			}
 		echo '
 			</tbody>';
-		}
 		echo '
 			<tbody class="divider">
 				<tr>
@@ -470,36 +465,5 @@ function template_info_center()
 	echo '
 		</div>
 	</div>';
-
-	// Info center collapse object.
-	echo '
-	<script type="text/javascript"><!-- // --><![CDATA[
-		var oInfoCenterToggle = new smc_Toggle({
-			bToggleEnabled: true,
-			bCurrentlyCollapsed: ', empty($options['collapse_header_ic']) ? 'false' : 'true', ',
-			aSwappableContainers: [
-				\'upshrinkHeaderIC\'
-			],
-			aSwapImages: [
-				{
-					sId: \'upshrink_ic\',
-					srcExpanded: smf_images_url + \'/icons/16/collapse.png\',
-					altExpanded: ', JavaScriptEscape($txt['upshrink_description']), ',
-					srcCollapsed: smf_images_url + \'/icons/16/expand.png\',
-					altCollapsed: ', JavaScriptEscape($txt['upshrink_description']), '
-				}
-			],
-			oThemeOptions: {
-				bUseThemeSettings: ', $context['user']['is_guest'] ? 'false' : 'true', ',
-				sOptionName: \'collapse_header_ic\',
-				sSessionVar: ', JavaScriptEscape($context['session_var']), ',
-				sSessionId: ', JavaScriptEscape($context['session_id']), '
-			},
-			oCookieOptions: {
-				bUseCookie: ', $context['user']['is_guest'] ? 'true' : 'false', ',
-				sCookieName: \'upshrinkIC\'
-			}
-		});
-	// ]]></script>';
 }
 ?>
