@@ -1640,10 +1640,10 @@ ul.quickbuttons { margin: 0 11px 0 0; clear: right; float: right; padding-top: 5
     &.bulb.count { text-align:center; padding-top:3px; color:#fff; width:2.2em; height:20px; background-image:url(../images/bulb-count.svg); background-position:center right; background-repeat: no-repeat; padding-right:4px;
       span { font-size:14px; line-height: 19px; }
     }
+    &.bulb svg * { fill:currentColor; }
     &.bulb.lit svg * { fill:$black; }
     &.bulb.bright { animation: glowbulb 4s infinite; }
-    //&.bulb.bright svg * { fill:#119; -webkit-animation: brightbulb 4s infinite; animation: brightbulb 4s infinite; }
-    &.bulb a svg * { fill:$red !important; }
+    &.bulb.bright a { animation: glowbulblink 4s infinite; }
   }
 }
 
@@ -1657,21 +1657,18 @@ ul.quickbuttons { margin: 0 11px 0 0; clear: right; float: right; padding-top: 5
   }
 }
 
-
-@-webkit-keyframes brightbulb {
-  0%   { fill:#444; }
-  50%  { fill:#e2af0e; }
-  100% { fill:#444; }
-}@keyframes brightbulb {
-  0%   { fill:#444; }
-  50%  { fill:#e2af0e; }
-  100% { fill:#444; }
-}
-
 @keyframes glowbulb {
   0%   { color:$black; }
   50%  { color:#ffd04d; }
   100% { color:$black; }
+}
+
+@keyframes glowbulblink {
+  0%   { color:$red; }
+  12%   { color:$red; }
+  50%  { color:#e2af0e; }
+  88%   { color:$red; }
+  100% { color:$red; }
 }
 
 .post { clear: right; margin-top: 0.5em;

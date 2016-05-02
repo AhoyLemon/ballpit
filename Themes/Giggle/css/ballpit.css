@@ -579,11 +579,13 @@ ul.quickbuttons li.bulb.count { text-align: center; padding-top: 3px; color: #ff
 
 ul.quickbuttons li.bulb.count span { font-size: 14px; line-height: 19px; }
 
+ul.quickbuttons li.bulb svg * { fill: currentColor; }
+
 ul.quickbuttons li.bulb.lit svg * { fill: #444; }
 
 ul.quickbuttons li.bulb.bright { -webkit-animation: glowbulb 4s infinite; animation: glowbulb 4s infinite; }
 
-ul.quickbuttons li.bulb a svg * { fill: #e04a3f !important; }
+ul.quickbuttons li.bulb.bright a { -webkit-animation: glowbulblink 4s infinite; animation: glowbulblink 4s infinite; }
 
 .bulber-list { clear: both; background: #eee; font-size: 0.8em; padding: 0.5em 1em; margin-top: 0.5em; margin-bottom: 0.5em; border: 1px solid #bbb; text-align: right; }
 
@@ -597,14 +599,6 @@ ul.quickbuttons li.bulb a svg * { fill: #e04a3f !important; }
 
 .bulber-list span:last-child:after { content: ''; }
 
-@-webkit-keyframes brightbulb { 0% { fill: #444; }
-  50% { fill: #e2af0e; }
-  100% { fill: #444; } }
-
-@keyframes brightbulb { 0% { fill: #444; }
-  50% { fill: #e2af0e; }
-  100% { fill: #444; } }
-
 @-webkit-keyframes glowbulb { 0% { color: #444; }
   50% { color: #ffd04d; }
   100% { color: #444; } }
@@ -612,6 +606,18 @@ ul.quickbuttons li.bulb a svg * { fill: #e04a3f !important; }
 @keyframes glowbulb { 0% { color: #444; }
   50% { color: #ffd04d; }
   100% { color: #444; } }
+
+@-webkit-keyframes glowbulblink { 0% { color: #e04a3f; }
+  12% { color: #e04a3f; }
+  50% { color: #e2af0e; }
+  88% { color: #e04a3f; }
+  100% { color: #e04a3f; } }
+
+@keyframes glowbulblink { 0% { color: #e04a3f; }
+  12% { color: #e04a3f; }
+  50% { color: #e2af0e; }
+  88% { color: #e04a3f; }
+  100% { color: #e04a3f; } }
 
 .post { clear: right; margin-top: 0.5em; }
 
