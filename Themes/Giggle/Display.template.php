@@ -1131,7 +1131,7 @@ function template_main()
 				<label>Bulbed by</label>';
 			foreach ($message['bulbers'] as &$bulber)
 			{
-				echo '<span>' . $bulber['bulber_name'] . '</span>';
+				echo ' <span>' . $bulber['bulber_name'] . '</span> ';
 			};
 			
 			echo '</div>';
