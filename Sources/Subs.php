@@ -918,9 +918,37 @@ function parse_bbc($message, $smileys = true, $cache_id = '', $parse_tags = arra
 		$temp_bbc = $bbc_codes;
 		$bbc_codes = array();
 	}
-
+		
 	// Ohara youtube embed
 	$message = OYTE_Preparse($message);
+
+// Some basic information...
+	if (!isset($context['html_headers']))
+		$context['html_headers'] = '';
+	
+	// Auto Embed Twitter
+	global $boardurl;
+
+	$context['html_headers'] .=  '
+		<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+
+			var oTwitter = $(\'a[href*="twitter.com"][href*="/status"]\');
+			if (oTwitter.length > 0) {
+				oTwitter.each(function() {
+					var oHolder = $(this);
+					var sStr = $(this).attr(\'href\');
+					sStr = sStr.replace(/\/+$/, "");
+					sStr = sStr.substr(sStr.lastIndexOf(\'/\') + 1);
+					$.getJSON("' . $boardurl .'/tweet-cache.php?id=" + sStr, function(data) {
+						oHolder.before(data.html);
+					});
+				});
+			}
+			});
+	</script>';
+	//end Auto Embed Twitter
 
 	// Sift out the bbc for a performance improvement.
 	if (empty($bbc_codes) || $message === false || !empty($parse_tags))
