@@ -8,7 +8,7 @@
  * @copyright 2011 Simple Machines
  * @license http://www.simplemachines.org/about/smf/license.php BSD
  *
- * @version 2.0.8
+ * @version 2.0.11
  */
 
 if (!defined('SMF'))
@@ -216,9 +216,12 @@ if (!defined('SMF'))
 		- does nothing if the functions is already added.
 		- if permanent parameter is true, updates the value in settings table.
 
-	void remove_integration_function(string hook, string function)
+  void remove_integration_function(string hook, string function)
 		- removes the given function from the given hook.
 		- does nothing if the functions is not available.
+
+	array safe_unserialize(string data)
+		- sanitizes input before unserializing string.
 */
 
 // Update some basic statistics...
@@ -4435,8 +4438,11 @@ function fix_redirect_path__preg_callback($matches)
 	return $scripturl . '/' . strtr($matches[1], '&;=', '//,') . '.html' . (isset($matches[2]) ? $matches[2] : '');
 }
 
-function return_chr__preg_callback($matches)
+function safe_unserialize($data)
 {
-	return chr($matches[1]);
+	// There's no reason input should contain an object,
+	// user is up to no good...
+	if (preg_match('/(^|;|{|})O:([0-9]|\+|\-)+/', $data) === 0)
+		return @unserialize($data);
 }
 ?>
