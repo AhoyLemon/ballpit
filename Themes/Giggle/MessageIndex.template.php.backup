@@ -264,47 +264,24 @@ function template_main()
                             if ($topic['is_posted_in'])
                               echo '<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ThreadYouPosted"></use>';
                           echo '</svg>
-					</td>';
+					</td>
+					<td class="subject ', $alternate_class, '">
+						<div ', (!empty($topic['quick_mod']['modify']) ? 'id="topic_' . $topic['first_post']['id'] . '" onmouseout="mouse_on_div = 0;" onmouseover="mouse_on_div = 1;" ondblclick="modify_topic(\'' . $topic['id'] . '\', \'' . $topic['first_post']['id'] . '\');"' : ''), '>
+							', $topic['is_sticky'] ? '<strong>' : '', '<span id="msg_' . $topic['first_post']['id'] . '">', $topic['first_post']['link'], (!$context['can_approve_posts'] && !$topic['approved'] ? '&nbsp;<em>(' . $txt['awaiting_approval'] . ')</em>' : ''), '</span>', $topic['is_sticky'] ? '</strong>' : '';
 
-echo "<td class='subject {$alternate_class}'>
-    <div class='title' ", (!empty($topic["quick_mod"]["modify"])
-        ? "id='topic_" . $topic["first_post"]["id"] . "' onmouseout='mouse_on_div = 0;' onmouseover='mouse_on_div = 1;' ondblclick='modify_topic(\"" . $topic["id"] . "\", \"" . $topic["first_post"]["id"] . "\");'"
-        : ""),
-    ">";
-
-// Is this topic new? (assuming they are logged in!)
-if ($topic["new"] && $context["user"]["is_logged"]) {
-    echo "
-        <a href='{$topic["new_href"]}' class='jump-to-new subject-level' id='newicon{$topic["first_post"]["id"]}'>
-            <svg viewBox='0 0 32 32' ><use xmlns:xlink='http://www.w3.org/1999/xlink' xlink:href='#PostNewOnes'></use></svg>
-        </a>";
-}
-
-echo ($topic["is_sticky"]
-    ? "<strong>"
-        : ""),
-    "{$topic["first_post"]["link"]}",
-    (!$context["can_approve_posts"]
-        && !$topic["approved"]
-    ? "&nbsp;<em>({$txt["awaiting_approval"]})</em>"
-        : ""),
-    "",
-    ($topic["is_sticky"]
-    ? "</strong>"
-        : "");
-
-echo "</div><div class='creator-and-pagination'>";
-echo "  <span class='creator'>
-            {$txt["started_by"]} {$topic["first_post"]["member"]["link"]}
-        </span>
-        <span class='pagination'>
-            {$topic["pages"]}
-        </span>
-    </div>
-</td>";
-
-
-echo '					<td class="stats ', $color_class, '">
+			// Is this topic new? (assuming they are logged in!)
+			if ($topic['new'] && $context['user']['is_logged'])
+					echo '
+							<a href="', $topic['new_href'], '" class="jump-to-new subject-level" id="newicon' . $topic['first_post']['id'] . '">
+                                     <svg viewBox="0 0 32 32" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#PostNewOnes"></use></svg>
+                                   </a>';
+			echo '
+							<p>', $txt['started_by'], ' ', $topic['first_post']['member']['link'], '
+								<small id="pages' . $topic['first_post']['id'] . '">', $topic['pages'], '</small>
+							</p>
+						</div>
+					</td>
+					<td class="stats ', $color_class, '">
 						', $topic['replies'], ' ', $txt['replies'], '
 						<br />
 						', $topic['views'], ' ', $txt['views'], '
