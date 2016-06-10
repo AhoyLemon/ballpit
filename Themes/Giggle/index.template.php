@@ -207,6 +207,7 @@ function template_html_above()
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@TheFPlus" />
     <meta name="twitter:title" content="'.$context['page_title_html_safe'].'" />
+    <meta name="twitter:image" content="http://ballp.it/og-image.png" />
     <meta name="twitter:description" content="ballp.it is the community forum for The F Plus." />
     ';
   
@@ -215,6 +216,7 @@ function template_html_above()
     <meta property="og:title" content="'.$context['page_title_html_safe'].'">
     <meta property="og:type" content="website">
     <meta property="og:description" content="ballp.it is the community forum for The F Plus.">
+    <meta name="og:image" content="http://ballp.it/og-image.png" />
     <meta property="og:email" content="lemon@thefpl.us">';
 
 	// Some browsers need an extra stylesheet due to bugs/compatibility issues.
