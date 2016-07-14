@@ -212,8 +212,6 @@ function template_folder()
 				if ((empty($settings['hide_post_group']) || $message['member']['group'] == '') && $message['member']['post_group'] != '')
 					echo '
 				<li class="postgroup">', $message['member']['post_group'], '</li>';
-				echo '
-				<li class="stars">', $message['member']['group_stars'], '</li>';
 
 				// Show avatars, images, etc.?
 				if (!empty($settings['show_user_images']) && empty($options['show_no_avatars']) && !empty($message['member']['avatar']['image']))
