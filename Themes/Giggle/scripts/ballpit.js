@@ -34,16 +34,10 @@ $(document).ready(function() {
   });
   
   // Hide or show [spoiler] content.
-  $('#forumposts').on('click', 'span.spoiler', function() {
+  $('body').on('click', 'span.spoiler', function() {
     var h = window.location.search.slice(1);
     console.log('spoiler, toggled, '+h);
     ga('send', 'event', { eventCategory: 'spoiler', eventAction: 'toggled', eventLabel:h });
     $(this).toggleClass('spoiled');
   });
-  
-  // Same as above, but if you're in preview mode.
-  $('#preview_body').on('click', 'span.spoiler', function() {
-    $(this).toggleClass('spoiled');
-  });
-  
 });
