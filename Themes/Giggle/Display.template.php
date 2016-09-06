@@ -742,7 +742,7 @@ function template_main()
 					echo '
                         <li>
                           <a href="', $message['member']['href'], '" title="View this user&apos;s profile">
-                            <svg viewBox="0 0 32 32" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#IconProfile"></use></svg>
+                            <svg viewBox="0 0 32 32" ><use xlink:href="#IconProfile"></use></svg>
                           </a>
                         </li>';
 				// Don't show an icon if they haven't specified a website.
@@ -752,7 +752,7 @@ function template_main()
 					echo '
                       <li>
                         <a href="', $message['member']['website']['url'], '" title="' . $message['member']['website']['title'] . '" target="_blank" class="new_win">
-                          <svg viewBox="0 0 32 32" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#IconWebsite"></use></svg>
+                          <svg viewBox="0 0 32 32" ><use xlink:href="#IconWebsite"></use></svg>
                         </a>
                       </li>';
 
@@ -785,7 +785,7 @@ function template_main()
 					echo '
 
 										<li><a href="', $scripturl, '?action=emailuser;sa=email;msg=', $message['id'], '" rel="nofollow" title="Email this person">
-                                          <svg viewBox="0 0 32 32" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#IconEmail"></use></svg>
+                                          <svg viewBox="0 0 32 32" ><use xlink:href="#IconEmail"></use></svg>
                                         </a></li>';
 
 
@@ -797,7 +797,7 @@ function template_main()
 					echo '
 
 										<li><a href="', $scripturl, '?action=pm;sa=send;u=', $message['member']['id'], '" title="', $message['member']['online']['is_online'] ? $txt['pm_online'] : $txt['pm_offline'], '">
-                                          <svg viewBox="0 0 32 32" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#IconPrivateMessage"></use></svg>
+                                          <svg viewBox="0 0 32 32" ><use xlink:href="#IconPrivateMessage"></use></svg>
                                         </a></li>';
 
 
@@ -886,13 +886,13 @@ function template_main()
 						elseif ($message['bulbs_total'] < 11)
 
 					 		echo '<li class="bulb count"><span>'.$message['bulbs_total'].'</span></li><li class="bulb lit" id = "bulb_lit_' . $message['id'] . '">
-                              <svg viewBox="0 0 32 32" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#IconBulb"></use></svg>
+                              <svg viewBox="0 0 32 32" ><use xlink:href="#IconBulb"></use></svg>
                             </li>';
 
 						else
 
 							echo '<li class="bulb count"><span>'.$message['bulbs_total'].'</span></li><li class="bulb bright" id = "bulb_bright_' . $message['id'] . '">
-                                <svg viewBox="0 0 32 32" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#IconBulb"></use></svg>
+                                <svg viewBox="0 0 32 32" ><use xlink:href="#IconBulb"></use></svg>
                               </li>';
 					}
 
@@ -903,19 +903,19 @@ function template_main()
 						if ($message['bulbs_total'] == 0)
 
 							echo '<li class="bulb unlit" id = "bulb_unlit_' . $message['id'] . '"><a href="', $scripturl, '?action=bulb;msg=', $message['id'], ';topic=', $context['current_topic'], '" title="Bulb this post as INSIGHTFUL">
-							 <svg viewBox="0 0 32 32" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#IconBulb"></use></svg>
+							 <svg viewBox="0 0 32 32" ><use xlink:href="#IconBulb"></use></svg>
 							</a></li>';
 
 						elseif ($message['bulbs_total'] < 11)
 
 					 		echo '<li class="bulb count"><span>'.$message['bulbs_total'].'</span></li><li class="bulb lit" id = "bulb_lit_' . $message['id'] . '"><a href="', $scripturl, '?action=bulb;msg=', $message['id'], ';topic=', $context['current_topic'], '" alt="bulb" title="Bulb this post as INSIGHTFUL">
-                              <svg viewBox="0 0 32 32" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#IconBulb"></use></svg>
+                              <svg viewBox="0 0 32 32" ><use xlink:href="#IconBulb"></use></svg>
                             </a></li>';
 
 						else
 
 							echo '<li class="bulb count"><span>'.$message['bulbs_total'].'</span></li><li class="bulb bright" id = "bulb_bright_' . $message['id'] . '"><a href="', $scripturl, '?action=bulb;msg=', $message['id'], ';topic=', $context['current_topic'], '" alt="bulb" title="Bulb this post as INSIGHTFUL">
-                              <svg viewBox="0 0 32 32" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#IconBulb"></use></svg>
+                              <svg viewBox="0 0 32 32" ><use xlink:href="#IconBulb"></use></svg>
                             </a></li>';
 
 					}			
@@ -933,7 +933,7 @@ function template_main()
 				<li>
 
 					<a href="', $scripturl, '?action=post;quote=', $message['id'], ';topic=', $context['current_topic'], '.', $context['start'], ';last_msg=', $context['topic_last_message'], '" onclick="return oQuickReply.quote(', $message['id'], ');" title="QUOTE this post in yours">
-						<svg viewBox="0 0 32 32" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#PostQuote"></use></svg>
+						<svg viewBox="0 0 32 32" ><use xlink:href="#PostQuote"></use></svg>
 					</a>
 				</li>';
 
@@ -948,7 +948,7 @@ function template_main()
 				<li>
 
 					<a href="', $scripturl, '?action=post;quote=', $message['id'], ';topic=', $context['current_topic'], '.', $context['start'], ';last_msg=', $context['topic_last_message'], '" title="QUOTE this post in yours">
-                      <svg viewBox="0 0 32 32" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#PostQuote"></use></svg>
+                      <svg viewBox="0 0 32 32" ><use xlink:href="#PostQuote"></use></svg>
 					</a>
 
 				</li>';
@@ -963,7 +963,7 @@ function template_main()
 
 				<li>
 					<a href="', $scripturl, '?action=post;msg=', $message['id'], ';topic=', $context['current_topic'], '.', $context['start'], '" title="EDIT this post">
-                      <svg viewBox="0 0 32 32" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#PostEdit"></use></svg>
+                      <svg viewBox="0 0 32 32" ><use xlink:href="#PostEdit"></use></svg>
 					</a>
 				</li>';
 
@@ -977,7 +977,7 @@ function template_main()
 
 				<li>
 					<a href="', $scripturl, '?action=deletemsg;topic=', $context['current_topic'], '.', $context['start'], ';msg=', $message['id'], ';', $context['session_var'], '=', $context['session_id'], '" onclick="return confirm(\'', $txt['remove_message'], '?\');" title="REMOVE this post">
-                      <svg viewBox="0 0 32 32" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#PostRemove"></use></svg>
+                      <svg viewBox="0 0 32 32" ><use xlink:href="#PostRemove"></use></svg>
 					</a>
 				</li>';
 
@@ -991,7 +991,7 @@ function template_main()
 
 				<li>
 					<a href="', $scripturl, '?action=splittopics;topic=', $context['current_topic'], '.0;at=', $message['id'], '" title="SPLIT this topic in two">
-                      <svg viewBox="0 0 32 32" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#PostSplit"></use></svg>
+                      <svg viewBox="0 0 32 32" ><use xlink:href="#PostSplit"></use></svg>
 					</a>
 				</li>';
 
@@ -1003,7 +1003,7 @@ function template_main()
 
 				<li>
 					<a href="', $scripturl, '?action=reporttm;topic=', $context['current_topic'], '.', $message['counter'], ';msg=', $message['id'], '" title="TATTLE on this post (nsfw content)">
-                      <svg viewBox="0 0 32 32" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#IconTattle"></use></svg>
+                      <svg viewBox="0 0 32 32" ><use xlink:href="#IconTattle"></use></svg>
 					</a>
 				</li>';
 
@@ -1016,7 +1016,7 @@ function template_main()
 				<li>
 
 					<a href="', $scripturl, '?action=profile;area=issuewarning;u=', $message['member']['id'], ';msg=', $message['id'], '" title="issue a WARNING about this post">
-                      <svg viewBox="0 0 32 32" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#IconWarning"></use></svg>
+                      <svg viewBox="0 0 32 32" ><use xlink:href="#IconWarning"></use></svg>
 					</a>
 
 				</li>';
@@ -1030,7 +1030,7 @@ function template_main()
 				<li>
 
 					<a href="', $scripturl, '?action=', !empty($message['member']['is_guest']) ? 'trackip' : 'profile;area=tracking;sa=ip;u=' . $message['member']['id'], ';searchip=', $message['member']['ip'], '" title="TRACK this person&apos;s IP">
-						<svg viewBox="0 0 32 32" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#IconFingerprint"></use></svg>
+						<svg viewBox="0 0 32 32" ><use xlink:href="#IconFingerprint"></use></svg>
 					</a>
 
 				</li>';
@@ -1043,7 +1043,7 @@ function template_main()
 
 				<li>
 					<a href="', $scripturl, '?action=helpadmin;help=see_member_ip" onclick="return reqWin(this.href);" class="help">
-						<svg viewBox="0 0 32 32" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#IconFingerprint"></use></svg>
+						<svg viewBox="0 0 32 32" ><use xlink:href="#IconFingerprint"></use></svg>
 					</a>
 				</li>';
 
@@ -1054,7 +1054,7 @@ function template_main()
 			echo '
 
 				<li>
-					<svg viewBox="0 0 32 32" ><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#IconFingerprint"></use></svg>
+					<svg viewBox="0 0 32 32" ><use xlink:href="#IconFingerprint"></use></svg>
 				</li>';
 
 

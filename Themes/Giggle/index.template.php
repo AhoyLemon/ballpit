@@ -1,81 +1,6 @@
 <?php
 
 
-
-/**
-
- * Simple Machines Forum (SMF)
-
- *
-
- * @package SMF
-
- * @author Simple Machines
-
- * @copyright 2011 Simple Machines
-
- * @license http://www.simplemachines.org/about/smf/license.php BSD
-
- *
-
- * @version 2.0
-
- */
-
-
-
-/*	This template is, perhaps, the most important template in the theme. It
-
-	contains the main template layer that displays the header and footer of
-
-	the forum, namely with main_above and main_below. It also contains the
-
-	menu sub template, which appropriately displays the menu; the init sub
-
-	template, which is there to set the theme up; (init can be missing.) and
-
-	the linktree sub template, which sorts out the link tree.
-
-	The init sub template should load any data and set any hardcoded options.
-
-
-
-	The main_above sub template is what is shown above the main content, and
-
-	should contain anything that should be shown up there.
-
-
-
-	The main_below sub template, conversely, is shown after the main content.
-
-	It should probably contain the copyright statement and some other things.
-
-
-
-	The linktree sub template should display the link tree, using the data
-
-	in the $context['linktree'] variable.
-
-
-
-	The menu sub template should display all the relevant buttons the user
-
-	wants and or needs.
-
-
-
-	For more information on the templating system, please see the site at:
-
-	http://www.simplemachines.org/
-
-
-
-    Giggle theme created by Mick G. idesign360.com
-
-*/
-
-
-
 // Initialize the template... mainly little settings.
 
 
@@ -180,7 +105,7 @@ function template_html_above()
 
 	echo '
     <meta charset="iso-8859-1">
-    <link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/ballpit.css?lastUpdated=08.29.2016" />';
+    <link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/ballpit.css?lastUpdated=08.30.2016" />';
   
     echo '
     <!-- FAVICON -->
@@ -207,7 +132,7 @@ function template_html_above()
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@TheFPlus" />
     <meta name="twitter:title" content="'.$context['page_title_html_safe'].'" />
-    <meta name="twitter:image" content="http://ballp.it/og-image.png" />
+    <meta name="twitter:image" content="'.$_SERVER["REQUEST_SCHEME"].'://ballp.it/og-image.png" />
     <meta name="twitter:description" content="ballp.it is the community forum for The F Plus." />
     ';
   
@@ -216,7 +141,7 @@ function template_html_above()
     <meta property="og:title" content="'.$context['page_title_html_safe'].'">
     <meta property="og:type" content="website">
     <meta property="og:description" content="ballp.it is the community forum for The F Plus.">
-    <meta name="og:image" content="http://ballp.it/og-image.png" />
+    <meta name="og:image" content="'.$_SERVER["REQUEST_SCHEME"].'://ballp.it/og-image.png" />
     <meta property="og:email" content="lemon@thefpl.us">';
 
 	// Some browsers need an extra stylesheet due to bugs/compatibility issues.
@@ -229,8 +154,6 @@ function template_html_above()
 
 	<link rel="stylesheet" type="text/css" href="', $settings['default_theme_url'], '/css/', $cssfix, '.css" />';
 
-
-
 	// RTL languages require an additional stylesheet.
 
 	if ($context['right_to_left'])
@@ -242,11 +165,11 @@ function template_html_above()
 	// Here comes the JavaScript bits!
 
 	echo '
-	<link href="http://fonts.googleapis.com/css?family=Cabin:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Cabin:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
-	<script type="text/javascript" src="', $settings['default_theme_url'], '/scripts/script.js?fin20"></script>
+	<script type="text/javascript" src="/Themes/default/scripts/script.js?fin20"></script>
 
-	<script type="text/javascript" src="', $settings['theme_url'], '/scripts/theme.js?fin20"></script>
+	<script type="text/javascript" src="/Themes/Giggle/scripts/theme.js?fin20"></script>
 
 	<script type="text/javascript"><!-- // --><![CDATA[
 
@@ -286,10 +209,7 @@ function template_html_above()
 	echo '
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 
-	<meta name="description" content="', $context['page_title_html_safe'], '" />', !empty($context['meta_keywords']) ? '
-
-	<meta name="keywords" content="' . $context['meta_keywords'] . '" />' : '', '
-
+	<meta name="description" content="', $context['page_title_html_safe'], '" />
 	<title>', $context['page_title_html_safe'], '</title>';
 
 
@@ -388,7 +308,6 @@ function template_body_above()
 		<div class="wrapper">
 
 				<div class="user">
-				<div class="g-plusone" data-size="tall" data-annotation="none" data-href="http://ballp.it"></div>
 				';
 
 
@@ -661,8 +580,8 @@ function template_body_below()
 			<li><a id="button_wap2" href="', $scripturl , '?wap2" class="new_win"><span>', $txt['wap2'], '</span></a></li>
 			<li class="last"><a href="https://github.com/AhoyLemon/ballpit">GitHub repo</a></li>
 		</ul>
-        <a class="bottom-left-link" href="http://thefpl.us" title="Visit The F Plus&apos; website">
-    <img src="http://ballp.it/Themes/Giggle/svg/fplus-symbol.svg" class="logo" alt="F Plus logo (off center)" />
+        <a class="bottom-left-link" href="https://thefpl.us" title="Visit The F Plus&apos; website">
+    <img src="'.$settings['theme_url'].'/svg/fplus-symbol.svg" class="logo" alt="F Plus logo (off center)" />
   </a>';
 
 
