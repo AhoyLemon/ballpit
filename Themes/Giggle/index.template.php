@@ -105,7 +105,7 @@ function template_html_above()
 
 	echo '
     <meta charset="iso-8859-1">
-    <link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/ballpit.css?lastUpdated=08.30.2016" />';
+    <link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/ballpit.css?lastUpdated=09.08.2016" />';
   
     echo '
     <!-- FAVICON -->
@@ -574,8 +574,7 @@ function template_body_below()
 
 		<ul class="reset">
 			<li class="copyright">ballp.it is owned and operated by <b>The F Plus</b></li>
-			<!-- <li class="copyright">', theme_copyright(), '</li> -->
-			<li><a id="button_xhtml" href="http://validator.w3.org/check?uri=referer" target="_blank" class="new_win" title="Valid HTML5"><span>HTML5</span></a></li>
+			<li><a id="button_xhtml" href="https://validator.w3.org/check?uri=referer" target="_blank" class="new_win" title="Valid HTML5"><span>HTML5</span></a></li>
 			', !empty($modSettings['xmlnews_enable']) && (!empty($modSettings['allow_guestAccess']) || $context['user']['is_logged']) ? '<li><a id="button_rss" href="' . $scripturl . '?action=.xml;type=rss" class="new_win"><span>' . $txt['rss'] . '</span></a></li>' : '', '
 			<li><a id="button_wap2" href="', $scripturl , '?wap2" class="new_win"><span>', $txt['wap2'], '</span></a></li>
 			<li class="last"><a href="https://github.com/AhoyLemon/ballpit">GitHub repo</a></li>

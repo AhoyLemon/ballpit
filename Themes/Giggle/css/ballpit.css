@@ -963,28 +963,71 @@ ul.icon_glossary:before { content: 'GLOSSARY'; position: absolute; top: -1em; co
 dl { overflow: auto; margin: 0; padding: 0; }
 
 /* The basic user info on the left */
-#basicinfo { width: 20%; float: left; }
+#profileview { display: -webkit-flex; display: -moz-flex; display: -ms-flexbox; display: flex; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-flex-wrap: wrap; -ms-flex-wrap: wrap; flex-wrap: wrap; -ms-flex-align: strech; -webkit-align-items: strech; align-items: strech; }
 
-#basicinfo .content { padding: 0; }
+#profileview .cat_bar { -webkit-flex-basis: 100%; -ms-flex-preferred-size: 100%; flex-basis: 100%; -webkit-flex-grow: 1; -ms-flex-positive: 1; flex-grow: 1; -webkit-flex-shrink: 1; -ms-flex-negative: 1; flex-shrink: 1; -webkit-align-self: auto; -ms-flex-item-align: auto; align-self: auto; }
 
-#detailedinfo { width: 79.5%; float: right; }
+#profileview #basicinfo { width: 180px; -webkit-flex-basis: 180px; -ms-flex-preferred-size: 180px; flex-basis: 180px; -webkit-flex-grow: 0; -ms-flex-positive: 0; flex-grow: 0; -webkit-flex-shrink: 0; -ms-flex-negative: 0; flex-shrink: 0; -webkit-align-self: auto; -ms-flex-item-align: auto; align-self: auto; }
 
-#basicinfo h4 { font-size: 135%; font-weight: 100; line-height: 105%; white-space: pre-wrap; overflow: hidden; }
+#profileview #basicinfo span.position { display: block; font-size: 80%; }
 
-#basicinfo h4 span.position { font-size: 80%; font-weight: 100; display: block; }
+#profileview #detailedinfo { -webkit-flex-basis: calc(100% - 200px); -ms-flex-preferred-size: calc(100% - 200px); flex-basis: calc(100% - 200px); -webkit-flex-grow: 1; -ms-flex-positive: 1; flex-grow: 1; -webkit-flex-shrink: 1; -ms-flex-negative: 1; flex-shrink: 1; -webkit-align-self: auto; -ms-flex-item-align: auto; align-self: auto; }
 
-#basicinfo ul { list-style-type: none; margin: 10px 0 0 0; }
+#profileview #detailedinfo dl { display: -webkit-flex; display: -moz-flex; display: -ms-flexbox; display: flex; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-flex-wrap: wrap; -ms-flex-wrap: wrap; flex-wrap: wrap; -ms-flex-align: strech; -webkit-align-items: strech; align-items: strech; }
 
-#basicinfo ul li { display: block; float: left; margin-right: 5px; height: 20px; }
+#profileview #detailedinfo dl dt, #profileview #detailedinfo dl dd { margin: 0.45em 0; border-bottom: 1px solid rgba(68, 68, 68, 0.3); }
 
-#basicinfo span#userstatus { display: block; clear: both; }
+#profileview #detailedinfo dl dt { -webkit-flex-basis: 8em; -ms-flex-preferred-size: 8em; flex-basis: 8em; -webkit-flex-grow: 1; -ms-flex-positive: 1; flex-grow: 1; -webkit-flex-shrink: 1; -ms-flex-negative: 1; flex-shrink: 1; -webkit-align-self: auto; -ms-flex-item-align: auto; align-self: auto; text-align: right; font-weight: 700; }
 
-#basicinfo span#userstatus img { vertical-align: middle; }
+#profileview #detailedinfo dl dd { -webkit-flex-basis: calc(100% - 10em); -ms-flex-preferred-size: calc(100% - 10em); flex-basis: calc(100% - 10em); -webkit-flex-grow: 1; -ms-flex-positive: 1; flex-grow: 1; -webkit-flex-shrink: 1; -ms-flex-negative: 1; flex-shrink: 1; -webkit-align-self: auto; -ms-flex-item-align: auto; align-self: auto; padding: 0 0 0 1em; }
 
-#detailedinfo div.content dl, #tracking div.content dl { clear: right; overflow: auto; margin: 0 0 18px 0; padding: 0 0 15px 0; border-bottom: 1px #999 solid; }
+#profileview #detailedinfo dl svg { width: 1em; height: 1em; }
 
-#tracking div.content dt { width: 35%; float: left; margin: 0 0 3px 0; padding: 0; font-weight: bold; clear: both; }
+#detailedinfo h4 { font-size: 135%; font-weight: 100; line-height: 105%; white-space: pre-wrap; overflow: hidden; }
 
+#detailedinfo ul { list-style-type: none; margin: 10px 0 0 0; }
+
+#detailedinfo ul li { display: block; float: left; margin-right: 5px; }
+
+#detailedinfo span#userstatus { display: block; clear: both; }
+
+#detailedinfo span#userstatus img { vertical-align: middle; }
+
+/*
+#detailedinfo div.content dl, #tracking div.content dl
+
+{
+
+  clear: right;
+
+  overflow: auto;
+
+  margin: 0 0 18px 0;
+
+  padding: 0 0 15px 0;
+
+  border-bottom: 1px #999 solid;
+
+}
+
+#tracking div.content dt
+
+{
+
+  width: 35%;
+
+  float: left;
+
+  margin: 0 0 3px 0;
+
+  padding: 0;
+
+  font-weight: bold;
+
+  clear: both;
+
+}
+*/
 #tracking div.content dd { width: 65%; float: left; margin: 0 0 3px 0; padding: 0; }
 
 #detailedinfo div.content dl.noborder { border-bottom: 0; }
@@ -1375,13 +1418,6 @@ span.hidelink { font-style: italic; }
 
 .home-footer-summary .forum-stats { margin-bottom: 1.5em; padding-left: 0.5em; border-left: 0.35em solid #bbb; border-bottom: 1px solid #bbb; }
 
-/** Profile View **/
-#profileview .extra-profile-info svg { height: 2em; width: 2em; }
-
-#profileview #basicinfo li { display: inline; }
-
-#profileview dt { clear: both; float: left; width: 12em; text-align: right; font-weight: 700; padding-right: 1em; }
-
 /** Karma Styles **/
 .post_wrapper { width: 100%; }
 
@@ -1504,7 +1540,7 @@ span.spoiler.spoiled:before, span.spoiler.spoiled:after { content: "SPOILED"; }
   #post_confirm_buttons { clear: both; float: none; }
   #post_confirm_buttons input[value=Preview] { width: 49%; }
   #post_confirm_buttons input[value=Post] { width: 49%; }
-  #profileview #basicinfo, #profileview #detailedinfo { float: none; width: 100%; }
+  #profileview #basicinfo, #profileview #detailedinfo { -webkit-flex-basis: 100%; -ms-flex-preferred-size: 100%; flex-basis: 100%; -webkit-flex-grow: 1; -ms-flex-positive: 1; flex-grow: 1; -webkit-flex-shrink: 1; -ms-flex-negative: 1; flex-shrink: 1; -webkit-align-self: auto; -ms-flex-item-align: auto; align-self: auto; }
   /** Poke Friendly Links **/
   .pagesection .pagelinks { font-size: 180%; }
   .pagelinks a { padding-left: 5px; padding-right: 5px; }

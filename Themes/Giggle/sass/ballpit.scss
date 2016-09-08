@@ -1,4 +1,5 @@
 @import "partials/_variables";
+@import "partials/_mixins";
 @import "partials/_extends";
 
 // STUFF THAT SHOULD BE KILLED IN THE PHP
@@ -2852,97 +2853,33 @@ dl { overflow: auto; margin: 0; padding: 0; }
 
 /* The basic user info on the left */
 
-#basicinfo
 
-{
-
-  width: 20%;
-
-  float: left;
-
-}
-#basicinfo .content { padding: 0; }
-
-#detailedinfo
-
-{
-
-  width: 79.5%;
-
-  float: right;
-
+#profileview { @include flex-container();
+  .cat_bar { @include flex-item(100%); }
+  #basicinfo { @include flex-item(180px,0,0);
+    span.position { display: block; font-size:80%; }
+  }
+  #detailedinfo { @include flex-item(calc(100% - 200px));
+    dl { @include flex-container();
+      dt, dd { margin: 0.45em 0; border-bottom: 1px solid rgba($black,0.3); }
+      dt { @include flex-item(8em); text-align: right; font-weight: $bold;   }
+      dd { @include flex-item(calc(100% - 10em)); padding: 0 0 0 1em; }
+      svg { width: 1em; height: 1em; }
+    }
+  }
 }
 
-#basicinfo h4
-
-{
-
-  font-size: 135%;
-
-  font-weight: 100;
-
-  line-height: 105%;
-
-  white-space: pre-wrap;
-
-  overflow: hidden;
-
+#detailedinfo {
+  h4 { font-size: 135%; font-weight: 100; line-height: 105%; white-space: pre-wrap; overflow: hidden; }
+  ul { list-style-type: none; margin: 10px 0 0 0;
+    li { display: block; float: left; margin-right: 5px; }
+  }
+  span#userstatus { display: block; clear: both;
+    img { vertical-align: middle; }
+  }
 }
 
-#basicinfo h4 span.position
-
-{
-
-  font-size: 80%;
-
-  font-weight: 100;
-
-  display: block;
-
-}
-
-#basicinfo ul
-
-{
-
-  list-style-type: none;
-
-  margin: 10px 0 0 0;
-
-}
-
-#basicinfo ul li
-
-{
-
-  display: block;
-
-  float: left;
-
-  margin-right: 5px;
-
-  height: 20px;
-
-}
-
-#basicinfo span#userstatus
-
-{
-
-  display: block;
-
-  clear: both;
-
-}
-
-#basicinfo span#userstatus img
-
-{
-
-  vertical-align: middle;
-
-}
-
+/*
 #detailedinfo div.content dl, #tracking div.content dl
 
 {
@@ -2976,6 +2913,7 @@ dl { overflow: auto; margin: 0; padding: 0; }
   clear: both;
 
 }
+*/
 
 #tracking div.content dd
 
@@ -4517,19 +4455,6 @@ span.hidelink
   .forum-stats { margin-bottom: 1.5em; padding-left: 0.5em; border-left: 0.35em solid $grey; border-bottom:1px solid $grey; }
 }
 
-
-/** Profile View **/
-
-#profileview {
-  .extra-profile-info {
-    svg { height: 2em; width: 2em; }
-  }
-  #basicinfo li { display:inline; }
-  dt { clear: both; float: left; width: 12em; text-align: right; font-weight: $bold; padding-right: 1em; }
-}
-
-
-
 /** Karma Styles **/
 .post_wrapper { width:100%;
   .poster { float: left; width: 12em; max-width: 120px;
@@ -4668,7 +4593,7 @@ span.spoiler { cursor:pointer;
 
   // PROFILE VIEW //
   #profileview {
-    #basicinfo, #detailedinfo { float: none; width: 100%; }
+    #basicinfo, #detailedinfo { @include flex-item(100%); }
   }
 
 

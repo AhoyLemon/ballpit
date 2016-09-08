@@ -1,0 +1,25 @@
+@mixin flex-container($direction:row, $wrap:wrap, $align:strech) {
+  display: -webkit-box; display: -webkit-flex; display: -moz-flex;display: -ms-flexbox; display: flex;
+  flex-direction: $direction;
+  -webkit-flex-wrap:$wrap; -moz-flex-wrap:$wrap; 
+  flex-wrap: $wrap;
+  @if $align == flex-start { 
+    -webkit-box-align: start; -ms-flex-align: start;
+  } @else if $align == flex-end { 
+    -webkit-box-align: end; -ms-flex-align: end;
+  } @else { 
+    -webkit-box-align: $align; -ms-flex-align: $align;
+  }
+  align-items: $align;
+}
+@mixin flex-item($basis, $grow:1, $shrink:1, $align:auto) {
+  @if $grow == 0 {
+    width:$basis;
+    flex-basis: $basis;
+  } @else {
+    flex-basis: $basis;
+  }
+  flex-grow: $grow;
+  flex-shrink: $shrink;
+  align-self: $align;
+}
