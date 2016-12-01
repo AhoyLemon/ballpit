@@ -9,11 +9,11 @@ function template_init()
 
 {
 
-	global $context, $settings, $options, $txt;
+  global $context, $settings, $options, $txt;
 
 
 
-	/* Use images from default theme when using templates from the default theme?
+  /* Use images from default theme when using templates from the default theme?
 
 		if this is 'always', images from the default theme will be used.
 
@@ -21,61 +21,61 @@ function template_init()
 
 		if this is 'never' or isn't set at all, images from the default theme will not be used. */
 
-	$settings['use_default_images'] = 'never';
+  $settings['use_default_images'] = 'never';
 
 
 
-	/* What document type definition is being used? (for font size and other issues.)
+  /* What document type definition is being used? (for font size and other issues.)
 
 		'xhtml' for an XHTML 1.0 document type definition.
 
 		'html' for an HTML 4.01 document type definition. */
 
-	$settings['doctype'] = 'xhtml';
+  $settings['doctype'] = 'xhtml';
 
 
 
-	/* The version this template/theme is for.
+  /* The version this template/theme is for.
 
 		This should probably be the version of SMF it was created for. */
 
-	$settings['theme_version'] = '2.0';
+  $settings['theme_version'] = '2.0';
 
 
 
-	/* Set a setting that tells the theme that it can render the tabs. */
+  /* Set a setting that tells the theme that it can render the tabs. */
 
-	$settings['use_tabs'] = true;
-
-
-
-	/* Use plain buttons - as opposed to text buttons? */
-
-	$settings['use_buttons'] = true;
+  $settings['use_tabs'] = true;
 
 
 
-	/* Show sticky and lock status separate from topic icons? */
+  /* Use plain buttons - as opposed to text buttons? */
 
-	$settings['separate_sticky_lock'] = true;
-
-
-
-	/* Does this theme use the strict doctype? */
-
-	$settings['strict_doctype'] = false;
+  $settings['use_buttons'] = true;
 
 
 
-	/* Does this theme use post previews on the message index? */
+  /* Show sticky and lock status separate from topic icons? */
 
-	$settings['message_index_preview'] = false;
+  $settings['separate_sticky_lock'] = true;
 
 
 
-	/* Set the following variable to true if this theme requires the optional theme strings file to be loaded. */
+  /* Does this theme use the strict doctype? */
 
-	$settings['require_theme_strings'] = true;
+  $settings['strict_doctype'] = false;
+
+
+
+  /* Does this theme use post previews on the message index? */
+
+  $settings['message_index_preview'] = false;
+
+
+
+  /* Set the following variable to true if this theme requires the optional theme strings file to be loaded. */
+
+  $settings['require_theme_strings'] = true;
 
 }
 
@@ -87,13 +87,13 @@ function template_html_above()
 
 {
 
-	global $context, $settings, $options, $scripturl, $txt, $modSettings;
+  global $context, $settings, $options, $scripturl, $txt, $modSettings;
 
 
 
-	// Show right to left and the character set for ease of translating.
+  // Show right to left and the character set for ease of translating.
 
-	echo '<!DOCTYPE html>
+  echo '<!DOCTYPE html>
 
 <html>
 
@@ -101,13 +101,13 @@ function template_html_above()
 
 
 
-	// The ?fin20 part of this link is just here to make sure browsers don't cache it wrongly.
+  // The ?fin20 part of this link is just here to make sure browsers don't cache it wrongly.
 
-	echo '
+  echo '
     <meta charset="iso-8859-1">
     <link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/ballpit.css?lastUpdated=09.08.2016" />';
-  
-    echo '
+
+  echo '
     <!-- FAVICON -->
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
@@ -126,8 +126,8 @@ function template_html_above()
     <meta name="msapplication-TileColor" content="#4eb85d">
     <meta name="msapplication-TileImage" content="/mstile-144x144.png">
     <meta name="theme-color" content="#4eb85d">';
-  
-    echo '
+
+  echo '
     <!-- TWITTER -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@TheFPlus" />
@@ -135,8 +135,8 @@ function template_html_above()
     <meta name="twitter:image" content="'.$_SERVER["REQUEST_SCHEME"].'://ballp.it/og-image.png" />
     <meta name="twitter:description" content="ballp.it is the community forum for The F Plus." />
     ';
-  
-    echo '
+
+  echo '
     <!-- OPEN GRAPH -->
     <meta property="og:title" content="'.$context['page_title_html_safe'].'">
     <meta property="og:type" content="website">
@@ -144,33 +144,18 @@ function template_html_above()
     <meta name="og:image" content="'.$_SERVER["REQUEST_SCHEME"].'://ballp.it/og-image.png" />
     <meta property="og:email" content="lemon@thefpl.us">';
 
-	// Some browsers need an extra stylesheet due to bugs/compatibility issues.
+  // RTL languages require an additional stylesheet.
 
-	foreach (array('ie7', 'ie6') as $cssfix)
+  if ($context['right_to_left']) echo '<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/rtl.css" />';
 
-		if ($context['browser']['is_' . $cssfix])
-
-			echo '
-
-	<link rel="stylesheet" type="text/css" href="', $settings['default_theme_url'], '/css/', $cssfix, '.css" />';
-
-	// RTL languages require an additional stylesheet.
-
-	if ($context['right_to_left'])
-
-		echo '
-
-	<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/rtl.css" />';
-
-	// Here comes the JavaScript bits!
-
-	echo '
+  // Here comes the JavaScript bits!
+  echo '
 	<link href="https://fonts.googleapis.com/css?family=Cabin:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="/Themes/default/scripts/script.js?fin20"></script>';
 
-	<script type="text/javascript" src="/Themes/default/scripts/script.js?fin20"></script>
+ // <script type="text/javascript" src="/Themes/Giggle/scripts/theme.js?fin20"></script>
 
-	<script type="text/javascript" src="/Themes/Giggle/scripts/theme.js?fin20"></script>
-
+  echo '
 	<script type="text/javascript"><!-- // --><![CDATA[
 
 		var smf_theme_url = "', $settings['theme_url'], '";
@@ -206,7 +191,7 @@ function template_html_above()
 
 
 
-	echo '
+  echo '
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 
 	<meta name="description" content="', $context['page_title_html_safe'], '" />
@@ -214,29 +199,29 @@ function template_html_above()
 
 
 
-	// Please don't index these Mr Robot.
+  // Please don't index these Mr Robot.
 
-	if (!empty($context['robot_no_index']))
+  if (!empty($context['robot_no_index']))
 
-		echo '
+    echo '
 
 	<meta name="robots" content="noindex" />';
 
 
 
-	// Present a canonical url for search engines to prevent duplicate content in their indices.
+  // Present a canonical url for search engines to prevent duplicate content in their indices.
 
-	if (!empty($context['canonical_url']))
+  if (!empty($context['canonical_url']))
 
-		echo '
+    echo '
 
 	<link rel="canonical" href="', $context['canonical_url'], '" />';
 
 
 
-	// Show all the relative links, such as help, search, contents, and the like.
+  // Show all the relative links, such as help, search, contents, and the like.
 
-	echo '
+  echo '
 
 	<link rel="help" href="', $scripturl, '?action=help" />
 
@@ -246,21 +231,21 @@ function template_html_above()
 
 
 
-	// If RSS feeds are enabled, advertise the presence of one.
+  // If RSS feeds are enabled, advertise the presence of one.
 
-	if (!empty($modSettings['xmlnews_enable']) && (!empty($modSettings['allow_guestAccess']) || $context['user']['is_logged']))
+  if (!empty($modSettings['xmlnews_enable']) && (!empty($modSettings['allow_guestAccess']) || $context['user']['is_logged']))
 
-		echo '
+    echo '
 
 	<link rel="alternate" type="application/rss+xml" title="', $context['forum_name_html_safe'], ' - ', $txt['rss'], '" href="', $scripturl, '?type=rss;action=.xml" />';
 
 
 
-	// If we're viewing a topic, these should be the previous and next topics, respectively.
+  // If we're viewing a topic, these should be the previous and next topics, respectively.
 
-	if (!empty($context['current_topic']))
+  if (!empty($context['current_topic']))
 
-		echo '
+    echo '
 
 	<link rel="prev" href="', $scripturl, '?topic=', $context['current_topic'], '.0;prev_next=prev" />
 
@@ -268,26 +253,26 @@ function template_html_above()
 
 
 
-	// If we're in a board, or a topic for that matter, the index will be the board's index.
+  // If we're in a board, or a topic for that matter, the index will be the board's index.
 
-	if (!empty($context['current_board']))
+  if (!empty($context['current_board']))
 
-		echo '
+    echo '
 
 	<link rel="index" href="', $scripturl, '?board=', $context['current_board'], '.0" />';
 
 
 
-	// Output any remaining HTML headers. (from mods, maybe?)
+  // Output any remaining HTML headers. (from mods, maybe?)
 
-	echo $context['html_headers'];
+  echo $context['html_headers'];
 
-	echo '
+  echo '
 </head>
 
 <body>';
 
-include("svgDefinitions.php");
+  include("svgDefinitions.php");
 
 }
 
@@ -297,11 +282,11 @@ function template_body_above()
 
 {
 
-	global $context, $settings, $options, $scripturl, $txt, $modSettings;
+  global $context, $settings, $options, $scripturl, $txt, $modSettings;
 
 
 
-	echo '
+  echo '
 
 	<div id="top_banner">
 
@@ -312,39 +297,39 @@ function template_body_above()
 
 
 
-				// If the user is logged in, display stuff like their name, new messages, etc.
+  // If the user is logged in, display stuff like their name, new messages, etc.
 
-				if ($context['user']['is_logged'])
+  if ($context['user']['is_logged'])
 
-				{
+  {
 
-					if (!empty($context['user']['avatar']))
+    if (!empty($context['user']['avatar']))
 
-					echo '
+      echo '
 
 						<p class="avatar">', $context['user']['avatar']['image'], '</p>';
 
-					echo '
+    echo '
 
 						<ul class="reset">
 
                                                         <li class="greeting">', $txt['hello_member_ndt'], ' <span>', $context['user']['name'], '</span> &bull; <a href="', $scripturl, '?action=unread">', $txt['new_posts'], '</a> &bull; <a href="', $scripturl, '?action=unreadreplies">', $txt['replies'], '</a></li>';
 
-			
 
-					echo '
+
+    echo '
 
 						</ul>';
 
-					}
+  }
 
-					// Otherwise they're a guest - this time ask them to either register or login - lazy bums...
+  // Otherwise they're a guest - this time ask them to either register or login - lazy bums...
 
-					else
+  else
 
-					{
+  {
 
-						echo '
+    echo '
 
 							<div class="info" style="padding:5px;"> Welcome, <strong>Guest</strong>. Please <a href="http://ballp.it/index.php?action=login">login</a> or <a href="http://ballp.it/index.php?action=register">register</a>.</div>
 
@@ -360,11 +345,11 @@ function template_body_above()
 
 							</form> -->';
 
-					}
+  }
 
-			
 
-		echo '
+
+  echo '
 			     </div>
 
 		     <div id="time"><span>', $context['current_time'],'</span></div>
@@ -387,28 +372,28 @@ function template_body_above()
 
 
 
-	// Search within current topic?
+  // Search within current topic?
 
-	if (!empty($context['current_topic']))
+  if (!empty($context['current_topic']))
 
-		echo '
+    echo '
 
 					<input type="hidden" name="topic" value="', $context['current_topic'], '" />';
 
-	// If we're on a certain board, limit it to this board ;).
+  // If we're on a certain board, limit it to this board ;).
 
-	elseif (!empty($context['current_board']))
+  elseif (!empty($context['current_board']))
 
-		echo '
+    echo '
 
 					<input type="hidden" name="brd[', $context['current_board'], ']" value="', $context['current_board'], '" />';
 
 
 
-	                echo '</form>
+  echo '</form>
 
 		         </div>
-				 
+
 			<a class="hamburger"></a>
 			<div id="logo">
 
@@ -420,13 +405,13 @@ function template_body_above()
 
 	</div>';
 
-	global $context, $user_info;
+  global $context, $user_info;
 
-	if ($context['user']['is_guest'])
+  if ($context['user']['is_guest'])
 
-	{
+  {
 
-		echo '
+    echo '
 
 		<div class="statusbar">
 
@@ -442,13 +427,13 @@ function template_body_above()
 
 		';
 
-	}
+  }
 
-	elseif ($context['user']['is_admin'])
+  elseif ($context['user']['is_admin'])
 
-	{
+  {
 
-		echo '
+    echo '
 
 		<div class="statusbar hidethis">
 
@@ -462,13 +447,13 @@ function template_body_above()
 
 		';
 
-	}
+  }
 
-	elseif (in_array(9, $user_info['groups']))
+  elseif (in_array(9, $user_info['groups']))
 
-	{
+  {
 
-		echo '
+    echo '
 
 		<div class="statusbar hidethis">
 
@@ -482,13 +467,13 @@ function template_body_above()
 
 		';
 
-	}
+  }
 
-	elseif (in_array(10, $user_info['groups']))
+  elseif (in_array(10, $user_info['groups']))
 
-	{
+  {
 
-		echo '
+    echo '
 
 		<div class="statusbar hidethis">
 
@@ -502,9 +487,9 @@ function template_body_above()
 
 		';
 
-	} else {
+  } else {
 
-		echo '
+    echo '
 
 		<div class="statusbar">
 
@@ -520,9 +505,9 @@ function template_body_above()
 
 		';
 
-	}
+  }
 
-	echo '
+  echo '
 
 	<div id="bar">
 
@@ -540,9 +525,9 @@ function template_body_above()
 
 
 
-			// Show the navigation tree.
+  // Show the navigation tree.
 
-			theme_linktree();
+  theme_linktree();
 
 }
 
@@ -552,11 +537,11 @@ function template_body_below()
 
 {
 
-	global $context, $settings, $options, $scripturl, $txt, $modSettings;
+  global $context, $settings, $options, $scripturl, $txt, $modSettings;
 
 
 
-		echo '
+  echo '
 
 			</div>
 
@@ -566,9 +551,9 @@ function template_body_below()
 
 
 
-	// Show the "Powered by" and "Valid" logos, as well as the copyright. Remember, the copyright must be somewhere!
+  // Show the "Powered by" and "Valid" logos, as well as the copyright. Remember, the copyright must be somewhere!
 
-	echo '
+  echo '
 
 	<div id="footer">
 
@@ -585,17 +570,17 @@ function template_body_below()
 
 
 
-	// Show the load time?
+  // Show the load time?
 
-	if ($context['show_load_time'])
+  if ($context['show_load_time'])
 
-		echo '
+    echo '
 
 		<p class="smalltext">', $txt['page_created'], $context['load_time'], $txt['seconds_with'], $context['load_queries'], $txt['queries'], '</p>';
 
 
 
-	echo '
+  echo '
 
 	</div>';
 
@@ -607,11 +592,11 @@ function template_html_below()
 
 {
 
-	global $context, $settings, $options, $scripturl, $txt, $modSettings;
+  global $context, $settings, $options, $scripturl, $txt, $modSettings;
 
 
   include("analyticstracking.php");
-	echo "<script type='text/javascript' src='", $settings["theme_url"], "/scripts/ballpit.js'></script>
+  echo "<script type='text/javascript' src='", $settings["theme_url"], "/scripts/ballpit.js?updated=11.30.16'></script>
 </body></html>";
 
 }
@@ -624,19 +609,19 @@ function theme_linktree($force_show = false)
 
 {
 
-	global $context, $settings, $options, $shown_linktree;
+  global $context, $settings, $options, $shown_linktree;
 
 
 
-	// If linktree is empty, just return - also allow an override.
+  // If linktree is empty, just return - also allow an override.
 
-	if (empty($context['linktree']) || (!empty($context['dont_default_linktree']) && !$force_show))
+  if (empty($context['linktree']) || (!empty($context['dont_default_linktree']) && !$force_show))
 
-		return;
+    return;
 
 
 
-	echo '
+  echo '
 
 	<div class="navigate_section">
 
@@ -644,57 +629,57 @@ function theme_linktree($force_show = false)
 
 
 
-	// Each tree item has a URL and name. Some may have extra_before and extra_after.
+  // Each tree item has a URL and name. Some may have extra_before and extra_after.
 
-	foreach ($context['linktree'] as $link_num => $tree)
+  foreach ($context['linktree'] as $link_num => $tree)
 
-	{
+  {
 
-		echo '
+    echo '
 
 			<li', ($link_num == count($context['linktree']) - 1) ? ' class="last"' : '', '>';
 
 
 
-		// Show something before the link?
+    // Show something before the link?
 
-		if (isset($tree['extra_before']))
+    if (isset($tree['extra_before']))
 
-			echo $tree['extra_before'];
+      echo $tree['extra_before'];
 
 
 
-		// Show the link, including a URL if it should have one.
+    // Show the link, including a URL if it should have one.
 
-		echo $settings['linktree_link'] && isset($tree['url']) ? '
+    echo $settings['linktree_link'] && isset($tree['url']) ? '
 
 				<a href="' . $tree['url'] . '"><span>' . $tree['name'] . '</span></a>' : '<span>' . $tree['name'] . '</span>';
 
 
 
-		// Show something after the link...?
+    // Show something after the link...?
 
-		if (isset($tree['extra_after']))
+    if (isset($tree['extra_after']))
 
-			echo $tree['extra_after'];
-
-
-
-		// Don't show a separator for the last one.
-
-		if ($link_num != count($context['linktree']) - 1)
-
-			echo ' &#187;';
+      echo $tree['extra_after'];
 
 
 
-		echo '
+    // Don't show a separator for the last one.
+
+    if ($link_num != count($context['linktree']) - 1)
+
+      echo ' &#187;';
+
+
+
+    echo '
 
 			</li>';
 
-	}
+  }
 
-	echo '
+  echo '
 
 		</ul>
 
@@ -702,7 +687,7 @@ function theme_linktree($force_show = false)
 
 
 
-	$shown_linktree = true;
+  $shown_linktree = true;
 
 }
 
@@ -714,11 +699,11 @@ function template_menu()
 
 {
 
-	global $context, $settings, $options, $scripturl, $txt;
+  global $context, $settings, $options, $scripturl, $txt;
 
 
 
-	echo '
+  echo '
 
 		<div id="navigation">
 
@@ -726,11 +711,11 @@ function template_menu()
 
 
 
-	foreach ($context['menu_buttons'] as $act => $button)
+  foreach ($context['menu_buttons'] as $act => $button)
 
-	{
+  {
 
-		echo '
+    echo '
 
 				<li id="button_', $act, '">
 
@@ -740,21 +725,21 @@ function template_menu()
 
 					</a>';
 
-		if (!empty($button['sub_buttons']))
+    if (!empty($button['sub_buttons']))
 
-		{
+    {
 
-			echo '
+      echo '
 
 					<ul>';
 
 
 
-			foreach ($button['sub_buttons'] as $childbutton)
+      foreach ($button['sub_buttons'] as $childbutton)
 
-			{
+      {
 
-				echo '
+        echo '
 
 						<li>
 
@@ -764,21 +749,21 @@ function template_menu()
 
 							</a>';
 
-				// 3rd level menus :)
+        // 3rd level menus :)
 
-				if (!empty($childbutton['sub_buttons']))
+        if (!empty($childbutton['sub_buttons']))
 
-				{
+        {
 
-					echo '
+          echo '
 
 							<ul>';
 
 
 
-					foreach ($childbutton['sub_buttons'] as $grandchildbutton)
+          foreach ($childbutton['sub_buttons'] as $grandchildbutton)
 
-						echo '
+            echo '
 
 								<li>
 
@@ -792,35 +777,35 @@ function template_menu()
 
 
 
-					echo '
+          echo '
 
 							</ul>';
 
-				}
+        }
 
 
 
-				echo '
+        echo '
 
 						</li>';
 
-			}
+      }
 
-				echo '
+      echo '
 
 					</ul>';
 
-		}
+    }
 
-		echo '
+    echo '
 
 				</li>';
 
-	}
+  }
 
 
 
-	echo '
+  echo '
 
 			</ul>
 
@@ -836,63 +821,63 @@ function template_button_strip($button_strip, $direction = 'top', $strip_options
 
 {
 
-	global $settings, $context, $txt, $scripturl;
+  global $settings, $context, $txt, $scripturl;
 
 
 
-	if (!is_array($strip_options))
+  if (!is_array($strip_options))
 
-		$strip_options = array();
-
-		
-
-	// List the buttons in reverse order for RTL languages.
-
-	if ($context['right_to_left'])
-
-		$button_strip = array_reverse($button_strip, true);
+    $strip_options = array();
 
 
 
-	// Create the buttons...
+  // List the buttons in reverse order for RTL languages.
 
-	$buttons = array();
+  if ($context['right_to_left'])
 
-	foreach ($button_strip as $key => $value)
+    $button_strip = array_reverse($button_strip, true);
 
-	{
 
-		if (!isset($value['test']) || !empty($context[$value['test']]))
 
-			$buttons[] = '
+  // Create the buttons...
+
+  $buttons = array();
+
+  foreach ($button_strip as $key => $value)
+
+  {
+
+    if (!isset($value['test']) || !empty($context[$value['test']]))
+
+      $buttons[] = '
 
 				<li><a' . (isset($value['id']) ? ' id="button_strip_' . $value['id'] . '"' : '') . ' class="button_strip_' . $key . (isset($value['active']) ? ' active' : '') . '" href="' . $value['url'] . '"' . (isset($value['custom']) ? ' ' . $value['custom'] : '') . '><span>' . $txt[$value['text']] . '</span></a></li>';
 
-	}
+  }
 
 
 
-	// No buttons? No button strip either.
+  // No buttons? No button strip either.
 
-	if (empty($buttons))
+  if (empty($buttons))
 
-		return;
-
-
-
-	// Make the last one, as easy as possible.
-
-	$buttons[count($buttons) - 1] = str_replace('<span>', '<span class="last">', $buttons[count($buttons) - 1]);
+    return;
 
 
 
-	echo '
+  // Make the last one, as easy as possible.
+
+  $buttons[count($buttons) - 1] = str_replace('<span>', '<span class="last">', $buttons[count($buttons) - 1]);
+
+
+
+  echo '
 
 		<div class="buttonlist', !empty($direction) ? ' float' . $direction : '', '"', (empty($buttons) ? ' style="display: none;"' : ''), (!empty($strip_options['id']) ? ' id="' . $strip_options['id'] . '"': ''), '>
 
 			<ul>',
 
-				implode('', $buttons), '
+  implode('', $buttons), '
 
 			</ul>
 
