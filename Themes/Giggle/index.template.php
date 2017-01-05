@@ -594,8 +594,8 @@ function template_html_below()
 
   global $context, $settings, $options, $scripturl, $txt, $modSettings;
 
-
   include("analyticstracking.php");
+  
   echo "<script type='text/javascript' src='", $settings["theme_url"], "/scripts/ballpit.js?updated=12.02.16'></script>
 </body></html>";
 
@@ -884,7 +884,6 @@ function template_button_strip($button_strip, $direction = 'top', $strip_options
 		</div>';
 
 }
-
 
 
 ?>

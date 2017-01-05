@@ -1,19 +1,37 @@
 <?php // PIWIK ?>
-  <script type="text/javascript">
-    var _paq = _paq || [];
-    _paq.push(["setDomains", ["*.ballp.it"]]);
-    _paq.push(['trackPageView']);
-    _paq.push(['enableLinkTracking']);
-    (function() {
-      var u="//thefpl.us/analytics/";
-      _paq.push(['setTrackerUrl', u+'pwk.php']);
-      _paq.push(['setSiteId', '2']);
-      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-      g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'pwk.js'; s.parentNode.insertBefore(g,s);
-    })();
-  </script>
-  <noscript><p><img src="//thefpl.us/analytics/pwk.php?idsite=2" style="border:0;" alt="" /></p></noscript>
 
+<?php global $context, $user_info; ?>
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(["setDomains", ["*.ballp.it"]]);
+  <?php if ($context['user']['id'] != 0 && $context['user']['is_guest'] == false) {
+    echo "_paq.push(['setUserId', '" . $context['user']['name'] . "']);";
+  } ?>
+
+  <?php $userGroup = "Guest"; ?>
+
+  <?php if (in_array(1, $user_info['groups'])) {
+    $userGroup = "Admin";
+  } else if (in_array(9, $user_info['groups'])) {
+    $userGroup = "Ridiculist";
+  } else if (in_array(10, $user_info['groups'])) {
+    $userGroup = "Paid";
+  } else if (in_array(4, $user_info['groups'])) {
+    $userGroup = "Unpaid";
+  } ?>
+  _paq.push(['setCustomVariable', 1, "userGroup", "<?php echo $userGroup; ?>", "visit"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//thefpl.us/analytics/";
+    _paq.push(['setTrackerUrl', u+'pwk.php']);
+    _paq.push(['setSiteId', '2']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//thefpl.us/analytics/pwk.php?idsite=2" style="border:0;" alt="" /></p></noscript>
 
 <?php /*
 
