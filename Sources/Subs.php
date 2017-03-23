@@ -925,6 +925,11 @@ function parse_bbc($message, $smileys = true, $cache_id = '', $parse_tags = arra
 	// Ohara youtube embed
 	$message = OYTE_Preparse($message);
 
+	// Embed Twitter Tweets.
+	if (!empty($message))
+		$message = preg_replace("/https?:\/\/(www.)?twitter.com\/[a-zA-Z0-9_]+\/status\/(\d+)/i", "[tweet]$2[/tweet]", $message);
+
+
 	// Sift out the bbc for a performance improvement.
 	if (empty($bbc_codes) || $message === false || !empty($parse_tags))
 	{
@@ -1395,6 +1400,27 @@ function parse_bbc($message, $smileys = true, $cache_id = '', $parse_tags = arra
 				'tag' => 'pre',
 				'before' => '<pre>',
 				'after' => '</pre>',
+			),
+			//Twitter embedding - added by Ambious
+			array( 
+				'tag' => 'tweet',
+				'type' => 'unparsed_content',
+				'content' => '$1',
+				'validate' => create_function('&$tag, &$data, $disabled', '
+
+					global $sourcedir, $txt;
+					require_once($sourcedir . \'/Subs-Package.php\');
+
+					$tweet = false;
+					if (isset($data) && is_numeric($data))
+						$tweet = json_decode(fetch_web_data(\'https://api.twitter.com/1/statuses/oembed.json?id=\'.$data. \'\'), true);
+					if (is_array($tweet) && !empty($tweet))
+						$data = $tweet[\'html\'];
+					else
+						$data = $txt[\'invalid_tweet\'];
+				'),
+				'block_level' => true,
+				'disabled_content' => '$1'
 			),
 			array(
 				'tag' => 'quote',
