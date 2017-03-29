@@ -19,6 +19,7 @@ function trackEvent(c, a, l, v) {
 /* jshint -W117 */
 $(document).ready(function() {
   $('.hamburger').click(function() {
+    $(this).toggleClass('active');
     $('#bar').slideToggle(150);
   });
 

@@ -105,7 +105,7 @@ function template_html_above()
 
   echo '
     <meta charset="iso-8859-1">
-    <link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/ballpit.css?lastUpdated=03.23.2017" />';
+    <link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/ballpit.css?lastUpdated=03.29.2017" />';
 
   echo '
     <!-- FAVICON -->
@@ -394,7 +394,13 @@ function template_body_above()
 
 		         </div>
 
-			<a class="hamburger"></a>
+			<a class="hamburger">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+          <path class="circle" id="HamburgerCircle" d="M50 96C24.6 96 4 75.4 4 50S24.6 4 50 4s46 20.6 46 46-20.6 46-46 46zm0-86.2C27.8 9.8 9.8 27.8 9.8 50s18 40.3 40.2 40.3S90.3 72.2 90.3 50 72.2 9.8 50 9.8z" />
+          <path class="lines" id="HamburgerLines" d="M67.3 38.5H32.8c-1.6 0-2.9-1.3-2.9-2.9s1.3-2.9 2.9-2.9h34.5c1.6 0 2.9 1.3 2.9 2.9s-1.4 2.9-2.9 2.9zM67.3 52.9H32.8c-1.6 0-2.9-1.3-2.9-2.9s1.3-2.9 2.9-2.9h34.5c1.6 0 2.9 1.3 2.9 2.9s-1.4 2.9-2.9 2.9zM67.3 67.3H32.8c-1.6 0-2.9-1.3-2.9-2.9s1.3-2.9 2.9-2.9h34.5c1.6 0 2.9 1.3 2.9 2.9s-1.4 2.9-2.9 2.9z" />
+          <path class="x" id="HamburgerX" d="M54.1 50l10.2-10.2c1.1-1.1 1.1-2.9 0-4.1s-2.9-1.1-4.1 0L50 45.9 39.8 35.8c-1.1-1.1-2.9-1.1-4.1 0s-1.1 2.9 0 4.1L45.9 50 35.8 60.2c-1.1 1.1-1.1 2.9 0 4.1 1.1 1.1 2.9 1.1 4.1 0L50 54.1l10.2 10.2c1.1 1.1 2.9 1.1 4.1 0 1.1-1.1 1.1-2.9 0-4.1L54.1 50z" />
+        </svg>
+      </a>
 			<div id="logo">
 
 				<a href="'.$scripturl.'" title=""></a>
@@ -596,7 +602,7 @@ function template_html_below()
 
   include("analyticstracking.php");
   
-  echo "<script type='text/javascript' src='", $settings["theme_url"], "/scripts/ballpit.js?updated=12.02.16'></script>
+  echo "<script type='text/javascript' src='", $settings["theme_url"], "/scripts/ballpit.js?updated=03.29.17'></script>
 </body></html>";
 
 }
