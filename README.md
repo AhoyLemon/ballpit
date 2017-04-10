@@ -1,7 +1,8 @@
-#ballp.it
-####(where hardons collide)
+![Ball Pit Logo](https://ballp.it/apple-touch-icon-180x180.png)
+# Ball Pit
+#### (where hardons collide)
 
-This is the working repo for everything that's happening on [ballp.it](http://ballp.it), the user forum for [The F Plus](http://thefpl.us).
+This is the working repo for everything that's happening on [ballp.it](https://ballp.it), the user forum for [The F Plus](https://thefpl.us).
 
 The forum is built using [Simple Machines](http://simplemachines.org/), and most of the development work is just in the forum theme. The theme for ballp.it is based off [Giggle](http://www.simplemachines.org/community/index.php?topic=492107.0), a Googlesque SMF theme, but has been modified considerably. 
 
