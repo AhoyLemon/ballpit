@@ -1,5 +1,4 @@
-![Ball Pit Logo](https://ballp.it/apple-touch-icon-180x180.png)
-# Ball Pit
+![Ball Pit Logo](https://ballp.it/Themes/Giggle/svg/snake4.svg)
 #### (where hardons collide)
 
 This is the working repo for everything that's happening on [ballp.it](https://ballp.it), the user forum for [The F Plus](https://thefpl.us).
