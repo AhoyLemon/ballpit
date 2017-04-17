@@ -344,7 +344,7 @@ function template_replies()
 			</div>';
 
 		echo '
-			<div class="tborder topic_table" id="unreadreplies">
+			<div class="tborder topic_table" id="messageindex">
 				<table class="table_grid" cellspacing="0">
 					<thead>
 						<tr class="catbg">

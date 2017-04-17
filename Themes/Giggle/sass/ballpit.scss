@@ -1583,6 +1583,7 @@ p#whoisviewing
 
 /* poster and postarea + moderation area underneath */
 
+/*
 .postarea, .moderatorbar
 
 {
@@ -1590,6 +1591,7 @@ p#whoisviewing
   margin: 0 0 0 160px;
 
 }
+*/
 
 .postarea div.flow_hidden
 
@@ -4456,8 +4458,8 @@ span.hidelink
 }
 
 /** Karma Styles **/
-.post_wrapper { width:100%;
-  .poster { float: left; width: 12em; max-width: 120px;
+.post_wrapper { width:100%; display: flex;
+  .poster {
     a { color:$blue;
       &.modify-karma { color:$blue; }
     }
@@ -4542,6 +4544,13 @@ span.spoiler { cursor:pointer;
 
 @media only screen and (min-width: 768px) {
   a.hamburger { display: none; }
+  .post_wrapper { display: flex;
+    .poster { flex-basis:160px; flex-grow:0; flex-shrink: 1; }
+    .postarea { flex-basis: calc(100% - 160px); padding-left: 1em; flex-grow:0; flex-shrink: 1;
+      .post { min-height: 14em; }
+    }
+    //.moderatorbar { display:none; }
+  }
 }
 
 @media only screen and (max-width: 767px) {

@@ -590,50 +590,6 @@ function template_main()
 
 								</li>';
 
-
-
-			// Show how many posts they have made.
-
-			if (!isset($context['disabled_fields']['posts']))
-
-				echo '
-
-								<li class="postcount"><label class="count-label">', $txt['member_postcount'], ':</label> <span class="count">', $message['member']['posts'], '</span></li>';
-
-
-
-			// Is karma display enabled?  Total or +/-?
-
-			if ($modSettings['karmaMode'] == '1')
-
-				echo '
-
-								<li class="karma"><label class="count-label">', $modSettings['karmaLabel'], '</label> <span class="count">', $message['member']['karma']['good'] - $message['member']['karma']['bad'], '</span></li>';
-
-			elseif ($modSettings['karmaMode'] == '2')
-
-				echo '
-
-								<li class="karma">', $modSettings['karmaLabel'], ' +', $message['member']['karma']['good'], '/-', $message['member']['karma']['bad'], '</li>';
-
-
-
-			// Is this user allowed to modify this member's karma?
-
-			if ($message['member']['karma']['allow'])
-
-				echo '
-
-								<li class="karma_allow">
-
-									<a class="modify-karma karma-up" href="', $scripturl, '?action=modifykarma;sa=applaud;uid=', $message['member']['id'], ';topic=', $context['current_topic'], '.' . $context['start'], ';m=', $message['id'], ';', $context['session_var'], '=', $context['session_id'], '">', $modSettings['karmaApplaudLabel'], '</a>
-
-									<a class="modify-karma karma-down" href="', $scripturl, '?action=modifykarma;sa=smite;uid=', $message['member']['id'], ';topic=', $context['current_topic'], '.', $context['start'], ';m=', $message['id'], ';', $context['session_var'], '=', $context['session_id'], '">', $modSettings['karmaSmiteLabel'], '</a>
-
-								</li>';
-
-
-
 			// Show the member's gender icon?
 
 			if (!empty($settings['show_gender']) && $message['member']['gender']['image'] != '' && !isset($context['disabled_fields']['gender']))
@@ -734,7 +690,7 @@ function template_main()
 
 				echo '
                 <li class="profile">
-                    <ul>';
+                    <ul style="display:none;>';
 				// Don't show the profile button if you're not allowed to view the profile.
 
 				if ($message['member']['can_view_profile'])
@@ -829,6 +785,41 @@ function template_main()
 			echo '
 
 								<li class="email"><a href="', $scripturl, '?action=emailuser;sa=email;msg=', $message['id'], '" rel="nofollow">', ($settings['use_image_buttons'] ? '<img src="' . $settings['images_url'] . '/email_sm.gif" alt="' . $txt['email'] . '" title="' . $txt['email'] . '" />' : $txt['email']), '</a></li>';
+    
+    // Show how many posts they have made.
+
+			if (!isset($context['disabled_fields']['posts']))
+
+				echo '
+								<li class="postcount"><label class="count-label">', $txt['member_postcount'], ':</label> <span class="count">', $message['member']['posts'], '</span></li>';
+    
+    // Is karma display enabled?  Total or +/-?
+
+			if ($modSettings['karmaMode'] == '1')
+
+				echo '
+
+								<li class="karma"><label class="count-label">', $modSettings['karmaLabel'], '</label> <span class="count">', $message['member']['karma']['good'] - $message['member']['karma']['bad'], '</span></li>';
+
+			elseif ($modSettings['karmaMode'] == '2')
+
+				echo '
+
+								<li class="karma">', $modSettings['karmaLabel'], ' +', $message['member']['karma']['good'], '/-', $message['member']['karma']['bad'], '</li>';
+    
+    // Is this user allowed to modify this member's karma?
+
+    if ($message['member']['karma']['allow'])
+
+      echo '
+
+              <li class="karma_allow" style="text-align:center;">
+
+                <a class="modify-karma karma-up" href="', $scripturl, '?action=modifykarma;sa=applaud;uid=', $message['member']['id'], ';topic=', $context['current_topic'], '.' . $context['start'], ';m=', $message['id'], ';', $context['session_var'], '=', $context['session_id'], '">', $modSettings['karmaApplaudLabel'], '</a>
+
+                <a class="modify-karma karma-down" href="', $scripturl, '?action=modifykarma;sa=smite;uid=', $message['member']['id'], ';topic=', $context['current_topic'], '.', $context['start'], ';m=', $message['id'], ';', $context['session_var'], '=', $context['session_id'], '">', $modSettings['karmaSmiteLabel'], '</a>
+
+              </li>';
 
 
 
@@ -1256,10 +1247,7 @@ function template_main()
 
 
 		echo '
-
-						</div>
-
-						<div class="moderatorbar">
+    <div class="moderatorbar">
 
 							<div class="smalltext modified" id="modified_', $message['id'], '">';
 
@@ -1277,7 +1265,9 @@ function template_main()
 
 		echo '
 
-							</div>';
+							</div>
+
+						</div>';
 
 
 
