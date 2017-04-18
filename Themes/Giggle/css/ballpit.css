@@ -2012,23 +2012,51 @@ dl {
   float: left;
   width: 35%; }
 
-#main_admsection #basicinfo img.avatar {
+/*
+#main_admsection #basicinfo img.avatar
+
+{
+
   float: right;
-  vertical-align: top; }
 
-#main_admsection #basicinfo ul {
-  clear: left; }
+  vertical-align: top;
 
-#main_admsection #basicinfo span#userstatus {
-  clear: left; }
+}
 
-#main_admsection #basicinfo p#infolinks {
+#main_admsection #basicinfo ul
+
+{
+
+  clear: left;
+
+}
+
+#main_admsection #basicinfo span#userstatus
+
+{
+
+  clear: left;
+
+}
+
+#main_admsection #basicinfo p#infolinks
+
+{
+
   display: none;
-  clear: both; }
 
-#main_admsection #basicinfo .botslice {
-  clear: both; }
+  clear: both;
 
+}
+
+#main_admsection #basicinfo .botslice
+
+{
+
+  clear: both;
+
+}
+*/
 /* Simple feedback messages */
 div#profile_error, div#profile_success {
   margin: 0 0 1em 0;
@@ -2836,8 +2864,7 @@ span.hidelink {
 .avatar img, img.avatar {
   max-width: 100%;
   height: auto;
-  display: block;
-  margin: auto; }
+  display: block; }
 
 .karma_allow svg {
   width: 4em;

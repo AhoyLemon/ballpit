@@ -3009,6 +3009,7 @@ dl { overflow: auto; margin: 0; padding: 0; }
 
 }
 
+/*
 #main_admsection #basicinfo img.avatar
 
 {
@@ -3052,6 +3053,7 @@ dl { overflow: auto; margin: 0; padding: 0; }
   clear: both;
 
 }
+*/
 
 
 
@@ -4483,12 +4485,11 @@ span.hidelink
     }
   }
 }
-.avatar img, img.avatar { max-width:100%; height:auto; display: block; margin: auto; }
+.avatar img, img.avatar { max-width:100%; height:auto; display: block; }
 
 .karma_allow svg { width:4em; height:4em; }
 
 .messageicon { float: left;	margin: 0 0.5em 0 0; display:none; }
-
 
 
 .bulbedpost {
