@@ -4593,7 +4593,8 @@ span.spoiler { cursor:pointer;
     .windowbg, .windowbg2 { margin-top:20px; }
     h3 { letter-spacing: normal; }
   }
-  .poster { width:auto; float:left; }
+  .post_wrapper { flex-wrap: wrap; }
+  .poster, .postarea { flex-basis: 100%; }
   .post .inner { padding: 0; margin: 0; }
   .postarea div.flow_hidden { width:auto; min-height: 2.2em; }
   ul.quickbuttons { margin:0; }
@@ -4605,6 +4606,7 @@ span.spoiler { cursor:pointer;
   #message_index_jump_to { float: none; clear: both;
     select { max-width: 100%; }
   }
+  code.bbc_code { white-space: normal !important; }
 
   /// WRITE POST //
   #post_header dd { width:100%; font-size:160%; }

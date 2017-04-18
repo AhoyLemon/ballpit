@@ -3066,9 +3066,14 @@ span.spoiler {
     margin-top: 20px; }
   #forumposts h3, #personal_messages h3 {
     letter-spacing: normal; }
-  .poster {
-    width: auto;
-    float: left; }
+  .post_wrapper {
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap; }
+  .poster, .postarea {
+    -webkit-flex-basis: 100%;
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%; }
   .post .inner {
     padding: 0;
     margin: 0; }
@@ -3094,6 +3099,8 @@ span.spoiler {
     clear: both; }
     #message_index_jump_to select {
       max-width: 100%; }
+  code.bbc_code {
+    white-space: normal !important; }
   #post_header dd {
     width: 100%;
     font-size: 160%; }
