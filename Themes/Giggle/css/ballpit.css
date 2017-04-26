@@ -25,20 +25,10 @@
   #post_confirm_buttons input[value=Preview]:active {
     background: #0b55ce; }
 
-@-webkit-keyframes spin {
-  from {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg); }
-  to {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg); } }
-
 @keyframes spin {
   from {
-    -webkit-transform: rotate(0deg);
     transform: rotate(0deg); }
   to {
-    -webkit-transform: rotate(360deg);
     transform: rotate(360deg); } }
 
 .rich_editor_frame {
@@ -1106,10 +1096,8 @@ ul.quickbuttons {
     ul.quickbuttons li.bulb.lit svg * {
       fill: #444; }
     ul.quickbuttons li.bulb.bright {
-      -webkit-animation: glowbulb 4s infinite;
       animation: glowbulb 4s infinite; }
     ul.quickbuttons li.bulb.bright a {
-      -webkit-animation: glowbulblink 4s infinite;
       animation: glowbulblink 4s infinite; }
 
 .bulber-list {
@@ -1133,14 +1121,6 @@ ul.quickbuttons {
     .bulber-list span:last-child:after {
       content: ''; }
 
-@-webkit-keyframes glowbulb {
-  0% {
-    color: #444; }
-  50% {
-    color: #ffd04d; }
-  100% {
-    color: #444; } }
-
 @keyframes glowbulb {
   0% {
     color: #444; }
@@ -1148,18 +1128,6 @@ ul.quickbuttons {
     color: #ffd04d; }
   100% {
     color: #444; } }
-
-@-webkit-keyframes glowbulblink {
-  0% {
-    color: #e04a3f; }
-  12% {
-    color: #e04a3f; }
-  50% {
-    color: #e2af0e; }
-  88% {
-    color: #e04a3f; }
-  100% {
-    color: #e04a3f; } }
 
 @keyframes glowbulblink {
   0% {
@@ -1808,7 +1776,6 @@ dl {
   display: -moz-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
   -webkit-flex-wrap: wrap;
@@ -1817,34 +1784,25 @@ dl {
   flex-wrap: wrap;
   -webkit-box-align: strech;
   -ms-flex-align: strech;
-  -webkit-align-items: strech;
   align-items: strech; }
   #profileview .cat_bar {
-    -webkit-flex-basis: 100%;
     -ms-flex-preferred-size: 100%;
     flex-basis: 100%;
-    -webkit-flex-grow: 1;
     -ms-flex-positive: 1;
     flex-grow: 1;
-    -webkit-flex-shrink: 1;
     -ms-flex-negative: 1;
     flex-shrink: 1;
-    -webkit-align-self: auto;
     -ms-flex-item-align: auto;
     -ms-grid-row-align: auto;
     align-self: auto; }
   #profileview #basicinfo {
     width: 180px;
-    -webkit-flex-basis: 180px;
     -ms-flex-preferred-size: 180px;
     flex-basis: 180px;
-    -webkit-flex-grow: 0;
     -ms-flex-positive: 0;
     flex-grow: 0;
-    -webkit-flex-shrink: 0;
     -ms-flex-negative: 0;
     flex-shrink: 0;
-    -webkit-align-self: auto;
     -ms-flex-item-align: auto;
     -ms-grid-row-align: auto;
     align-self: auto; }
@@ -1852,16 +1810,12 @@ dl {
       display: block;
       font-size: 80%; }
   #profileview #detailedinfo {
-    -webkit-flex-basis: calc(100% - 200px);
     -ms-flex-preferred-size: calc(100% - 200px);
     flex-basis: calc(100% - 200px);
-    -webkit-flex-grow: 1;
     -ms-flex-positive: 1;
     flex-grow: 1;
-    -webkit-flex-shrink: 1;
     -ms-flex-negative: 1;
     flex-shrink: 1;
-    -webkit-align-self: auto;
     -ms-flex-item-align: auto;
     -ms-grid-row-align: auto;
     align-self: auto; }
@@ -1871,7 +1825,6 @@ dl {
       display: -moz-flex;
       display: -ms-flexbox;
       display: flex;
-      -webkit-flex-direction: row;
       -ms-flex-direction: row;
       flex-direction: row;
       -webkit-flex-wrap: wrap;
@@ -1880,38 +1833,29 @@ dl {
       flex-wrap: wrap;
       -webkit-box-align: strech;
       -ms-flex-align: strech;
-      -webkit-align-items: strech;
       align-items: strech; }
       #profileview #detailedinfo dl dt, #profileview #detailedinfo dl dd {
         margin: 0.45em 0;
         border-bottom: 1px solid rgba(68, 68, 68, 0.3); }
       #profileview #detailedinfo dl dt {
-        -webkit-flex-basis: 8em;
         -ms-flex-preferred-size: 8em;
         flex-basis: 8em;
-        -webkit-flex-grow: 1;
         -ms-flex-positive: 1;
         flex-grow: 1;
-        -webkit-flex-shrink: 1;
         -ms-flex-negative: 1;
         flex-shrink: 1;
-        -webkit-align-self: auto;
         -ms-flex-item-align: auto;
         -ms-grid-row-align: auto;
         align-self: auto;
         text-align: right;
         font-weight: 700; }
       #profileview #detailedinfo dl dd {
-        -webkit-flex-basis: calc(100% - 10em);
         -ms-flex-preferred-size: calc(100% - 10em);
         flex-basis: calc(100% - 10em);
-        -webkit-flex-grow: 1;
         -ms-flex-positive: 1;
         flex-grow: 1;
-        -webkit-flex-shrink: 1;
         -ms-flex-negative: 1;
         flex-shrink: 1;
-        -webkit-align-self: auto;
         -ms-flex-item-align: auto;
         -ms-grid-row-align: auto;
         align-self: auto;
@@ -2817,7 +2761,6 @@ span.hidelink {
 /** Karma Styles **/
 .post_wrapper {
   width: 100%;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex; }
   .post_wrapper .poster a {
@@ -2843,7 +2786,6 @@ span.hidelink {
     text-align: right; }
   .post_wrapper .poster li .count {
     font-weight: 700;
-    -webkit-transform: scale(1.2);
     -ms-transform: scale(1.2);
     transform: scale(1.2);
     font-size: 1.3em; }
@@ -2854,7 +2796,6 @@ span.hidelink {
       display: inline-block;
       padding-right: 0.2em; }
       .post_wrapper .poster ul ul li:hover {
-        -webkit-transform: scale(1.2);
         -ms-transform: scale(1.2);
         transform: scale(1.2); }
     .post_wrapper .poster ul ul svg {
@@ -2893,9 +2834,7 @@ span.hidelink {
   letter-spacing: 0.1em; }
 
 .thousandbulbedpost .post .inner, .thousandbulbedpost .poster, .thousandbulbedpost .quickbuttons, .thousandbulbedpost svg, .thousandbulbedpost img, .thousandbulbedpost .keyinfo {
-  -webkit-animation: spin 2s linear infinite;
   animation: spin 2s linear infinite;
-  -webkit-transform-origin: center;
   -ms-transform-origin: center;
   transform-origin: center; }
 
@@ -2974,28 +2913,23 @@ span.spoiler {
   a.hamburger {
     display: none; }
   .post_wrapper {
-    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex; }
     .post_wrapper .poster {
-      -webkit-flex-basis: 160px;
       -ms-flex-preferred-size: 160px;
       flex-basis: 160px;
-      -webkit-flex-grow: 0;
       -ms-flex-positive: 0;
       flex-grow: 0;
-      -webkit-flex-shrink: 1;
       -ms-flex-negative: 1;
-      flex-shrink: 1; }
+      flex-shrink: 1;
+      max-width: 160px;
+      position: relative; }
     .post_wrapper .postarea {
-      -webkit-flex-basis: calc(100% - 160px);
       -ms-flex-preferred-size: calc(100% - 160px);
       flex-basis: calc(100% - 160px);
       padding-left: 1em;
-      -webkit-flex-grow: 0;
       -ms-flex-positive: 0;
       flex-grow: 0;
-      -webkit-flex-shrink: 1;
       -ms-flex-negative: 1;
       flex-shrink: 1; }
       .post_wrapper .postarea .post {
@@ -3037,22 +2971,18 @@ span.spoiler {
     a.hamburger .x, a.hamburger .lines {
       transition: all 0.3s ease; }
     a.hamburger .x {
-      -webkit-transform: translateY(-120%);
       -ms-transform: translateY(-120%);
       transform: translateY(-120%);
       opacity: 0; }
     a.hamburger .lines {
-      -webkit-transform: translateY(0);
       -ms-transform: translateY(0);
       transform: translateY(0);
       opacity: 1; }
     a.hamburger.active .x {
-      -webkit-transform: translateY(0);
       -ms-transform: translateY(0);
       transform: translateY(0);
       opacity: 1; }
     a.hamburger.active .lines {
-      -webkit-transform: translateY(120%);
       -ms-transform: translateY(120%);
       transform: translateY(120%);
       opacity: 0; }
@@ -3094,11 +3024,9 @@ span.spoiler {
   #forumposts h3, #personal_messages h3 {
     letter-spacing: normal; }
   .post_wrapper {
-    -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap; }
   .poster, .postarea {
-    -webkit-flex-basis: 100%;
     -ms-flex-preferred-size: 100%;
     flex-basis: 100%; }
   .post .inner {
@@ -3142,16 +3070,12 @@ span.spoiler {
     #post_confirm_buttons input[value=Post] {
       width: 49%; }
   #profileview #basicinfo, #profileview #detailedinfo {
-    -webkit-flex-basis: 100%;
     -ms-flex-preferred-size: 100%;
     flex-basis: 100%;
-    -webkit-flex-grow: 1;
     -ms-flex-positive: 1;
     flex-grow: 1;
-    -webkit-flex-shrink: 1;
     -ms-flex-negative: 1;
     flex-shrink: 1;
-    -webkit-align-self: auto;
     -ms-flex-item-align: auto;
     -ms-grid-row-align: auto;
     align-self: auto; }

@@ -4546,7 +4546,7 @@ span.spoiler { cursor:pointer;
 @media only screen and (min-width: 768px) {
   a.hamburger { display: none; }
   .post_wrapper { display: flex;
-    .poster { flex-basis:160px; flex-grow:0; flex-shrink: 1; }
+    .poster { flex-basis:160px; flex-grow:0; flex-shrink: 1; max-width: 160px; position: relative; }
     .postarea { flex-basis: calc(100% - 160px); padding-left: 1em; flex-grow:0; flex-shrink: 1;
       .post { min-height: 14em; }
     }
