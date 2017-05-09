@@ -1,0 +1,7 @@
+@import "partials/_mixins";
+* { box-sizing: border-box; }
+main.offline { padding:20px; font-size:6vw; text-align: center; min-height:99vh; @include flex-container(row,wrap,center);
+  .content { width: 100%; }
+  .snake { width: 100%; max-width: 380px; }
+  p { margin-top: 0.5em; font-weight:200 }
+}

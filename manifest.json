@@ -38,8 +38,10 @@
       "density": "4.0"
     }
   ],
-  "start_url": "http://ballp.it",
+  "start_url": "https://ballp.it",
   "scope": "/",
   "display": "standalone",
-  "orientation": "portrait"
+  "orientation": "portrait",
+  "theme_color": "#4eb85d",
+  "background_color": "#f9f9f9"
 }

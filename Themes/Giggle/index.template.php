@@ -602,7 +602,7 @@ function template_html_below()
 
   include("analyticstracking.php");
   
-  echo "<script type='text/javascript' src='", $settings["theme_url"], "/scripts/ballpit.js?updated=03.29.17'></script>
+  echo "<script type='text/javascript' src='", $settings["theme_url"], "/scripts/ballpit.js?updated=05.09.17'></script>
 </body></html>";
 
 }

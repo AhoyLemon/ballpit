@@ -1771,7 +1771,6 @@ dl {
 
 /* The basic user info on the left */
 #profileview {
-  display: -webkit-box;
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
@@ -1820,7 +1819,6 @@ dl {
     -ms-grid-row-align: auto;
     align-self: auto; }
     #profileview #detailedinfo dl {
-      display: -webkit-box;
       display: -webkit-flex;
       display: -moz-flex;
       display: -ms-flexbox;

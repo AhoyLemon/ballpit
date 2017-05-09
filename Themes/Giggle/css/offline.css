@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box; }
+
+main.offline {
+  padding: 20px;
+  font-size: 6vw;
+  text-align: center;
+  min-height: 99vh;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: flex;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+  main.offline .content {
+    width: 100%; }
+  main.offline .snake {
+    width: 100%;
+    max-width: 380px; }
+  main.offline p {
+    margin-top: 0.5em;
+    font-weight: 200; }

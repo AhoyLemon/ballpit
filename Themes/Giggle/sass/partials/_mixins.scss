@@ -1,5 +1,6 @@
 @mixin flex-container($direction:row, $wrap:wrap, $align:strech) {
-  display: -webkit-box; display: -webkit-flex; display: -moz-flex;display: -ms-flexbox; display: flex;
+  // display: -webkit-box; display: -ms-flexbox; 
+  display: -webkit-flex; display: -moz-flex; display: flex;
   flex-direction: $direction;
   -webkit-flex-wrap:$wrap; -moz-flex-wrap:$wrap; 
   flex-wrap: $wrap;

@@ -1571,7 +1571,7 @@ function parse_bbc($message, $smileys = true, $cache_id = '', $parse_tags = arra
 			array(
 				'tag' => 'url',
 				'type' => 'unparsed_content',
-				'content' => '<a href="$1" class="bbc_link" target="_blank">$1</a>',
+				'content' => '<a href="$1" class="bbc_link" target="_blank" rel="nofollow noopener">$1</a>',
 				'validate' => create_function('&$tag, &$data, $disabled', '
 					$data = strtr($data, array(\'<br />\' => \'\'));
 					if (strpos($data, \'http://\') !== 0 && strpos($data, \'https://\') !== 0)
@@ -1581,7 +1581,7 @@ function parse_bbc($message, $smileys = true, $cache_id = '', $parse_tags = arra
 			array(
 				'tag' => 'url',
 				'type' => 'unparsed_equals',
-				'before' => '<a href="$1" class="bbc_link" target="_blank">',
+				'before' => '<a href="$1" class="bbc_link" target="_blank" rel="nofollow noopener">',
 				'after' => '</a>',
 				'validate' => create_function('&$tag, &$data, $disabled', '
 					if (strpos($data, \'http://\') !== 0 && strpos($data, \'https://\') !== 0)
