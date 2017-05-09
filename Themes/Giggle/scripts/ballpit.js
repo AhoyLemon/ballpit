@@ -1,7 +1,5 @@
 // jshint -W117
 
-
-
 // Register the service worker
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
@@ -12,8 +10,6 @@ if ('serviceWorker' in navigator) {
     console.log('ServiceWorker registration failed: ', err);
   });
 }
-
-
 
 
 function trackEvent(c, a, l, v) {
