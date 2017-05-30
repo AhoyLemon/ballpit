@@ -52,6 +52,8 @@ function template_main()
 
 				// Let them know, if their report was a success!
 
+  
+  
 	if ($context['report_sent'])
 
 	{
@@ -365,26 +367,22 @@ function template_main()
 	echo '
 
 			<div class="pagesection">
-
 				<div class="nextlinks">', $context['previous_next'], '</div>', template_button_strip($normal_buttons, 'right'), '
-
 				<div class="pagelinks floatleft">', $txt['pages'], ': ', $context['page_index'], !empty($modSettings['topbottomEnable']) ? $context['menu_separator'] . ' &nbsp;&nbsp;<a href="#lastPost"><strong>' . $txt['go_down'] . '</strong></a>' : '', '</div>
-
 			</div>';
 
 
 
 	// Show the topic information - icon, subject, etc.
-
+  
+  
 	echo '
-
-			<div id="forumposts">
+			<div id="forumposts" itemscope itemtype="http://schema.org/DiscussionForumPosting">
+      
 				<div class="cat_bar">
-					<h3 class="catbg thread-title">
-						<!-- <img src="', $settings['images_url'], '/topic/png/', $context['class'], '.png" align="bottom" alt="" /> -->
+					<h3 class="catbg thread-title" itemprop="headline">
 						', $txt['topic'], ': ', $context['subject'], ' &nbsp;(', $txt['read'], ' ', $context['num_views'], ' ', $txt['times'], ')
 					</h3>
-
 				</div>';
 
 
@@ -464,8 +462,10 @@ function template_main()
 			$ignoredMsgs[] = $message['id'];
 
 		}
+    //$arr = get_defined_vars();
+    //echo '<pre style="display:none;">'.htmlentities(print_r($arr, true)).'</pre>';
 
-
+    //echo '<pre style="display:none;">'.print_r(array_keys(get_defined_vars()));.'</pre>';
 
 		// Show the message anchor and a "new" anchor if this message is new.
 
@@ -835,10 +835,9 @@ function template_main()
 							<div class="flow_hidden">
 								<div class="keyinfo">
 									<h5 id="subject_', $message['id'], '">
-										<a href="', $message['href'], '" rel="nofollow">', $message['subject'], '</a>
+										<a href="', $message['href'], '">', $message['subject'], '</a>
 									</h5>
 									<div class="smalltext">&#171; <strong>', !empty($message['counter']) ? $txt['reply_noun'] . ' #' . $message['counter'] : '', ' ', $txt['on'], ':</strong> ', $message['time'], ' &#187;</div>
-									<div id="msg_', $message['id'], '_quick_mod"></div>
 								</div>';
 
 

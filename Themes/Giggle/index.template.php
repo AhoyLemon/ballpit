@@ -98,14 +98,11 @@ function template_html_above()
 <html>
 
 <head>';
-
-
-
-  // The ?fin20 part of this link is just here to make sure browsers don't cache it wrongly.
+  
 
   echo '
     <meta charset="iso-8859-1">
-    <link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/ballpit.css?lastUpdated=04.17.2017" />';
+    <link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/ballpit.css?lastUpdated=05.12.2017" />';
 
   echo '
     <!-- FAVICON -->
@@ -155,8 +152,6 @@ function template_html_above()
   echo '
 	<link href="https://fonts.googleapis.com/css?family=Cabin:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 	<script type="text/javascript" src="/Themes/default/scripts/script.js?fin20"></script>';
-
- // <script type="text/javascript" src="/Themes/Giggle/scripts/theme.js?fin20"></script>
 
   echo '
 	<script type="text/javascript"><!-- // --><![CDATA[
