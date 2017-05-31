@@ -1,0 +1,73 @@
+// USER STATS
+
+.user-stats { @include flex-container();
+  > * { margin-bottom: 1em; }
+  .general-stats { @include flex-item(440px); }
+  .activity-time { @include flex-item(880px); }
+  .most-popular { @include flex-item(440px); }
+  h3 { font-size:145%; text-transform: uppercase; letter-spacing: 0.1em;
+    .icon { margin-right: 1rem; }
+  }
+}
+
+.general-stats {
+  .content {
+    dl { @include flex-container(); }
+    dt { @include flex-item(60%); margin: 0 0 1em; border-bottom:1px dotted #aaa; }
+    dd { @include flex-item(40%); margin: 0 0 1em; }
+  }
+}
+
+
+/* Activity by time */
+
+.activity_stats { margin: 0; padding: 0; list-style: none;
+  li { margin: 0; padding: 0; width: 4.16%; float: left;
+    span { display: block; border: solid $black; border-width: 1px 1px 0 0; text-align: center; }
+    &.last span { border-right: none; }
+    .bar { margin: 0 auto; width:calc(100% - 2px); position: relative; height: 200px;
+      div { background: #444; position: absolute; right:0; bottom:0; left: 0; }
+      span { position: absolute; top: -1000em; left: -1000em; }
+    }
+    &:hover {
+      span { color:$accent; }
+      .bar div { background:$accent; }
+    } 
+  }
+}
+
+
+@media only screen and (max-width: 810px) {
+  .activity_stats { 
+    li { position: relative;
+      .stats_hour { display: none; border:none; }
+      &:first-child {
+        .stats_hour { display: block; position: absolute; left:0; bottom: 0; color:#FFF; background:rgba($black,0.75); padding:0.25em; z-index:12; font-size:105%; }
+      }
+      &:last-child {
+        .stats_hour { display: block; position: absolute; right:0; bottom: 0; color:#FFF; background:rgba($black,0.75); padding:0.25em; z-index:13; font-size:105%; }
+      }
+    }
+  }
+}
+
+.most-popular {
+  .content {
+    dl { @include flex-container(); }
+    dt { @include flex-item(60%); padding: 0; margin: 0 0 0.4em; font-weight: bold; border-bottom:1px dotted #aaa; }
+    dd {  @include flex-item(30%); margin: 0 0 0.4em; }
+  }
+  .profile_pie { background-image: url(../images/stats_pie.png); float: left; height: 20px; width: 20px; margin: 0 1em 0 0; padding: 0; }
+  .percent-bar { background-color:$grey; width:100%; height: 1.6rem; position: relative;
+    .inside { background-color:#444; position: absolute; top:0; bottom:0; left: 0; }
+    span { display: block; position: relative; padding-left: 0.25em; padding-top: 0.25em; color:$white; text-shadow: 1px 1px 1px #444; }
+  }
+  
+}
+
+/*
+.bar-outside { background-color:$grey; width:100%; height: 1.6rem; position: relative;
+    .bar-inside { background-color:#444; position: absolute; top:0; bottom:0; left: 0; }
+    .percentage { display: block; position: relative; padding-left: 0.25em; padding-top: 0.25em; color:$white; text-shadow: 1px 1px 1px #444; }
+  }
+*/

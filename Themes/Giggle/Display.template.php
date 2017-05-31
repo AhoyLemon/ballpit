@@ -88,15 +88,7 @@ function template_main()
 
 		echo '
 
-			<div id="poll">
-
-				<div class="cat_bar">
-
-					<h3 class="catbg">', 
-						$txt['poll'], 
-					'</h3>
-
-				</div>
+			<div id="poll" class="poll">
 
 				<div class="windowbg">
 
@@ -134,19 +126,19 @@ function template_main()
 
 						<dt class="middletext', $option['voted_this'] ? ' voted' : '', '">', $option['option'], '</dt>
 
-						<dd class="middletext statsbar', $option['voted_this'] ? ' voted' : '', '">';
+						<dd class="statsbar', $option['voted_this'] ? ' voted' : '', '">';
 
 
 
 				if ($context['allow_poll_view'])
 
-					echo '
-
-							', $option['bar_ndt'], '
-
-							<span class="percentage">', $option['votes'], ' (', $option['percent'], '%)</span>';
-
-
+          echo '<div class="bar-outside">';
+            echo '<div class="bar-inside inside" style="width:' . $option['percent']. '%;"></div>';
+            echo '<span class="percentage">', $option['votes'], ' (', $option['percent'], '%)</span>';
+          echo '</div>';
+					//echo '<pre style="display:none">';
+          //print_r($option);
+          //echo '</pre>', $option['bar_ndt'], '
 
 				echo '
 

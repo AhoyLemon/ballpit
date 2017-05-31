@@ -1,0 +1,35 @@
+/* Poll question */
+
+.poll { overflow: hidden;
+  .content { padding: 0; }
+  h4 { text-transform: uppercase; font-size:152%; letter-spacing: 0.1em; }
+  ul.options { margin-bottom: 1em;
+    li { font-size:130%; margin-bottom: 0.25em;
+      &:hover { color:$accent; }
+      label { cursor: pointer; }
+    }
+  }
+  div.submitbutton { border-bottom: 1px solid $grey; clear: both; padding: 0 0 1em 2em; margin: 0 0 1em 0; }
+  dl.options { @include flex-container();
+    dt { @include flex-item(30%); font-size:130%; margin: 0 0 6px; border-bottom:1px dotted #aaa; }
+    dd { @include flex-item(60%); margin: 0 0 6px; }
+    dt.voted { font-weight: bold;
+      &:after { content: '✔️'; }
+    }
+    dd.statsbar:hover { color:$accent;
+      .bar { background:$accent; }
+    }
+  }
+  .bar-outside { background-color:$grey; width:100%; height: 1.6rem; position: relative;
+    .bar-inside { background-color:#444; position: absolute; top:0; bottom:0; left: 0; }
+    .percentage { display: block; position: relative; padding-left: 0.25em; padding-top: 0.25em; color:$white; text-shadow: 1px 1px 1px #444; }
+  }
+  dl.options {
+    dt:hover { color:$accent;
+      + dd .bar-inside { background-color:$accent; }
+    }
+    dd:hover {
+      .bar-inside { background-color:$accent; }
+    }
+  }
+}

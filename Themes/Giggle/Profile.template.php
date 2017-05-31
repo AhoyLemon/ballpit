@@ -958,14 +958,12 @@ function template_statPanel()
 
 	// First, show a few text statistics such as post/topic count.
 	echo '
-	<div id="profileview">
-		<div id="generalstats">
+	<div id="profileview" class="user-stats">
+		<div id="generalstats" class="general-stats" data-contains="General Stats">
 			<div class="cat_bar">
-				<h3 class="catbg">
-					<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/stats_info.gif" alt="" class="icon" />
-					', $txt['statPanel_generalStats'], ' - ', $context['member']['name'], '
-					</span>
-				</h3>
+				<h3 class="catbg">', 
+            $txt['statPanel_generalStats'], ' - ', $context['member']['name'], 
+        '</h3>
 			</div>
 			<div class="windowbg2">
 				<span class="topslice"><span></span></span>
@@ -981,6 +979,10 @@ function template_statPanel()
 						<dd>', $context['num_polls'], ' ', $txt['statPanel_polls'], '</dd>
 						<dt>', $txt['statPanel_users_votes'], ':</dt>
 						<dd>', $context['num_votes'], ' ', $txt['statPanel_votes'], '</dd>
+            <dt>Times Kissed:</dt>
+						<dd>', $context['member']['karma']['good'], ' kisses</dd>
+            <dt>Times Slapped:</dt>
+						<dd>', $context['member']['karma']['bad'], ' slaps</dd>
 					</dl>
 				</div>
 				<span class="botslice"><span></span></span>
@@ -989,15 +991,13 @@ function template_statPanel()
 
 	// This next section draws a graph showing what times of day they post the most.
 	echo '
-		<div id="activitytime" class="flow_hidden">
+		<div id="activitytime" class="activity-time" data-contains="Activity Time">
 			<div class="cat_bar">
-				<h3 class="catbg">
-				<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/stats_history.gif" alt="" class="icon" />', $txt['statPanel_activityTime'], '</span>
-				</h3>
+				<h3 class="catbg">', $txt['statPanel_activityTime'], '</h3>
 			</div>
 			<div class="windowbg2">
 				<span class="topslice"><span></span></span>
-				<div class="content">';
+				<div class="content activity_stats_wrapper">';
 
 	// If they haven't post at all, don't draw the graph.
 	if (empty($context['posts_by_time']))
@@ -1007,19 +1007,19 @@ function template_statPanel()
 	else
 	{
 		echo '
-					<ul class="activity_stats flow_hidden">';
+					<ul class="activity_stats">';
 
 		// The labels.
 		foreach ($context['posts_by_time'] as $time_of_day)
 		{
 			echo '
 						<li', $time_of_day['is_last'] ? ' class="last"' : '', '>
-							<div class="bar" style="padding-top: ', ((int) (100 - $time_of_day['relative_percent'])), 'px;" title="', sprintf($txt['statPanel_activityTime_posts'], $time_of_day['posts'], $time_of_day['posts_percent']), '">
-								<div style="height: ', (int) $time_of_day['relative_percent'], 'px;">
+							<div class="bar" title="', sprintf($txt['statPanel_activityTime_posts'], $time_of_day['posts'], $time_of_day['posts_percent']), '">
+								<div style="height: ', (int) $time_of_day['relative_percent'], '%;">
 									<span>', sprintf($txt['statPanel_activityTime_posts'], $time_of_day['posts'], $time_of_day['posts_percent']), '</span>
 								</div>
 							</div>
-							<span class="stats_hour">', $time_of_day['hour_format'], '</span>
+							<span class="stats_hour">', date("ga", strtotime($time_of_day['hour_format'])), '</span>
 						</li>';
 		}
 
@@ -1037,12 +1037,9 @@ function template_statPanel()
 
 	// Two columns with the most popular boards by posts and activity (activity = users posts / total posts).
 	echo '
-		<div class="flow_hidden">
-			<div id="popularposts">
+			<div id="popularposts" class="most-popular popular-posts" data-contains="Most Popular Boards By Posts">
 				<div class="cat_bar">
-					<h3 class="catbg">
-						<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/stats_replies.gif" alt="" class="icon" />', $txt['statPanel_topBoards'], '</span>
-					</h3>
+					<h3 class="catbg">', $txt['statPanel_topBoards'], '</h3>
 				</div>
 				<div class="windowbg2">
 					<span class="topslice"><span></span></span>
@@ -1058,15 +1055,27 @@ function template_statPanel()
 						<dl>';
 
 		// Draw a bar for every board.
+    
+    
+    $top = array_shift($context['popular_boards']);
+    echo '<pre>';
+    //print_r($top);
+    echo '</pre>';
+    $maxPct = ($top['posts'] * 1.01);
+    //echo '<h1>',$maxPct,'</h1>';
+    array_unshift($context['popular_boards'], $top);
+    
 		foreach ($context['popular_boards'] as $board)
 		{
 			echo '
 							<dt>', $board['link'], '</dt>
-							<dd>
-								<div class="profile_pie" style="background-position: -', ((int) ($board['posts_percent'] / 5) * 20), 'px 0;" title="', sprintf($txt['statPanel_topBoards_memberposts'], $board['posts'], $board['total_posts_member'], $board['posts_percent']), '">
-									', sprintf($txt['statPanel_topBoards_memberposts'], $board['posts'], $board['total_posts_member'], $board['posts_percent']), '
-								</div>
-								<span>', empty($context['hide_num_posts']) ? $board['posts'] : '', '</span>
+							<dd>',
+								/* <div class="profile_pie" style="background-position: -', ((int) ($board['posts_percent'] / 5) * 20), 'px 0;" title="', sprintf($txt['statPanel_topBoards_memberposts'], $board['posts'], $board['total_posts_member'], $board['posts_percent']), '"></div>*/
+                '<div class="percent-bar">
+                  <div class="inside" style="width:', (($board['posts'] / $maxPct) * 100) , '%"></div>
+                  <span>', empty($context['hide_num_posts']) ? $board['posts'] : '', '</span>
+                </div>
+								
 							</dd>';
 		}
 
@@ -1079,11 +1088,9 @@ function template_statPanel()
 				</div>
 			</div>';
 	echo '
-			<div id="popularactivity">
+			<div id="popularactivity" class="most-popular popular-boards" data-contains="Most Popular Boards By Activity">
 				<div class="cat_bar">
-					<h3 class="catbg">
-					<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/stats_replies.gif" alt="" class="icon" />', $txt['statPanel_topBoardsActivity'], '</span>
-					</h3>
+					<h3 class="catbg">', $txt['statPanel_topBoardsActivity'], '</h3>
 				</div>
 				<div class="windowbg2">
 					<span class="topslice"><span></span></span>
@@ -1097,16 +1104,25 @@ function template_statPanel()
 		echo '
 						<dl>';
 
+    $t = array_shift($context['board_activity']);
+    echo '<pre>';
+    //print_r($top);
+    echo '</pre>';
+    $maxAct = ($t['percent'] * 1.01);
+    //echo '<h1>',$maxPct,'</h1>';
+    array_unshift($context['board_activity'], $t);
+    
 		// Draw a bar for every board.
 		foreach ($context['board_activity'] as $activity)
 		{
 			echo '
 							<dt>', $activity['link'], '</dt>
-							<dd>
-								<div class="profile_pie" style="background-position: -', ((int) ($activity['percent'] / 5) * 20), 'px 0;" title="', sprintf($txt['statPanel_topBoards_posts'], $activity['posts'], $activity['total_posts'], $activity['posts_percent']), '">
-									', sprintf($txt['statPanel_topBoards_posts'], $activity['posts'], $activity['total_posts'], $activity['posts_percent']), '
-								</div>
-								<span>', $activity['percent'], '%</span>
+							<dd>',
+								/* <div class="profile_pie" style="background-position: -', ((int) ($board['posts_percent'] / 5) * 20), 'px 0;" title="', sprintf($txt['statPanel_topBoards_memberposts'], $board['posts'], $board['total_posts_member'], $board['posts_percent']), '"></div>*/
+                '<div class="percent-bar">
+                  <div class="inside" style="width:', (($activity['percent'] / $maxAct) * 100) , '%"></div>
+                  <span>', empty($context['hide_num_posts']) ? $activity['percent'] : '', '%</span>
+                </div>
 							</dd>';
 		}
 
@@ -1117,8 +1133,7 @@ function template_statPanel()
 					</div>
 					<span class="botslice"><span></span></span>
 				</div>
-			</div>
-		</div>';
+			</div>';
 
 	echo '
 	</div>
