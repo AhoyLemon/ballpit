@@ -1,0 +1,14 @@
+.recent-posts {
+  .single-post { @include flex-container(); border-bottom: 1px solid #bbb; padding-bottom: 1em; margin-bottom: 1em; }
+  .post-summary { @include flex-item(160px);
+    .count, .day, .time { display: block; }
+    .count { font-size:35px; line-height: 45px; }
+    .poster { font-size:130%; }
+  }
+  .postarea { @include flex-item(calc(100% - 160px));
+    .board { display: block; }
+    .quickbuttons { font-size:0.65em; }
+  }
+  .post { padding-top: 0.5em; border-top: 1px solid #bbb; }
+  img { max-width: 100%; }
+}

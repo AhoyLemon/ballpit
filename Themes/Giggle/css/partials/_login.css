@@ -1,0 +1,57 @@
+/* Styles for the login areas.
+
+------------------------------------------------------- */
+.login {
+  min-width: 280px;
+  width: 40vh;
+  margin: 0 auto; }
+  .login input[type=text], .login input[type=password], .login input[type=number] {
+    display: block;
+    width: 100%;
+    font-size: 22px;
+    line-height: 30px;
+    font-family: 'Droid Sans', sans-serif;
+    text-align: center; }
+  .login input.openid_login {
+    background-image: url(../svg/openid-logo.svg);
+    background-position: left center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding-left: 0; }
+  .login table {
+    width: 100%; }
+  .login .half {
+    width: 49%;
+    text-align: center;
+    vertical-align: middle; }
+    .login .half input {
+      height: 40px; }
+    .login .half label {
+      display: block;
+      text-align: center; }
+  .login .button_submit {
+    font-size: 200%;
+    width: 100%; }
+
+.login dl {
+  overflow: auto;
+  clear: right; }
+
+.login dt, .login dd {
+  margin: 0 0 0.4em 0;
+  width: 44%;
+  padding: 0.1em; }
+
+.login dt {
+  float: left;
+  clear: both;
+  text-align: right;
+  font-weight: bold; }
+
+.login dd {
+  width: 54%;
+  float: right;
+  text-align: left; }
+
+.login p {
+  text-align: center; }

@@ -15,7 +15,7 @@ function template_main()
 	global $context, $settings, $options, $txt, $scripturl;
 
 	echo '
-	<div id="recent" class="main_section">
+	<div id="recent" class="main_section recent-posts">
 		<div class="pagesection">
 			<span>', $txt['pages'], ': ', $context['page_index'], '</span>
 		</div>';
@@ -25,44 +25,54 @@ function template_main()
 		echo '
 			<div class="', $post['alternate'] == 0 ? 'windowbg' : 'windowbg2', ' core_posts">
 				<span class="topslice"><span></span></span>
-				<div class="content">
-					<div class="counter">', $post['counter'], '</div>
+        <pre>';
+        //print_r($post);
+        echo '</pre>
+				<div class="single-post">
+					<div class="post-summary">
+            <span class="count">', $post['counter'], '</span>
+            <span class="poster">', $post['poster']['link'], '</span>
+            <div class="when">
+              <span class="day">', gmdate("M j", $post['timestamp']), '</span>
+              <span class="time">', gmdate("h:ia", $post['timestamp']), '</span>
+            </div>
+          </div>
+          <div class="postarea">
 					<div class="topic_details">
-						<h5>', $post['board']['link'], ' / ', $post['link'], '</h5>
-						<span class="smalltext">&#171;&nbsp;', $txt['last_post'], ' ', $txt['by'], ' <strong>', $post['poster']['link'], ' </strong> ', $txt['on'], '<em> ', $post['time'], '</em>&nbsp;&#187;</span>
+            <ul class="quickbuttons">';
+            
+              // BULB POST
+    
+              //unlit bulb
+              if (($post['poster']['id'] == $context['user']['id']) || ($post['icanbulb'] == false)) {
+                // echo '<li class="bulb unlit" id = "bulb_unlit_' . $message['id'] . '"><a href="', $scripturl, '?action=bulb;msg=', $message['id'], ';topic=', $context['current_topic'], '" title="Bulb this post as INSIGHTFUL"><svg viewBox="0 0 32 32" ><use xlink:href="#IconBulb"></use></svg></a></li>';
+              }
+              
+              // If they *can* reply?
+              if ($post['can_reply'])
+                echo '<li class="reply_button"><a href="', $scripturl, '?action=post;topic=', $post['topic'], '.', $post['start'], '"><svg viewBox="0 0 32 32"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#PostReply"></use></svg></a></li>';
+  
+              // If they *can* quote?
+              if ($post['can_quote'])
+                echo '<li class="quote_button"><a href="', $scripturl, '?action=post;topic=', $post['topic'], '.', $post['start'], ';quote=', $post['id'], '"><svg viewBox="0 0 32 32"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#PostQuote"></use></svg></a></li>';
+    
+              // Can we request notification of topics?
+              if ($post['can_mark_notify'])
+                echo '<li class="notify_button"><a href="', $scripturl, '?action=notify;topic=', $post['topic'], '.', $post['start'], '"><svg viewBox="0 0 32 32"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#IconTattle"></use></svg></a></li>';
+              
+              // How about... even... remove it entirely?!
+              if ($post['can_delete'])
+                echo '<li class="remove_button"><a href="', $scripturl, '?action=deletemsg;msg=', $post['id'], ';topic=', $post['topic'], ';recent;', $context['session_var'], '=', $context['session_id'], '" onclick="return confirm(\'', $txt['remove_message'], '?\');"><svg viewBox="0 0 32 32"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#PostRemove"></use></svg></a></li>';
+    
+            echo '
+            </ul>
+            <h3 class="post-title">
+              <span class="title">', $post['link'], '</span>
+              <span class="number">(post #', $post['start'] ,')</span>
+            </h3>
 					</div>
-					<div class="list_posts">', $post['message'], '</div>
-				</div>';
-
-		if ($post['can_reply'] || $post['can_mark_notify'] || $post['can_delete'])
-			echo '
-				<div class="quickbuttons_wrap">
-					<ul class="reset smalltext quickbuttons">';
-
-		// If they *can* reply?
-		if ($post['can_reply'])
-			echo '
-						<li class="reply_button"><a href="', $scripturl, '?action=post;topic=', $post['topic'], '.', $post['start'], '"><span>', $txt['reply'], '</span></a></li>';
-
-		// If they *can* quote?
-		if ($post['can_quote'])
-			echo '
-						<li class="quote_button"><a href="', $scripturl, '?action=post;topic=', $post['topic'], '.', $post['start'], ';quote=', $post['id'], '"><span>', $txt['quote'], '</span></a></li>';
-
-		// Can we request notification of topics?
-		if ($post['can_mark_notify'])
-			echo '
-						<li class="notify_button"><a href="', $scripturl, '?action=notify;topic=', $post['topic'], '.', $post['start'], '"><span>', $txt['notify'], '</span></a></li>';
-
-		// How about... even... remove it entirely?!
-		if ($post['can_delete'])
-			echo '
-						<li class="remove_button"><a href="', $scripturl, '?action=deletemsg;msg=', $post['id'], ';topic=', $post['topic'], ';recent;', $context['session_var'], '=', $context['session_id'], '" onclick="return confirm(\'', $txt['remove_message'], '?\');"><span>', $txt['remove'], '</span></a></li>';
-
-		if ($post['can_reply'] || $post['can_mark_notify'] || $post['can_delete'])
-			echo '
-					</ul>
-				</div>';
+					<div class="post">', $post['message'], '</div>
+				</div></div>';
 
 		echo '
 				<span class="botslice clear"><span></span></span>

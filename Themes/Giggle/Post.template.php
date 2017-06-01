@@ -792,7 +792,7 @@ function template_main()
 			{
 				echo '
 					<ul class="reset smalltext quickbuttons" id="msg_', $post['id'], '_quote">
-						<li class="quote_button"><a href="#postmodify" onclick="return insertQuoteFast(', $post['id'], ');"><span>',$txt['bbc_quote'],'</span></a></li>
+						<li class="quote_button"><a href="#postmodify" onclick="return insertQuoteFast(', $post['id'], ');"><svg viewBox="0 0 32 32"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#PostQuote"></use></svg></a></li>
 					</ul>';
 			}
 

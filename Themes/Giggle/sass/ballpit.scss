@@ -3,6 +3,8 @@
 @import "partials/_extends";
 
 @import "partials/_header";
+@import "partials/_login";
+@import "partials/_thread";
 @import "partials/_posts";
 @import "partials/_profile";
 
@@ -2018,83 +2020,6 @@ fieldset.merge_options
 }
 
 
-
-/* Styles for the login areas.
-
-------------------------------------------------------- */
-
-
-.login { width: 300px; min-width: 280px; width:40vh; margin: 0 auto; }
-.login * { box-sizing: border-box; }
-.login input[type=text], .login input[type=password], .login input[type=number] { display: block; width: 100%; font-size:22px; line-height: 30px;  font-family:'Droid Sans', sans-serif; text-align:center; }
-.login input[type=checkbox] { height: 6.5vh; width: 100%; padding: 0; margin: 0; }
-.login input.openid_login { background-image: url(../svg/openid-logo.svg); background-position: left center; background-size: contain; background-repeat: no-repeat; padding-left:0; }
-.login table { width:100%; }
-.login .half { width:49%; text-align: center; vertical-align: middle; }
-.login .half input { height:40px; }
-.login .half label { display: block; text-align: center; }
-.login .button_submit { font-size: 200%; width: 100%; }
-
-
-
-.login dl
-
-{
-
-  overflow: auto;
-
-  clear: right;
-
-}
-
-.login dt, .login dd
-
-{
-
-  margin: 0 0 0.4em 0;
-
-  width: 44%;
-
-  padding: 0.1em;
-
-}
-
-.login dt
-
-{
-
-  float: left;
-
-  clear: both;
-
-  text-align: right;
-
-  font-weight: bold;
-
-}
-
-.login dd
-
-{
-
-  width: 54%;
-
-  float: right;
-
-  text-align: left;
-
-}
-
-.login p
-
-{
-
-  text-align: center;
-
-}
-
-
-
 /* Styles for the registration section.
 
 ------------------------------------------------------- */
@@ -2825,50 +2750,6 @@ div#profile_success
   float: right;
 
 }
-
-
-
-.counter
-
-{
-
-  margin: 0 0 0 0;
-
-  padding: 0.2em 0.5em 0.1em 0.2em;
-
-  font-size: 2.2em;
-
-  font-weight: bold;
-
-  color: #3f3f3f;
-
-  float: left;
-
-}
-
-.list_posts
-
-{
-
-  border-top: 2px solid #b3b3bf;
-
-  padding-top: 12px;
-
-  margin-top: 6px;
-
-  overflow: auto;
-
-}
-
-
-
-.core_posts { margin-bottom: 3px;
-  .list_posts img { max-width: 100%;  max-height: 300px;
-  }
-  .list_posts blockquote img { max-height: 180px ; }
-}
-
-
 
 .topic h4
 
