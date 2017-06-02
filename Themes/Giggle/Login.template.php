@@ -55,11 +55,14 @@ function template_login()
 								<input type="number" min="5" max="999" step="5" name="cookielength" id="cookielength" value="', $modSettings['cookieTime'], '"', $context['never_expire'] ? ' disabled="disabled"' : '', ' class="input_text" />
 							</td>
 							<td class="half checkbox-holder">
+                            <label>
 								<input type="checkbox" name="cookieneverexp" id="cookieneverexp"', $context['never_expire'] ? ' checked="checked"' : '', ' class="input_check" onclick="this.form.cookielength.disabled = this.checked;" />
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-                  <path class="box" d="M93 8v85H8V8h85m5-5H3v95h95V3z"/>
-                  <path class="check" d="M84 35.1L71.8 22.8 42.7 51.9 28.6 37.7 16.3 50l26.4 26.4z"/>
-                </svg>
+                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                    <path d="M0 0h100v100H0z" class="box"/>
+                    <path d="M95 5v90H5V5h90m5-5H0v100h100V0z" class="outline"/>
+                    <path d="M85.3 33.8l-12.9-13-30.6 30.7-14.9-14.9L14 49.5l27.8 27.8z" class="check"/>
+                  </svg>
+                  </label>
 							</td>
 						</tr>
 					</body>
@@ -138,10 +141,10 @@ function template_kick_guest()
 							<td class="half checkbox-holder">
                 <label>
                   <input type="checkbox" name="cookieneverexp" id="cookieneverexp"', $context['never_expire'] ? ' checked="checked"' : '', ' class="input_check" onclick="this.form.cookielength.disabled = this.checked;" />
-                  <svg class="chkbx" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-                    <path d="M0 0h100v100H0z" class="box"/>
-                    <path d="M95 5v90H5V5h90m5-5H0v100h100V0z" class="outline"/>
-                    <path d="M85.3 33.8l-12.9-13-30.6 30.7-14.9-14.9L14 49.5l27.8 27.8z" class="check"/>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                    <path d="M0 0h100v100H0z" id="box"/>
+                    <path d="M95 5v90H5V5h90m5-5H0v100h100V0z" id="outline"/>
+                    <path d="M85.3 33.8l-12.9-13-30.6 30.7-14.9-14.9L14 49.5l27.8 27.8z" id="check"/>
                   </svg>
                 </label>
 							</td>
