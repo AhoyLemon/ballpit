@@ -1,0 +1,30 @@
+.stats-boxes { @include flex-container(); margin-left: auto; margin-right:auto;
+  /*.box { @include flex-item(220px,0); border:1px solid $border; margin: 0 0.5em 0.5em 0; padding: 0.5em; position: relative; padding-top: 2.5em;
+    label { text-transform: uppercase; font-size:100%; color:$white; background:$black; @include position(absolute,0,0,null,0); padding:0.5em 1em; }
+    span { font-size:145%; display: block; }
+  }
+  dl { @include flex-container(); 
+    dt { @include flex-item(40%); text-align: right; padding-top: 0.7em; padding-right: 1em; color:#888; text-transform: uppercase; }
+    dd { font-size:198%; @include flex-item(40%); margin: 0; }
+  }
+  */
+  h1 { @include flex-item(100%); margin-bottom: 1em; }
+  .stats-box { @include flex-item(360px); margin-right: 2em; margin-bottom: 2em;
+    h3 { text-transform: uppercase; letter-spacing: 0.1em; font-size:120%; }
+    dl.stats { @include flex-container(); }
+    dt { @include flex-item(60%); margin: 0 0 10px; border-bottom:1px dotted #aaa; text-transform: uppercase}
+    dd { @include flex-item(40%); margin: 0 0 10px; font-size:125%; }
+    .percent-bar { background-color:$grey; width:100%; height: 1.6rem; position: relative;
+      .inside { background-color:#444; position: absolute; top:0; bottom:0; left: 0; }
+      span { display: block; position: relative; padding-left: 0.25em; padding-top: 0.25em; color:$white; text-shadow: 1px 1px 1px #444; font-size:0.85rem; }
+    }
+  }
+  .stats-table-holder { @include flex-item(100%);}
+  .stats-table {
+    tr:nth-child(even) {
+      th, td { background-color:rgba($black,0.15); }
+    }
+    td { text-align: left; }
+  }
+  .useless-icon { display: none !important; }
+}

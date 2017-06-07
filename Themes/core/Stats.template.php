@@ -55,7 +55,7 @@ function template_main()
 						</tr>
 					</table>
 				</td>
-				<td class="windowbg" width="20" valign="middle" align="center"><img src="', $settings['images_url'], '/stats_info.gif" width="20" height="20" alt="" /></td>
+				<td class="windowbg" width="20" valign="middle" align="center"></td>
 				<td class="windowbg2" valign="top">
 					<table border="0" cellpadding="1" cellspacing="0" width="100%">
 						<tr>
