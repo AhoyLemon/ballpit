@@ -112,9 +112,11 @@ ul.reset, ul.reset li { padding: 0; margin: 0; list-style: none; }
 
 
 // Generic, mostly color-related, classes.
+/*
 .titlebg, .titlebg2, tr.titlebg th, tr.titlebg td, tr.titlebg2 td,
 .catbg, .catbg2, tr.catbg td, tr.catbg2 td, tr.catbg th, tr.catbg2 th
 { color: $black; font-size: 1.1em; font-weight: $bold; }
+*/
 
 // adjust the table versions of headers
 tr.titlebg th, tr.titlebg2 th, td.titlebg, td.titlebg2, tr.catbg th, tr.catbg2 th, td.catbg, td.catbg2
@@ -694,6 +696,7 @@ table.table_grid {
   }
 }
 
+/*
 #adm_submenus
 
 {
@@ -703,6 +706,7 @@ table.table_grid {
   overflow: hidden;
 
 }
+*/
 
 
 
@@ -2486,72 +2490,6 @@ ul.icon_glossary { list-style: none; border: 1px solid $grey; padding: 0.5em; po
 
 dl { overflow: auto; margin: 0; padding: 0; }
 
-
-
-/* The basic user info on the left */
-
-
-#profileview { @include flex-container();
-  .cat_bar { @include flex-item(100%); }
-  #basicinfo { @include flex-item(180px,0,0);
-    span.position { display: block; font-size:80%; }
-  }
-  #detailedinfo { @include flex-item(calc(100% - 200px));
-    dl { @include flex-container();
-      dt, dd { margin: 0.45em 0; border-bottom: 1px solid rgba($black,0.3); }
-      dt { @include flex-item(8em); text-align: right; font-weight: $bold;   }
-      dd { @include flex-item(calc(100% - 10em)); padding: 0 0 0 1em; }
-      svg { width: 1em; height: 1em; }
-    }
-  }
-}
-
-#detailedinfo {
-  h4 { font-size: 135%; font-weight: 100; line-height: 105%; white-space: pre-wrap; overflow: hidden; }
-  ul { list-style-type: none; margin: 10px 0 0 0;
-    li { display: block; float: left; margin-right: 5px; }
-  }
-  span#userstatus { display: block; clear: both;
-    img { vertical-align: middle; }
-  }
-}
-
-/*
-#detailedinfo div.content dl, #tracking div.content dl
-
-{
-
-  clear: right;
-
-  overflow: auto;
-
-  margin: 0 0 18px 0;
-
-  padding: 0 0 15px 0;
-
-  border-bottom: 1px #999 solid;
-
-}
-
-#tracking div.content dt
-
-{
-
-  width: 35%;
-
-  float: left;
-
-  margin: 0 0 3px 0;
-
-  padding: 0;
-
-  font-weight: bold;
-
-  clear: both;
-
-}
-*/
-
 #tracking div.content dd
 
 {
@@ -2626,6 +2564,7 @@ dl { overflow: auto; margin: 0; padding: 0; }
 
 }
 
+/*
 #main_admsection #basicinfo, #main_admsection #detailedinfo
 
 {
@@ -2643,6 +2582,7 @@ dl { overflow: auto; margin: 0; padding: 0; }
   width: 35%;
 
 }
+*/
 
 /*
 #main_admsection #basicinfo img.avatar
@@ -2668,16 +2608,6 @@ dl { overflow: auto; margin: 0; padding: 0; }
 {
 
   clear: left;
-
-}
-
-#main_admsection #basicinfo p#infolinks
-
-{
-
-  display: none;
-
-  clear: both;
 
 }
 
@@ -2954,6 +2884,7 @@ div#profile_success
 
 /* Paid Subscriptions */
 
+/*
 #paid_subscription
 
 {
@@ -2977,9 +2908,11 @@ div#profile_success
   margin-bottom: 4px;
 
 }
+*/
 
 /* Pick theme */
 
+/*
 #pick_theme
 
 {
@@ -2989,6 +2922,7 @@ div#profile_success
   float: left;
 
 }
+*/
 
 /*Issue a warning*/
 
@@ -3006,6 +2940,7 @@ div#profile_success
 
 ------------------------------------------------- */
 
+/*
 #statistics
 
 {
@@ -3065,6 +3000,7 @@ div#profile_success
   width: 49.5%;
 
 }
+*/
 
 /*
 dl.stats

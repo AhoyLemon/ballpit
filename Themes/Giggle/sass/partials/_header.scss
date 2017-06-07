@@ -23,7 +23,7 @@
       a span { display: block; padding: 8px; }
     }
     a:hover { background-color:$border; text-decoration: none; }
-    a.chosen { background:$black; color:$white; font-weight: $bold; }
+    a.chosen, a.active { background:$black; color:$white; font-weight: $bold; }
   }
 }
 

@@ -51,19 +51,40 @@ function template_summary()
 	// Display the basic information about the user
 	echo '
 <div id="profileview" class="flow_auto">
-	<div class="cat_bar">
-		<h3 class="catbg">
-			<span class="ie6_header"><img src="', $settings['images_url'], '/icons/user_talking.png" alt="" class="icon" />', $txt['summary'], '</span>
-		</h3>
-	</div>
-	<div id="basicinfo">
+	<div id="basicinfo" class="basic-info">
 		<div class="windowbg">
-			<span class="topslice"><span></span></span>
 			<div class="content flow_auto">
 				<div class="username"><h4>', $context['member']['name'], ' <span class="position">', (!empty($context['member']['group']) ? $context['member']['group'] : $context['member']['post_group']), '</span></h4></div>
 				', $context['member']['avatar']['image'], '
-				<span id="userstatus" style="padding-top:5px;">', $context['can_send_pm'] ? '<img src="' . $context['member']['online']['image_href'] . '" alt="' . $context['member']['online']['text'] . '" align="middle" />' : $context['member']['online']['text'], $settings['use_image_buttons'] ? '<span class="smalltext"> ' . $context['member']['online']['text'] . '</span></span>' : '
-				<ul class="reset">';
+				<ul class="actions">
+          <li>
+            <a href="', $scripturl, '?action=profile;area=showposts;u=', $context['id_member'], '">Show Posts</a>
+          </li>
+          <li>
+            <a href="', $scripturl, '?action=profile;area=statistics;u=', $context['id_member'], '">View Stats</a>
+          </li>';
+  
+          // Can they ignore this person?
+          if (!empty($context['can_have_buddy']) && !$context['user']['is_owner'])
+          echo '<li><a class="action-color" href="', $scripturl, '?action=profile;area=lists;sa=ignore">Ignore</a></li>';
+  
+          // Can they add this member as a buddy?
+          /*
+          if (!empty($context['can_have_buddy']) && !$context['user']['is_owner'])
+            echo '
+              <li>
+                <a href="', $scripturl, '?action=buddy;u=', $context['id_member'], ';', $context['session_var'], '=', $context['session_id'], '">
+                Make Buddy
+              </li>';
+          */
+          // Can they send a private message?
+          if (!$context['user']['is_owner'] && $context['can_send_pm'])
+            echo '
+              <li>
+                <a class="action-color" href="', $scripturl, '?action=pm;sa=send;u=', $context['id_member'], '">
+                  Private Message
+                </a>
+              </li>';
 
 	// Are there any custom profile fields for the summary?
 	if (!empty($context['custom_fields']))
@@ -80,34 +101,14 @@ function template_summary()
 				', !isset($context['disabled_fields']['aim']) && !empty($context['member']['aim']['link']) ? '<li>' . $context['member']['aim']['link'] . '</li>' : '', '
 				', !isset($context['disabled_fields']['yim']) && !empty($context['member']['yim']['link']) ? '<li>' . $context['member']['yim']['link'] . '</li>' : '';
 				
-	// Can they add this member as a buddy?
-	if (!empty($context['can_have_buddy']) && !$context['user']['is_owner'])
-		echo '
-			<li>
-				<a href="', $scripturl, '?action=buddy;u=', $context['id_member'], ';', $context['session_var'], '=', $context['session_id'], '">
-				<img src="' . $settings['images_url'] . '/icons/16/buddy_blue.png" alt="buddy" title="add to buddy list" />
-			</li>';
-	// Can they send a private message?
-	if (!$context['user']['is_owner'] && $context['can_send_pm'])
-		echo '
-			<li>
-				<a href="', $scripturl, '?action=pm;sa=send;u=', $context['id_member'], '">
-					<img src="' . $settings['images_url'] . '/icons/16/im_off.png" alt="pm" title="send a private message" />
-				</a>
-			</li>';
+	
 		echo '</ul>';
-	echo '<p id="infolinks">';
-	echo '
-					<a href="', $scripturl, '?action=profile;area=showposts;u=', $context['id_member'], '">', $txt['showPosts'], '</a><br />
-					<a href="', $scripturl, '?action=profile;area=statistics;u=', $context['id_member'], '">', $txt['statPanel'], '</a>
-				</p>';
 
 	echo '
 			</div>
-			<span class="botslice"><span></span></span>
 		</div>
 	</div>
-	<div id="detailedinfo">
+	<div id="detailedinfo" class="user-details">
 		<div class="windowbg2">
 			<span class="topslice"><span></span></span>
 			<div class="content">
@@ -333,86 +334,66 @@ function template_showPosts()
 	global $context, $settings, $options, $scripturl, $modSettings, $txt;
 
 	echo '
-		<div class="cat_bar">
-			<h3 class="catbg">
-				', (!isset($context['attachments']) && empty($context['is_topics']) ? $txt['showMessages'] : (!empty($context['is_topics']) ? $txt['showTopics'] : $txt['showAttachments'])), ' - ', $context['member']['name'], '
+		<h3>
+				', (!isset($context['attachments']) && empty($context['is_topics']) ? $txt['showMessages'] : (!empty($context['is_topics']) ? $txt['showTopics'] : $txt['showAttachments'])), ' by ', $context['member']['name'], '
 			</h3>
-		</div>
 		<div class="pagesection">
 			<span>', $txt['pages'], ': ', $context['page_index'], '</span>
 		</div>';
 
-	// Button shortcuts
-	$quote_button = create_button('quote.gif', 'reply_quote', 'quote', 'align="middle"');
-	$reply_button = create_button('reply_sm.gif', 'reply', 'reply', 'align="middle"');
-	$remove_button = create_button('delete.gif', 'remove_message', 'remove', 'align="middle"');
-	$notify_button = create_button('notify_sm.gif', 'notify_replies', 'notify', 'align="middle"');
-
 	// Are we displaying posts or attachments?
 	if (!isset($context['attachments']))
 	{
+    echo '<section class="recent-posts">';
 		// For every post to be displayed, give it its own div, and show the important details of the post.
 		foreach ($context['posts'] as $post)
 		{
 			echo '
-		<div class="topic">
-			<div class="', $post['alternate'] == 0 ? 'windowbg2' : 'windowbg', ' core_posts">
-				<span class="topslice"><span></span></span>
-				<div class="content">
-					<div class="counter">', $post['counter'], '</div>
-					<div class="topic_details">
-						<h5><strong><a href="', $scripturl, '?board=', $post['board']['id'], '.0">', $post['board']['name'], '</a> / <a href="', $scripturl, '?topic=', $post['topic'], '.', $post['start'], '#msg', $post['id'], '">', $post['subject'], '</a></strong></h5>
-						<span class="smalltext">&#171;&nbsp;<strong>', $txt['on'], ':</strong> ', $post['time'], '&nbsp;&#187;</span>
-					</div>
-					<div class="list_posts">';
-
-			if (!$post['approved'])
-				echo '
-					<div class="approve_post">
-						<em>', $txt['post_awaiting_approval'], '</em>
-					</div>';
-
-			echo '
-					', $post['body'], '
-					</div>
-				</div>';
-
-			if ($post['can_reply'] || $post['can_mark_notify'] || $post['can_delete'])
-				echo '
-				<div class="floatright">
-					<ul class="reset smalltext quickbuttons">';
-
-			// If they *can* reply?
-			if ($post['can_reply'])
-				echo '
-						<li class="reply_button"><a href="', $scripturl, '?action=post;topic=', $post['topic'], '.', $post['start'], '"><span>', $txt['reply'], '</span></a></li>';
-
-			// If they *can* quote?
-			if ($post['can_quote'])
-				echo '
-						<li class="quote_button"><a href="', $scripturl . '?action=post;topic=', $post['topic'], '.', $post['start'], ';quote=', $post['id'], '"><span>', $txt['quote'], '</span></a></li>';
-
-			// Can we request notification of topics?
-			if ($post['can_mark_notify'])
-				echo '
-						<li class="notify_button"><a href="', $scripturl, '?action=notify;topic=', $post['topic'], '.', $post['start'], '"><span>', $txt['notify'], '</span></a></li>';
-
-			// How about... even... remove it entirely?!
-			if ($post['can_delete'])
-				echo '
-						<li class="remove_button"><a href="', $scripturl, '?action=deletemsg;msg=', $post['id'], ';topic=', $post['topic'], ';profile;u=', $context['member']['id'], ';start=', $context['start'], ';', $context['session_var'], '=', $context['session_id'], '" onclick="return confirm(\'', $txt['remove_message'], '?\');"><span>', $txt['remove'], '</span></a></li>';
-
-			if ($post['can_reply'] || $post['can_mark_notify'] || $post['can_delete'])
-				echo '
-					</ul>
-				</div>';
+		<div class="single-post">
+        <div class="post-summary">
+          <span class="count">', $post['counter'], '</span>
+          <div class="when">
+            <span class="day">', gmdate("M j", $post['timestamp']), '</span>
+            <span class="time">', gmdate("h:ia", $post['timestamp']), '</span>
+          </div>
+        </div>
+        <div class="postarea">
+          <div class="topic_details">
+            <ul class="quickbuttons">';
+              // If they *can* reply?
+              if ($post['can_reply'])
+				        echo '
+						      <li class="reply_button"><a href="', $scripturl, '?action=post;topic=', $post['topic'], '.', $post['start'], '"><svg viewBox="0 0 32 32"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#PostReply"></use></svg></a></li>';
+              
+              // If they *can* quote?
+              if ($post['can_quote'])
+                echo '
+                    <li class="quote_button"><a href="', $scripturl . '?action=post;topic=', $post['topic'], '.', $post['start'], ';quote=', $post['id'], '"><svg viewBox="0 0 32 32"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#PostQuote"></use></svg></a></li>';
+              
+              // Can we request notification of topics?
+              if ($post['can_mark_notify'])
+                echo '
+                    <li class="notify_button"><a href="', $scripturl, '?action=notify;topic=', $post['topic'], '.', $post['start'], '"><svg viewBox="0 0 32 32"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#IconNotify"></use></svg></a></li>';
+              
+              // How about... even... remove it entirely?!
+              if ($post['can_delete'])
+                echo '
+                    <li class="remove_button"><a href="', $scripturl, '?action=deletemsg;msg=', $post['id'], ';topic=', $post['topic'], ';profile;u=', $context['member']['id'], ';start=', $context['start'], ';', $context['session_var'], '=', $context['session_id'], '" onclick="return confirm(\'', $txt['remove_message'], '?\');"><svg viewBox="0 0 32 32"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#PostRemove"></use></svg></a></li>';
+            echo '
+            </ul>
+            <h3 class="post-title">
+              <span class="title">
+                <a href="', $scripturl, '?topic=', $post['topic'], '.', $post['start'], '#msg', $post['id'], '">', $post['subject'], '</a>
+              </span>
+            </h3>
+          </div>
+          <div class="post">', $post['body'], '</div>
+        </div>';
 
 			echo '
-				<br class="clear" />
-				<span class="botslice"><span></span></span>
-			</div>
 		</div>';
 		}
+    echo '</section>';
 	}
 	else
 	{
@@ -576,7 +557,7 @@ function template_editIgnoreList()
 	echo '
 		<div class="title_bar">
 			<h3 class="titlebg">
-				<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/icons/profile_sm.gif" alt="" class="icon" />', $txt['editIgnoreList'], '</span>
+				<span class="ie6_header floatleft">', $txt['editIgnoreList'], '</span>
 			</h3>
 		</div>
 		<table border="0" width="100%" cellspacing="1" cellpadding="4" class="table_grid" align="center">
@@ -801,7 +782,7 @@ function template_showPermissions()
 	echo '
 		<div class="cat_bar">
 			<h3 class="catbg">
-				<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/icons/profile_sm.gif" alt="" class="icon" />', $txt['showPermissions'], '</span>
+				<span class="ie6_header floatleft">', $txt['showPermissions'], '</span>
 			</h3>
 		</div>';
 
@@ -962,16 +943,19 @@ function template_statPanel()
 		<div id="generalstats" class="general-stats" data-contains="General Stats">
 			<div class="cat_bar">
 				<h3 class="catbg">', 
-            $txt['statPanel_generalStats'], ' - ', $context['member']['name'], 
+            $context['member']['name'], '&apos;s stats',
         '</h3>
 			</div>
 			<div class="windowbg2">
 				<span class="topslice"><span></span></span>
 				<div class="content">
-					<dl>
+					<dl>';
+            /*
 						<dt>', $txt['statPanel_total_time_online'], ':</dt>
 						<dd>', $context['time_logged_in'], '</dd>
-						<dt>', $txt['statPanel_total_posts'], ':</dt>
+           */
+            echo
+						'<dt>', $txt['statPanel_total_posts'], ':</dt>
 						<dd>', $context['num_posts'], ' ', $txt['statPanel_posts'], '</dd>
 						<dt>', $txt['statPanel_total_topics'], ':</dt>
 						<dd>', $context['num_topics'], ' ', $txt['statPanel_topics'], '</dd>
@@ -1150,7 +1134,7 @@ function template_edit_options()
 		<form action="', (!empty($context['profile_custom_submit_url']) ? $context['profile_custom_submit_url'] : $scripturl . '?action=profile;area=' . $context['menu_item_selected'] . ';u=' . $context['id_member'] . ';save'), '" method="post" accept-charset="', $context['character_set'], '" name="creator" id="creator" enctype="multipart/form-data" onsubmit="return checkProfileSubmit();">
 			<div class="cat_bar">
 				<h3 class="catbg">
-					<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/icons/profile_sm.gif" alt="" class="icon" />';
+					<span class="ie6_header floatleft">';
 
 		// Don't say "Profile" if this isn't the profile...
 		if (!empty($context['profile_header_text']))
@@ -1611,7 +1595,7 @@ function template_notification()
 	echo '
 			<div class="cat_bar">
 				<h3 class="catbg">
-					<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/icons/profile_sm.gif" alt="" class="icon" />', $txt['profile'], '</span>
+					<span class="ie6_header floatleft">', $txt['profile'], '</span>
 				</h3>
 			</div>
 			<p class="windowbg description">', $txt['notification_info'], '</p>
@@ -1684,7 +1668,7 @@ function template_groupMembership()
 		<form action="', $scripturl, '?action=profile;area=groupmembership;save" method="post" accept-charset="', $context['character_set'], '" name="creator" id="creator">
 			<div class="cat_bar">
 				<h3 class="catbg">
-					<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/icons/profile_sm.gif" alt="" class="icon" />', $txt['profile'], '</span>
+					<span class="ie6_header floatleft">', $txt['profile'], '</span>
 				</h3>
 			</div>
 			<p class="description">', $txt['groupMembership_info'], '</p>';
@@ -1862,7 +1846,7 @@ function template_ignoreboards()
 	<form action="', $scripturl, '?action=profile;area=ignoreboards;save" method="post" accept-charset="', $context['character_set'], '" name="creator" id="creator">
 		<div class="cat_bar">
 			<h3 class="catbg">
-				<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/icons/profile_sm.gif" alt="" class="icon" />', $txt['profile'], '</span>
+				<span class="ie6_header floatleft">', $txt['profile'], '</span>
 			</h3>
 		</div>
 		<p class="description">', $txt['ignoreboards_info'], '</p>
@@ -1959,7 +1943,7 @@ function template_viewWarning()
 	echo '
 		<div class="title_bar">
 			<h3 class="titlebg">
-				<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/icons/profile_sm.gif" alt="" class="icon" />
+				<span class="ie6_header floatleft">
 				', sprintf($txt['profile_viewwarning_for_user'], $context['member']['name']), '
 				</span>
 			</h3>
@@ -2145,7 +2129,7 @@ function template_issueWarning()
 	<form action="', $scripturl, '?action=profile;u=', $context['id_member'], ';area=issuewarning" method="post" class="flow_hidden" accept-charset="', $context['character_set'], '">
 		<div class="cat_bar">
 			<h3 class="catbg">
-				<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/icons/profile_sm.gif" alt="" class="icon" />
+				<span class="ie6_header floatleft">
 				', $context['user']['is_owner'] ? $txt['profile_warning_level'] : $txt['profile_issue_warning'], '
 				</span>
 			</h3>
@@ -2341,7 +2325,7 @@ function template_deleteAccount()
 		<form action="', $scripturl, '?action=profile;area=deleteaccount;save" method="post" accept-charset="', $context['character_set'], '" name="creator" id="creator">
 			<div class="title_bar">
 				<h3 class="titlebg">
-					<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/icons/profile_sm.gif" alt="" class="icon" />', $txt['deleteAccount'], '</span>
+					<span class="ie6_header floatleft">', $txt['deleteAccount'], '</span>
 				</h3>
 			</div>';
 	// If deleting another account give them a lovely info box.
@@ -2885,7 +2869,7 @@ function template_authentication_method()
 		<form action="', $scripturl, '?action=profile;area=authentication;save" method="post" accept-charset="', $context['character_set'], '" name="creator" id="creator" enctype="multipart/form-data">
 			<div class="cat_bar">
 				<h3 class="catbg">
-					<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/icons/profile_sm.gif" alt="" class="icon" />', $txt['authentication'], '</span>
+					<span class="ie6_header floatleft">', $txt['authentication'], '</span>
 				</h3>
 			</div>
 			<p class="windowbg description">', $txt['change_authentication'], '</p>

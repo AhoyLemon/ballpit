@@ -1,4 +1,4 @@
-.stats-boxes { @include flex-container(); margin-left: auto; margin-right:auto;
+.stats-boxes { @include flex-container();
   /*.box { @include flex-item(220px,0); border:1px solid $border; margin: 0 0.5em 0.5em 0; padding: 0.5em; position: relative; padding-top: 2.5em;
     label { text-transform: uppercase; font-size:100%; color:$white; background:$black; @include position(absolute,0,0,null,0); padding:0.5em 1em; }
     span { font-size:145%; display: block; }
@@ -9,7 +9,7 @@
   }
   */
   h1 { @include flex-item(100%); margin-bottom: 1em; }
-  .stats-box { @include flex-item(360px); margin-right: 2em; margin-bottom: 2em;
+  .stats-box { margin-bottom: 2em;
     h3 { text-transform: uppercase; letter-spacing: 0.1em; font-size:120%; }
     dl.stats { @include flex-container(); }
     dt { @include flex-item(60%); margin: 0 0 10px; border-bottom:1px dotted #aaa; text-transform: uppercase}
@@ -18,13 +18,37 @@
       .inside { background-color:#444; position: absolute; top:0; bottom:0; left: 0; }
       span { display: block; position: relative; padding-left: 0.25em; padding-top: 0.25em; color:$white; text-shadow: 1px 1px 1px #444; font-size:0.85rem; }
     }
+    
+    
+    &.primary { @include flex-item(180px);
+      dt { @include flex-item(100%); border-bottom: none; margin-bottom: 0; color:#777; }
+      dd { padding-left: 0.5em; font-size:160%; }
+    }
+    
   }
-  .stats-table-holder { @include flex-item(100%);}
+  .stats-table-holder { @include flex-item(100%); overflow-y: hidden;
+  
+  }
   .stats-table {
+    caption { text-align: left; font-size: 125%; letter-spacing: 0.25em; font-weight: 600; padding-left: 0.3em; }
     tr:nth-child(even) {
       th, td { background-color:rgba($black,0.15); }
     }
     td { text-align: left; }
   }
   .useless-icon { display: none !important; }
+}
+
+@media (max-width:859px) {
+  .stats-boxes {
+    .stats-box { @include flex-item(100%); 
+      &.primary { @include flex-item(50%); }
+    }
+  }
+}
+
+@media (min-width:860px) {
+  .stats-boxes { margin-right: -2rem;
+    .stats-box { @include flex-item(360px); margin-right: 2em; }
+  }
 }

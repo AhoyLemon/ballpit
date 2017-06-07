@@ -58,7 +58,7 @@ function template_main()
     
               // Can we request notification of topics?
               if ($post['can_mark_notify'])
-                echo '<li class="notify_button"><a href="', $scripturl, '?action=notify;topic=', $post['topic'], '.', $post['start'], '"><svg viewBox="0 0 32 32"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#IconTattle"></use></svg></a></li>';
+                echo '<li class="notify_button"><a href="', $scripturl, '?action=notify;topic=', $post['topic'], '.', $post['start'], '"><svg viewBox="0 0 32 32"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#IconNotify"></use></svg></a></li>';
               
               // How about... even... remove it entirely?!
               if ($post['can_delete'])

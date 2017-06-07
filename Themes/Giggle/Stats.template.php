@@ -70,9 +70,9 @@ function template_main()
     */
 
 	echo '
-	<div id="statistics" class="stats-boxes">
-      <h1>ballp.it Stats</h1>
-			<div class="stats-box">
+	<div class="stats-boxes">
+      <!-- <h1>ballp.it Stats</h1> -->
+			<div class="stats-box primary">
               <h3>Members</h3>
 						<dl class="stats">
 							<dt>Total Members</dt>
@@ -91,7 +91,7 @@ function template_main()
 	echo '
 						</dl>
 			</div>
-			<div class="stats-box">
+			<div class="stats-box primary">
               <h3>Posts</h3>
 						<dl class="stats">
                             <dt>Total Posts</dt>
@@ -252,16 +252,16 @@ function template_main()
 	echo '
 						</dl>
 			</div>
-		<div class="stats-table-holder">
-			<h3 class="catbg">Ballp.it In Review</h3>';
+		<div class="stats-table-holder">';
 
 	if (!empty($context['yearly']))
 	{
 		echo '
 		<table border="0" width="100%" cellspacing="1" cellpadding="4" class="table_grid stats-table" id="stats">
+      <caption>BALLP.IT IN REVIEW</caption>
 			<thead>
 				<tr class="titlebg" valign="middle" align="center">
-					<th class="first_th lefttext" width="25%">', $txt['yearly_summary'], '</th>
+					<th class="first_th lefttext" width="25%"></th>
 					<th width="15%">', $txt['stats_new_topics'], '</th>
 					<th width="15%">', $txt['stats_new_posts'], '</th>
 					<th width="15%">', $txt['stats_new_members'], '</th>

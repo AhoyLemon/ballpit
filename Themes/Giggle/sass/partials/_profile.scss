@@ -1,3 +1,40 @@
+// USER PROFILE PAGE
+
+
+#profileview { @include flex-container();
+  .cat_bar { @include flex-item(100%); }
+  .basic-info { @include flex-item(180px,0,0);
+    span.position { display: block; font-size:80%; }
+    .actions { padding-left: 0;
+      li { display: block; margin-bottom: 0.5em;
+        a { color:$blue;
+          &.action-color { color:$red; }
+        }
+      }
+    }
+  }
+  .user-details { @include flex-item(calc(100% - 200px));
+    dl { @include flex-container();
+      dt, dd { margin: 0.45em 0; border-bottom: 1px solid rgba($black,0.3); }
+      dt { @include flex-item(8em); text-align: right; font-weight: $bold;   }
+      dd { @include flex-item(calc(100% - 10em)); padding: 0 0 0 1em; }
+      svg { width: 1em; height: 1em; }
+    }
+  }
+}
+
+#detailedinfo {
+  h4 { font-size: 135%; font-weight: 100; line-height: 105%; white-space: pre-wrap; overflow: hidden; }
+  ul { list-style-type: none; margin: 10px 0 0 0;
+    li { display: block; float: left; margin-right: 5px; }
+  }
+  span#userstatus { display: block; clear: both;
+    img { vertical-align: middle; }
+  }
+}
+
+
+
 // USER STATS
 
 .user-stats { @include flex-container();
@@ -64,10 +101,3 @@
   }
   
 }
-
-/*
-.bar-outside { background-color:$grey; width:100%; height: 1.6rem; position: relative;
-    .bar-inside { background-color:#444; position: absolute; top:0; bottom:0; left: 0; }
-    .percentage { display: block; position: relative; padding-left: 0.25em; padding-top: 0.25em; color:$white; text-shadow: 1px 1px 1px #444; }
-  }
-*/
