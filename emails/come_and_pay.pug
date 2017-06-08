@@ -3,21 +3,41 @@ extends _layout.pug
 block header
   tr
     td(bgcolor='#ffffff' width='100' align='left' style="padding-top:30px;")
-      img(alt='Thanks for the donation' src=baseURL+'/snake_header.png' width='600' height="400" style="height: auto; display: block;" border='0')
+      +image("snake_header.png","ballp.it snake",600,130)
       
       
 block content
-  tr
-    td(align='justify' style='border-left: 2px solid #aaa; padding-left:32px; padding-bottom: 12px; color: #333; font-family:'+font+'; font-size: 28px; font-weight: 700; line-height: 32px')
-      | Hi, it's Lemon.
-  tr
-    td(align="justify" style="border-left: 2px solid #aaa; padding-left:32px; padding-bottom: 0; color: #333; font-family:"+font+"; font-size: 18px; font-weight: 300; line-height: 32px")
-      p I was just checking my email and saw one telling me that you donated to the podcast and I thought "That was nice, I should make sure they get an email saying I appreciate the donation."
-      //p At some point in the past, I got an email from PayPal saying that you donated to the podcast and I thought "That was nice, I should really send an email to that person saying that I appreciate their donation."
-      //p Then I got distracted and did something else, like probably redesigning an icon again for no reason.
-      p As it stands currently, we have the F Plus server pushing out 
-        b 
-          i 4 terabytes a month
-        |  to listeners like yourself. Most of that data is episodes that take 2 hours to record and 3-6 hours to edit, then put up on a website which I've worked on more diligently and consistently than any other website in my life.
-      p We do it because we love it. And we do it without ads.
-      p So thank you for helping with that. It means a lot.
+  +textRow(2)
+    b Hi, it's Lemon.
+  +textRow(1)
+    p I'm dunno if you've been on ballp.it lately, but we've changed some stuff. For example, 
+      +textLink("https://ballp.it/index.php?action=profile;u=6", "Boots Raingear")
+      | 's avatar is randomly generated, but we adjusted the server settings to make sure that you see a fresh and new Boots Raingear 
+      i every five minutes
+      | . Yes, 
+      b we spent time on this.
+      |  Also, I've redesigned the 
+      +textLink("https://ballp.it/index.php?action=stats", "board stats")
+      |  and 
+      +textLink("https://ballp.it/index.php?action=profile;u=3694", "user profile")
+      |  pages, and allowed 
+      +textLink("https://ballp.it/index.php?topic=2603.0", "embedded tweets")
+      | .
+  +textRow(1)
+    br 
+    p So if it's been a while since your last time in the ball pit, maybe you should come on back and have some fun with us, in threads like..
+    ul
+      li
+        +textLink("https://ballp.it/index.php?topic=2587", "Obtuse Stock Photos - WHO IS THIS FOR!?")
+      li
+        +textLink("https://ballp.it/index.php?topic=2577.0", "Weird shit on pastebin")
+      li
+        +textLink("https://ballp.it/index.php?topic=2510.0", "(this is a general purpose juggalo news and gossip thread)")
+  +textRow(1)
+    p Up to you though. If you felt this email was annoying, you can opt out of them in your 
+      +textLink("https://ballp.it/index.php?action=profile;area=notification;", "notification settings")
+      | .
+    p But if you were hoping for one more piece of encouragement to 
+      b pay the $10 for a full account 
+      | (and I wish you would), maybe this button will convince you.
+      +button("https://ballp.it/index.php?action=profile;area=subscriptions", "CLICK THIS BUTTON TO PAY $10")
