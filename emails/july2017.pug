@@ -1,0 +1,31 @@
+extends _layout.pug
+
+block header
+  tr
+    td(bgcolor='#ffffff' width='100' align='left' style="padding-top:30px;")
+      +image("snake_header.png","ballp.it snake",600,130)
+      
+      
+block content
+  +textRow(2)
+    b Hi, it's Lemon.
+  +textRow(1)
+    p F Plus Live is coming up on 
+      b August 19th
+      | , and I told myself I'd try to send these emails to unpaid ballp.it members about once a month. Hopefully they're interesting. If not, you can unsubscribe in your 
+      +textLink("https://ballp.it/index.php?action=profile;area=notification;", "notification settings")
+      | .
+    p Hopefully this section talks about Boots' updates to the bulbing.
+    br
+  +textRow(1)
+    p Anyway, there's been some fun threads lately, like these
+    ul
+      li
+        +textLink("https://ballp.it/index.php?topic=2500", "Finding fun in DeviantArt without looking at gross stuff?")
+      li
+        +textLink("https://ballp.it/index.php?topic=1721", "A Hangover Thread")
+      li
+        +textLink("https://ballp.it/index.php?topic=618", "Let's give Lemon an aneurysm")
+  +textRow(1)
+    p Nice, huh? Well now that we've had this chat, how's about you pay the ten bucks to make yourself a full member of the forum.
+    +button("https://ballp.it/index.php?action=profile;area=subscriptions", "FUCK YEAH, HERE'S TEN BUCKS")
