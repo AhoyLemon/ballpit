@@ -873,12 +873,21 @@ function statPanel($memID)
 	list ($context['bulbs_given']) = $smcFunc['db_fetch_row']($result);
 	$smcFunc['db_free_result']($result);
 
+		// SELECT
+			// b.id_board, MAX(b.name) AS name, b.num_posts, COUNT(*) AS message_count,
+			// CASE WHEN COUNT(*) > MAX(b.num_posts) THEN 1 ELSE COUNT(*) / MAX(b.num_posts) END * 100 AS percentage
+		// FROM {db_prefix}messages AS m
+			// INNER JOIN {db_prefix}boards AS b ON (b.id_board = m.id_board)
+		// WHERE m.id_member = {int:current_member}
+			// AND {query_see_board}
+	
 	// # top 10 bulbed messages
 	$result = $smcFunc['db_query']('profile_bulb_stats', '
 		SELECT
-			id_topic, id_message, count(*) AS total_bulbs
-		FROM {db_prefix}bulbs			
-		WHERE id_poster = {int:current_member}
+			b.id_topic AS id_topic, b.id_message AS id_message, count(*) AS total_bulbs, m.subject AS subject
+		FROM {db_prefix}bulbs as b
+			INNER JOIN {db_prefix}messages AS m ON (b.id_message = m.id_msg)
+		WHERE b.id_poster = {int:current_member}
 		GROUP BY id_message
 		ORDER BY total_bulbs DESC
 		LIMIT 10',
@@ -891,9 +900,9 @@ function statPanel($memID)
 	{
 		$context['top_bulb_posts'][$row['id_message']] = array(
 			'id_topic' => $row['id_topic'],
-			'bulb_count' => $row['total'],
-			'href' => $scripturl . '?topic=' . $row['id_topic'] . '.msg' . $row['id_message'],
-			'link' => '<a href="' . $scripturl . '?topic=' . $row['id_topic'] . '.msg' . $row['id_message'] . '</a>',
+			'bulb_count' => $row['total_bulbs'],
+			'href' => $scripturl . '?topic=' . $row['id_topic'] . '.msg' . $row['id_message'] . '#msg' . $row['id_message'],
+			'title' => $row['subject']
 		);
 	}
 	$smcFunc['db_free_result']($result);
