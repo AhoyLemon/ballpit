@@ -107,8 +107,9 @@ function template_summary()
 	echo '
 			</div>
 		</div>
-	</div>
-	<div id="detailedinfo" class="user-details">
+	</div>';
+    
+	echo '<div id="detailedinfo" class="user-details">
 		<div class="windowbg2">
 			<span class="topslice"><span></span></span>
 			<div class="content">
@@ -156,7 +157,10 @@ function template_summary()
 		echo '
 					<dt>', $modSettings['karmaLabel'], ' </dt>
 					<dd>+', $context['member']['karma']['good'], '/-', $context['member']['karma']['bad'], '</dd>';
-
+    
+    //echo '<dt>Bulbs:</dt>';
+    //echo '<dd>', $context['member']['bulbs_received'], '</dd>';
+  
 	if (!isset($context['disabled_fields']['gender']) && !empty($context['member']['gender']['name']))
 		echo '
 					<dt>', $txt['gender'], ': </dt>
@@ -938,6 +942,19 @@ function template_statPanel()
 	global $context, $settings, $options, $scripturl, $modSettings, $txt;
 
 	// First, show a few text statistics such as post/topic count.
+  /*
+    echo '<button id="ContextPreButton">data</button>';
+    echo '<pre style="display:none;" id="ContextPre">';
+    print_r($context);
+    echo '</pre>';
+    echo '
+    <script>
+      $("#ContextPreButton").click(function() {
+        $("#ContextPre").toggle();
+      });
+    </script>
+    ';
+    */
 	echo '
 	<div id="profileview" class="user-stats">
 		<div id="generalstats" class="general-stats" data-contains="General Stats">
@@ -963,10 +980,14 @@ function template_statPanel()
 						<dd>', $context['num_polls'], ' ', $txt['statPanel_polls'], '</dd>
 						<dt>', $txt['statPanel_users_votes'], ':</dt>
 						<dd>', $context['num_votes'], ' ', $txt['statPanel_votes'], '</dd>
-            <dt>Times Kissed:</dt>
+                        <dt>Times Kissed:</dt>
 						<dd>', $context['member']['karma']['good'], ' kisses</dd>
-            <dt>Times Slapped:</dt>
+                        <dt>Times Slapped:</dt>
 						<dd>', $context['member']['karma']['bad'], ' slaps</dd>
+                        <dt>Bulbs:</dt>
+                        <dd>', $context['bulbs_received'], ' bulbs</dd>
+                        <dt>Bulbs Given:</dt>
+                        <dd>', $context['bulbs_given'], ' bulbs</dd>
 					</dl>
 				</div>
 				<span class="botslice"><span></span></span>
@@ -1018,6 +1039,42 @@ function template_statPanel()
 				<span class="botslice"><span></span></span>
 			</div>
 		</div>';
+  
+  
+    echo '<div id="MostBulbed" class="most-popular most-bulbed" data-contains="Most Bulbed Posts">
+				<div class="cat_bar">
+					<h3 class="catbg">', $context['member']['name'], '&apos;s Best Posts</h3>
+				</div>
+                <div class="windowbg2">
+                  <div class="content">';
+                    if (empty($context['top_bulb_posts'])) {
+                      echo '<h4>No bulbs, yes</h4>';
+                    } else {
+                      echo '<dl>';
+                      $top = array_shift($context['top_bulb_posts']);
+                      $maxPct = ($top['bulb_count']);
+                      array_unshift($context['top_bulb_posts'], $top);
+                      foreach ($context['top_bulb_posts'] as $bulbed) {
+                        echo '
+                        <dt>
+                          <a href="', $bulbed['href'], '">
+                            <span>', $bulbed['title'] ,'</span>
+                          </a>
+                        </dt>
+							<dd>',
+								/* <div class="profile_pie" style="background-position: -', ((int) ($board['posts_percent'] / 5) * 20), 'px 0;" title="', sprintf($txt['statPanel_topBoards_memberposts'], $board['posts'], $board['total_posts_member'], $board['posts_percent']), '"></div>*/
+                              '<div class="percent-bar">
+                                <div class="inside" style="width:', (($bulbed['bulb_count'] / $maxPct) * 100) , '%"></div>
+                                <span>', empty($context['hide_num_posts']) ? $bulbed['bulb_count'] : '', ' <svg viewBox="0 0 32 32"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#IconBulb"></use></svg></span>
+                              </div>
+							</dd>';
+                      }
+                      echo '</dl>';
+                    }
+                  echo '</div>
+                </div>
+    
+    </div>';
 
 	// Two columns with the most popular boards by posts and activity (activity = users posts / total posts).
 	echo '
@@ -1042,9 +1099,6 @@ function template_statPanel()
     
     
     $top = array_shift($context['popular_boards']);
-    echo '<pre>';
-    //print_r($top);
-    echo '</pre>';
     $maxPct = ($top['posts'] * 1.01);
     //echo '<h1>',$maxPct,'</h1>';
     array_unshift($context['popular_boards'], $top);
