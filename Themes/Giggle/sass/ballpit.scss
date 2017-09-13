@@ -3691,7 +3691,7 @@ span.hidelink
 #header { background-color:#f1f1f1; overflow:hidden; border-bottom:1px solid $grey; }
 
 
-#logo a { float:left; display:block; background:url(../svg/snake4.svg) left center no-repeat; background-size:contain; height:120px; width:445px; }
+#logo a { float:left; display:block; background:url(../svg/snake4.svg) left center no-repeat; background-size:contain; height:120px; width:445px; max-width: 50%; }
 
 
 
@@ -3869,7 +3869,7 @@ span.spoiler { cursor:pointer;
   a.hamburger { display: none; }
   .post_wrapper { display: flex;
     .poster { flex-basis:160px; flex-grow:0; flex-shrink: 1; max-width: 160px; position: relative; }
-    .postarea { flex-basis: calc(100% - 160px); padding-left: 1em; flex-grow:0; flex-shrink: 1;
+    .postarea { flex-basis: calc(100% - 160px); padding-left: 1em; flex-grow:0; flex-shrink: 1; max-width: calc(100% - 160px);
       .post { min-height: 14em; }
     }
     //.moderatorbar { display:none; }
@@ -3898,7 +3898,7 @@ span.spoiler { cursor:pointer;
     }
     
   }
-  #logo a { margin:0 auto; background-image: url(../svg/new-logo.svg); width:200px; background-size:contain; background-position: center; }
+  //#logo a { margin:0 auto; background-image: url(../svg/new-logo.svg); width:200px; background-size:contain; background-position: center; }
   .navigate_section { padding:0; }
   /** Table Knockouts **/
   #messageindex table tr td:nth-child(3), #messageindex table tr td:nth-child(4), #messageindex table tr th:nth-child(4), #messageindex table tr th:nth-child(3) { display:none; }
