@@ -2,7 +2,7 @@
 
 .poll { overflow: hidden;
   .content { padding: 0; }
-  h4 { text-transform: uppercase; font-size:152%; letter-spacing: 0.1em; }
+  h4 { text-transform: uppercase; font-size:152%; letter-spacing: 0.1em; margin-bottom: 0.5em; }
   ul.options { margin-bottom: 1em;
     li { font-size:130%; margin-bottom: 0.25em;
       &:hover { color:$accent; }
@@ -31,5 +31,12 @@
     dd:hover {
       .bar-inside { background-color:$accent; }
     }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .poll { padding-left: 160px; }
+  #pollmoderation { padding-left: 160px;
+    ul { padding-left: 0; }
   }
 }
