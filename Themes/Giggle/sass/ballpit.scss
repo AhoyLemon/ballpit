@@ -1342,7 +1342,6 @@ p#whoisviewing
 .modifybutton { clear: right; float: right; margin: 6px 20px 10px 0; text-align: right; color: #334466;	}
 
 /* The quick buttons */
-
 div.quickbuttons_wrap { padding: 0.2em 0; width: 100%; float: left; }
 ul.quickbuttons { margin: 0 11px 0 0; clear: right; float: right; padding-top: 5px; text-align: right; font: bold 0.85em;
   li { float: left; display: inline; padding: 0 0 0 1.3em;
@@ -1352,13 +1351,10 @@ ul.quickbuttons { margin: 0 11px 0 0; clear: right; float: right; padding-top: 5
       &:active svg  { text-decoration:none !important; -webkit-transform: scale(0.8); transform: scale(0.8); }
     }
     img, svg { height:2.2em; width:2.2em; pointer-events: none; }
-    a svg * { fill:$red; }
     &.bulb { padding-left: 0; }
     &.bulb.count { text-align:center; padding-top:3px; color:#fff; width:2.2em; height:20px; background-image:url(../images/bulb-count.svg); background-position:center right; background-repeat: no-repeat; padding-right:4px;
       span { font-size:14px; line-height: 19px; }
     }
-    &.bulb svg * { fill:currentColor; }
-    &.bulb.lit svg * { fill:$black; }
     &.bulb.bright { animation: glowbulb 4s infinite; }
     &.bulb.bright a { animation: glowbulblink 4s infinite; }
   }
@@ -3885,8 +3881,7 @@ span.spoiler { cursor:pointer;
   #navigation li { text-align: center; width: 33%; }
   #navigation li ul { display: none; }
   #top_banner .user { width:100%; text-align:center; }
-  a.hamburger { display: block; float: right; height: 50px; width: 50px; margin-top: 37px; margin-right: 10px; background-size: contain;
-    svg * { fill:$green; }
+  a.hamburger { display: block; float: right; height: 50px; width: 50px; margin-top: 37px; margin-right: 10px; background-size: contain; color:$green;
     .x, .lines { transition:all 0.3s ease;}
     .x { transform: translateY(-120%); opacity: 0; }
     .lines { transform: translateY(0); opacity: 1; }
