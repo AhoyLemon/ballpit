@@ -888,7 +888,7 @@ function statPanel($memID)
 		FROM {db_prefix}bulbs as b
 			INNER JOIN {db_prefix}messages AS m ON (b.id_message = m.id_msg)
 		WHERE b.id_poster = {int:current_member}
-		GROUP BY id_message
+		GROUP BY id_message, id_topic
 		ORDER BY total_bulbs DESC
 		LIMIT 10',
 		array(
