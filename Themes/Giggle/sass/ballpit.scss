@@ -96,8 +96,8 @@ ul.reset, ul.reset li { padding: 0; margin: 0; list-style: none; }
 .bbc_size { line-height: 1.4em; }
 .bbc_color a { color: inherit; }
 .bbc_img  { border: 0; }
-.bbc_table { font: inherit; color: inherit;
-  td { font: inherit; color: inherit; vertical-align: top; }
+.bbc_table { font: inherit; color: inherit; border-collapse:collapse;
+  td { font: inherit; color: inherit; vertical-align: top; border:1px solid $black; padding:0.25em 1em; }
 }
 .bbc_u { text-decoration: underline; }
 .bbc_list { text-align: left; }
