@@ -1,0 +1,93 @@
+#personal_messages h3 span#author, #personal_messages h3 span#topic_title
+
+{
+
+  float: left;
+
+}
+
+#personal_messages h3 span#author
+
+{
+
+  margin: 0 0 0 0.5em;
+
+}
+
+#personal_messages h3 span#topic_title
+
+{
+
+  margin: 0 0 0 9em;
+
+}
+
+#personal_messages div.labels
+
+{
+
+  padding: 0 1em 0 0;
+
+}
+
+#personal_messages .capacity_bar
+
+{
+
+  background: #f0f4f7;
+
+  display: block;
+
+  margin: 0.5em 0 0 1em;
+
+  height: 1em;
+
+  border: 1px solid #adadad;
+
+  width: 10em;
+
+}
+
+#personal_messages .capacity_bar span
+
+{
+
+  border-right: 1px solid #adadad;
+
+  display: block;
+
+  height: 1em;
+
+}
+
+#personal_messages .capacity_bar span.empty
+
+{
+
+  background: #a6d69d;
+
+}
+
+#personal_messages .capacity_bar span.filled
+
+{
+
+  background: #eea800;
+
+}
+
+#personal_messages .capacity_bar span.full
+
+{
+
+  background: #f10909;
+
+}
+
+#personal_messages .reportlinks
+
+{
+
+  padding: 0.5em 1.3em;
+
+}
