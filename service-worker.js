@@ -1,21 +1,27 @@
 'use strict';
 
-const PRECACHE = 'precache-v104c';
+const PRECACHE = 'precache-v104e';
 const RUNTIME = 'runtime';
 const offlineUrl = '/offline.html';
 
 // A list of local resources we always want to be cached.
 const PRECACHE_URLS = [
-  './', // Alias for index.html
+  
+  // Home
+  '/',
+  '/index.php',
   '/Themes/Giggle/css/ballpit.css',
   '/manifest.json',
   '/Themes/default/scripts/script.js',
   '/Themes/Giggle/svg/fplus-symbol.svg',
   '/Themes/Giggle/scripts/ballpit.js',
   '/Themes/Giggle/svg/snake4.svg',
+  
+  // Offline screen
+  '/Themes/Giggle/svg/offline-snake.svg',
+  '/Themes/Giggle/css/offline.css',
   offlineUrl
 ];
-
 
 
 // The install handler takes care of precaching the resources we always need.
