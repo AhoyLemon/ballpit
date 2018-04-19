@@ -1,11 +1,14 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 2.26,
   "name": "ballp.it",
-  "description": "Where hardons collide",
+  "short_name": "ball pit",
+  "description": "Where hardons collide.",
   "display": "standalone",
   "orientation": "portrait",
   "theme_color": "#4eb85d",
   "background_color": "#f9f9f9",
+  "scope": "/",
+  "start_url": "/",
   "icons": [
     {
       "src": "/android-chrome-36x36.png",

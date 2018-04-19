@@ -1,51 +1,46 @@
 'use strict';
 
-const cacheName = 'v1.2';
+const PRECACHE = 'precache-v104c';
+const RUNTIME = 'runtime';
 const offlineUrl = '/offline.html';
 
+// A list of local resources we always want to be cached.
+const PRECACHE_URLS = [
+  './', // Alias for index.html
+  '/Themes/Giggle/css/ballpit.css',
+  '/manifest.json',
+  '/Themes/default/scripts/script.js',
+  '/Themes/Giggle/svg/fplus-symbol.svg',
+  '/Themes/Giggle/scripts/ballpit.js',
+  '/Themes/Giggle/svg/snake4.svg',
+  offlineUrl
+];
 
-self.addEventListener('install', e => {
-  // once the SW is installed, go ahead and fetch the resources
-  // to make this work offline
-  e.waitUntil(
-    caches.open(cacheName).then(cache => {
-      return cache.addAll([
-        '/',
-        '/Themes/Giggle/svg/offline-snake.svg',
-        '/Themes/Giggle/css/offline.css',
-        offlineUrl
-        /*
-          DEAR READER,
-          ADD A LIST OF YOUR ASSETS THAT
-          YOU WANT TO WORK WHEN OFFLINE
-          TO THIS ARRAY OF URLS
-        */
-      ]).then(() => self.skipWaiting());
-    })
+
+
+// The install handler takes care of precaching the resources we always need.
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open(PRECACHE)
+      .then(cache => cache.addAll(PRECACHE_URLS))
+      .then(self.skipWaiting())
   );
 });
 
 
+
 /*
-
-
 self.addEventListener('fetch', function(event) {
-  if (event.request.url.includes('login')) {
-    event.respondWith(fetch(event.request));
-    console.log('login page');
-  } else if (event.request.method !== 'GET') {
-    // don't do nothing
-  } else if (event.request.mode === 'navigate' || (event.request.method === 'GET' && event.request.headers.get('accept').includes('text/html'))) {
+  if (event.request.mode === 'navigate' || (event.request.method === 'GET' && event.request.headers.get('accept').includes('text/html'))) {
     event.respondWith(
       fetch(event.request.url).catch(error => {
         return caches.match(offlineUrl);
       })
     );
   } else {
-    event.respondWith(caches.match(event.request).then(function (response) {
-      return response || fetch(event.request);
-      })
-    );
+    return response
   }
 });
+
+
 */

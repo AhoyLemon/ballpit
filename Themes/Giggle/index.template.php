@@ -601,6 +601,18 @@ function template_html_below()
   include("analyticstracking.php");
   
   echo "<script type='text/javascript' src='", $settings["theme_url"], "/scripts/ballpit.js?updated=07.12.17'></script>
+        <script type='text/javascript'>
+          // Register the service worker
+          if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+              // Registration was successful
+              console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }).catch(function(err) {
+              // registration failed :(
+              console.log('ServiceWorker registration failed: ', err);
+            });
+          }
+        </script>
 </body></html>";
 
 }
