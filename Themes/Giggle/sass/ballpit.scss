@@ -3601,6 +3601,7 @@ span.spoiler { cursor:pointer;
 }
 
 @media only screen and (min-width: 768px) {
+  #logo a { height: 100px; }
   a.hamburger { display: none; }
   .post_wrapper { display: flex;
     .poster { flex-basis:160px; flex-grow:0; flex-shrink: 1; max-width: 160px; position: relative; }
@@ -3622,7 +3623,7 @@ span.spoiler { cursor:pointer;
   #navigation li { text-align: center; width: 33%; }
   #navigation li ul { display: none; }
   #top_banner .user { width:100%; text-align:center; }
-  a.hamburger { display: block; float: right; height: 50px; width: 50px; margin-top: 37px; margin-right: 10px; background-size: contain; color:$green;
+  a.hamburger { display: block; float: right; height: 50px; width: 50px; margin-top: 20px; margin-right: 10px; background-size: contain; color:$green;
     .x, .lines { transition:all 0.3s ease;}
     .x { transform: translateY(-120%); opacity: 0; }
     .lines { transform: translateY(0); opacity: 1; }
@@ -3632,7 +3633,8 @@ span.spoiler { cursor:pointer;
     }
     
   }
-  //#logo a { margin:0 auto; background-image: url(../svg/new-logo.svg); width:200px; background-size:contain; background-position: center; }
+  #logo a { height: 90px; }
+  
   .navigate_section { padding:0; }
   /** Table Knockouts **/
   #messageindex table tr td:nth-child(3), #messageindex table tr td:nth-child(4), #messageindex table tr th:nth-child(4), #messageindex table tr th:nth-child(3) { display:none; }
@@ -3667,7 +3669,7 @@ span.spoiler { cursor:pointer;
 
   // WRITE POST //
   #post_header dd { width:100%; font-size:160%; }
-  textarea.editor { font-size:160%; max-width:98%; }
+  textarea.editor { font-size:160%; min-width: 0; max-width:98%; }
   #post_confirm_buttons { clear: both; float: none;
     input[value=Preview] { width:49%; }
     input[value=Post] { width: 49%; }
