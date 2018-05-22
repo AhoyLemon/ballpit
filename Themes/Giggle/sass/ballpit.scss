@@ -691,10 +691,12 @@ table.table_grid {
 
 ------------------------------------------------------- */
 
-.buttonlist ul li {  list-style: none; float: left;
-  a { font-size:0.8em; display: block; color: $red; padding: .3em .6em; margin-left: 12px; text-transform: uppercase; cursor: pointer;
-    &:hover { background:$red; color: $white; text-decoration: none; }
-    &.active { font-weight: bold; }
+.buttonlist ul { padding-left: 0;
+  li {  list-style: none; float: left;
+    a { font-size:0.8em; display: block; color: $red; padding: .3em .6em; margin-left: 12px; text-transform: uppercase; cursor: pointer;
+      &:hover { background:$red; color: $white; text-decoration: none; }
+      &.active { font-weight: bold; }
+    }
   }
 }
 
@@ -1578,103 +1580,6 @@ ul.post_options li
   input[value=Preview] { @extend %blue-button; }
 }
 
-/* Styles for edit event section
-
----------------------------------------------------- */
-
-#post_event fieldset
-
-{
-
-  padding: 0.5em;
-
-  clear: both;
-
-}
-
-#post_event #event_main input
-
-{
-
-  margin: 0 0 1em 0;
-
-  float: left;
-
-}
-
-#post_event #event_main div.smalltext
-
-{
-
-  width: 33em;
-
-  float: right;
-
-}
-
-#post_event div.event_options
-
-{
-
-  float: right;
-
-}
-
-#post_event ul.event_main, ul.event_options
-
-{
-
-  padding: 0;
-
-  overflow: hidden;
-
-}
-
-#post_event ul.event_main li
-
-{
-
-  list-style-type: none;
-
-  margin: 0.2em 0;
-
-  width: 49%;
-
-  float: left;
-
-}
-
-#post_event ul.event_options
-
-{
-
-  margin: 0;
-
-  padding: 0 0 .7em .7em;
-
-}
-
-#post_event ul.event_options li
-
-{
-
-  list-style-type: none;
-
-  margin: 0;
-
-  float: left;
-
-}
-
-#post_event #event_main select, #post_event ul.event_options li select, #post_event ul.event_options li .input_check
-
-{
-
-  margin: 0 1em 0 0;
-
-}
-
-
 
 /* Styles for edit poll section.
 
@@ -1682,96 +1587,22 @@ ul.post_options li
 
 
 
-#edit_poll
-
-{
-
-  overflow: hidden;
-
+#edit_poll { overflow: hidden;
+  fieldset { padding: 0.5em; clear: both; overflow: hidden;
+    input { margin-left: 8.1em; }
+  }
+  ul.poll_main {
+    li { padding-left: 1em; margin: 0.2em 0; }
+    input { margin-left: 1em; }    
+    dl.poll_options { overflow: hidden; padding: 0 0 .7em .7em; list-style: none;
+      dt { width: 33%; padding: 0 0 0 1em; }
+      dd { width: 65%;
+        input { margin-left: 0;  }
+      }
+    }
+  }
 }
-
-#edit_poll fieldset
-
-{
-
-  padding: 0.5em;
-
-  clear: both;
-
-  overflow: hidden;
-
-}
-
-#edit_poll fieldset input
-
-{
-
-  margin-left: 8.1em;
-
-}
-
-#edit_poll ul.poll_main li
-
-{
-
-  padding-left: 1em;
-
-}
-
-#edit_poll ul.poll_main input
-
-{
-
-  margin-left: 1em;
-
-}
-
-#edit_poll ul.poll_main, dl.poll_options
-
-{
-
-  overflow: hidden;
-
-  padding: 0 0 .7em .7em;
-
-  list-style: none;
-
-}
-
-#edit_poll ul.poll_main li
-
-{
-
-  margin: 0.2em 0;
-
-}
-
-#edit_poll dl.poll_options dt
-
-{
-
-  width: 33%;
-
-  padding: 0 0 0 1em;
-
-}
-
-#edit_poll dl.poll_options dd
-
-{
-
-  width: 65%;
-
-}
-
-#edit_poll dl.poll_options dd input
-
-{
-
-  margin-left: 0; 
-
-}
-
+#pollmoderation { @extend %clearfix; }
 
 
 /* Styles for the recent messages section.
