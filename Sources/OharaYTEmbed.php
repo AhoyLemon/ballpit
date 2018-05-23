@@ -23,7 +23,7 @@ function OYTE_bbc_add_code(&$codes)
 			'tag' => 'youtube',
 			'type' => 'unparsed_content',
 			'content' => '<div style="padding:5px;" class="youtube $1">
-				<iframe width="'. (empty($modSettings['OYTE_video_width']) ? '420' : $modSettings['OYTE_video_width']) .'" height="'. (empty($modSettings['OYTE_video_height']) ? '315' : $modSettings['OYTE_video_height']) .'" src="https://www.youtube.com/embed/$1" frameborder="0"></iframe>
+				<iframe width="'. (empty($modSettings['OYTE_video_width']) ? '420' : $modSettings['OYTE_video_width']) .'" height="'. (empty($modSettings['OYTE_video_height']) ? '315' : $modSettings['OYTE_video_height']) .'" src="https://www.youtube.com/embed/$1" frameborder="0" allowfullscreen></iframe>
 			</div>',
 			'validate' => create_function('&$tag, &$data, $disabled', '
 				global $txt;
@@ -44,7 +44,7 @@ function OYTE_bbc_add_code(&$codes)
 			'tag' => 'yt',
 			'type' => 'unparsed_content',
 			'content' => '<div style="padding:5px;" class="youtube $1">
-				<iframe width="'. (empty($modSettings['OYTE_video_width']) ? '420' : $modSettings['OYTE_video_width']) .'" height="'. (empty($modSettings['OYTE_video_height']) ? '315' : $modSettings['OYTE_video_height']) .'" src="https://www.youtube.com/embed/$1" frameborder="0"></iframe>
+				<iframe width="'. (empty($modSettings['OYTE_video_width']) ? '420' : $modSettings['OYTE_video_width']) .'" height="'. (empty($modSettings['OYTE_video_height']) ? '315' : $modSettings['OYTE_video_height']) .'" src="https://www.youtube.com/embed/$1" frameborder="0" allowfullscreen></iframe>
 			</div>',
 			'validate' => create_function('&$tag, &$data, $disabled', '
 				global $txt;
