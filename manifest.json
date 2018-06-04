@@ -1,14 +1,15 @@
 {
-  "manifest_version": 2.28,
-  "name": "ballp.it",
+  "manifest_version": 4,
+  "name": "Ball Pit",
   "short_name": "ball pit",
   "description": "Where hardons collide.",
+  "start_url": "/",
+  "version": "3.16",
+  "default_locale": "en",
   "display": "standalone",
-  "orientation": "portrait",
+  "scope": "/",
   "theme_color": "#4eb85d",
   "background_color": "#f9f9f9",
-  "scope": "/",
-  "start_url": "/index.php",
   "icons": [
     {
       "src": "/android-chrome-36x36.png",

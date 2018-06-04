@@ -9,7 +9,6 @@ const PRECACHE_URLS = [
   
   // Home
   '/',
-  '/index.php',
   '/Themes/Giggle/css/ballpit.css',
   '/manifest.json',
   '/Themes/default/scripts/script.js',
