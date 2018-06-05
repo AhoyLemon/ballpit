@@ -602,14 +602,15 @@ function template_html_below()
   
   echo "<script type='text/javascript' src='", $settings["theme_url"], "/scripts/ballpit.js?updated=07.12.17'></script>
         <script type='text/javascript'>
-          // Register the service worker
-          if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
-              // Registration was successful
-              console.log('ServiceWorker registration successful with scope: ', registration.scope);
-            }).catch(function(err) {
-              // registration failed :(
-              console.log('ServiceWorker registration failed: ', err);
+          //Add this below content to your HTML page, or add the js file to your page at the very top to register service worker
+          if (navigator.serviceWorker.controller) {
+            console.log('[PWA Builder] active service worker found, no need to register')
+          } else {
+            //Register the ServiceWorker
+            navigator.serviceWorker.register('pwabuider-sw.js', {
+              scope: './'
+            }).then(function(reg) {
+              console.log('Service worker has been registered for scope:'+ reg.scope);
             });
           }
         </script>

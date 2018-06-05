@@ -1,15 +1,15 @@
 {
-  "manifest_version": 4,
+  "manifest_version": "4.1",
   "name": "Ball Pit",
-  "short_name": "ball pit",
+  "short_name": "ballpit",
   "description": "Where hardons collide.",
-  "start_url": "/",
-  "version": "3.16",
+  "start_url" : "https://ballp.it/",
   "default_locale": "en",
   "display": "standalone",
   "scope": "/",
   "theme_color": "#4eb85d",
   "background_color": "#f9f9f9",
+  "orientation" : "portrait-primary",
   "icons": [
     {
       "src": "/android-chrome-36x36.png",
@@ -27,13 +27,33 @@
       "type": "image/png"
     },
     {
-      "src": "/android-chrome-96x96.png",
-      "sizes": "96x96",
+      "src": "/android-chrome-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon-76x76.png",
+      "sizes": "76x76",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon-120x120.png",
+      "sizes": "120x120",
       "type": "image/png"
     },
     {
       "src": "/android-chrome-144x144.png",
       "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon-180x180.png",
+      "sizes": "180x180",
       "type": "image/png"
     },
     {
