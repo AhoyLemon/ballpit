@@ -1601,6 +1601,7 @@ function loadTheme($id_theme = 0, $initialize = true)
 				var oHolder = $(this);
 				var sStr = $(this).attr(\'href\');
 				sStr = sStr.replace(/\/+$/, "");
+				sStr = sStr.replace(/\?.+/, "");
 				sStr = sStr.substr(sStr.lastIndexOf(\'/\') + 1);
 				$.getJSON("' . $boardurl .'/tweet-cache.php?id=" + sStr, function(data) {
 					oHolder.before(data.html);
