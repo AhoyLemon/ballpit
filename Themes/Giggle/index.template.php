@@ -119,7 +119,8 @@ function template_html_above()
     <link rel="icon" type="image/png" sizes="194x194" href="/favicon-194x194.png">
     <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/manifest.json">
+    <!-- <link rel="manifest" href="/manifest.json"> -->
+    <link rel="manifest" href="/site.webmanifest">
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#4eb85d">
     <meta name="apple-mobile-web-app-title" content="ballpit">
     <meta name="application-name" content="ballpit">
@@ -600,20 +601,18 @@ function template_html_below()
 
   include("analyticstracking.php");
   
-  echo "<script type='text/javascript' src='", $settings["theme_url"], "/scripts/ballpit.js?updated=06.04.18'></script>
-        <script type='text/javascript'>
-          //Add this below content to your HTML page, or add the js file to your page at the very top to register service worker
-          if (navigator.serviceWorker.controller) {
-            console.log('[PWA Builder] active service worker found, no need to register')
-          } else {
-            //Register the ServiceWorker
-            navigator.serviceWorker.register('sw2.js', {
-              scope: './'
-            }).then(function(reg) {
-              console.log('Service worker has been registered for scope:'+ reg.scope);
-            });
-          }
-        </script>
+  echo "<script type='text/javascript'>
+  // Register the service worker
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+      // Registration was successful
+      console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    }).catch(function(err) {
+      // registration failed :(
+      console.log('ServiceWorker registration failed: ', err);
+    });
+  }
+</script>
 </body></html>";
 
 }
