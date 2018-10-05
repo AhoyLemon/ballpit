@@ -151,8 +151,10 @@ function template_html_above()
 
   // Here comes the JavaScript bits!
   echo '
-	<link href="https://fonts.googleapis.com/css?family=Cabin:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-	<script type="text/javascript" src="/Themes/default/scripts/script.js?fin20"></script>';
+  <link href="https://fonts.googleapis.com/css?family=Cabin:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="/Themes/default/scripts/script.js?fin20"></script>
+  <script type="text/javascript" src="/Themes/Giggle/scripts/ballpit.js"></script>';
 
   echo '
 	<script type="text/javascript"><!-- // --><![CDATA[
