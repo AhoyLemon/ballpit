@@ -1236,31 +1236,13 @@ function template_main()
 		}
 
 
-
-		echo '
-    <div class="moderatorbar">
-
-							<div class="smalltext modified" id="modified_', $message['id'], '">';
-
-
-
 		// Show "� Last Edit: Time by Person �" if this post was edited.
 
 		if ($settings['show_modify'] && !empty($message['modified']['name']))
 
-			echo '
-
-								&#171; <em>', $txt['last_edit'], ': ', $message['modified']['time'], ' ', $txt['by'], ' ', $message['modified']['name'], '</em> &#187;';
-
-
-
-		echo '
-
-							</div>
-
+			echo '<div class="smalltext modified" id="modified_', $message['id'], '">
+								&#171; <em>', $txt['last_edit'], ': ', $message['modified']['time'], ' ', $txt['by'], ' ', $message['modified']['name'], '</em> &#187;
 						</div>';
-
-
 
 		// Are there any custom profile fields for above the signature?
 
