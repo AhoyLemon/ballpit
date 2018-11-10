@@ -1283,7 +1283,7 @@ div.table_frame .table_list
     img { float: left; margin: 4px 0.5em 0 0; }
   }
   .windowbg, .windowbg2 { border-bottom:1px solid $grey; padding-bottom: 1em; margin-bottom: 1em; @extend %clearfix; }
-  .modified { float: left; }
+  .modified { margin-top: 1.5em; border-top: 1px dashed #ccc; padding-top: 0.5em; }
   .reportlinks { margin-right: 1.5em; text-align: right; clear: right; }
   .signature { margin: 1em 0 0 0; }
   span.botslice { clear: both; }
