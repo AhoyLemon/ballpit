@@ -102,7 +102,7 @@ function template_html_above()
 
   echo '
     <meta charset="iso-8859-1">
-    <link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/ballpit.css?lastUpdated=11.09.2017" />';
+    <link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/ballpit.css?lastUpdated=2018-11-10" />';
 
   echo '
     <!-- FAVICON -->
