@@ -1,0 +1,21 @@
+@keyframes spin {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
+
+body[color-theme="dark"] {
+  background-color: #212121;
+  color: #efefef; }
+  body[color-theme="dark"] td, body[color-theme="dark"] th {
+    color: #efefef; }
+  body[color-theme="dark"] td.icon1, body[color-theme="dark"] td.icon {
+    color: #bbb; }
+  body[color-theme="dark"] #header {
+    background: #212121;
+    border-bottom-color: #111; }
+  body[color-theme="dark"] #bar {
+    background: #181818;
+    border-bottom-color: #111; }
+  body[color-theme="dark"] #navigation li a {
+    color: #bbb; }

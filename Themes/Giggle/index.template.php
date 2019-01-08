@@ -102,7 +102,7 @@ function template_html_above()
 
   echo '
     <meta charset="iso-8859-1">
-    <link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/ballpit.css?lastUpdated=2018-11-10" />';
+    <link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/ballpit.css?lastUpdated=11.09.2017" />';
 
   echo '
     <!-- FAVICON -->
@@ -119,8 +119,7 @@ function template_html_above()
     <link rel="icon" type="image/png" sizes="194x194" href="/favicon-194x194.png">
     <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <!-- <link rel="manifest" href="/manifest.json"> -->
-    <link rel="manifest" href="/site.webmanifest">
+    <link rel="manifest" href="/manifest.json">
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#4eb85d">
     <meta name="apple-mobile-web-app-title" content="ballpit">
     <meta name="application-name" content="ballpit">
@@ -151,10 +150,8 @@ function template_html_above()
 
   // Here comes the JavaScript bits!
   echo '
-  <link href="https://fonts.googleapis.com/css?family=Cabin:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-  <script type="text/javascript" src="/Themes/default/scripts/script.js?fin20"></script>
-  <script type="text/javascript" src="/Themes/Giggle/scripts/ballpit.js"></script>';
+	<link href="https://fonts.googleapis.com/css?family=Cabin:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="/Themes/default/scripts/script.js?fin20"></script>';
 
   echo '
 	<script type="text/javascript"><!-- // --><![CDATA[
@@ -268,13 +265,18 @@ function template_html_above()
 
   echo $context['html_headers'];
 
+  if (!$options["cust_colort"] || !$options["cust_colort"] == "Standard (Light Mode)") {
+    $colorTheme = "light";
+  } else if ($options["cust_colort"] == "Dark Mode" || $options["cust_colort"] == "Time Sensitive") {
+    $colorTheme = "dark";
+    echo '<link rel="stylesheet" type="text/css" href="/Themes/Giggle/css/dark.css" />';
+  }
+
   echo '
-</head>
-
-<body>';
-
-  include("svgDefinitions.php");
-
+</head>';
+echo '<body color-theme="' . $colorTheme . '">
+';
+include("svgDefinitions.php");
 }
 
 
@@ -284,6 +286,11 @@ function template_body_above()
 {
 
   global $context, $settings, $options, $scripturl, $txt, $modSettings;
+
+  echo '<!--';
+  //echo '$  ';
+  //var_dump($options);
+  echo '-->';
 
 
 
@@ -603,18 +610,20 @@ function template_html_below()
 
   include("analyticstracking.php");
   
-  echo "<script type='text/javascript'>
-  // Register the service worker
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
-      // Registration was successful
-      console.log('ServiceWorker registration successful with scope: ', registration.scope);
-    }).catch(function(err) {
-      // registration failed :(
-      console.log('ServiceWorker registration failed: ', err);
-    });
-  }
-</script>
+  echo "<script type='text/javascript' src='", $settings["theme_url"], "/scripts/ballpit.js?updated=06.04.18'></script>
+        <script type='text/javascript'>
+          //Add this below content to your HTML page, or add the js file to your page at the very top to register service worker
+          if (navigator.serviceWorker.controller) {
+            console.log('[PWA Builder] active service worker found, no need to register')
+          } else {
+            //Register the ServiceWorker
+            navigator.serviceWorker.register('sw2.js', {
+              scope: './'
+            }).then(function(reg) {
+              console.log('Service worker has been registered for scope:'+ reg.scope);
+            });
+          }
+        </script>
 </body></html>";
 
 }
