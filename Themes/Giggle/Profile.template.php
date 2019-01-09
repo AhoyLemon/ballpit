@@ -1303,30 +1303,29 @@ function template_edit_options()
 		foreach ($context['custom_fields'] as $field)
 		{
 			if ($field['colname'] == "cust_lightm" || $field['colname'] == "cust_lightm0") { 
-				echo '<dl class="profile-field custom-field" time="sensitive">			
+				echo '<dl class="profile-field custom-field" time="sensitive" ';
+					if ($context['custom_fields'][0]['value'] != "Time Sensitive") { echo ' begin="hidden"'; }
+				echo '>
 					<dt>
 						<strong>', $field['name'], ': </strong><br />
 						<span class="smalltext">', $field['desc'], '</span>
 					</dt>
 					<dd>
-						<input type="time" name="customfield[' .  $field['colname'] . ']" value="' . $field['value'] . '" class="input_text">
-					</dd>
-					<div>
-						Current time is ' . date('G:i:s') . '.';
+						<input type="time" name="customfield[' .  $field['colname'] . ']" value="' . $field['value'] . '" class="input_text">';
 						if ($field['colname'] == "cust_lightm") {
-							if (date('G:i:s') >= $field['value']) {
-								echo 'Light Mode has begun!';
+							if (date('G:i') > $field['value']) {
+								echo date('G:i') . '>' . $field['value'];
 							} else {
 								echo 'Light Mode has NOT begun!';
 							}
 						} else if ($field['colname'] == "cust_lightm0") {
-							if (date('G:i:s') <= $field['value']) {
-								echo 'Light Mode has ended!';
+							if (date('G:i') <= $field['value']) {
+								echo date('G:i') . '<' . $field['value'];
 							} else {
 								echo 'Light Mode has NOT ended!';
 							}
 						}
-					echo '</div>
+					echo '</dd>
 				</dl>';
 			} else {
 				echo '<dl class="profile-field custom-field">			
@@ -1335,7 +1334,13 @@ function template_edit_options()
 						<span class="smalltext">', $field['desc'], '</span>
 					</dt>
 					<dd>
+
 						' . $field['input_html'];
+						//echo '<pre>';
+						//var_dump($context['custom_fields'][0]['value']);
+						//echo '</pre>';
+
+
 						if ($field['colname'] == "cust_colort") {
 							echo '
 								<script>

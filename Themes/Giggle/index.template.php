@@ -267,14 +267,34 @@ function template_html_above()
 
   if (!$options["cust_colort"] || !$options["cust_colort"] == "Standard (Light Mode)") {
     $colorTheme = "light";
-  } else if ($options["cust_colort"] == "Dark Mode" || $options["cust_colort"] == "Time Sensitive") {
+    $dayBegins = false;
+    $dayEnds = false;
+  } else if ($options["cust_colort"] == "Dark Mode") {
     $colorTheme = "dark";
+    $dayBegins = false;
+    $dayEnds = false;
+    
+  } else if  ($options["cust_colort"] == "Time Sensitive") {
+    $dayBegins = $options["cust_lightm"];
+    $dayEnds = $options["cust_lightm0"];
+    if (date('G:i') < $options["cust_lightm"]) {
+      // Too Early for Light Mode
+      $colorTheme = "dark";
+    } else if (date('G:i') > $options["cust_lightm0"]) {
+      // Too Late for Light Mode
+      $colorTheme = "dark";
+    } else {
+      $colorTheme = "light";
+    }
+  }
+
+  if ($colorTheme == "dark") {
     echo '<link rel="stylesheet" type="text/css" href="/Themes/Giggle/css/dark.css" />';
   }
 
   echo '
 </head>';
-echo '<body color-theme="' . $colorTheme . '">
+echo '<body color-theme="' . $colorTheme . '" begins="' . $dayBegins .'" ends="'.$dayEnds.'">
 ';
 include("svgDefinitions.php");
 }
