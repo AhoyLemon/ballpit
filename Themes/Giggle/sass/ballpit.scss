@@ -11,6 +11,8 @@
 @import "partials/_personalmessage";
 @import "partials/_tweets";
 
+* { box-sizing: border-box; }
+
 /// WRAPPER STUFF ///
 body { background: $white; font-family:$font; margin: 0; padding: 0; font-size:14px; }
 .wrapper { width:95%; min-width: 300px; margin: 0 auto; }
@@ -2552,45 +2554,6 @@ div#profile_success
 }
 
 
-
-#creator dl
-
-{
-
-  margin: 0;
-
-}
-
-#creator dt
-
-{
-
-  width: 40%;
-
-  float: left;
-
-  clear: both;
-
-  margin: 0 0 10px 0;
-
-}
-
-#creator dd
-
-{
-
-  float: right;
-
-  width: 55%;
-
-  margin: 0 0 10px 2px;
-
-  overflow: auto;
-
-}
-
-
-
 .ignoreboards
 
 {
@@ -2670,34 +2633,6 @@ div#profile_success
 {
 
   width: 93%;
-
-}
-
-
-
-#theme_settings
-
-{
-
-  overflow: auto;
-
-  margin: 0;
-
-  padding: 0;
-
-}
-
-
-
-#theme_settings li
-
-{
-
-  list-style: none;
-
-  margin: 10px 0;
-
-  padding: 0;
 
 }
 
