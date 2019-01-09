@@ -1276,7 +1276,7 @@ div.table_frame .table_list
     span#author { margin: 0 7.7em 0 0; }
     img { float: left; margin: 4px 0.5em 0 0; }
   }
-  .windowbg, .windowbg2 { border-bottom:1px solid $grey; padding-bottom: 1em; margin-bottom: 1em; @extend %clearfix; }
+  .windowbg, .windowbg2 { padding-bottom: 2em; margin-bottom: 2em;  @extend %clearfix; }
   .modified { margin-top: 1.5em; border-top: 1px dashed #ccc; padding-top: 0.5em; }
   .reportlinks { margin-right: 1.5em; text-align: right; clear: right; }
   .signature { margin: 1em 0 0 0; }
@@ -1323,36 +1323,23 @@ p#whoisviewing
 
 }
 
-/* poster details and list of items */
-
-.messageicon img
-
-{
-
-  padding: 6px 3px;
-
-}
-
-.keyinfo { float: left; width: 50%;
-  h5 { font-size: 1rem; font-weight:$medium; letter-spacing: 0.15em; }
-}
-
 .modifybutton { clear: right; float: right; margin: 6px 20px 10px 0; text-align: right; color: #334466;	}
 
 /* The quick buttons */
-div.quickbuttons_wrap { padding: 0.2em 0; width: 100%; float: left; }
-ul.quickbuttons { margin: 0 11px 0 0; clear: right; float: right; padding-top: 5px; text-align: right; font: bold 0.85em;
-  li { float: left; display: inline; padding: 0 0 0 1.3em;
-    &:bulb { padding-left:0; }
-    a { display: block;	height: 20px; line-height: 18px; float: left; color:#d74937;
+.post-topinfo { display: grid; grid-template-columns: 1fr 360px;
+  .keyinfo {
+    h5 {font-size:1.1rem; font-weight: 300; }
+  }
+}
+ul.quickbuttons { margin: 0 11px 0 0; text-align: right;
+  li { display: inline-block; padding: 0 0 0 1em; height: 24px; ;
+    a { display: block;	height: 20px; line-height: 18px; float: left; color:$red;
       &:hover svg  { text-decoration:none !important; -webkit-transform: scale(1.3); transform: scale(1.3); }
       &:active svg  { text-decoration:none !important; -webkit-transform: scale(0.8); transform: scale(0.8); }
     }
     img, svg { height:2.2em; width:2.2em; pointer-events: none; }
     &.bulb { padding-left: 0; }
-    &.bulb.count { text-align:center; padding-top:3px; color:#fff; width:2.2em; height:20px; background-image:url(../images/bulb-count.svg); background-position:center right; background-repeat: no-repeat; padding-right:4px;
-      span { font-size:14px; line-height: 19px; }
-    }
+    &.bulb.count { text-align:center; transform: translateY(-6px); color:$white; width:2em; line-height: 24px; font-size:16px; background-image:url(../images/bulb-count.svg); background-position:center right; background-repeat: no-repeat; padding-right:4px; background-size:cover; }
     &.bulb.bright { animation: glowbulb 4s infinite; }
     &.bulb.bright a { animation: glowbulblink 4s infinite; }
   }
@@ -1386,7 +1373,7 @@ ul.quickbuttons { margin: 0 11px 0 0; clear: right; float: right; padding-top: 5
   li { padding-bottom: 0.5em; }
 }
 
-.inner { padding-top: 1em; border-top: 1px solid $grey; }
+.inner { padding-top: 2em; }
 
 img.smiley { height:1.15em; min-height: 16px; }
 
@@ -1556,7 +1543,7 @@ ul.post_options li
 
 /* The BBC buttons */
 
-#bbcBox_message {
+#bbcBox_message { margin-bottom: 1em;
   a { text-decoration: none; color:#666; margin-right: 0.25em;
     &:hover { color:$red; }
   }
@@ -1754,48 +1741,6 @@ dl.send_mail dd
 {
 
   width: 79%;
-
-}
-
-
-
-/* Styles for the split topic section.
-
----------------------------------------------------- */
-
-
-
-div#selected, div#not_selected
-
-{
-
-  width: 49%;
-
-}
-
-ul.split_messages li.windowbg, ul.split_messages li.windowbg2
-
-{
-
-  margin: 1px;
-
-}
-
-ul.split_messages li a.split_icon
-
-{
-
-  padding: 0 0.5em;
-
-}
-
-ul.split_messages div.post
-
-{
-
-  padding: 1em 0 0 0;
-
-  border-top: 1px solid #fff;
 
 }
 
@@ -3530,10 +3475,12 @@ span.spoiler { cursor:pointer;
 @media only screen and (min-width: 768px) {
   #logo a { height: 100px; }
   a.hamburger { display: none; }
-  .post_wrapper { display: flex;
-    .poster { flex-basis:160px; flex-grow:0; flex-shrink: 1; max-width: 160px; position: relative; }
-    .postarea { flex-basis: calc(100% - 160px); padding-left: 1em; flex-grow:0; flex-shrink: 1; max-width: calc(100% - 160px);
-      .post { min-height: 14em; }
+  .post_wrapper { display: grid; grid-template-columns: 160px 1fr; grid-gap: 20px;
+    .poster { position: relative; }
+    .postarea { padding-left: 1em;
+      .post { min-height: 14em;
+        .inner { font-size:16px; line-height: 140%; }
+      }
     }
     //.moderatorbar { display:none; }
   }
@@ -3596,7 +3543,6 @@ span.spoiler { cursor:pointer;
 
   // WRITE POST //
   #post_header dd { width:100%; font-size:160%; }
-  textarea.editor { font-size:160%; min-width: 0; max-width:98%; }
   #post_confirm_buttons { clear: both; float: none;
     input[value=Preview] { width:49%; }
     input[value=Post] { width: 49%; }

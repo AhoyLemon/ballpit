@@ -277,10 +277,10 @@ function template_summary()
 					<dd>', $context['member']['hostname'], '</dd>';
 	}
 
-	echo '<dl class="profile-field">
+	echo '
 					<dt>', $txt['local_time'], ':</dt>
 					<dd>', $context['member']['local_time'], '</dd>
-				</dl>';
+				';
 
 	if (!empty($modSettings['userLanguage']) && !empty($context['member']['language']))
 		echo '
@@ -1303,7 +1303,7 @@ function template_edit_options()
 		foreach ($context['custom_fields'] as $field)
 		{
 			if ($field['colname'] == "cust_lightm" || $field['colname'] == "cust_lightm0") { 
-				echo '<dl class="profile-field custom-field">			
+				echo '<dl class="profile-field custom-field" time="sensitive">			
 					<dt>
 						<strong>', $field['name'], ': </strong><br />
 						<span class="smalltext">', $field['desc'], '</span>
@@ -1335,8 +1335,22 @@ function template_edit_options()
 						<span class="smalltext">', $field['desc'], '</span>
 					</dt>
 					<dd>
-						' . $field['input_html'] . '
-					</dd>
+						' . $field['input_html'];
+						if ($field['colname'] == "cust_colort") {
+							echo '
+								<script>
+									$(\'select[name="customfield[cust_colort]"]\').change(function() {
+										let f = $(this).val();
+										//alert(f);
+										if (f == 2) {
+											$(\'dl[time="sensitive"]\').show();
+										} else {
+											$(\'dl[time="sensitive"]\').hide();
+										}
+									});
+								</script>';
+						}
+					echo '</dd>
 				</dl>';
 			}
 		}
@@ -1355,7 +1369,7 @@ function template_edit_options()
 	// Only show the password box if it's actually needed.
 	if ($context['require_password'])
 		echo '
-					<dl>
+					<dl class="profile-field">
 						<dt>
 							<strong', isset($context['modify_error']['bad_password']) || isset($context['modify_error']['no_password']) ? ' class="error"' : '', '>', $txt['current_password'], ': </strong><br />
 							<span class="smalltext">', $txt['required_security_reasons'], '</span>
@@ -1366,7 +1380,8 @@ function template_edit_options()
 					</dl>';
 
 	echo '
-					<div class="righttext">';
+					<dl class="profile-field save-profile">
+					<dd>';
 
 	// The button shouldn't say "Change profile" unless we're changing the profile...
 	if (!empty($context['submit_button_text']))
@@ -1380,9 +1395,9 @@ function template_edit_options()
 						<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 						<input type="hidden" name="u" value="', $context['id_member'], '" />
 						<input type="hidden" name="sa" value="', $context['menu_item_selected'], '" />
-					</div>
+						</dd>
+					</dl>
 				</div>
-				<span class="botslice"><span></span></span>
 			</div>
 			<br />
 		</form>';
@@ -1430,7 +1445,7 @@ function template_profile_pm_settings()
 {
 	global $context, $settings, $options, $scripturl, $modSettings, $txt;
 
-	echo '
+	echo '			<dl class="profile-field">
 								<dt>
 										<label for="pm_prefs">', $txt['pm_display_mode'], ':</label>
 								</dt>
@@ -1441,6 +1456,8 @@ function template_profile_pm_settings()
 											<option value="2"', $context['display_mode'] == 2 ? ' selected="selected"' : '', '>', $txt['pm_display_mode_linked'], '</option>
 										</select>
 								</dd>
+							</dl>
+							<dl class="profile-field">
 								<dt>
 										<label for="view_newest_pm_first">', $txt['recent_pms_at_top'], '</label>
 								</dt>
@@ -1448,9 +1465,8 @@ function template_profile_pm_settings()
 										<input type="hidden" name="default_options[view_newest_pm_first]" value="0" />
 										<input type="checkbox" name="default_options[view_newest_pm_first]" id="view_newest_pm_first" value="1"', !empty($context['member']['options']['view_newest_pm_first']) ? ' checked="checked"' : '', ' class="input_check" />
 								</dd>
-						</dl>
-						<hr />
-						<dl>
+							</dl>
+						<dl class="profile-field">
 								<dt>
 										<label for="pm_receive_from">', $txt['pm_receive_from'], '</label>
 								</dt>
@@ -1467,6 +1483,8 @@ function template_profile_pm_settings()
 												<option value="3"', !empty($context['receive_from']) && $context['receive_from'] > 2 ? ' selected="selected"' : '', '>', $txt['pm_receive_from_admins'], '</option>
 										</select>
 								</dd>
+							</dl>
+							<dl class="profile-field">
 								<dt>
 										<label for="pm_email_notify">', $txt['email_notify'], '</label>
 								</dt>
@@ -1482,6 +1500,8 @@ function template_profile_pm_settings()
 	echo '
 										</select>
 								</dd>
+							</dl>
+							<dl class="profile-field">
 								<dt>
 										<label for="popup_messages">', $txt['popup_messages'], '</label>
 								</dt>
@@ -1490,22 +1510,24 @@ function template_profile_pm_settings()
 										<input type="checkbox" name="default_options[popup_messages]" id="popup_messages" value="1"', !empty($context['member']['options']['popup_messages']) ? ' checked="checked"' : '', ' class="input_check" />
 								</dd>
 						</dl>
-						<hr />
-						<dl>
-								<dt>
-										<label for="copy_to_outbox"> ', $txt['copy_to_outbox'], '</label>
-								</dt>
-								<dd>
-										<input type="hidden" name="default_options[copy_to_outbox]" value="0" />
-										<input type="checkbox" name="default_options[copy_to_outbox]" id="copy_to_outbox" value="1"', !empty($context['member']['options']['copy_to_outbox']) ? ' checked="checked"' : '', ' class="input_check" />
-								</dd>
-								<dt>
-										<label for="pm_remove_inbox_label">', $txt['pm_remove_inbox_label'], '</label>
-								</dt>
-								<dd>
-										<input type="hidden" name="default_options[pm_remove_inbox_label]" value="0" />
-										<input type="checkbox" name="default_options[pm_remove_inbox_label]" id="pm_remove_inbox_label" value="1"', !empty($context['member']['options']['pm_remove_inbox_label']) ? ' checked="checked"' : '', ' class="input_check" />
-								</dd>';
+						<dl class="profile-field">
+							<dt>
+									<label for="copy_to_outbox"> ', $txt['copy_to_outbox'], '</label>
+							</dt>
+							<dd>
+									<input type="hidden" name="default_options[copy_to_outbox]" value="0" />
+									<input type="checkbox" name="default_options[copy_to_outbox]" id="copy_to_outbox" value="1"', !empty($context['member']['options']['copy_to_outbox']) ? ' checked="checked"' : '', ' class="input_check" />
+							</dd>
+						</dl>
+						<dl class="profile-field">
+							<dt>
+									<label for="pm_remove_inbox_label">', $txt['pm_remove_inbox_label'], '</label>
+							</dt>
+							<dd>
+									<input type="hidden" name="default_options[pm_remove_inbox_label]" value="0" />
+									<input type="checkbox" name="default_options[pm_remove_inbox_label]" id="pm_remove_inbox_label" value="1"', !empty($context['member']['options']['pm_remove_inbox_label']) ? ' checked="checked"' : '', ' class="input_check" />
+							</dd>
+						</dl>';
 
 }
 
@@ -2285,7 +2307,7 @@ function template_issueWarning()
 	}
 	echo '
 				</dl>
-				<div class="righttext">
+				<div>
 					<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 					<input type="submit" name="save" value="', $context['user']['is_owner'] ? $txt['change_profile'] : $txt['profile_warning_issue'], '" class="button_submit" />
 				</div>
@@ -2454,7 +2476,7 @@ function template_profile_save()
 	// Only show the password box if it's actually needed.
 	if ($context['require_password'])
 		echo '
-					<dl>
+					<dl class="profile-field">
 						<dt>
 							<strong', isset($context['modify_error']['bad_password']) || isset($context['modify_error']['no_password']) ? ' class="error"' : '', '>', $txt['current_password'], ': </strong><br />
 							<span class="smalltext">', $txt['required_security_reasons'], '</span>
@@ -2465,7 +2487,7 @@ function template_profile_save()
 					</dl>';
 
 	echo '
-					<div class="righttext">
+					<div>
 						<input type="submit" value="', $txt['change_profile'], '" class="button_submit" />
 						<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 						<input type="hidden" name="u" value="', $context['id_member'], '" />
@@ -2545,16 +2567,19 @@ function template_profile_birthdate()
 	global $txt, $context;
 
 	// Just show the pretty box!
-	echo '
+	echo '		<dl class="profile-field">
 							<dt>
 								<strong>', $txt['dob'], ':</strong><br />
 								<span class="smalltext">', $txt['dob_year'], ' - ', $txt['dob_month'], ' - ', $txt['dob_day'], '</span>
 							</dt>
 							<dd>
-								<input type="text" name="bday3" size="4" maxlength="4" value="', $context['member']['birth_date']['year'], '" class="input_text" /> -
-								<input type="text" name="bday1" size="2" maxlength="2" value="', $context['member']['birth_date']['month'], '" class="input_text" /> -
-								<input type="text" name="bday2" size="2" maxlength="2" value="', $context['member']['birth_date']['day'], '" class="input_text" />
-							</dd>';
+								<div class="birthdate">
+									<input type="text" name="bday3" size="4" maxlength="4" value="', $context['member']['birth_date']['year'], '" class="input_text" />
+									<input type="text" name="bday1" size="2" maxlength="2" value="', $context['member']['birth_date']['month'], '" class="input_text" />
+									<input type="text" name="bday2" size="2" maxlength="2" value="', $context['member']['birth_date']['day'], '" class="input_text" />
+								</div>
+							</dd>
+						</dl>';
 }
 
 // Show the signature editing box?
@@ -2635,14 +2660,20 @@ function template_profile_avatar_select()
 	global $context, $txt, $modSettings;
 
 	// Start with the upper menu
-	echo '
+	echo '		<dl class="profile-field">
 							<dt>
-								<strong id="personal_picture">', $txt['personal_picture'], '</strong>
-								<input type="radio" onclick="swap_avatar(this); return true;" name="avatar_choice" id="avatar_choice_none" value="none"' . ($context['member']['avatar']['choice'] == 'none' ? ' checked="checked"' : '') . ' class="input_radio" /><label for="avatar_choice_none"' . (isset($context['modify_error']['bad_avatar']) ? ' class="error"' : '') . '>' . $txt['no_avatar'] . '</label><br />
-								', !empty($context['member']['avatar']['allow_server_stored']) ? '<input type="radio" onclick="swap_avatar(this); return true;" name="avatar_choice" id="avatar_choice_server_stored" value="server_stored"' . ($context['member']['avatar']['choice'] == 'server_stored' ? ' checked="checked"' : '') . ' class="input_radio" /><label for="avatar_choice_server_stored"' . (isset($context['modify_error']['bad_avatar']) ? ' class="error"' : '') . '>' . $txt['choose_avatar_gallery'] . '</label><br />' : '', '
-								', !empty($context['member']['avatar']['allow_external']) ? '<input type="radio" onclick="swap_avatar(this); return true;" name="avatar_choice" id="avatar_choice_external" value="external"' . ($context['member']['avatar']['choice'] == 'external' ? ' checked="checked"' : '') . ' class="input_radio" /><label for="avatar_choice_external"' . (isset($context['modify_error']['bad_avatar']) ? ' class="error"' : '') . '>' . $txt['my_own_pic'] . '</label><br />' : '', '
-								', !empty($context['member']['avatar']['allow_upload']) ? '<input type="radio" onclick="swap_avatar(this); return true;" name="avatar_choice" id="avatar_choice_upload" value="upload"' . ($context['member']['avatar']['choice'] == 'upload' ? ' checked="checked"' : '') . ' class="input_radio" /><label for="avatar_choice_upload"' . (isset($context['modify_error']['bad_avatar']) ? ' class="error"' : '') . '>Upload an avatar (160x160)</label>' : '', '
+								<strong id="personal_picture">Avatar Type</strong>
 							</dt>
+							<dd>
+								<ul class="checkboxes">
+									<li><input type="radio" onclick="swap_avatar(this); return true;" name="avatar_choice" id="avatar_choice_none" value="none"' . ($context['member']['avatar']['choice'] == 'none' ? ' checked="checked"' : '') . ' class="input_radio" /><label for="avatar_choice_none"' . (isset($context['modify_error']['bad_avatar']) ? ' class="error"' : '') . '>' . $txt['no_avatar'] . '</label></li>
+									<li>', !empty($context['member']['avatar']['allow_server_stored']) ? '<input type="radio" onclick="swap_avatar(this); return true;" name="avatar_choice" id="avatar_choice_server_stored" value="server_stored"' . ($context['member']['avatar']['choice'] == 'server_stored' ? ' checked="checked"' : '') . ' class="input_radio" /><label for="avatar_choice_server_stored"' . (isset($context['modify_error']['bad_avatar']) ? ' class="error"' : '') . '>' . $txt['choose_avatar_gallery'] . '</label><br />' : '', '</li>
+									<li>', !empty($context['member']['avatar']['allow_external']) ? '<input type="radio" onclick="swap_avatar(this); return true;" name="avatar_choice" id="avatar_choice_external" value="external"' . ($context['member']['avatar']['choice'] == 'external' ? ' checked="checked"' : '') . ' class="input_radio" /><label for="avatar_choice_external"' . (isset($context['modify_error']['bad_avatar']) ? ' class="error"' : '') . '>' . $txt['my_own_pic'] . '</label><br />' : '', '</li>
+									<li>', !empty($context['member']['avatar']['allow_upload']) ? '<input type="radio" onclick="swap_avatar(this); return true;" name="avatar_choice" id="avatar_choice_upload" value="upload"' . ($context['member']['avatar']['choice'] == 'upload' ? ' checked="checked"' : '') . ' class="input_radio" /><label for="avatar_choice_upload"' . (isset($context['modify_error']['bad_avatar']) ? ' class="error"' : '') . '>Upload an avatar (160x160)</label>' : '', '</li>
+								</ul>
+							</dd>
+						</dl>
+						<dl class="profile-field">
 							<dd>';
 
 	// If users are allowed to choose avatars stored on the server show selection boxes to choice them from.
@@ -2820,7 +2851,8 @@ function template_profile_avatar_select()
 										}
 									}
 								// ]]></script>
-							</dd>';
+							</dd>
+						</dl>';
 }
 
 // Callback for modifying karam.
@@ -2828,14 +2860,22 @@ function template_profile_karma_modify()
 {
 	global $context, $modSettings, $txt;
 
-		echo '
+		echo '	<dl class="profile-field">
 							<dt>
 								<strong>', $modSettings['karmaLabel'], '</strong>
 							</dt>
 							<dd>
-								', $modSettings['karmaApplaudLabel'], ' <input type="text" name="karma_good" size="4" value="', $context['member']['karma']['good'], '" onchange="setInnerHTML(document.getElementById(\'karmaTotal\'), this.value - this.form.karma_bad.value);" style="margin-right: 2ex;" class="input_text" /> ', $modSettings['karmaSmiteLabel'], ' <input type="text" name="karma_bad" size="4" value="', $context['member']['karma']['bad'], '" onchange="this.form.karma_good.onchange();" class="input_text" /><br />
+								<div class="karma-field">
+									', $modSettings['karmaApplaudLabel'], '
+									<input type="text" name="karma_good" size="4" value="', $context['member']['karma']['good'], '" onchange="setInnerHTML(document.getElementById(\'karmaTotal\'), this.value - this.form.karma_bad.value);" style="margin-right: 2ex;" class="input_text" />
+								</div>
+								<div class="karma-field">
+									', $modSettings['karmaSmiteLabel'], '
+									<input type="text" name="karma_bad" size="4" value="', $context['member']['karma']['bad'], '" onchange="this.form.karma_good.onchange();" class="input_text" />
+								</div>
 								(', $txt['total'], ': <span id="karmaTotal">', ($context['member']['karma']['good'] - $context['member']['karma']['bad']), '</span>)
-							</dd>';
+							</dd>
+						</dl>';
 }
 
 
@@ -2979,7 +3019,7 @@ function template_authentication_method()
 	if ($context['require_password'])
 		echo '
 					<hr width="100%" size="1" class="hrcolor clear" />
-					<dl>
+					<dl class="profile-field">
 						<dt>
 							<strong', isset($context['modify_error']['bad_password']) || isset($context['modify_error']['no_password']) ? ' class="error"' : '', '>', $txt['current_password'], ': </strong><br />
 							<span class="smalltext">', $txt['required_security_reasons'], '</span>
@@ -2990,7 +3030,7 @@ function template_authentication_method()
 					</dl>';
 
 echo '
-					<div class="righttext">
+					<div>
 						<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 						<input type="hidden" name="u" value="', $context['id_member'], '" />
 						<input type="hidden" name="sa" value="', $context['menu_item_selected'], '" />

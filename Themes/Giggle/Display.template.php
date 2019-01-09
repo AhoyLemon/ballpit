@@ -807,9 +807,9 @@ function template_main()
 
               <li class="karma_allow" style="text-align:center;">
 
-                <a class="modify-karma karma-up" href="', $scripturl, '?action=modifykarma;sa=applaud;uid=', $message['member']['id'], ';topic=', $context['current_topic'], '.' . $context['start'], ';m=', $message['id'], ';', $context['session_var'], '=', $context['session_id'], '">', $modSettings['karmaApplaudLabel'], '</a>
+                <a class="modify-karma karma-up" title="KISS This User [+1 Cheevo]" href="', $scripturl, '?action=modifykarma;sa=applaud;uid=', $message['member']['id'], ';topic=', $context['current_topic'], '.' . $context['start'], ';m=', $message['id'], ';', $context['session_var'], '=', $context['session_id'], '">', $modSettings['karmaApplaudLabel'], '</a>
 
-                <a class="modify-karma karma-down" href="', $scripturl, '?action=modifykarma;sa=smite;uid=', $message['member']['id'], ';topic=', $context['current_topic'], '.', $context['start'], ';m=', $message['id'], ';', $context['session_var'], '=', $context['session_id'], '">', $modSettings['karmaSmiteLabel'], '</a>
+                <a class="modify-karma karma-down" title="SLAP This User [-1 Cheevo]" href="', $scripturl, '?action=modifykarma;sa=smite;uid=', $message['member']['id'], ';topic=', $context['current_topic'], '.', $context['start'], ';m=', $message['id'], ';', $context['session_var'], '=', $context['session_id'], '">', $modSettings['karmaSmiteLabel'], '</a>
 
               </li>';
 
@@ -824,7 +824,7 @@ function template_main()
 						</div>
 
 						<div class="postarea">
-							<div class="flow_hidden">
+							<div class="flow_hidden post-topinfo">
 								<div class="keyinfo">
 									<h5 id="subject_', $message['id'], '">
 										<a href="', $message['href'], '">', $message['subject'], '</a>

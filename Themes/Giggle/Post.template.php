@@ -201,7 +201,7 @@ function template_main()
 						<dd>
 							<input type="text" name="subject"', $context['subject'] == '' ? '' : ' value="' . $context['subject'] . '"', ' tabindex="', $context['tabindex']++, '" size="80" maxlength="80" class="input_text" />
 						</dd>
-					</dl><hr class="clear" />';
+					</dl>';
 
 	// Are you posting a calendar event?
 	if ($context['make_event'])

@@ -13,9 +13,52 @@ body[color-theme="dark"] {
     color: #bbb; }
   body[color-theme="dark"] #header {
     background: #212121;
-    border-bottom-color: #111; }
+    border-bottom-color: #141414; }
   body[color-theme="dark"] #bar {
     background: #181818;
-    border-bottom-color: #111; }
+    border-bottom-color: #141414; }
   body[color-theme="dark"] #navigation li a {
     color: #bbb; }
+  body[color-theme="dark"] .quoteheader, body[color-theme="dark"] blockquote {
+    background: #141414;
+    border: none;
+    color: #efefef; }
+  body[color-theme="dark"] .bulber-list {
+    background-color: #141414;
+    border: none; }
+  body[color-theme="dark"] .bulbedpost .post .inner {
+    background-image: url(../svg/bulbstar-dark.svg); }
+  body[color-theme="dark"] ul.quickbuttons li.bulb.count {
+    background-image: url(../svg/bulb-count-dark.svg);
+    color: #212121;
+    background-size: cover; }
+  body[color-theme="dark"] .inner,
+  body[color-theme="dark"] #forumposts .windowbg,
+  body[color-theme="dark"] #forumposts .windowbg2,
+  body[color-theme="dark"] #personal_messages .windowbg,
+  body[color-theme="dark"] #personal_messages .windowbg2 {
+    border-color: #141414; }
+  body[color-theme="dark"] a {
+    color: #41e394; }
+  body[color-theme="dark"] ul.quickbuttons li a {
+    color: #e04a3f; }
+  body[color-theme="dark"] .button_reset, body[color-theme="dark"] .button_submit {
+    color: #efefef; }
+  body[color-theme="dark"] input[value=Preview] {
+    color: #efefef; }
+  body[color-theme="dark"] #post_header dd input {
+    color: #bbb;
+    border-color: #bbb; }
+    body[color-theme="dark"] #post_header dd input:focus {
+      color: #efefef;
+      border-color: #efefef; }
+  body[color-theme="dark"] #bbcBox_message a {
+    color: #bbb; }
+  body[color-theme="dark"] textarea.editor {
+    background: #141414;
+    padding: 20px !important;
+    border: 1px solid #141414;
+    color: #bbb; }
+    body[color-theme="dark"] textarea.editor:focus {
+      color: #efefef;
+      border-color: #efefef; }
