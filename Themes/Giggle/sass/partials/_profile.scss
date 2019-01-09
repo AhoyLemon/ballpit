@@ -41,7 +41,7 @@
     .karma-field { display: grid; grid-template-columns: 46px 1fr; }
   }
   &[begin="hidden"] { display: none; }
-  &.save-profile { display: flex; align-items:center; justify-content: center;
+  &.save-profile {
     dd { width:100%; }
     input, button { padding:1em 2em; }
   }

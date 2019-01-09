@@ -1386,6 +1386,9 @@ function template_edit_options()
 
 	echo '
 					<dl class="profile-field save-profile">
+					<dt>
+						Changes will not be saved unless you click the button.
+					</dt>
 					<dd>';
 
 	// The button shouldn't say "Change profile" unless we're changing the profile...
