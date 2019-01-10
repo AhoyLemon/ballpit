@@ -4,6 +4,7 @@
 
 @import "partials/_header";
 @import "partials/_login";
+@import "partials/_boardindex";
 @import "partials/_thread";
 @import "partials/_posts";
 @import "partials/_profile";
@@ -850,7 +851,7 @@ table.table_list tbody.content td.lastpost
 
 }
 
-table.table_list tbody.content td.icon { text-align: center; width: 6%; }
+table.table_list tbody.content td.icon { text-align: center; width: 90px; }
 svg.star { max-height: 4em; max-width: 4em; }
 
 
@@ -1100,7 +1101,7 @@ form#ic_login ul li label
   line-height: 1px;
 
 }
-a.subject { color:$blue; }
+
 a.new-post-icon { background-image: url("../svg/new-post.svg"); background-repeat: no-repeat; -webkit-background-size: contain; background-size: contain; background-position: center; display: inline-block; height: 17px; width: 29px; }
 a.jump-to-new { color:$blue;
   &.subject-level { display: block; float:left; height: 2.2em; width: 2.2em; margin-right: 10px; }
@@ -3287,7 +3288,7 @@ span.hidelink
 
 
 
-#header { background-color:#f1f1f1; overflow:hidden; border-bottom:1px solid $grey; }
+#header { overflow:hidden; }
 
 
 #logo a { float:left; display:block; background:url(../svg/snake4.svg) left center no-repeat; background-size:contain; height:120px; width:445px; max-width: 50%; }
@@ -3336,7 +3337,7 @@ span.hidelink
 
 .fclear {clear:both}
 
-#bar { background: #fff;  height: 46px; border-bottom: 1px solid $grey; height: 40px; }
+#bar { background: #fff;  height: 46px;height: 40px; }
 
 #navigation { position: relative; height: 40px; z-index: 1000; padding: 0; margin: 0;
   ul { margin: 0; padding: 0; }
@@ -3348,7 +3349,7 @@ span.hidelink
     li { width: 200px; height: auto; padding: 0;
       a:hover { color:$green; }
     }
-    ul { background:white; position: absolute; width:200px; left:-999px; border:1px solid $grey; }
+    ul { background:white; position: absolute; width:200px; left:-999px; }
     &:hover ul { left: 0; }
   }
 }

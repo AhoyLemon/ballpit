@@ -9,7 +9,7 @@ body[color-theme="dark"] {
   color: #efefef; }
   body[color-theme="dark"] td, body[color-theme="dark"] th {
     color: #efefef; }
-  body[color-theme="dark"] td.icon1, body[color-theme="dark"] td.icon {
+  body[color-theme="dark"] td.icon1, body[color-theme="dark"] td.icon, body[color-theme="dark"] td.child-icon a {
     color: #bbb; }
   body[color-theme="dark"] #header {
     background: #212121;
@@ -19,6 +19,9 @@ body[color-theme="dark"] {
     border-bottom-color: #141414; }
   body[color-theme="dark"] #navigation li a {
     color: #bbb; }
+  body[color-theme="dark"] #navigation li ul {
+    background: #181818;
+    border: none; }
   body[color-theme="dark"] .quoteheader, body[color-theme="dark"] blockquote {
     background: #141414;
     border: none;
@@ -40,6 +43,14 @@ body[color-theme="dark"] {
     border-color: #141414; }
   body[color-theme="dark"] a {
     color: #41e394; }
+  body[color-theme="dark"] .creator a {
+    color: #4a8bf5; }
+  body[color-theme="dark"] .lastpost a:first-of-type {
+    color: #4a8bf5; }
+  body[color-theme="dark"] .users-online a {
+    color: #4a8bf5; }
+  body[color-theme="dark"] a.jump-to-new {
+    color: #4a8bf5; }
   body[color-theme="dark"] ul.quickbuttons li a {
     color: #e04a3f; }
   body[color-theme="dark"] .button_reset, body[color-theme="dark"] .button_submit {
