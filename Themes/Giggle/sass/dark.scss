@@ -60,4 +60,14 @@ body[color-theme="dark"] {
   textarea.editor { background:$darkBorder; padding:20px !important; border:1px solid $darkBorder; color:$darkThreadIcon;
     &:focus { color:$darkCopy; border-color:$darkCopy; }
   }
+
+
+  // Footer
+  .bottom-left-link { 
+    svg {
+      .f { fill:#DEDCEE; }
+    }
+
+   }
+
 }

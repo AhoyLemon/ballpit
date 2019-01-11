@@ -73,3 +73,5 @@ body[color-theme="dark"] {
     body[color-theme="dark"] textarea.editor:focus {
       color: #efefef;
       border-color: #efefef; }
+  body[color-theme="dark"] .bottom-left-link svg .f {
+    fill: #DEDCEE; }

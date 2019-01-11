@@ -3357,14 +3357,19 @@ span.hidelink
 
 #main_content_section { padding: 0 8px 5px; }
 
-#footer { text-align: center; padding: 20px; font-size: 12px; clear:both; position: relative; overflow: hidden; border-bottom:1px solid #aaa;
+#footer { text-align: center; padding: 20px; font-size: 12px; clear:both; position: relative;
   ul li { display: inline; padding-right: 5px;
     &.copyright { display: block; }
   }
   p { margin: 0; }
 }
 
-.bottom-left-link { position: absolute; bottom:0; right:0; display: block; width:102px; height: 88px; opacity: 0.3; transition: opacity 0.45s ease;
+.bottom-left-link { position: absolute; bottom:0; right:7px; opacity: 0.2; transition: opacity 0.3s linear;
+  svg { width: 90px; height: 80px;;
+    .circle { fill:#C1282D; }
+    .f { fill:#222; }
+  }
+
   &:hover { opacity: 1; }
 }
 

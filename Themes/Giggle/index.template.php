@@ -102,7 +102,7 @@ function template_html_above()
 
   echo '
     <meta charset="iso-8859-1">
-    <link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/ballpit.css?lastUpdated=2018-01-09" />';
+    <link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/ballpit.css?lastUpdated=2019-01-11" />';
 
   echo '
     <!-- FAVICON -->
@@ -599,8 +599,11 @@ function template_body_below()
 			<li class="last"><a href="https://github.com/AhoyLemon/ballpit">GitHub repo</a></li>
 		</ul>
         <a class="bottom-left-link" href="https://thefpl.us" title="Visit The F Plus&apos; website">
-    <img src="'.$settings['theme_url'].'/svg/fplus-symbol.svg" class="logo" alt="F Plus logo (off center)" />
-  </a>';
+          <svg class="f-plus-logo logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 102 88">
+            <path class="circle" d="M58.3 1.3c-12.6 0-23.9 5.5-31.7 14.2h50.1L73 19.4c-1.8 1.9-1.8 2-3.4 4.4-1.3 2-.9 4.1-.9 4.1l.5 2.5H55.3l1.7-3.5h-9.1l-6.1 15h7.9l4.1-9.1H68L63.9 42h10.8l-5.5 12.8H58.1l-4.3 9.6H39.6l4.3-9.6h-7.7l-6 13.2c-.8 1.7-1.8 3.3-3 4.6 7.7 8.3 18.8 13.5 31 13.5 23.4 0 42.5-19 42.5-42.5S81.8 1.3 58.3 1.3z" fill="#c1282d"/>
+            <path class="f" d="M71.6 44H60.7l4.1-9.2h-9.7l-4 9.2H38.8l7.8-19.1 13.8-.1-1.7 3.5h8.1s-.6-2.8 1.2-5.6c1.8-2.8 1.8-2.7 4.1-5.1H14.3s-2.5 1.6-2.5 4S14 25 14 25l19.2-.1L24.8 44c-8.5 3.2-14.5 8.8-18 16.7l-4 9c-.3.7-.5 1.3-.5 1.9 0 1.8 1.2 3.2 3.6 4.2 2 .9 4.1 1.3 6.3 1.3 3.4 0 6.5-.8 9.3-2.4 3.1-1.8 5.4-4.3 6.9-7.5l6.5-14.4h12.2l-4.3 9.6h9.7l4.3-9.6h11.1l3.7-8.8zm-58 25.2c-.5 1-1.2 1.5-2.2 1.5-.9 0-1.3-.3-1.3-.9 0-.1 0-.2.1-.4l3.9-8.6c2-4.7 4.3-7.3 6.8-7.9-3.3 7.3-5.7 12.7-7.3 16.3z" fill="#222" />
+          </svg>
+        </a>';
 
 
 
