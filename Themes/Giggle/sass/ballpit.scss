@@ -1273,7 +1273,7 @@ div.table_frame .table_list
 
 #forumposts, #personal_messages { clear: both;
   .cat_bar { margin-bottom: 0.5em; }
-  h3 { font-weight: $medium; color: $grey; font-size: 1.1rem; line-height: 170%; letter-spacing: 0.2em;
+  h3 { font-weight: $medium; font-size: 1.2rem; line-height: 170%; letter-spacing: 0.2em;
     span#author { margin: 0 7.7em 0 0; }
     img { float: left; margin: 4px 0.5em 0 0; }
   }
@@ -1329,7 +1329,8 @@ p#whoisviewing
 /* The quick buttons */
 .post-topinfo {
   .keyinfo {
-    h5 { font-size:1.1rem; font-weight: 300; }
+    h5 { font-size:1.3rem; font-weight: 300; }
+    time { font-weight: $bold; }
   }
 }
 ul.quickbuttons { margin: 0 11px 0 0; text-align: right;

@@ -827,9 +827,24 @@ function template_main()
 							<div class="flow_hidden post-topinfo">
 								<div class="keyinfo">
 									<h5 id="subject_', $message['id'], '">
-										<a href="', $message['href'], '">', $message['subject'], '</a>
-									</h5>
-									<div class="smalltext">&#171; <strong>', !empty($message['counter']) ? $txt['reply_noun'] . ' #' . $message['counter'] : '', ' ', $txt['on'], ':</strong> ', $message['time'], ' &#187;</div>
+
+										<a href="', $message['href'], '">';
+											if (empty($message['counter'])) {
+												echo $message['subject'];
+											} else if ($message['subject'] != $context['subject']) {
+												echo $message['subject'];
+											} else { 
+												echo 'Reply #'. $message['counter'];
+											}
+										echo '</a>';
+
+										/*
+										echo '<pre style="display:none;">';
+											echo $context['subject'];
+										echo '</pre>';
+										*/
+									echo '</h5>
+									<time>', $message['time'], '</time>
 								</div>';
 
 
