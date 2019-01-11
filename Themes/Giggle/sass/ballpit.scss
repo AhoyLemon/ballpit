@@ -1326,9 +1326,9 @@ p#whoisviewing
 .modifybutton { clear: right; float: right; margin: 6px 20px 10px 0; text-align: right; color: #334466;	}
 
 /* The quick buttons */
-.post-topinfo { display: grid; grid-template-columns: 1fr 360px;
+.post-topinfo {
   .keyinfo {
-    h5 {font-size:1.1rem; font-weight: 300; }
+    h5 { font-size:1.1rem; font-weight: 300; }
   }
 }
 ul.quickbuttons { margin: 0 11px 0 0; text-align: right;
@@ -3468,13 +3468,13 @@ span.spoiler { cursor:pointer;
   #logo a { height: 100px; }
   a.hamburger { display: none; }
   .post_wrapper { display: grid; grid-template-columns: 160px 1fr; grid-gap: 20px;
+    .post-topinfo { display: grid; grid-template-columns: 1fr 360px; }
     .poster { position: relative; }
     .postarea { padding-left: 1em;
       .post { min-height: 14em;
         .inner { font-size:16px; line-height: 140%; }
       }
     }
-    //.moderatorbar { display:none; }
   }
 }
 
