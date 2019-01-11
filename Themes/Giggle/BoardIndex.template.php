@@ -421,7 +421,7 @@ function template_info_center()
 
 	echo $context['show_who'] ? '' : '', '
 			</h4>
-			<p class="inline smalltext">';
+			<p class="inline smalltext users-online">';
 
 	// Assuming there ARE users online... each user in users_online has an id, username, name, group, href, and link.
 	if (!empty($context['users_online']))

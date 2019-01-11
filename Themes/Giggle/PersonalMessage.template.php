@@ -180,7 +180,6 @@ function template_folder()
 
 			echo '
 	<div class="post_wrapper ', $window_class, ' clear">
-		<span class="topslice"><span></span></span>
 		<div class="poster">
 			<a id="msg', $message['id'], '"></a>
 			<h4>';
