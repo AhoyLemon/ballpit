@@ -1432,15 +1432,6 @@ img.smiley { height:1.15em; min-height: 16px; }
 
 ---------------------------------------------------- */
 
-
-#post_header, .postbox { padding: 0.5em; overflow: hidden;
-  dt { float: left;	padding: 0;	max-width: 15%;	margin: .5em .8em 0 0; text-align:right; font-size:16px; }
-  dd { float: left; padding: 0; width: 83%; margin: .3em 0;
-    input { font-size:1.4em; border-left:none; border-top:none; border-right: none; width:100%; background-color: transparent;
-      &:hover, &:active { outline: none; border-color:$blue; }
-    }
-  }
-}
 ul.post_options
 
 {
