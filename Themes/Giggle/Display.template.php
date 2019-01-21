@@ -834,7 +834,7 @@ function template_main()
 											} else if ($message['subject'] != $context['subject']) {
 												echo $message['subject'];
 											} else { 
-												echo 'Reply #'. $message['counter'];
+												echo $message['subject'] . ' #' . $message['counter'];
 											}
 										echo '</a>';
 
