@@ -296,6 +296,7 @@ function template_html_above()
 </head>';
 echo '<body color-theme="' . $colorTheme . '" begins="' . $dayBegins .'" ends="'.$dayEnds.'">
 ';
+
 include("svgDefinitions.php");
 }
 
