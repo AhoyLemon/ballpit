@@ -1,5 +1,11 @@
-/* Poll question */
+// Write Post
+textarea.editor { padding:20px; background:white;
 
+}
+
+
+
+/* Poll question */
 .poll { overflow: hidden;
   .content { padding: 0; }
   h4 { text-transform: uppercase; font-size:152%; letter-spacing: 0.1em; margin-bottom: 0.5em; }
@@ -33,6 +39,11 @@
     }
   }
 }
+
+
+
+
+
 
 @media only screen and (min-width: 768px) {
   .poll { padding-left: 160px; }
