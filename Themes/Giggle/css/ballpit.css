@@ -4399,4 +4399,31 @@ blockquote.bbc_alternate_quote {
   overflow: auto;
 }
 
+blockquote.bbc_quote {
+  border: 1px solid #bbb;
+  position: relative;
+  padding: 1em 3em;
+  margin: 0;
+}
+
+blockquote.bbc_quote:before {
+  font-size: 700%;
+  content: "“";
+  position: absolute;
+  top: 0.3em;
+  left: 0;
+  color: #bbb;
+}
+
+blockquote.bbc_quote cite {
+  display: block;
+  padding-left: 3em;
+  font-style: italic;
+}
+
+blockquote.bbc_quote cite:before {
+  content: "—";
+  display: inline;
+}
+
 /*# sourceMappingURL=ballpit.css.map */
