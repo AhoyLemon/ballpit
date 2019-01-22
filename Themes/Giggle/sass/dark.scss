@@ -21,7 +21,7 @@ body[color-theme="dark"] {
    ul { background:#181818; border:none; }
   }
   // Quote
-  .quoteheader, blockquote { background:$darkBorder; border:none; color:$darkCopy; }
+  .quoteheader, blockquote { color:$darkCopy; }
 
   // Bulb Stuff
   .bulber-list { background-color:darken($darkBody,5%); border:none; }

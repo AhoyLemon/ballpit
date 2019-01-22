@@ -23,8 +23,6 @@ body[color-theme="dark"] {
     background: #181818;
     border: none; }
   body[color-theme="dark"] .quoteheader, body[color-theme="dark"] blockquote {
-    background: #141414;
-    border: none;
     color: #efefef; }
   body[color-theme="dark"] .bulber-list {
     background-color: #141414;
