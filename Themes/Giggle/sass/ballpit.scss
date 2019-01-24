@@ -3445,18 +3445,18 @@ figure.nsfw{ background-color:rgba(68,68,68,0.1); border:2px solid rgba(68,68,68
 
 //// [spoiler] tag
 span.spoiler { cursor:pointer;
-  &:before, &:after { content:"SPOILER"; color:#0f9d58; font-weight:900; padding:0 0.2em; text-shadow:none; }
-  &:before {  margin-left:0.5em; margin-right:0.2em; border-right:1px solid #0f9d58; }
-  &:after { margin-left:0.2em; margin-right:0.5em; border-left:1px solid #0f9d58; }
-
-  text-shadow: 0 0 0.3em rgba(#444,0.7); color: transparent; transition:all 0.35s ease;
+  &:before, &:after { content:"SPOILER"; color:$red; font-weight:$bold; padding:0 0.2em; text-shadow:none; }
+  &:before {  margin-left:0.5em; margin-right:0.2em; border-right:1px solid currentColor; }
+  &:after { margin-left:0.2em; margin-right:0.5em; border-left:1px solid currentColor; }
+  text-shadow: 0 0 0.3em rgba($copy,0.7); color: transparent;
   img { filter:blur(8px); -webkit-filter:blur(8px); }
   a[href] { color:transparent; text-shadow: 0 0 0.3em rgba($green,0.7); transition:all 0.35s ease; }
-  &:hover { text-shadow:0 0 0.23em rgba(#444, 0.8); background-color:rgba(yellow,0.1);
+  &:hover { text-shadow:0 0 0.23em rgba(#444, 0.8); background-color:$red;
     img { filter:blur(8px) saturate(8); -webkit-filter:blur(8px) saturate(8); }
-    a[href] { color:$green; text-shadow: 0 0 0.2em rgba($green,0.2); }
+    a[href] { color:transparent; text-shadow: 0 0 0.3em rgba($green,0.2); }
+    &:before, &:after { color:$copy; }
   }
-  &.spoiled { color:#444; text-shadow:none;
+  &.spoiled { color:$copy; text-shadow:none;
     img { filter:none; -webkit-filter:none; }
     &:before, &:after { content:"SPOILED" }
   }

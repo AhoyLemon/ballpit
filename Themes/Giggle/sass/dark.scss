@@ -21,7 +21,14 @@ body[color-theme="dark"] {
    ul { background:#181818; border:none; }
   }
   // Quote
+  
   .quoteheader, blockquote { color:$darkCopy; }
+  span.spoiler { text-shadow: 0 0 0.3em rgba(200,200,200, 0.7);
+    &:hover { color:rgba($black,0.05); text-shadow: 0 0 0.4em rgba(200,200,200, 0.3);
+      &:before, &:after { color: $darkBody; }
+    }
+    &.spoiled { text-shadow: none; color:$darkCopy; }
+  }
 
   // Bulb Stuff
   .bulber-list { background-color:darken($darkBody,5%); border:none; }
