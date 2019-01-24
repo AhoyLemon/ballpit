@@ -1433,7 +1433,7 @@ function parse_bbc($message, $smileys = true, $cache_id = '', $parse_tags = arra
 					'date' => array('match' => '(\d+)', 'validate' => 'timeformat'),
 				),
 				'before' => '<blockquote class="bbc_quote">',
-				'after' => '<cite><a href="' . $scripturl . '?{link}">{author}, {date}</a></cite></blockquote>',
+				'after' => '<cite>{author}, <a href="' . $scripturl . '?{link}">{date}</a></cite></blockquote>',
 				'block_level' => true,
 			),
 			array(
@@ -1441,8 +1441,10 @@ function parse_bbc($message, $smileys = true, $cache_id = '', $parse_tags = arra
 				'parameters' => array(
 					'author' => array('match' => '(.{1,192}?)'),
 				),
-				'before' => '<div class="quoteheader"><div class="topslice_quote">' . $txt['quote_from'] . ': {author}</div></div><blockquote>',
-				'after' => '</blockquote><div class="quotefooter"><div class="botslice_quote"></div></div>',
+				//'before' => '<div class="quoteheader"><div class="topslice_quote">' . $txt['quote_from'] . ': {author}</div></div><blockquote>',
+				//'after' => '</blockquote><div class="quotefooter"><div class="botslice_quote"></div></div>',
+				'before' => '<blockquote class="bbc_quote">',
+				'after' => '<cite>{author}</cite></blockquote>',
 				'block_level' => true,
 			),
 			array(
