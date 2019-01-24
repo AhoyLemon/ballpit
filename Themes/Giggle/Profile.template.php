@@ -1312,15 +1312,16 @@ function template_edit_options()
 					</dt>
 					<dd>
 						<input type="time" name="customfield[' .  $field['colname'] . ']" value="' . $field['value'] . '" class="input_text">';
+						$currentTimeOfDay = date('G:i', strtotime($context['current_time']));
 						if ($field['colname'] == "cust_lightm") {
-							if (date('G:i') > $field['value']) {
-								echo date('G:i') . '>' . $field['value'];
+							if ($currentTimeOfDay > $field['value']) {
+								echo $currentTimeOfDay . '>' . $field['value'];
 							} else {
 								echo 'Light Mode has NOT begun!';
 							}
 						} else if ($field['colname'] == "cust_lightm0") {
-							if (date('G:i') <= $field['value']) {
-								echo date('G:i') . '<' . $field['value'];
+							if ($currentTimeOfDay <= $field['value']) {
+								echo $currentTimeOfDay . '<' . $field['value'];
 							} else {
 								echo 'Light Mode has NOT ended!';
 							}

@@ -102,7 +102,7 @@ function template_html_above()
 
   echo '
     <meta charset="iso-8859-1">
-    <link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/ballpit.css?lastUpdated=2019-01-23" />';
+    <link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/ballpit.css?lastUpdated=2019-01-21" />';
 
   echo '
     <!-- FAVICON -->
@@ -275,12 +275,14 @@ function template_html_above()
     $dayEnds = false;
     
   } else if  ($options["cust_colort"] == "Time Sensitive") {
+    $currentTimeOfDay = date('G:i', strtotime($context['current_time']));
+    
     $dayBegins = $options["cust_lightm"];
     $dayEnds = $options["cust_lightm0"];
-    if (date('G:i') < $options["cust_lightm"]) {
+    if ($currentTimeOfDay < $options["cust_lightm"]) {
       // Too Early for Light Mode
       $colorTheme = "dark";
-    } else if (date('G:i') > $options["cust_lightm0"]) {
+    } else if ($currentTimeOfDay > $options["cust_lightm0"]) {
       // Too Late for Light Mode
       $colorTheme = "dark";
     } else {
