@@ -19,3 +19,8 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+
+%postDiv { padding-bottom: 2em; margin-bottom: 2em; border-bottom:8px solid rgba(0,0,0,0.1);
+
+}

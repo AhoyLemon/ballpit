@@ -201,7 +201,7 @@ function template_main()
 						<dd>
 							<input type="text" name="subject"', $context['subject'] == '' ? '' : ' value="' . $context['subject'] . '"', ' tabindex="', $context['tabindex']++, '" size="80" maxlength="80" class="input_text" />
 						</dd>
-					</dl><hr class="clear" />';
+					</dl>';
 
 	// Are you posting a calendar event?
 	if ($context['make_event'])
@@ -872,34 +872,6 @@ function template_spellcheck()
 		<title>', $txt['spell_check'], '</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=', $context['character_set'], '" />
 		<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/index.css" />
-		<style type="text/css">
-			body, td
-			{
-				font-size: small;
-				margin: 0;
-				background: #f0f0f0;
-				color: #000;
-				padding: 10px;
-			}
-			.highlight
-			{
-				color: red;
-				font-weight: bold;
-			}
-			#spellview
-			{
-				border-style: outset;
-				border: 1px solid black;
-				padding: 5px;
-				width: 95%;
-				height: 314px;
-				overflow: auto;
-				background: #ffffff;
-			}';
-
-	// As you may expect - we need a lot of javascript for this... load it form the separate files.
-	echo '
-		</style>
 		<script type="text/javascript"><!-- // --><![CDATA[
 			var spell_formname = window.opener.spell_formname;
 			var spell_fieldname = window.opener.spell_fieldname;

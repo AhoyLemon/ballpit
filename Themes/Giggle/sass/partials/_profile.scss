@@ -23,6 +23,34 @@
   }
 }
 
+
+
+// PROFILE SETTINGS 
+.content.profile-fields { display: grid; grid-gap: 10px; grid-template-columns: repeat(auto-fill,280px);
+  hr { grid-column: -1 / 1; opacity: 0.1; display: none; }
+}
+.profile-field { border:1px solid $border;
+  dt { border-bottom: 1px solid #777; padding: 10px 20px;}
+  dd { margin: 0; padding: 10px 20px;
+    input, select { display:block; width:100%; padding: 0.35em 0.75em; }
+    ul.checkboxes { padding: 0;
+      li { list-style: none; }
+      input { display: inline-block; width: auto; margin-right: 10px; }
+    }
+    .birthdate { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-gap: 10px; }
+    .karma-field { display: grid; grid-template-columns: 46px 1fr; }
+  }
+  &[begin="hidden"] { display: none; }
+  &.save-profile {
+    dd { width:100%; }
+    input, button { padding:1em 2em; }
+  }
+}
+ul.theme-settings {  padding: 0; grid-column: -1 / 1; display: grid; grid-template-columns: repeat(auto-fill,280px); grid-gap: 10px;
+  li { list-style: none; border: 1px solid #777; padding:10px; }
+}
+
+
 #detailedinfo {
   h4 { font-size: 135%; font-weight: 100; line-height: 105%; white-space: pre-wrap; overflow: hidden; }
   ul { list-style-type: none; margin: 10px 0 0 0;

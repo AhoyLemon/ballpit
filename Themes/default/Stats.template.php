@@ -402,7 +402,7 @@ function template_main()
 					foreach ($month['days'] as $day)
 					{
 						echo '
-				<tr class="windowbg2" valign="middle" id="tr_day_', $day['year'], '-', $day['month'], '-', $day['day'], '">
+				<tr class="windowbg2" valign="middle" align="center" id="tr_day_', $day['year'], '-', $day['month'], '-', $day['day'], '">
 					<td class="stats_day">', $day['year'], '-', $day['month'], '-', $day['day'], '</td>
 					<td>', $day['new_topics'], '</td>
 					<td>', $day['new_posts'], '</td>

@@ -1,5 +1,20 @@
-/* Poll question */
+// Write Post
+#post_header, .postbox {  position: relative; margin-bottom: 2em;
 
+  dt { @include position(absolute,5px,null,null,0); }
+  dd {  padding-left: 3em;
+    input { font-size:1.4em; border-left:none; border-top:none; border-right: none; width:100%; background-color: transparent; border-color:$border;
+      &:hover, &:focus { outline: none; border-color:$blue; }
+    }
+  }
+}
+
+textarea.editor { padding:20px; background:white; width:100%; border-color:$border; 
+  &:hover, &:focus { outline: none; border-color:$blue; }
+}
+
+
+/* Poll question */
 .poll { overflow: hidden;
   .content { padding: 0; }
   h4 { text-transform: uppercase; font-size:152%; letter-spacing: 0.1em; margin-bottom: 0.5em; }
@@ -33,6 +48,11 @@
     }
   }
 }
+
+
+
+
+
 
 @media only screen and (min-width: 768px) {
   .poll { padding-left: 160px; }
