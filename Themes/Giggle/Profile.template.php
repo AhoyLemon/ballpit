@@ -1320,7 +1320,7 @@ function template_edit_options()
 								echo 'Light Mode has NOT begun!';
 							}
 						} else if ($field['colname'] == "cust_lightm0") {
-							if ($currentTimeOfDay <= $field['value']) {
+							if ($currentTimeOfDay < $field['value']) {
 								echo $currentTimeOfDay . '<' . $field['value'];
 							} else {
 								echo 'Light Mode has NOT ended!';
