@@ -19,3 +19,7 @@ blockquote.bbc_quote { border:1px solid $border; position: relative; padding: 1e
     &:before { content:"—"; display: inline; }
   }
 }
+
+.bbc_pre { margin:0; padding: 0;
+
+}

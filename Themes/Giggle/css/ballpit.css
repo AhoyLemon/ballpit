@@ -4433,4 +4433,9 @@ blockquote.bbc_quote cite:before {
   display: inline;
 }
 
+.bbc_pre {
+  margin: 0;
+  padding: 0;
+}
+
 /*# sourceMappingURL=ballpit.css.map */
