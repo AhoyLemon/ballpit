@@ -4362,19 +4362,6 @@ a.bbc_link[href] {
   color: #4a8bf5;
 }
 
-code.bbc_code {
-  display: block;
-  font-family: "dejavu sans mono", "monaco", "lucida console", "courier new", monospace;
-  font-size: 0.8em;
-  background: #f9f9f9;
-  border: 2px solid #bbb;
-  line-height: 1.5em;
-  padding: 1em;
-  overflow: auto;
-  white-space: nowrap;
-  max-height: 24em;
-}
-
 .quoteheader {
   font-size: 90%;
   width: auto;
@@ -4433,9 +4420,35 @@ blockquote.bbc_quote cite:before {
   display: inline;
 }
 
-.bbc_pre {
+.bbc_code {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.bbc_code .code_header {
+  font-family: "dejavu sans mono", "monaco", "lucida console", "courier new", monospace;
+  font-size: 120%;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.bbc_code pre {
   margin: 0;
   padding: 0;
+}
+
+.bbc_code code {
+  display: block;
+  font-family: "dejavu sans mono", "monaco", "lucida console", "courier new", monospace;
+  background: rgba(0, 0, 0, 0.05);
+  color: #08086b;
+  border: 1px solid #bbb;
+  line-height: 1.5em;
+  padding: 1em;
+  overflow: auto;
+  white-space: nowrap;
+  max-height: 24em;
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.1);
 }
 
 /*# sourceMappingURL=ballpit.css.map */

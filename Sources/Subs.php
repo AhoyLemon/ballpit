@@ -1086,7 +1086,7 @@ function parse_bbc($message, $smileys = true, $cache_id = '', $parse_tags = arra
 			array(
 				'tag' => 'code',
 				'type' => 'unparsed_content',
-				'content' => '<div class="codeheader">' . $txt['code'] . ': <a href="javascript:void(0);" onclick="return smfSelectText(this);" class="codeoperation">' . $txt['code_select'] . '</a></div>' . ($context['browser']['is_gecko'] || $context['browser']['is_opera'] ? '<pre class="bbc_pre">' : '') . '<code class="bbc_code">$1</code>' . ($context['browser']['is_gecko'] || $context['browser']['is_opera'] ? '</pre>' : ''),
+				'content' => '<div class="bbc_code"><code><pre>$1</pre></code></div>',
 				// !!! Maybe this can be simplified?
 				'validate' => isset($disabled['code']) ? null : create_function('&$tag, &$data, $disabled', '
 					global $context;
@@ -1128,7 +1128,8 @@ function parse_bbc($message, $smileys = true, $cache_id = '', $parse_tags = arra
 			array(
 				'tag' => 'code',
 				'type' => 'unparsed_equals_content',
-				'content' => '<div class="codeheader">' . $txt['code'] . ': ($2) <a href="#" onclick="return smfSelectText(this);" class="codeoperation">' . $txt['code_select'] . '</a></div>' . ($context['browser']['is_gecko'] || $context['browser']['is_opera'] ? '<pre style="margin: 0; padding: 0;">' : '') . '<code class="bbc_code">$1</code>' . ($context['browser']['is_gecko'] || $context['browser']['is_opera'] ? '</pre>' : ''),
+				//'content' => '<div class="codeheader">' . $txt['code'] . ': ($2) <a href="#" onclick="return smfSelectText(this);" class="codeoperation">' . $txt['code_select'] . '</a></div>' . ($context['browser']['is_gecko'] || $context['browser']['is_opera'] ? '<pre style="margin: 0; padding: 0;">' : '') . '<code class="bbc_code">$1</code>' . ($context['browser']['is_gecko'] || $context['browser']['is_opera'] ? '</pre>' : ''),
+				'content' => '<div class="bbc_code"><header class="code_header">$2</header><code class="$2" lang="$2"><pre>$1</pre></code></div>',
 				// !!! Maybe this can be simplified?
 				'validate' => isset($disabled['code']) ? null : create_function('&$tag, &$data, $disabled', '
 					global $context;

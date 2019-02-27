@@ -1,7 +1,4 @@
 a.bbc_link[href] { color:$blue; }
-code.bbc_code {
-  display: block;  font-family: $monotype; font-size: 0.8em;background: $white; border: 2px solid $border; line-height: 1.5em; padding:1em; overflow: auto; white-space: nowrap; max-height: 24em;
-}
 .quoteheader { font-size: 90%; width: auto; display: inline-block; border: 1px solid $border; border-bottom: 1px solid #fff; background: #fff; margin-bottom: -1px; padding: 0.25em 1em; }
 .codeheader { background: $border; display: inline-block; padding: 0.25em 1em; color: #fff; font-size: 90% }
 
@@ -20,6 +17,8 @@ blockquote.bbc_quote { border:1px solid $border; position: relative; padding: 1e
   }
 }
 
-.bbc_pre { margin:0; padding: 0;
-
+.bbc_code { margin-top:1em; margin-bottom: 1em;
+  .code_header { font-family: $monotype; font-size:120%; font-weight: $bold; letter-spacing: 0.1em; }
+  pre { margin:0; padding: 0; }
+  code { display: block;  font-family: $monotype; background: rgba(0,0,0,0.05); color:#08086b; border: 1px solid $border; line-height: 1.5em; padding:1em; overflow: auto; white-space: nowrap; max-height: 24em; box-shadow: inset 0 0 4px rgba(0,0,0,0.1); }
 }

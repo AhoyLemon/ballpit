@@ -29,6 +29,9 @@ body[color-theme="dark"] {
     }
     &.spoiled { text-shadow: none; color:$darkCopy; }
   }
+  .bbc_code { 
+    code { background: rgba(0, 0, 0, 0.3); border-color: #111; color: #59e359; }
+  }
 
   // Bulb Stuff
   .bulber-list { background-color:darken($darkBody,5%); border:none; }
