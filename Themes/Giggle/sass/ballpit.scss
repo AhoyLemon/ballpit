@@ -1554,31 +1554,6 @@ ul.post_options li
   input[value=Preview] { @extend %blue-button; }
 }
 
-
-/* Styles for edit poll section.
-
----------------------------------------------------- */
-
-
-
-#edit_poll { overflow: hidden;
-  fieldset { padding: 0.5em; clear: both; overflow: hidden;
-    input { margin-left: 8.1em; }
-  }
-  ul.poll_main {
-    li { padding-left: 1em; margin: 0.2em 0; }
-    input { margin-left: 1em; }    
-    dl.poll_options { overflow: hidden; padding: 0 0 .7em .7em; list-style: none;
-      dt { width: 33%; padding: 0 0 0 1em; }
-      dd { width: 65%;
-        input { margin-left: 0;  }
-      }
-    }
-  }
-}
-#pollmoderation { @extend %clearfix; }
-
-
 /* Styles for the recent messages section.
 
 ---------------------------------------------------- */
