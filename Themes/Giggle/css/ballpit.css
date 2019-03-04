@@ -1,5 +1,5 @@
 @charset "UTF-8";
-#forumposts .windowbg:after, #forumposts .windowbg2:after, #personal_messages .windowbg:after, #personal_messages .windowbg2:after, #pollmoderation:after {
+#forumposts .windowbg:after, #forumposts .windowbg2:after, #personal_messages .windowbg:after, #personal_messages .windowbg2:after {
   content: "";
   display: table;
   clear: both;
@@ -386,6 +386,65 @@ textarea.editor:hover, textarea.editor:focus {
   border-color: #4a8bf5;
 }
 
+dl.poll_main, dl.poll_settings {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+}
+
+dl.poll_main dt, dl.poll_settings dt {
+  text-align: right;
+}
+
+dl.poll_main dt label, dl.poll_settings dt label {
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+}
+
+dl.poll_main dd input, dl.poll_settings dd input {
+  border: none;
+  border-bottom: 1px solid #bbb;
+}
+
+dl.poll_main dd input:hover, dl.poll_main dd input:focus, dl.poll_settings dd input:hover, dl.poll_settings dd input:focus {
+  outline: none;
+  border-color: #4a8bf5;
+}
+
+dl.poll_main.poll_question label, dl.poll_main.poll_question input, dl.poll_settings.poll_question label, dl.poll_settings.poll_question input {
+  font-size: 135%;
+}
+
+dl.poll_main.poll_options label, dl.poll_main.poll_options input, dl.poll_settings.poll_options label, dl.poll_settings.poll_options input {
+  font-size: 115%;
+}
+
+dl.poll_main button.button.add, dl.poll_settings button.button.add {
+  background: transparent;
+  color: #0f9d58;
+  border: 1px solid currentColor;
+  cursor: pointer;
+  padding: 0.7em 1.5em;
+}
+
+dl.poll_main button.button.add:hover, dl.poll_main button.button.add:focus, dl.poll_main button.button.add:active, dl.poll_settings button.button.add:hover, dl.poll_settings button.button.add:focus, dl.poll_settings button.button.add:active {
+  background: #0f9d58;
+  color: #f9f9f9;
+}
+
+dl.poll_main dd input {
+  width: 100%;
+  display: block;
+}
+
+dl.poll_settings dt, dl.poll_settings dd {
+  margin-bottom: 10px;
+}
+
+/*
+dl.poll_settings { display: grid; grid-template-columns:150px 1fr;
+  dt, dd { margin: 0 0 10px 0; }
+}
+*/
 /* Poll question */
 .poll {
   overflow: hidden;
@@ -2525,51 +2584,6 @@ ul.post_options li {
   margin: 0 1px 0 0;
 }
 
-/* Styles for edit poll section.
-
----------------------------------------------------- */
-#edit_poll {
-  overflow: hidden;
-}
-
-#edit_poll fieldset {
-  padding: 0.5em;
-  clear: both;
-  overflow: hidden;
-}
-
-#edit_poll fieldset input {
-  margin-left: 8.1em;
-}
-
-#edit_poll ul.poll_main li {
-  padding-left: 1em;
-  margin: 0.2em 0;
-}
-
-#edit_poll ul.poll_main input {
-  margin-left: 1em;
-}
-
-#edit_poll ul.poll_main dl.poll_options {
-  overflow: hidden;
-  padding: 0 0 .7em .7em;
-  list-style: none;
-}
-
-#edit_poll ul.poll_main dl.poll_options dt {
-  width: 33%;
-  padding: 0 0 0 1em;
-}
-
-#edit_poll ul.poll_main dl.poll_options dd {
-  width: 65%;
-}
-
-#edit_poll ul.poll_main dl.poll_options dd input {
-  margin-left: 0;
-}
-
 /* Styles for the recent messages section.
 
 ---------------------------------------------------- */
@@ -4435,20 +4449,6 @@ blockquote.bbc_quote cite:before {
 .bbc_code pre {
   margin: 0;
   padding: 0;
-}
-
-.bbc_code code {
-  display: block;
-  font-family: "dejavu sans mono", "monaco", "lucida console", "courier new", monospace;
-  background: rgba(0, 0, 0, 0.05);
-  color: #08086b;
-  border: 1px solid #bbb;
-  line-height: 1.5em;
-  padding: 1em;
-  overflow: auto;
-  white-space: nowrap;
-  max-height: 24em;
-  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.1);
 }
 
 /*# sourceMappingURL=ballpit.css.map */

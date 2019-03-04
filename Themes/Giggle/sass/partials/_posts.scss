@@ -14,6 +14,47 @@ textarea.editor { padding:20px; background:white; width:100%; border-color:$bord
 }
 
 
+
+// COMPOSE POLL
+dl.poll_main, dl.poll_settings { display: grid; grid-template-columns: 150px 1fr;
+  dt { text-align: right;
+    label { text-transform: lowercase; letter-spacing: 0.1em; }
+  }
+  dd {
+    input { border:none; border-bottom: 1px solid $border;
+      &:hover, &:focus { outline: none; border-color:$blue; }
+    }
+  }
+  &.poll_question {
+    label, input { font-size:135%; }
+  }
+  &.poll_options {
+    label, input { font-size:115%; }
+  }
+  button.button.add { background:transparent; color:$green; border:1px solid currentColor; cursor: pointer; padding: 0.7em 1.5em;
+    &:hover, &:focus, &:active { background:$green; color:$white; }
+  }
+}
+
+dl.poll_main {
+  dd {
+    input { width:100%; display: block; }
+  }
+}
+dl.poll_settings {
+  dt, dd { margin-bottom: 10px; }
+}
+
+/*
+dl.poll_settings { display: grid; grid-template-columns:150px 1fr;
+  dt, dd { margin: 0 0 10px 0; }
+}
+*/
+
+
+
+
+
 /* Poll question */
 .poll { overflow: hidden;
   .content { padding: 0; }

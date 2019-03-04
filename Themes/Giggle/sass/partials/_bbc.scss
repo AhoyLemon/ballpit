@@ -19,6 +19,5 @@ blockquote.bbc_quote { border:1px solid $border; position: relative; padding: 1e
 
 .bbc_code { margin-top:1em; margin-bottom: 1em;
   .code_header { font-family: $monotype; font-size:120%; font-weight: $bold; letter-spacing: 0.1em; }
-  pre { margin:0; padding: 0; }
-  code { display: block;  font-family: $monotype; background: rgba(0,0,0,0.05); color:#08086b; border: 1px solid $border; line-height: 1.5em; padding:1em; overflow: auto; white-space: nowrap; max-height: 24em; box-shadow: inset 0 0 4px rgba(0,0,0,0.1); }
+  code { display: block;  font-family: $monotype; background: rgba(0,0,0,0.05); color:#08086b; border: 1px solid $border; line-height: 1.5em; padding:1em; overflow: auto; max-height: 24em; box-shadow: inset 0 0 4px rgba(0,0,0,0.1); word-break: break-all; }
 }
