@@ -4446,11 +4446,6 @@ blockquote.bbc_quote cite:before {
   letter-spacing: 0.1em;
 }
 
-.bbc_code pre {
-  margin: 0;
-  padding: 0;
-}
-
 .bbc_code code {
   display: block;
   font-family: "dejavu sans mono", "monaco", "lucida console", "courier new", monospace;
@@ -4460,9 +4455,9 @@ blockquote.bbc_quote cite:before {
   line-height: 1.5em;
   padding: 1em;
   overflow: auto;
-  white-space: nowrap;
   max-height: 24em;
   box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.1);
+  word-break: break-all;
 }
 
 /*# sourceMappingURL=ballpit.css.map */
