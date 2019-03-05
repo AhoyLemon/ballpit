@@ -96,8 +96,9 @@ dl.poll_settings { display: grid; grid-template-columns:150px 1fr;
 
 
 @media only screen and (min-width: 768px) {
-  .poll { padding-left: 160px; }
-  #pollmoderation { padding-left: 160px;
-    ul { padding-left: 0; }
+  .poll { padding-left: 190px; }
+  #pollmoderation { padding-left: 178px; overflow: hidden;
+    ul { padding-left: 0;
+    }
   }
 }

@@ -824,7 +824,7 @@ function template_main()
 						</div>
 
 						<div class="postarea">
-							<div class="flow_hidden post-topinfo">
+							<div class="post-topinfo">
 								<div class="keyinfo">
 									<h5 id="subject_', $message['id'], '">
 
