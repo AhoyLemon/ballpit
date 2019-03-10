@@ -15,6 +15,7 @@ blockquote.bbc_quote { border:1px solid $border; position: relative; padding: 1e
   cite { display: block; padding-left: 1em; padding-top:1em; font-style: italic;
     &:before { content:"—"; display: inline; }
   }
+  img { max-height:120px; }
 }
 
 .bbc_code { margin-top:1em; margin-bottom: 1em;
