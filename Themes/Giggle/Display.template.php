@@ -358,9 +358,9 @@ function template_main()
 
 	echo '
 
-			<div class="pagesection">
-				<div class="nextlinks">', $context['previous_next'], '</div>', template_button_strip($normal_buttons, 'right'), '
-				<div class="pagelinks floatleft">', $txt['pages'], ': ', $context['page_index'], !empty($modSettings['topbottomEnable']) ? $context['menu_separator'] . ' &nbsp;&nbsp;<a href="#lastPost"><strong>' . $txt['go_down'] . '</strong></a>' : '', '</div>
+			<div class="pagesection" style="width:100%;">
+				<div class="nextlinks">', $context['previous_next'], '</div>', template_button_strip($normal_buttons, ''), '
+				<div class="pagelinks">', $txt['pages'], ': ', $context['page_index'], !empty($modSettings['topbottomEnable']) ? $context['menu_separator'] . ' &nbsp;&nbsp;<a href="#lastPost"><strong>' . $txt['go_down'] . '</strong></a>' : '', '</div>
 			</div>';
 
 
