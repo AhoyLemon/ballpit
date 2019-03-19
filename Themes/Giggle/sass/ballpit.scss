@@ -695,7 +695,7 @@ table.table_grid {
 ------------------------------------------------------- */
 
 .buttonlist ul { padding-left: 0;
-  li {  list-style: none; float: left;
+  li {  display:inline-block;
     a { font-size:0.8em; display: block; color: $red; padding: .3em .6em; margin-left: 12px; text-transform: uppercase; cursor: pointer;
       &:hover { background:$red; color: $white; text-decoration: none; }
       &.active { font-weight: bold; }
