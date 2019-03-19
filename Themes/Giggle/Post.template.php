@@ -64,6 +64,12 @@ function template_main()
 			var pollOptionNum = 0, pollTabIndex;
 			function addPollOption()
 			{
+
+				let i = $(".poll_main.poll_options dt").length;
+
+				$(".poll_main.poll_options").append("<dt><label for=\"options-"+i+"\">Option "+(i+1)+"</label></dt><dd><input type=\"text\" name=\"options["+i+"]\" id=\"options-"+i+"\" tabindex=\""+(i+3)+"\" size=\"80\" maxlength=\"255\" class=\"input_text\"></dd>");
+
+				/*
 				if (pollOptionNum == 0)
 				{
 					for (var i = 0, n = document.forms.postmodify.elements.length; i < n; i++)
@@ -76,6 +82,7 @@ function template_main()
 				pollOptionNum++
 
 				setOuterHTML(document.getElementById(\'pollMoreOptions\'), ', JavaScriptEscape('<li><label for="options-'), ' + pollOptionNum + ', JavaScriptEscape('">' . $txt['option'] . ' '), ' + pollOptionNum + ', JavaScriptEscape('</label>: <input type="text" name="options['), ' + pollOptionNum + ', JavaScriptEscape(']" id="options-'), ' + pollOptionNum + ', JavaScriptEscape('" value="" size="80" maxlength="255" tabindex="'), ' + pollTabIndex + ', JavaScriptEscape('" class="input_text" /></li><li id="pollMoreOptions"></li>'), ');
+				*/
 			}';
 
 	// If we are making a calendar event we want to ensure we show the current days in a month etc... this is done here.
@@ -333,9 +340,10 @@ function template_main()
 		}
 
 		echo '
-								<!-- <li id="pollMoreOptions"></li> -->
+							</dl>
+							<dl class="poll_main">
 								<dt>
-									<button class="button add" href="javascript:addPollOption(); void(0);">Add Option</button>
+									<button type="button" class="button add" onClick="javascript:addPollOption(); void(0);">Add Option</button>
 								</dt>
 							</dl>
 							
