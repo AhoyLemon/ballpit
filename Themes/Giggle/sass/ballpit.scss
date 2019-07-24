@@ -3432,7 +3432,8 @@ span.spoiler { cursor:pointer;
   }
   &.spoiled { color:$copy; text-shadow:none;
     img { filter:none; -webkit-filter:none; }
-    &:before, &:after { content:"SPOILED" }
+    a[href] { color:$green; text-shadow: none; }
+    &:before, &:after { content:"SPOILED"; }
   }
 }
 
