@@ -288,11 +288,11 @@ function template_unread()
                 </li>
                 <li>
                   <svg viewBox="0 0 32 32" alt="topic has a poll"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ThreadBubble" alt="Normal Topic"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ThreadHot"></use></svg>
-                  <span>&gt; 20 replies</span>
+                  <span>&gt; 40 replies</span>
                 </li>
                 <li>
                   <svg viewBox="0 0 32 32" alt="topic has a poll"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ThreadBubble" alt="Normal Topic"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ThreadVeryHot"></use></svg>
-                  <span>&gt 40 replies</span>
+                  <span>&gt 80 replies</span>
                 </li>
                 <li>
                   <svg viewBox="0 0 32 32" alt="topic has a poll"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ThreadBubble" alt="Normal Topic"></use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#ThreadYouPosted"></use></svg>
