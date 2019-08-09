@@ -3437,7 +3437,7 @@ span.spoiler { cursor:pointer;
   }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: $desktop-min) {
   #logo a { height: 100px; }
   a.hamburger { display: none; }
   .post_wrapper { display: grid; grid-template-columns: 160px 1fr; grid-gap: 20px;
@@ -3451,7 +3451,7 @@ span.spoiler { cursor:pointer;
   }
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: $mobile-max) {
   html, body { min-width:320px; }
   .wrapper { width:100%; padding-left:10px; padding-right: 10px; }
   #header { background-image:none; }
