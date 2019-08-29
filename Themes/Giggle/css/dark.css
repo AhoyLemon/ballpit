@@ -41,7 +41,7 @@ body[color-theme="dark"] {
   body[color-theme="dark"] .bulber-list {
     background-color: #141414;
     border: none; }
-  body[color-theme="dark"] .bulbedpost .post .inner {
+  body[color-theme="dark"] .bulbedpost .post-topinfo {
     background-image: url(../svg/bulbstar-dark.svg); }
   body[color-theme="dark"] ul.quickbuttons li.bulb.count {
     background-image: url(../svg/bulb-count-dark.svg);

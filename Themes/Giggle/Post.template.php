@@ -141,8 +141,13 @@ function template_main()
 			<div class="cat_bar">
 				<h3 class="catbg">', $context['page_title'], '</h3>
 			</div>
-			<div>
-				<span class="upperframe"><span></span></span>
+			<div class="post-reformatted">
+			
+			<div class="poster-details" style="display:none;">
+				<div class="name">', $context['user']['name'] ,'</div>
+				<img src="', $context['user']['avatar']['href'],'" alt="Avatar" />
+			</div>
+
 				<div class="roundframe">', isset($context['current_topic']) ? '
 					<input type="hidden" name="topic" value="' . $context['current_topic'] . '" />' : '';
 
@@ -787,11 +792,7 @@ function template_main()
 	if (isset($context['previous_posts']) && count($context['previous_posts']) > 0)
 	{
 		echo '
-		<div id="recent" class="flow_hidden main_section">
-			<div class="cat_bar">
-				<h3 class="catbg">', $txt['topic_summary'], '</h3>
-			</div>
-			<span id="new_replies"></span>';
+		<div id="recent" class="recent-posts posts-under-new-post flow_hidden main_section">';
 
 		$ignored_posts = array();
 		foreach ($context['previous_posts'] as $post)
@@ -801,36 +802,36 @@ function template_main()
 				$ignored_posts[] = $ignoring = $post['id'];
 
 			echo '
-				<div class="', $post['alternate'] == 0 ? 'windowbg' : 'windowbg2', ' core_posts">
-				<span class="topslice"><span></span></span>
+				<div class="recent_post_wrapper">
 				<div class="content" id="msg', $post['id'], '">
-					<div class="floatleft">
-						<h5>', $txt['posted_by'], ': ', $post['poster'], '</h5>
-						<span class="smalltext">&#171;&nbsp;<strong>', $txt['on'], ':</strong> ', $post['time'], '&nbsp;&#187;</span>
-					</div>';
 
-			if ($context['can_quote'])
-			{
-				echo '
-					<ul class="reset smalltext quickbuttons" id="msg_', $post['id'], '_quote">
-						<li class="quote_button"><a href="#postmodify" onclick="return insertQuoteFast(', $post['id'], ');"><svg viewBox="0 0 32 32"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#PostQuote"></use></svg></a></li>
-					</ul>';
-			}
+					<div class="poster-and-quote">
+						<div class="posted-by">
+							<h5 class="poster-name">', $post['poster'], '</h5>
+							<span class="smalltext"><strong>', $txt['on'], ':</strong> ', $post['time'], '</span>
+						</div>';
 
-			echo '
-					<br class="clear" />';
+				if ($context['can_quote'])
+				{
+					echo '
+						<ul class="reset quickbuttons" id="msg_', $post['id'], '_quote">
+							<li class="quote_button"><a href="#postmodify" onclick="return insertQuoteFast(', $post['id'], ');"><svg viewBox="0 0 32 32"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#PostQuote"></use></svg></a></li>
+						</ul>';
+				}
+
+			echo '</div>';
 
 			if ($ignoring)
 			{
 				echo '
-					<div id="msg_', $post['id'], '_ignored_prompt" class="smalltext">
+					<div id="msg_', $post['id'], '_ignored_prompt">
 						', $txt['ignoring_user'], '
 						<a href="#" id="msg_', $post['id'], '_ignored_link" style="display: none;">', $txt['show_ignore_user_post'], '</a>
 					</div>';
 			}
 
 			echo '
-					<div class="list_posts smalltext" id="msg_', $post['id'], '_body">', $post['message'], '</div>
+					<div class="list_posts" id="msg_', $post['id'], '_body">', $post['message'], '</div>
 				</div>
 				<span class="botslice"><span></span></span>
 			</div>';

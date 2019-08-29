@@ -35,7 +35,7 @@ body[color-theme="dark"] {
 
   // Bulb Stuff
   .bulber-list { background-color:darken($darkBody,5%); border:none; }
-  .bulbedpost .post .inner { background-image: url(../svg/bulbstar-dark.svg); }
+  .bulbedpost .post-topinfo { background-image: url(../svg/bulbstar-dark.svg); }
   ul.quickbuttons li.bulb.count { background-image: url(../svg/bulb-count-dark.svg); color:#212121; background-size:cover; }
 
   // Borders, in general 

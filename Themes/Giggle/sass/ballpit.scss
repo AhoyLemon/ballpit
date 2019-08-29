@@ -1329,7 +1329,7 @@ p#whoisviewing
 /* The quick buttons */
 .post-topinfo {
   .keyinfo {
-    h5 { font-size:1.3rem; font-weight: 300; }
+    h5 { font-size:1.2rem; font-weight: 300; }
     time { font-weight: $bold; }
   }
 }
@@ -1375,7 +1375,7 @@ ul.quickbuttons { margin: 0 11px 0 0; text-align: right;
   li { padding-bottom: 0.5em; }
 }
 
-.inner { padding-top: 2em; }
+//.inner { padding-top: 2em; }
 
 img.smiley { height:1.15em; min-height: 16px; }
 
@@ -1575,14 +1575,6 @@ ul.post_options li
 {
 
   padding-top: 1em;
-
-}
-
-#recent
-
-{
-
-  clear: both;
 
 }
 
@@ -2099,10 +2091,12 @@ tr.windowbg td, tr.windowbg2 td, tr.approvebg td, tr.highlight2 td
 
 ------------------------------------------------------- */
 
+.table_list { 
+  a.subject { font-size:130%; }
+}
+
 .topic_table {
-  table { width: 100%;
-    thead { }
-  }
+  table { width: 100%; }
   td {
     &.stats { font-size: 0.9em; }
     &.subject p { padding: 0; margin: 0; }
@@ -3358,6 +3352,7 @@ span.hidelink
     a { color:$blue;
       &.modify-karma { color:$blue; }
     }
+    h4 { font-size:1.2rem; }
     h4, ul { padding: 0; margin: 0; }
     li {
       //&.stars { padding-top: 0.5em; padding-bottom: 0.5em; }
@@ -3386,13 +3381,17 @@ span.hidelink
 
 
 .bulbedpost {
+  .post-topinfo { background-image: url("../svg/bulbstar.svg"); background-position: bottom left; background-repeat: repeat-x; border-top: none; border-top-width: initial; border-top-style: none; border-top-color: initial; padding-bottom: 25px; background-size: 46px; margin-bottom:16px; }
+
+  /*
   .post {
     .inner { background-image: url("../svg/bulbstar.svg"); background-position: top left; background-repeat: repeat-x; border-top: none; border-top-width: initial; border-top-style: none; border-top-color: initial; padding-top: 35px; background-size: 50px;}
   }
+  */
 }
 .superbulbedpost {
   .post {
-    .inner { padding-top:2.5em; padding-bottom: 2.5em; line-height: 1.85em; letter-spacing: 0.1em; }
+    .inner { line-height: 1.85em; letter-spacing: 0.1em; }
   }
 }
 
@@ -3440,12 +3439,12 @@ span.spoiler { cursor:pointer;
 @media only screen and (min-width: $desktop-min) {
   #logo a { height: 100px; }
   a.hamburger { display: none; }
-  .post_wrapper { display: grid; grid-template-columns: 160px 1fr; grid-gap: 20px;
+  .post_wrapper { display: grid; grid-template-columns: 160px 1fr; grid-gap: 36px;
     .post-topinfo { display: grid; grid-template-columns: 1fr 360px; }
     .poster { position: relative; }
     .postarea { padding-left: 1em;
-      .post { min-height: 14em;
-        .inner { font-size:16px; line-height: 140%; }
+      .post { min-height: 14em;  max-width: 52em; padding-bottom: 2em; font-size: 18px;
+        .inner { line-height: 140%; }
       }
     }
   }
@@ -3493,7 +3492,6 @@ span.spoiler { cursor:pointer;
   }
   .post_wrapper { flex-wrap: wrap; }
   .poster, .postarea { flex-basis: 100%; }
-  .post .inner { padding: 0; margin: 0; }
   .postarea div.flow_hidden { width:auto; min-height: 2.2em; }
   ul.quickbuttons { margin:0; }
   .poster ul { display:none; }
