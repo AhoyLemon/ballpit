@@ -682,7 +682,6 @@ function template_search()
 	{
 		echo '
 		<fieldset id="advanced_search">
-			<span class="upperframe"><span></span></span>
 			<div class="roundframe">
 				<input type="hidden" name="advanced" value="1" />
 				<span class="enhanced">
@@ -940,7 +939,7 @@ function template_send()
 	<form action="', $scripturl, '?action=pm;sa=send2" method="post" accept-charset="', $context['character_set'], '" name="postmodify" id="postmodify" class="flow_hidden" onsubmit="submitonce(this);smc_saveEntities(\'postmodify\', [\'subject\', \'message\']);">
 		<div>
 			<span class="upperframe"><span></span></span>
-			<div class="roundframe"><br class="clear" />';
+			<div class="roundframe pm-form">';
 
 	// If there were errors for sending the PM, show them.
 	if (!empty($context['post_error']['messages']))
@@ -970,7 +969,7 @@ function template_send()
 
 	// Autosuggest will be added by the JavaScript later on.
 	echo '
-					<dd id="pm_to" class="clear_right">
+					<dd id="pm_to">
 						<input type="text" name="to" id="to_control" value="', $context['to_value'], '" tabindex="', $context['tabindex']++, '" size="40" class="input_text" />';
 
 	// A link to add BCC, only visible with JavaScript enabled.
@@ -982,27 +981,27 @@ function template_send()
 						<div id="to_item_list_container"></div>';
 
 	echo '
-					</dd>';
+					</dd></dl>';
 
 	// This BCC row will be hidden by default if JavaScript is enabled.
-	echo '
+	echo '<dl>
 					<dt  class="clear_left" id="bcc_div">
 						<span', (isset($context['post_error']['no_to']) || isset($context['post_error']['bad_bcc']) ? ' class="error"' : ''), '>', $txt['pm_bcc'], ':</span>
 					</dt>
 					<dd id="bcc_div2">
 						<input type="text" name="bcc" id="bcc_control" value="', $context['bcc_value'], '" tabindex="', $context['tabindex']++, '" size="40" class="input_text" />
 						<div id="bcc_item_list_container"></div>
-					</dd>';
+					</dd></dl>';
 
 	// The subject of the PM.
-	echo '
+	echo '<dl id="post_header">
 					<dt class="clear_left">
 						<span', (isset($context['post_error']['no_subject']) ? ' class="error"' : ''), '>', $txt['subject'], ':</span>
 					</dt>
 					<dd id="pm_subject">
 						<input type="text" name="subject" value="', $context['subject'], '" tabindex="', $context['tabindex']++, '" size="60" maxlength="60" />
 					</dd>
-				</dl><hr class="clear" />';
+				</dl>';
 
 	// Showing BBC?
 	if ($context['show_bbc'])

@@ -3352,7 +3352,7 @@ span.hidelink
     a { color:$blue;
       &.modify-karma { color:$blue; }
     }
-    h4 { font-size:1.2rem; }
+    h4 { font-size:1.2rem; font-weight: normal; letter-spacing: 0.05em; }
     h4, ul { padding: 0; margin: 0; }
     li {
       //&.stars { padding-top: 0.5em; padding-bottom: 0.5em; }
@@ -3486,10 +3486,6 @@ span.spoiler { cursor:pointer;
   figure.nsfw{ margin: 0; }
 
   /** Posts View **/
-  #forumposts, #personal_messages {
-    .windowbg, .windowbg2 { margin-top:20px; }
-    h3 { letter-spacing: normal; }
-  }
   .post_wrapper { flex-wrap: wrap; }
   .poster, .postarea { flex-basis: 100%; }
   .postarea div.flow_hidden { width:auto; min-height: 2.2em; }

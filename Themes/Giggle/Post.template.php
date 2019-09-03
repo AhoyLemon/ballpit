@@ -802,8 +802,7 @@ function template_main()
 				$ignored_posts[] = $ignoring = $post['id'];
 
 			echo '
-				<div class="recent_post_wrapper">
-				<div class="content" id="msg', $post['id'], '">
+				<div class="recent-post" id="msg', $post['id'], '">
 
 					<div class="poster-and-quote">
 						<div class="posted-by">
@@ -831,9 +830,7 @@ function template_main()
 			}
 
 			echo '
-					<div class="list_posts" id="msg_', $post['id'], '_body">', $post['message'], '</div>
-				</div>
-				<span class="botslice"><span></span></span>
+					<div class="post-content" id="msg_', $post['id'], '_body">', $post['message'], '</div>
 			</div>';
 		}
 
