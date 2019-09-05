@@ -143,7 +143,7 @@ function template_main()
 			</div>
 			<div class="post-reformatted">
 			
-			<div class="poster-details" style="display:none;">
+			<div class="poster-details">
 				<div class="name">', $context['user']['name'] ,'</div>
 				<img src="', $context['user']['avatar']['href'],'" alt="Avatar" />
 			</div>
@@ -534,10 +534,7 @@ function template_main()
 
 	// Finally, the submit buttons.
 	echo '
-					<p class="smalltext" id="shortcuts">
-						', $context['browser']['is_firefox'] ? $txt['shortcuts_firefox'] : $txt['shortcuts'], '
-					</p>
-					<p id="post_confirm_buttons" class="righttext">
+					<p id="post_confirm_buttons" class="post-buttons">
 						', template_control_richedit_buttons($context['post_box_name']);
 
 	// Option to delete an event if user is editing one.

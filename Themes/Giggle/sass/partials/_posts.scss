@@ -24,15 +24,24 @@
 
 @media (min-width:$desktop-min) {
   .post-reformatted { display:grid; grid-template-columns:160px 1fr; grid-gap:36px; margin-bottom: 2em;
-    textarea.editor { font-size:18px; max-width: 52em; }
-    .poster-details { display: initial !important;
+    textarea.editor { font-size:18px; width:100%; max-width: 52em; padding:1em;
+      &:focus { background:white; }
+    }
+    .poster-details {
       .name { font-size:1.2em; margin-bottom: 5em; font-weight: normal; letter-spacing: 0.05em; }
     }
-
     dl#post_header {
       dt { display:none; }
       dd { padding: 0; margin:0; font-size:18px; max-width: 52em; }
     }
+    .post-buttons { max-width: 52em; font-size:18px; text-align: right; }
+  }
+  
+}
+@media (max-width:$mobile-max) {
+  .post-reformatted { 
+    textarea.editor { display:block; width:100%; padding:1em; }
+    .poster-details { display: none !important; }
   }
 }
 
