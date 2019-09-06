@@ -102,7 +102,7 @@ function template_html_above()
 
   echo '
     <meta charset="iso-8859-1">
-    <link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/ballpit.css?lastUpdated=2019-09-05" />';
+    <link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/ballpit.css?lastUpdated=2019-09-06" />';
 
   echo '
     <!-- FAVICON -->
@@ -291,7 +291,7 @@ function template_html_above()
   }
 
   if ($colorTheme == "dark") {
-    echo '<link rel="stylesheet" type="text/css" href="/Themes/Giggle/css/dark.css?updated=2019-08-28" />';
+    echo '<link rel="stylesheet" type="text/css" href="/Themes/Giggle/css/dark.css?updated=2019-09-06" />';
   }
 
   echo '

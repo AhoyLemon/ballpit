@@ -68,7 +68,11 @@ body[color-theme="dark"] {
   #bbcBox_message a { color:$darkThreadIcon; }
 
   textarea.editor { background:$darkBorder; padding:20px !important; border:1px solid $darkBorder; color:$darkThreadIcon;
-    &:focus { color:$darkCopy; border-color:$darkCopy; }
+    &:focus { color:$darkCopy; border-color:$darkCopy;
+      @media (min-width:$desktop-min) {
+        &:focus { background:#000; }
+      }
+    }
   }
 
   // Smileys
