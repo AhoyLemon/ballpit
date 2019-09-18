@@ -78,16 +78,14 @@ body[color-theme="dark"] {
   body[color-theme="dark"] #bbcBox_message a {
     color: #bbb; }
   body[color-theme="dark"] textarea.editor {
-    background: #141414;
+    background: #1c1c1c;
     padding: 20px !important;
     border: 1px solid #141414;
     color: #bbb; }
     body[color-theme="dark"] textarea.editor:focus {
       color: #efefef;
-      border-color: #efefef; }
-      @media (min-width: 768px) {
-        body[color-theme="dark"] textarea.editor:focus:focus {
-          background: #000; } }
+      border-color: #efefef;
+      background: #141414; }
   body[color-theme="dark"] img.smiley {
     filter: grayscale(1) invert(100%) brightness(2); }
     body[color-theme="dark"] img.smiley[src*=".gif"] {

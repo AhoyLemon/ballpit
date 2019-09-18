@@ -37,6 +37,20 @@
     .post-buttons { max-width: 52em; font-size:18px; text-align: right; }
   }
   
+
+  #preview_section {
+    .cat_bar {  padding-left:calc(196px);
+      h3 { font-size:2rem; font-weight: 300;
+        &:before { content: 'preview: '; font-size:1.3rem; }
+      }
+    }
+    > .windowbg { display:grid; grid-template-columns:160px 1fr; grid-gap:36px;
+      > .content { font-size:18px; max-width: 52em; padding:0; }
+    }
+  }
+  
+
+
 }
 @media (max-width:$mobile-max) {
   .post-reformatted { 
