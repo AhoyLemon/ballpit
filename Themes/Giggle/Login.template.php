@@ -87,7 +87,7 @@ function template_login()
 				</dl>
 				<p><input type="submit" value="', $txt['login'], '" class="button_submit" /></p>
 				<p class="smalltext"><a href="', $scripturl, '?action=reminder">', $txt['forgot_your_password'], '</a></p>
-				<input type="hidden" name="hash_passwrd" value="" />
+				<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" /><input type="hidden" name="hash_passwrd" value="" />
 			</div>
 			<span class="lowerframe"><span></span></span>
 		</div></form>';
@@ -165,7 +165,7 @@ function template_kick_guest()
 				<p class="centertext smalltext"><a href="', $scripturl, '?action=reminder">', $txt['forgot_your_password'], '</a></p>
 			</div>
 			<span class="lowerframe"><span></span></span>
-			<input type="hidden" name="hash_passwrd" value="" />
+			<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" /><input type="hidden" name="hash_passwrd" value="" />
 		</div>
 	</form>';
 
@@ -211,7 +211,7 @@ function template_maintenance()
 			<p class="centertext"><input type="submit" value="', $txt['login'], '" class="button_submit" /></p>
 		</div>
 		<span class="lowerframe"><span></span></span>
-		<input type="hidden" name="hash_passwrd" value="" />
+		<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" /><input type="hidden" name="hash_passwrd" value="" />
 	</div>
 </form>';
 }
@@ -250,7 +250,7 @@ function template_admin_login()
 		</div>
 		<span class="lowerframe"><span></span></span>
 	</div>
-	<input type="hidden" name="admin_hash_pass" value="" />
+	<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" /><input type="hidden" name="hash_passwrd" value="" />
 </form>';
 
 	// Focus on the password box.
