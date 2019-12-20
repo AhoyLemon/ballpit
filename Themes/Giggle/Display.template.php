@@ -780,20 +780,20 @@ function template_main()
     
     // Show how many posts they have made.
 
-			if (!isset($context['disabled_fields']['posts']))
+			if (!isset($context['disabled_fields']['posts']) && isset($message['member']['posts']))
 
 				echo '
 								<li class="postcount"><label class="count-label">', $txt['member_postcount'], ':</label> <span class="count">', $message['member']['posts'], '</span></li>';
     
     // Is karma display enabled?  Total or +/-?
 
-			if ($modSettings['karmaMode'] == '1')
+			if ($modSettings['karmaMode'] == '1' && isset($message['member']['karma']))
 
 				echo '
 
 								<li class="karma"><label class="count-label">', $modSettings['karmaLabel'], '</label> <span class="count">', $message['member']['karma']['good'] - $message['member']['karma']['bad'], '</span></li>';
 
-			elseif ($modSettings['karmaMode'] == '2')
+			elseif ($modSettings['karmaMode'] == '2' && isset($message['member']['karma']))
 
 				echo '
 
@@ -801,7 +801,7 @@ function template_main()
     
     // Is this user allowed to modify this member's karma?
 
-    if ($message['member']['karma']['allow'])
+    if (isset($message['member']['karma']) && $message['member']['karma']['allow'])
 
       echo '
 

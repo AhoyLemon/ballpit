@@ -264,8 +264,12 @@ function template_html_above()
   // Output any remaining HTML headers. (from mods, maybe?)
 
   echo $context['html_headers'];
+  $colorTheme = "light";
+  $dayBegins = false;
+  $dayEnds = false;
 
-  if (!$options["cust_colort"] || !$options["cust_colort"] == "Standard (Light Mode)") {
+  /*
+  if ( !$options || !$options["cust_colort"] || !$options["cust_colort"] == "Standard (Light Mode)") {
     $colorTheme = "light";
     $dayBegins = false;
     $dayEnds = false;
@@ -293,6 +297,7 @@ function template_html_above()
   if ($colorTheme == "dark") {
     echo '<link rel="stylesheet" type="text/css" href="/Themes/Giggle/css/dark.css?updated=2019-09-06" />';
   }
+  */
 
   echo '
 </head>';
