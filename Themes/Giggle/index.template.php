@@ -102,7 +102,8 @@ function template_html_above()
 
   echo '
     <meta charset="iso-8859-1">
-    <link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/ballpit.css?lastUpdated=2019-09-06" />';
+    <link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/ballpit.css?lastUpdated=2019-09-06" />
+    <link rel="stylesheet" type="text/css" href="/Themes/Giggle/css/dark.css?updated=2020-07-12" />';
 
   echo '
     <!-- FAVICON -->
@@ -643,16 +644,15 @@ function template_html_below()
   
   echo "<script type='text/javascript' src='", $settings["theme_url"], "/scripts/ballpit.js?updated=06.04.18'></script>
         <script type='text/javascript'>
-          //Add this below content to your HTML page, or add the js file to your page at the very top to register service worker
-          if (navigator.serviceWorker.controller) {
-            console.log('[PWA Builder] active service worker found, no need to register')
-          } else {
-            //Register the ServiceWorker
-            navigator.serviceWorker.register('sw2.js', {
-              scope: './'
-            }).then(function(reg) {
-              console.log('Service worker has been registered for scope:'+ reg.scope);
+          if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js').then(function(registration) {
+              console.log('Service worker registration succeeded:', registration);
+        
+            }, function(error) {
+              console.log('Service worker registration failed:', error);
             });
+          } else {
+            console.log('Service workers are not supported.');
           }
         </script>
 </body></html>";

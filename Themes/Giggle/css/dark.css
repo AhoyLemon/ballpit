@@ -1,94 +1,145 @@
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
 @keyframes spin {
   from {
-    transform: rotate(0deg); }
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
   to {
-    transform: rotate(360deg); } }
-
-body[color-theme="dark"] {
-  background-color: #212121;
-  color: #efefef; }
-  body[color-theme="dark"] td, body[color-theme="dark"] th {
-    color: #efefef; }
-  body[color-theme="dark"] td.icon1, body[color-theme="dark"] td.icon, body[color-theme="dark"] td.child-icon a {
-    color: #bbb; }
-  body[color-theme="dark"] #header {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #212121;
+    color: #efefef;
+  }
+  body td, body th {
+    color: #efefef;
+  }
+  body td.icon1, body td.icon, body td.child-icon a {
+    color: #bbb;
+  }
+  body #header {
     background: #212121;
-    border-bottom-color: #141414; }
-  body[color-theme="dark"] #bar {
+    border-bottom-color: #141414;
+  }
+  body #bar {
     background: #181818;
-    border-bottom-color: #141414; }
-  body[color-theme="dark"] #navigation li a {
-    color: #bbb; }
-  body[color-theme="dark"] #navigation li ul {
+    border-bottom-color: #141414;
+  }
+  body #navigation li a {
+    color: #bbb;
+  }
+  body #navigation li ul {
     background: #181818;
-    border: none; }
-  body[color-theme="dark"] .quoteheader, body[color-theme="dark"] blockquote {
-    color: #efefef; }
-  body[color-theme="dark"] span.spoiler {
-    text-shadow: 0 0 0.3em rgba(200, 200, 200, 0.7); }
-    body[color-theme="dark"] span.spoiler:hover {
-      color: rgba(50, 50, 50, 0.05);
-      text-shadow: 0 0 0.4em rgba(200, 200, 200, 0.3); }
-      body[color-theme="dark"] span.spoiler:hover:before, body[color-theme="dark"] span.spoiler:hover:after {
-        color: #212121; }
-    body[color-theme="dark"] span.spoiler.spoiled {
-      text-shadow: none;
-      color: #efefef; }
-  body[color-theme="dark"] .bbc_code code {
+    border: none;
+  }
+  body .quoteheader, body blockquote {
+    color: #efefef;
+  }
+  body span.spoiler {
+    text-shadow: 0 0 0.3em rgba(200, 200, 200, 0.7);
+  }
+  body span.spoiler:hover {
+    color: rgba(50, 50, 50, 0.05);
+    text-shadow: 0 0 0.4em rgba(200, 200, 200, 0.3);
+  }
+  body span.spoiler:hover:before, body span.spoiler:hover:after {
+    color: #212121;
+  }
+  body span.spoiler.spoiled {
+    text-shadow: none;
+    color: #efefef;
+  }
+  body .bbc_code code {
     background: rgba(0, 0, 0, 0.3);
     border-color: #111;
-    color: #59e359; }
-  body[color-theme="dark"] .bulber-list {
+    color: #59e359;
+  }
+  body .bulber-list {
     background-color: #141414;
-    border: none; }
-  body[color-theme="dark"] .bulbedpost .post-topinfo {
-    background-image: url(../svg/bulbstar-dark.svg); }
-  body[color-theme="dark"] ul.quickbuttons li.bulb.count {
+    border: none;
+  }
+  body .bulbedpost .post-topinfo {
+    background-image: url(../svg/bulbstar-dark.svg);
+  }
+  body ul.quickbuttons li.bulb.count {
     background-image: url(../svg/bulb-count-dark.svg);
     color: #212121;
-    background-size: cover; }
-  body[color-theme="dark"] .inner,
-  body[color-theme="dark"] #forumposts .windowbg,
-  body[color-theme="dark"] #forumposts .windowbg2,
-  body[color-theme="dark"] #personal_messages .windowbg,
-  body[color-theme="dark"] #personal_messages .windowbg2 {
-    border-color: #141414; }
-  body[color-theme="dark"] a {
-    color: #41e394; }
-  body[color-theme="dark"] .creator a {
-    color: #4a8bf5; }
-  body[color-theme="dark"] .lastpost a:first-of-type {
-    color: #4a8bf5; }
-  body[color-theme="dark"] .users-online a {
-    color: #4a8bf5; }
-  body[color-theme="dark"] a.jump-to-new {
-    color: #4a8bf5; }
-  body[color-theme="dark"] ul.quickbuttons li a {
-    color: #e04a3f; }
-  body[color-theme="dark"] .button_reset, body[color-theme="dark"] .button_submit {
-    color: #efefef; }
-  body[color-theme="dark"] input[value=Preview] {
-    color: #efefef; }
-  body[color-theme="dark"] #post_header dd input {
+    background-size: cover;
+  }
+  body .inner,
+body #forumposts .windowbg,
+body #forumposts .windowbg2,
+body #personal_messages .windowbg,
+body #personal_messages .windowbg2 {
+    border-color: #141414;
+  }
+  body a {
+    color: #41e394;
+  }
+  body .creator a {
+    color: #4a8bf5;
+  }
+  body .lastpost a:first-of-type {
+    color: #4a8bf5;
+  }
+  body .users-online a {
+    color: #4a8bf5;
+  }
+  body a.jump-to-new {
+    color: #4a8bf5;
+  }
+  body ul.quickbuttons li a {
+    color: #e04a3f;
+  }
+  body .button_reset, body .button_submit {
+    color: #efefef;
+  }
+  body input[value=Preview] {
+    color: #efefef;
+  }
+  body #post_header dd input {
     color: #bbb;
-    border-color: #bbb; }
-    body[color-theme="dark"] #post_header dd input:focus {
-      color: #efefef;
-      border-color: #efefef; }
-  body[color-theme="dark"] #bbcBox_message a {
-    color: #bbb; }
-  body[color-theme="dark"] textarea.editor {
+    border-color: #bbb;
+  }
+  body #post_header dd input:focus {
+    color: #efefef;
+    border-color: #efefef;
+  }
+  body #bbcBox_message a {
+    color: #bbb;
+  }
+  body textarea.editor {
     background: #1c1c1c;
     padding: 20px !important;
     border: 1px solid #141414;
-    color: #bbb; }
-    body[color-theme="dark"] textarea.editor:focus {
-      color: #efefef;
-      border-color: #efefef;
-      background: #141414; }
-  body[color-theme="dark"] img.smiley {
-    filter: grayscale(1) invert(100%) brightness(2); }
-    body[color-theme="dark"] img.smiley[src*=".gif"] {
-      filter: none; }
-  body[color-theme="dark"] .bottom-left-link svg .f {
-    fill: #DEDCEE; }
+    color: #bbb;
+  }
+  body textarea.editor:focus {
+    color: #212121;
+    border-color: #efefef;
+    background: #141414;
+  }
+  body img.smiley {
+    -webkit-filter: grayscale(1) invert(100%) brightness(2);
+            filter: grayscale(1) invert(100%) brightness(2);
+  }
+  body img.smiley[src*=".gif"] {
+    -webkit-filter: none;
+            filter: none;
+  }
+  body .bottom-left-link svg .f {
+    fill: #DEDCEE;
+  }
+}

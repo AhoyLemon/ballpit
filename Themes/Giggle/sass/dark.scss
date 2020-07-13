@@ -10,79 +10,81 @@ $darkBorder: darken($darkBody,5%);
 
 $darkGreen: #41e394;
 
-body[color-theme="dark"] {
-  background-color:$darkBody; color:$darkCopy;
-  td, th { color:$darkCopy; }
-  td.icon1, td.icon, td.child-icon a { color:$darkThreadIcon; }
-  #header { background:$darkBody; border-bottom-color:$darkBorder; }
-  #bar { background:#181818; border-bottom-color: $darkBorder; }
-  #navigation li {
-   a { color:$darkThreadIcon; }
-   ul { background:#181818; border:none; }
-  }
-  // Quote
-  
-  .quoteheader, blockquote { color:$darkCopy; }
-  span.spoiler { text-shadow: 0 0 0.3em rgba(200,200,200, 0.7);
-    &:hover { color:rgba($black,0.05); text-shadow: 0 0 0.4em rgba(200,200,200, 0.3);
-      &:before, &:after { color: $darkBody; }
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color:$darkBody; color:$darkCopy;
+    td, th { color:$darkCopy; }
+    td.icon1, td.icon, td.child-icon a { color:$darkThreadIcon; }
+    #header { background:$darkBody; border-bottom-color:$darkBorder; }
+    #bar { background:#181818; border-bottom-color: $darkBorder; }
+    #navigation li {
+    a { color:$darkThreadIcon; }
+    ul { background:#181818; border:none; }
     }
-    &.spoiled { text-shadow: none; color:$darkCopy; }
-  }
-  .bbc_code { 
-    code { background: rgba(0, 0, 0, 0.3); border-color: #111; color: #59e359; }
-  }
-
-  // Bulb Stuff
-  .bulber-list { background-color:darken($darkBody,5%); border:none; }
-  .bulbedpost .post-topinfo { background-image: url(../svg/bulbstar-dark.svg); }
-  ul.quickbuttons li.bulb.count { background-image: url(../svg/bulb-count-dark.svg); color:#212121; background-size:cover; }
-
-  // Borders, in general 
-  .inner,
-  #forumposts .windowbg,
-  #forumposts .windowbg2,
-  #personal_messages .windowbg,
-  #personal_messages .windowbg2 { border-color:$darkBorder; }
-
-
-
-  // Link recoloring
-  a { color:$darkGreen; }
-  //a.subject { color:$blue; }
-  .creator a { color:$blue; }
-  .lastpost a:first-of-type { color:$blue; }
-  .users-online a { color:$blue; }
-  a.jump-to-new { color:$blue; }
-  ul.quickbuttons li a { color:$red; }
-
-  // Buttons
-  .button_reset, .button_submit { color:$darkCopy; }
-  input[value=Preview] { color:$darkCopy; }
-
-
-  // Post Styles
-  #post_header dd input { color:$darkThreadIcon; border-color: $darkThreadIcon;
-    &:focus { color:$darkCopy; border-color: $darkCopy; }
-  }
-  #bbcBox_message a { color:$darkThreadIcon; }
-
-  textarea.editor { background:darken($darkBody,2%); padding:20px !important; border:1px solid $darkBorder; color:$darkThreadIcon;
-    &:focus { color:$darkCopy; border-color:$darkCopy; background:darken($darkBody,5%); }
-  }
-
-  // Smileys
-  img.smiley { filter: grayscale(1) invert(100%) brightness(2);
-    &[src*=".gif"] { filter: none; }
-  }
-
-
-  // Footer
-  .bottom-left-link { 
-    svg {
-      .f { fill:#DEDCEE; }
+    // Quote
+    
+    .quoteheader, blockquote { color:$darkCopy; }
+    span.spoiler { text-shadow: 0 0 0.3em rgba(200,200,200, 0.7);
+      &:hover { color:rgba($black,0.05); text-shadow: 0 0 0.4em rgba(200,200,200, 0.3);
+        &:before, &:after { color: $darkBody; }
+      }
+      &.spoiled { text-shadow: none; color:$darkCopy; }
+    }
+    .bbc_code { 
+      code { background: rgba(0, 0, 0, 0.3); border-color: #111; color: #59e359; }
     }
 
+    // Bulb Stuff
+    .bulber-list { background-color:darken($darkBody,5%); border:none; }
+    .bulbedpost .post-topinfo { background-image: url(../svg/bulbstar-dark.svg); }
+    ul.quickbuttons li.bulb.count { background-image: url(../svg/bulb-count-dark.svg); color:#212121; background-size:cover; }
+
+    // Borders, in general 
+    .inner,
+    #forumposts .windowbg,
+    #forumposts .windowbg2,
+    #personal_messages .windowbg,
+    #personal_messages .windowbg2 { border-color:$darkBorder; }
+
+
+
+    // Link recoloring
+    a { color:$darkGreen; }
+    //a.subject { color:$blue; }
+    .creator a { color:$blue; }
+    .lastpost a:first-of-type { color:$blue; }
+    .users-online a { color:$blue; }
+    a.jump-to-new { color:$blue; }
+    ul.quickbuttons li a { color:$red; }
+
+    // Buttons
+    .button_reset, .button_submit { color:$darkCopy; }
+    input[value=Preview] { color:$darkCopy; }
+
+
+    // Post Styles
+    #post_header dd input { color:$darkThreadIcon; border-color: $darkThreadIcon;
+      &:focus { color:$darkCopy; border-color: $darkCopy; }
+    }
+    #bbcBox_message a { color:$darkThreadIcon; }
+
+    textarea.editor { background:darken($darkBody,2%); padding:20px !important; border:1px solid $darkBorder; color:$darkThreadIcon;
+      &:focus { color:$darkBody; border-color:$darkCopy; background:darken($darkBody,5%); }
+    }
+
+    // Smileys
+    img.smiley { filter: grayscale(1) invert(100%) brightness(2);
+      &[src*=".gif"] { filter: none; }
+    }
+
+
+    // Footer
+    .bottom-left-link { 
+      svg {
+        .f { fill:#DEDCEE; }
+      }
+    }
+    
   }
 
 }

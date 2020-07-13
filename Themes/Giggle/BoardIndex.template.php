@@ -260,10 +260,31 @@ function template_main()
 
 		// Show the mark all as read button?
 		if ($settings['show_mark_read'] && !empty($context['categories']))
-			echo '<div class="mark_read">', template_button_strip($mark_read_button, 'right'), '</div>';
-	}
-	else
-	{
+		echo '
+		<style>
+			.install-stripe { display:none; padding:1em; text-align:center; }
+			.install-button { color:#e04a3f; border-color:#e04a3f; text-transform:uppercase; padding:0.5em 1.5em; }
+			.install-button:hover, .install-button:focus { background:#e04a3f; color:#f9f9f9; }
+		</style>
+		<div class="install-stripe" id="InstallStripe">
+			<div class="inner">
+				<button class="install-button" id="InstallButton">
+					Install the ballpit PWA
+				</button>
+			</div>
+		</div>
+		<script>
+			var installEvent;
+			window.addEventListener("beforeinstallprompt", (event) => {
+				//event.preventDefault();
+				$("#InstallStripe").show();
+				installEvent = event;
+			});
+			$("#InstallButton").click(function() {
+				installEvent.prompt();
+			});
+		</script>';
+	} else {
 		echo '
 	<div id="posting_icons" class="flow_hidden">
 		<span style="font-size:11px; color:#666;">More forums will be visible if you <a href="http://ballp.it/index.php?action=register">register</a>.</span>
