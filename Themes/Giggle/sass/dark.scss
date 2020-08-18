@@ -14,7 +14,7 @@ $darkGreen: #41e394;
   body {
     background-color:$darkBody; color:$darkCopy;
     td, th { color:$darkCopy; }
-    td.icon1, td.icon, td.child-icon a { color:$darkThreadIcon; }
+    td.icon1, td.icon, td.child-icon a, td.icon.child-icon a { color:$darkThreadIcon; }
     #header { background:$darkBody; border-bottom-color:$darkBorder; }
     #bar { background:#181818; border-bottom-color: $darkBorder; }
     #navigation li {
@@ -63,13 +63,13 @@ $darkGreen: #41e394;
 
 
     // Post Styles
-    #post_header dd input { color:$darkThreadIcon; border-color: $darkThreadIcon;
-      &:focus { color:$darkCopy; border-color: $darkCopy; }
+    #post_header dd input { color:$darkThreadIcon; border-color: rgba($darkCopy,0.3);
+      &:focus { color:$darkCopy; border-color:$darkCopy; }
     }
     #bbcBox_message a { color:$darkThreadIcon; }
 
-    textarea.editor { background:darken($darkBody,2%); padding:20px !important; border:1px solid $darkBorder; color:$darkThreadIcon;
-      &:focus { color:$darkBody; border-color:$darkCopy; background:darken($darkBody,5%); }
+    textarea.editor { background:rgba(0,0,0,0.3); padding:20px !important; border:1px solid $darkBorder; color:$darkThreadIcon;
+      &:focus { border-color:rgba($darkCopy,0.6); background:darken($darkBody,5%); background:rgba(0,0,0,.8) !important; }
     }
 
     // Smileys

@@ -3252,9 +3252,6 @@ span.hidelink
 #header { overflow:hidden; }
 
 
-#logo a { float:left; display:block; background:url(../svg/snake4.svg) left center no-repeat; background-size:contain; height:120px; width:445px; max-width: 50%; }
-
-
 
 .statusbar { background-color: #FBF7AA;	border-bottom:1px solid #F9E98E; color: #A27D35; padding:12px;
   h2 { color: #A27D35; font-size: 1rem; margin: 0; }
@@ -3437,7 +3434,7 @@ span.spoiler { cursor:pointer;
 }
 
 @media only screen and (min-width: $desktop-min) {
-  #logo a { height: 100px; }
+  //#logo a { height: 100px; }
   a.hamburger { display: none; }
   .post_wrapper { display: grid; grid-template-columns: 160px 1fr; grid-gap: 36px;
     .post-topinfo { display: grid; grid-template-columns: 1fr 360px; }
@@ -3471,7 +3468,7 @@ span.spoiler { cursor:pointer;
     }
     
   }
-  #logo a { height: 90px; }
+  //#logo a { height: 90px; }
   
   .navigate_section { padding:0; }
   /** Table Knockouts **/

@@ -2,6 +2,9 @@
 
 ------------------------------------------------------- */
 
+//#logo a { float:left; display:block; background:url(../svg/snake4.svg) left center no-repeat; background-size:contain; height:120px; width:445px; max-width: 50%; }
+#logo img { max-width: calc(100% - 60px); }
+
 #main_menu { padding: 0 0.5em; float: left; margin: 0; width: 98%; }
 
 .dropmenu, .dropmenu ul { list-style: none; line-height: 1em; padding: 0; margin: 0;}

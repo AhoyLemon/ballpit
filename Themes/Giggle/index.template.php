@@ -102,8 +102,8 @@ function template_html_above()
 
   echo '
     <meta charset="iso-8859-1">
-    <link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/ballpit.css?lastUpdated=2019-09-06" />
-    <link rel="stylesheet" type="text/css" href="/Themes/Giggle/css/dark.css?updated=2020-07-12" />';
+    <link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/ballpit.css" />
+    <link rel="stylesheet" type="text/css" href="/Themes/Giggle/css/dark.css?updated=2020-07-28" />';
 
   echo '
     <!-- FAVICON -->
@@ -440,7 +440,9 @@ function template_body_above()
       </a>
 			<div id="logo">
 
-				<a href="'.$scripturl.'" title=""></a>
+        <a href="'.$scripturl.'" title="">
+          <img src="/img/logo5.png" alt="Ball Pit Logo" class="logo-image" />
+        </a>
 
 			</div>
 

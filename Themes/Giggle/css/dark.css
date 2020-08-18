@@ -26,7 +26,7 @@
   body td, body th {
     color: #efefef;
   }
-  body td.icon1, body td.icon, body td.child-icon a {
+  body td.icon1, body td.icon, body td.child-icon a, body td.icon.child-icon a {
     color: #bbb;
   }
   body #header {
@@ -111,7 +111,7 @@ body #personal_messages .windowbg2 {
   }
   body #post_header dd input {
     color: #bbb;
-    border-color: #bbb;
+    border-color: rgba(239, 239, 239, 0.3);
   }
   body #post_header dd input:focus {
     color: #efefef;
@@ -121,15 +121,15 @@ body #personal_messages .windowbg2 {
     color: #bbb;
   }
   body textarea.editor {
-    background: #1c1c1c;
+    background: rgba(0, 0, 0, 0.3);
     padding: 20px !important;
     border: 1px solid #141414;
     color: #bbb;
   }
   body textarea.editor:focus {
-    color: #212121;
-    border-color: #efefef;
+    border-color: rgba(239, 239, 239, 0.6);
     background: #141414;
+    background: rgba(0, 0, 0, 0.8) !important;
   }
   body img.smiley {
     -webkit-filter: grayscale(1) invert(100%) brightness(2);
@@ -143,3 +143,4 @@ body #personal_messages .windowbg2 {
     fill: #DEDCEE;
   }
 }
+/*# sourceMappingURL=dark.css.map */
