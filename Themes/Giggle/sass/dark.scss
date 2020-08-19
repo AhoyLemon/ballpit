@@ -21,6 +21,20 @@ $darkGreen: #41e394;
     a { color:$darkThreadIcon; }
     ul { background:#181818; border:none; }
     }
+
+
+    // drop menu
+    .dropmenu {
+      > li {
+        a { color:$darkCopy;
+          &:hover { background:$darkCopy; color:$darkBody; }
+        }
+        &:hover {
+          ul { background:$darkBody; }
+        }
+      }
+    }
+
     // Quote
     
     .quoteheader, blockquote { color:$darkCopy; }

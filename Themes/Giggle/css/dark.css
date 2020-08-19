@@ -44,6 +44,16 @@
     background: #181818;
     border: none;
   }
+  body .dropmenu > li a {
+    color: #efefef;
+  }
+  body .dropmenu > li a:hover {
+    background: #efefef;
+    color: #212121;
+  }
+  body .dropmenu > li:hover ul {
+    background: #212121;
+  }
   body .quoteheader, body blockquote {
     color: #efefef;
   }

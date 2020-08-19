@@ -9,20 +9,21 @@
 
 .dropmenu, .dropmenu ul { list-style: none; line-height: 1em; padding: 0; margin: 0;}
 
-.dropmenu { padding: 0 0.5em;
+.dropmenu { padding: 0 0.5em; display:grid; grid-template-columns: repeat(auto-fill,136px);
   a { display: block; color:$black; text-decoration: none;
     span { display: block; padding: 0 0 0 5px; font-size: 0.9em; }
   }
   > li {
-    > a { padding: 0.5em 0; width:9.7em; color:$black; border:1px solid $border; border-right:none; }
-    &:last-child a { border-right: 1px solid $border; }
+    > a { padding: 0.5em 0; color:$black; border-right:none; }
   }
-  li { float: left; padding: 0; margin: 0; position: relative;
-    ul { z-index: 90; position: absolute; width: 19.2em; border: 1px solid $border; border-top:none; background:$white; @include flex-container(); display: none;
+  li { padding: 0; margin: 0; position: relative;
+    
+    ul { z-index: 90; position: absolute; width: 9.7em; background:$white; display: none;
       a { color:$black; }
-      ul { background:lighten($border,20%); border-top:1px solid $border; }
+      ul { background:lighten($border,20%); border-top:1px solid $border; transform:translateX(100%); position: absolute; top:0;left:0; }
     }
-    li { float: none; @include flex-item(50%,0);
+  
+    li { display: block;
       a span { display: block; padding: 8px; }
     }
     a:hover { background-color:$border; text-decoration: none; }
@@ -30,26 +31,9 @@
   }
 }
 
-.dropmenu li:hover ul ul, .dropmenu li:hover ul ul ul
-
-{
-
-  top: -999em;
-
-}
-
-.dropmenu li li:hover ul
-
-{
-
-  top: auto;
-
-}
-
-.dropmenu li:hover ul
-
-{
-
-  display: flex;
-
+.dropmenu {
+  > li:hover { 
+    > ul { display:block; }
+  }
+  > li > ul > li:hover > ul { display:block; }
 }
