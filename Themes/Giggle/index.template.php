@@ -441,7 +441,7 @@ function template_body_above()
 			<div id="logo">
 
         <a href="'.$scripturl.'" title="">
-          <img src="/img/logo5c.png" alt="Ball P.it Logo" class="logo-image" />
+          <img src="/img/logo6b.png" alt="Ball P.it Logo" class="logo-image" />
         </a>
 
 			</div>
