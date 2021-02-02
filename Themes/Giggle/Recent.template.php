@@ -23,15 +23,18 @@ function template_main()
 	foreach ($context['posts'] as $post)
 	{
 		echo '
-			<div class="', $post['alternate'] == 0 ? 'windowbg' : 'windowbg2', ' core_posts">
-				<span class="topslice"><span></span></span>
-        <pre>';
-        //print_r($post);
-        echo '</pre>
-				<div class="single-post">
+			<div class="', $post['alternate'] == 0 ? 'windowbg' : 'windowbg2', '">';
+				
+				/*
+        echo '<pre style="display:none">';
+        print_r($post);
+				echo '</pre>';
+				*/
+				
+				echo '<div class="single-post">
 					<div class="post-summary">
-            <span class="count">', $post['counter'], '</span>
-            <span class="poster">', $post['poster']['link'], '</span>
+            <div class="count">', $post['counter'], '</div>
+            <div class="poster">', $post['poster']['link'], '</div>
             <div class="when">
               <span class="day">', gmdate("M j", $post['timestamp']), '</span>
               <span class="time">', gmdate("h:ia", $post['timestamp']), '</span>
@@ -75,7 +78,7 @@ function template_main()
 				</div></div>';
 
 		echo '
-				<span class="botslice clear"><span></span></span>
+				</span></span>
 			</div>';
 
 	}

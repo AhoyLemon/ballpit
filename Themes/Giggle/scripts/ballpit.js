@@ -24,7 +24,7 @@ $(document).ready(function() {
   });
 
   // Hide or show nsfw content.
-  $('#forumposts').on('click', 'figure.nsfw figcaption a', function() {
+  $('#forumposts, #recent').on('click', 'figure.nsfw figcaption a', function() {
     var h = window.location.search.slice(1);
     trackEvent('nsfw', 'expanded', h);
     if ( $(this).hasClass('active') ) {
