@@ -1,13 +1,38 @@
 .recent-posts {
-  .single-post { @include flex-container(); @extend %postDiv; }
-  .post-summary { @include flex-item(160px);
-    .count, .day, .time { display: block; }
+  .pagesection { font-size: 1.6rem; }
+  .post-summary {
     .count { font-size:35px; line-height: 45px; }
-    .poster { font-size:130%; }
+    .poster { font-size:130%; margin-bottom: 10px;
+      a { color:$blue; }
+    }
   }
-  .postarea { @include flex-item(calc(100% - 160px));
+  .postarea {
+
+    .topic_details { display: grid; grid-template-columns: 1fr 180px;
+      .post-title { font-size: 1.2rem; font-weight: 300;}
+      .quickbuttons { order: 2; margin:0; }
+    }
+
     .board { display: block; }
     .quickbuttons { font-size:0.65em; }
   }
+  .post { max-width: 62ch; }
   img { max-width: 100%; }
+  .single-post { padding-bottom: 2em; margin-bottom: 2em; border-bottom:8px solid rgba(0,0,0,0.1); }
+}
+
+@media (min-width:$desktop-min) {
+  .recent-posts {
+    .single-post { display:grid; grid-template-columns: 160px 1fr; grid-gap:36px; } 
+    .count, .day, .time { display: block; }
+  }
+}
+@media (max-width:$mobile-max) {
+  .recent-posts {
+    .post-summary { margin-bottom: 1rem;
+      .count { display: inline; padding-right: 1rem; }
+      .poster { display: inline; padding-right: 1rem; }
+      .when { display: inline; }
+    }
+  }
 }

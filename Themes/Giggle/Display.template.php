@@ -838,9 +838,10 @@ function template_main()
 											}
 										echo '</a>';
 
+										
 										/*
 										echo '<pre style="display:none;">';
-											echo $context['subject'];
+											print_r($message);
 										echo '</pre>';
 										*/
 									echo '</h5>
