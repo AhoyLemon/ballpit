@@ -3,39 +3,42 @@
 ------------------------------------------------------- */
 
 
-.login { width:400px; max-width: 100%; margin: 0 auto;
+.login { width:100%; max-width: 320px; margin: 0 auto;
   h2 { text-align: center; margin-bottom: 0.25em; }
+  .login-simple { display:grid; grid-template-columns: 1fr; gap:20px; }
   input {
-    &[type=text], &[type=password], &[type=number] { display: block; width: 100%; font-size:22px; height: 40px; font-family:'Droid Sans', sans-serif; text-align:center; border:2px solid $black;
-      &:not([disabled]) {
-        &:hover, &:focus { background-color:rgba($yellow,0.5); }
+    &[type=text], &[type=password] { display:block; width: 100%; font-family: inherit; font-size:22px; border:none; border-bottom: 2px solid rgba(0,0,0,0.5);
+      &:hover, &:focus { color:$blue; 
+        &::placeholder { color:rgba($blue,0.6); }
       }
     }
-    &[name="user"] { border-bottom: none; }
-    //&[type=checkbox] { height: 6.5vh; width: 100%; padding: 0; margin: 0; }
-    &.openid_login { background-image: url(../svg/openid-logo.svg); background-position: 6px center; background-size: 28px; background-repeat: no-repeat; padding-left:0; }
   }
-  p { text-align: center; }
-  table { width:100%; }
-  .half { width:49%; text-align: center; vertical-align: middle;
-    label { display: block; text-align: center; }
+  .forgot-password { text-align: right; margin-top:5px; }
+
+
+  input[type=number] { font-family: inherit; font-size:22px; border:none; border-bottom: 2px solid rgba(0,0,0,0.5); padding:0.25em 0 0.25em 0.5em;
+    &:hover, &:focus { color:$blue; 
+      &::placeholder { color:rgba($blue,0.6); }
+    }
+    &[disabled] { opacity:0.4; pointer-events: none; }
+  }
+
+  .logged-in-for { display:grid; grid-template-columns: repeat(2,1fr); gap:5px; margin-top:20px;
+    .intro-text { grid-column: span 2; }
+    .minutes, .forever { text-align: center; position: relative; }
   }
   
-  .logged-in-for { margin: 0; }
-  .number-holder {
-    input { max-width: 3em; height: 36px; margin-left: auto; margin-right: auto; border:2px solid currentColor; }
-  }
   .checkbox-holder {
-    input { display: none; }
-    svg { width:40px; cursor: pointer; }
+    input { position:absolute; opacity: 0; }
+    svg { height:40px; cursor: pointer; border-bottom: 2px solid rgba(0,0,0,0.5); }
     .check { opacity: 0; transform: scale(2); transition: all 0.3s ease; transform-origin: center; }
-    .box { opacity: 0; fill:$yellow; }
-    label:hover {
-      .box { opacity: 1; }
-    }
+    .outline { opacity: 0; }
+    .box { opacity: 0; }
+    label:hover svg,
+    input:focus ~ svg { border-bottom-color: $blue; }
     input:checked {
       ~ svg .check { opacity: 1; transform: scale(1); }
     }
   }
-  .button_submit { font-size: 160%; width: 100%; margin-bottom: 10px; }
+  .button_submit { font-size: 1.1rem; font-family: inherit; width: 100%; margin-top:10px; margin-bottom: 10px; }
 }
