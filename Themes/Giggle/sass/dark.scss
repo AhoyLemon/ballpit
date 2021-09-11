@@ -22,6 +22,23 @@ $darkGreen: #41e394;
     ul { background:#181818; border:none; }
     }
 
+    // Login Screen.
+    .login {
+      input[type="text"],
+      input[type="password"],
+      input[type="number"], { background:rgba(0,0,0,0.3); border:1px solid $darkBorder; color:$darkThreadIcon; padding:0.5em 1.25em;
+        &:not([disabled]):hover, &:not([disabled]):focus { background:darken($darkBody,5%); background:rgba(0,0,0,.8); }
+      }
+      input[type="number"] { padding-right:0; }
+      .checkbox-holder {
+        svg { border: none; background:rgba(0, 0, 0, 0.3); height:51px; }
+        svg:hover,
+        input:focus ~ svg { background:rgba(0,0,0,.8); }
+      }
+
+      .information { background:rgba(0,0,0,0.5); }
+    }
+
 
     // drop menu
     .dropmenu {

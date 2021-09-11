@@ -44,6 +44,37 @@
     background: #181818;
     border: none;
   }
+  body .login input[type=text],
+body .login input[type=password],
+body .login input[type=number] {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid #141414;
+    color: #bbb;
+    padding: 0.5em 1.25em;
+  }
+  body .login input[type=text]:not([disabled]):hover, body .login input[type=text]:not([disabled]):focus,
+body .login input[type=password]:not([disabled]):hover,
+body .login input[type=password]:not([disabled]):focus,
+body .login input[type=number]:not([disabled]):hover,
+body .login input[type=number]:not([disabled]):focus {
+    background: #141414;
+    background: rgba(0, 0, 0, 0.8);
+  }
+  body .login input[type=number] {
+    padding-right: 0;
+  }
+  body .login .checkbox-holder svg {
+    border: none;
+    background: rgba(0, 0, 0, 0.3);
+    height: 51px;
+  }
+  body .login .checkbox-holder svg:hover,
+body .login .checkbox-holder input:focus ~ svg {
+    background: rgba(0, 0, 0, 0.8);
+  }
+  body .login .information {
+    background: rgba(0, 0, 0, 0.5);
+  }
   body .dropmenu > li a {
     color: #efefef;
   }

@@ -37,46 +37,45 @@ function template_login()
 	// Now just get the basic information - username, password, etc.
 	echo '
 				<div class="login-simple">
-					<input type="text" id="user" name="user" size="20" value="', $context['default_username'], '" class="input_text" placeholder="username" />
-					<input type="password" id="passwrd" name="passwrd" value="', $context['default_password'], '" size="20" class="input_password" placeholder="password" />
+					<div>
+						<input type="text" id="user" name="user" size="20" value="', $context['default_username'], '" class="input_text" placeholder="username" />
+						<div class="register-account">
+							<a tabindex="6" href="', $scripturl, '?action=register">Register an account.</a>
+						</div>
+					</div>
+					
+					<div>
+						<input type="password" id="passwrd" name="passwrd" value="', $context['default_password'], '" size="20" class="input_password" placeholder="password" />
+						<div class="forgot-password">
+							<a tabindex="7" href="', $scripturl, '?action=reminder">', $txt['forgot_your_password'], '</a>
+						</div>
+					</div>	
 				</div>';
 
-	if (!empty($modSettings['enableOpenID']))
-		echo '<p class="or"><strong>&mdash; or use OpenID <a href="', $scripturl, '?action=helpadmin;help=register_openid" onclick="return reqWin(this.href);" class="help">(?)</a> &mdash;</strong></p>
-			  <input type="text" name="openid_identifier" class="input_text openid_login" size="17" />
-				<hr />';
+	// if (!empty($modSettings['enableOpenID']))
+	// 	echo '<p class="or"><strong>&mdash; or use OpenID <a href="', $scripturl, '?action=helpadmin;help=register_openid" onclick="return reqWin(this.href);" class="help">(?)</a> &mdash;</strong></p>
+	// 		  <input type="text" name="openid_identifier" class="input_text openid_login" size="17" />
+	// 			<hr />';
 
 	echo '
-			<p class="logged-in-for">stay logged in for...</p>
-				<table>
-					<tbody>
-						<tr>
-							<td class="half">
-								<input type="number" min="5" max="999" step="5" name="cookielength" id="cookielength" value="', $modSettings['cookieTime'], '"', $context['never_expire'] ? ' disabled="disabled"' : '', ' class="input_text" />
-							</td>
-							<td class="half checkbox-holder">
-                            <label>
-								<input type="checkbox" name="cookieneverexp" id="cookieneverexp"', $context['never_expire'] ? ' checked="checked"' : '', ' class="input_check" onclick="this.form.cookielength.disabled = this.checked;" />
-                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-                    <path d="M0 0h100v100H0z" class="box"/>
-                    <path d="M95 5v90H5V5h90m5-5H0v100h100V0z" class="outline"/>
-                    <path d="M85.3 33.8l-12.9-13-30.6 30.7-14.9-14.9L14 49.5l27.8 27.8z" class="check"/>
-                  </svg>
-                  </label>
-							</td>
-						</tr>
-					</body>
-					<tfoot>
-						<tr>
-							<td class="half">
-								<label for="cookielength">minutes</label>
-							</td>
-							<td class="half">
-								<label for="cookieneverexp">forever</label>
-							</td>
-						</tr>
-					</tfoot>
-				</table>';
+			<div class="logged-in-for">
+				<div class="intro-text">
+					Stay logged in for...
+				</div>
+				<div class="minutes">
+					<input type="number" min="5" max="999" step="5" name="cookielength" id="cookielength" value="', $modSettings['cookieTime'], '"', $context['never_expire'] ? ' disabled="disabled"' : '', ' class="input_text" />
+					<div class="input-label">minutes</div>
+				</div>
+				<div class="forever checkbox-holder">
+					<label>
+						<input type="checkbox" name="cookieneverexp" id="cookieneverexp"', $context['never_expire'] ? ' checked="checked"' : '', ' class="input_check" onclick="this.form.cookielength.disabled = this.checked;" />
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+							<path d="M85.3 33.8l-12.9-13-30.6 30.7-14.9-14.9L14 49.5l27.8 27.8z" class="check"/>
+						</svg>
+						<div class="input-label">forever</div>
+					</label>
+				</div>
+			</div>';
 	// If they have deleted their account, give them a chance to change their mind.
 	if (isset($context['login_show_undelete']))
 		echo '
@@ -86,10 +85,8 @@ function template_login()
 	echo '
 				</dl>
 				<p><input type="submit" value="', $txt['login'], '" class="button_submit" /></p>
-				<p class="smalltext"><a href="', $scripturl, '?action=reminder">', $txt['forgot_your_password'], '</a></p>
 				<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" /><input type="hidden" name="hash_passwrd" value="" />
 			</div>
-			<span class="lowerframe"><span></span></span>
 		</div></form>';
 
 	// Focus on the correct input - username or password.
@@ -127,40 +124,25 @@ function template_kick_guest()
 					<input type="password" id="passwrd" name="passwrd" value="', $context['default_password'], '" size="20" class="input_password" placeholder="password" />
 				</div>';
 
-	if (!empty($modSettings['enableOpenID']))
-		echo '<p class="or"><strong>&mdash; or use OpenID <a href="', $scripturl, '?action=helpadmin;help=register_openid" onclick="return reqWin(this.href);" class="help">(?)</a> &mdash;</strong></p>
-			  <input type="text" name="openid_identifier" class="input_text openid_login" size="17" />
-				<hr />
-				<p class="logged-in-for">stay logged in for...</p>
-				<table>
-					<tbody>
-						<tr>
-							<td class="half number-holder">
-								<input type="number" min="5" max="999" step="5" name="cookielength" id="cookielength" value="', $modSettings['cookieTime'], '"', $context['never_expire'] ? ' disabled="disabled"' : '', ' class="input_text" />
-							</td>
-							<td class="half checkbox-holder">
-                <label>
-                  <input type="checkbox" name="cookieneverexp" id="cookieneverexp"', $context['never_expire'] ? ' checked="checked"' : '', ' class="input_check" onclick="this.form.cookielength.disabled = this.checked;" />
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-                    <path d="M0 0h100v100H0z" id="box"/>
-                    <path d="M95 5v90H5V5h90m5-5H0v100h100V0z" id="outline"/>
-                    <path d="M85.3 33.8l-12.9-13-30.6 30.7-14.9-14.9L14 49.5l27.8 27.8z" id="check"/>
-                  </svg>
-                </label>
-							</td>
-						</tr>
-					</body>
-					<tfoot>
-						<tr>
-							<td class="half">
-								<label for="cookielength">minutes</label>
-							</td>
-							<td class="half">
-								<label for="cookieneverexp">forever</label>
-							</td>
-						</tr>
-					</tfoot>
-				</table>
+		echo '
+		<div class="logged-in-for">
+		<div class="intro-text">
+			Stay logged in for...
+		</div>
+		<div class="minutes">
+			<input type="number" min="5" max="999" step="5" name="cookielength" id="cookielength" value="', $modSettings['cookieTime'], '"', $context['never_expire'] ? ' disabled="disabled"' : '', ' class="input_text" />
+			<div class="input-label">minutes</div>
+		</div>
+		<div class="forever checkbox-holder">
+			<label>
+				<input type="checkbox" name="cookieneverexp" id="cookieneverexp"', $context['never_expire'] ? ' checked="checked"' : '', ' class="input_check" onclick="this.form.cookielength.disabled = this.checked;" />
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+					<path d="M85.3 33.8l-12.9-13-30.6 30.7-14.9-14.9L14 49.5l27.8 27.8z" class="check"/>
+				</svg>
+				<div class="input-label">forever</div>
+			</label>
+		</div>
+	</div>
 				<p class="centertext"><input type="submit" value="', $txt['login'], '" class="button_submit" /></p>
 				<p class="centertext smalltext"><a href="', $scripturl, '?action=reminder">', $txt['forgot_your_password'], '</a></p>
 			</div>
