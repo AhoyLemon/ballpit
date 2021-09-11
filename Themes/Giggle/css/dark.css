@@ -72,6 +72,9 @@ body .login input[type=number]:not([disabled]):focus {
 body .login .checkbox-holder input:focus ~ svg {
     background: rgba(0, 0, 0, 0.8);
   }
+  body .login .information {
+    background: rgba(0, 0, 0, 0.5);
+  }
   body .dropmenu > li a {
     color: #efefef;
   }
