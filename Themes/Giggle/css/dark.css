@@ -44,6 +44,25 @@
     background: #181818;
     border: none;
   }
+  body .login input[type=text],
+body .login input[type=password],
+body .login input[type=number] {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid #141414;
+    color: #bbb;
+  }
+  body .login input[type=text]:not([disabled]):hover, body .login input[type=text]:not([disabled]):focus,
+body .login input[type=password]:not([disabled]):hover,
+body .login input[type=password]:not([disabled]):focus,
+body .login input[type=number]:not([disabled]):hover,
+body .login input[type=number]:not([disabled]):focus {
+    border-color: rgba(239, 239, 239, 0.6);
+    background: #141414;
+    background: rgba(0, 0, 0, 0.8);
+  }
+  body .login .checkbox-holder .box {
+    fill: #141414;
+  }
   body .dropmenu > li a {
     color: #efefef;
   }
