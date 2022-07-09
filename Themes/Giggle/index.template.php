@@ -102,8 +102,8 @@ function template_html_above()
 
   echo '
     <meta charset="iso-8859-1">
-    <link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/ballpit.css" />
-    <link rel="stylesheet" type="text/css" href="/Themes/Giggle/css/dark.css" />';
+    <link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/ballpit.css?updated=2022-07-09" />
+    <link rel="stylesheet" type="text/css" href="/Themes/Giggle/css/dark.css?updated=2022-07-09" />';
 
   echo '
     <!-- FAVICON -->

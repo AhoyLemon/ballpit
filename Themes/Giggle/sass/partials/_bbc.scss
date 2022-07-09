@@ -1,5 +1,5 @@
 a.bbc_link[href] { color:$blue; }
-.quoteheader { font-size: 90%; width: auto; display: inline-block; border: 1px solid $border; border-bottom: 1px solid #fff; background: #fff; margin-bottom: -1px; padding: 0.25em 1em; }
+.quoteheader { font-size: 90%; width: auto; display: inline-block; border: 1px solid $border; border-bottom-color: #fff; background: #fff; transform: translateY(3px); padding: 0.25em 1em; }
 .codeheader { background: $border; display: inline-block; padding: 0.25em 1em; color: #fff; font-size: 90% }
 
 blockquote.bbc_standard_quote,
@@ -10,7 +10,6 @@ a.bbc_link { word-break: break-word; }
 
 blockquote.bbc_quote { border:1px solid $border; position: relative; padding: 1em 1em 1em 2.5em; margin: 0 0 2em 0;
   background-image:url(../svg/quotation-mark.svg); background-size:20px; background-repeat: no-repeat; background-position: 6px 6px;
-  //&:before { font-size:700%; content:"“"; @include position(absolute,0.3em,null,null,0); color:$border; }
 
   cite { display: block; padding-left: 1em; padding-top:1em; font-style: italic;
     &:before { content:"—"; display: inline; }

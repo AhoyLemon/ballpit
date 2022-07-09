@@ -26,7 +26,7 @@ $darkGreen: #41e394;
     .login {
       input[type="text"],
       input[type="password"],
-      input[type="number"], { background:rgba(0,0,0,0.3); border:1px solid $darkBorder; color:$darkThreadIcon; padding:0.5em 1.25em;
+      input[type="number"] { background:rgba(0,0,0,0.3); border:1px solid $darkBorder; color:$darkThreadIcon; padding:0.5em 1.25em;
         &:not([disabled]):hover, &:not([disabled]):focus { background:darken($darkBody,5%); background:rgba(0,0,0,.8); }
       }
       input[type="number"] { padding-right:0; }
@@ -53,8 +53,10 @@ $darkGreen: #41e394;
     }
 
     // Quote
-    
-    .quoteheader, blockquote { color:$darkCopy; }
+    .quoteheader { border-bottom: none; }
+    .quoteheader,
+    blockquote.bbc_alternate_quote,
+    blockquote.bbc_standard_quote { background:#141414; color: $darkCopy; border-color:#090909; }
     span.spoiler { text-shadow: 0 0 0.3em rgba(200,200,200, 0.7);
       &:hover { color:rgba($black,0.05); text-shadow: 0 0 0.4em rgba(200,200,200, 0.3);
         &:before, &:after { color: $darkBody; }
