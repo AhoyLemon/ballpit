@@ -8,7 +8,7 @@
  * @copyright 2011 Simple Machines
  * @license http://www.simplemachines.org/about/smf/license.php BSD
  *
- * @version 2.0.12
+ * @version 2.0.19
  */
 
 if (!defined('SMF'))
@@ -160,71 +160,96 @@ function reloadSettings()
 		if (empty($modSettings['defaultMaxMembers']) || $modSettings['defaultMaxMembers'] <= 0 || $modSettings['defaultMaxMembers'] > 999)
 			$modSettings['defaultMaxMembers'] = 30;
 
+		// Covers null and !isset cases
+		if (empty($modSettings['requirePolicyAgreement']))
+			$modSettings['requirePolicyAgreement'] = 0;
+
 		if (!empty($modSettings['cache_enable']))
 			cache_put_data('modSettings', $modSettings, 90);
 	}
 
 	// UTF-8 in regular expressions is unsupported on PHP(win) versions < 4.2.3.
-	$utf8 = (empty($modSettings['global_character_set']) ? $txt['lang_character_set'] : $modSettings['global_character_set']) === 'UTF-8' && (strpos(strtolower(PHP_OS), 'win') === false || @version_compare(PHP_VERSION, '4.2.3') != -1);
+	$utf8 = (empty($modSettings['global_character_set']) ? (!empty($txt['lang_character_set']) ? $txt['lang_character_set'] : '') : $modSettings['global_character_set']) === 'UTF-8' && (strpos(strtolower(PHP_OS), 'win') === false || @version_compare(PHP_VERSION, '4.2.3') != -1);
 
 	// Set a list of common functions.
-	$ent_list = empty($modSettings['disableEntityCheck']) ? '&(#\d{1,7}|quot|amp|lt|gt|nbsp);' : '&(#021|quot|amp|lt|gt|nbsp);';
-	$ent_check = empty($modSettings['disableEntityCheck']) ? array('preg_replace_callback(\'~(&#(\d{1,7}|x[0-9a-fA-F]{1,6});)~\', \'entity_fix__callback\', ', ')') : array('', '');
+	$ent_list = empty($modSettings['disableEntityCheck']) ? '&(?>#\d{1,7}|quot|amp|lt|gt|nbsp);' : '&(?>#021|quot|amp|lt|gt|nbsp);';
+	$ent_check = empty($modSettings['disableEntityCheck']) ? function($string, $double = false)
+		{
+			$string = preg_replace_callback('~(&' . (!empty($double) ? '(?:amp;)?' : '') . '#(\d{1,7}|x[0-9a-fA-F]{1,6});)~', 'entity_fix__callback', $string);
+			return $string;
+		} : function($string)
+		{
+			return $string;
+		};
+	$fix_utf8mb4 = function($string) use ($utf8, $smcFunc)
+	{
+		if (!$utf8)
+			return $string;
+
+		$i = 0;
+		$len = strlen($string);
+		$new_string = '';
+		while ($i < $len)
+		{
+			$ord = ord($string[$i]);
+			if ($ord < 128)
+			{
+				$new_string .= $string[$i];
+				$i++;
+			}
+			elseif ($ord < 224)
+			{
+				$new_string .= $string[$i] . $string[$i + 1];
+				$i += 2;
+			}
+			elseif ($ord < 240)
+			{
+				$new_string .= $string[$i] . $string[$i + 1] . $string[$i + 2];
+				$i += 3;
+			}
+			elseif ($ord < 248)
+			{
+				// Magic happens.
+				$val = (ord($string[$i]) & 0x07) << 18;
+				$val += (ord($string[$i + 1]) & 0x3F) << 12;
+				$val += (ord($string[$i + 2]) & 0x3F) << 6;
+				$val += (ord($string[$i + 3]) & 0x3F);
+				$new_string .= '&#' . $val . ';';
+				$i += 4;
+			}
+		}
+		return $new_string;
+	};
 
 	// Preg_replace can handle complex characters only for higher PHP versions.
 	$space_chars = $utf8 ? (@version_compare(PHP_VERSION, '4.3.3') != -1 ? '\x{A0}\x{AD}\x{2000}-\x{200F}\x{201F}\x{202F}\x{3000}\x{FEFF}' : "\xC2\xA0\xC2\xAD\xE2\x80\x80-\xE2\x80\x8F\xE2\x80\x9F\xE2\x80\xAF\xE2\x80\x9F\xE3\x80\x80\xEF\xBB\xBF") : '\x00-\x08\x0B\x0C\x0E-\x19\xA0';
 
 	$smcFunc += array(
-		'entity_fix' => create_function('$string', '
-			$num = substr($string, 0, 1) === \'x\' ? hexdec(substr($string, 1)) : (int) $string;
-			return $num < 0x20 || $num > 0x10FFFF || ($num >= 0xD800 && $num <= 0xDFFF) || $num === 0x202E || $num === 0x202D ? \'\' : \'&#\' . $num . \';\';'),
-		'htmlspecialchars' => create_function('$string, $quote_style = ENT_COMPAT, $charset = \'ISO-8859-1\'', '
-			global $smcFunc;
-			return ' . ($utf8 ? '$smcFunc[\'fix_utf8mb4\'](' : '') . strtr($ent_check[0], array('&' => '&amp;')) . 'htmlspecialchars($string, $quote_style, ' . ($utf8 ? '\'UTF-8\'' : '$charset') . ')' . $ent_check[1] . ($utf8 ? ')' : '') . ';'),
-		'fix_utf8mb4' => create_function('$string', '
-			$i = 0;
-			$len = strlen($string);
-			$new_string = \'\';
-			while ($i < $len)
-			{
-				$ord = ord($string[$i]);
-				if ($ord < 128)
-				{
-					$new_string .= $string[$i];
-					$i++;
-				}
-				elseif ($ord < 224)
-				{
-					$new_string .= $string[$i] . $string[$i+1];
-					$i += 2;
-				}
-				elseif ($ord < 240)
-				{
-					$new_string .= $string[$i] . $string[$i+1] . $string[$i+2];
-					$i += 3;
-				}
-				elseif ($ord < 248)
-				{
-					// Magic happens.
-					$val = (ord($string[$i]) & 0x07) << 18;
-					$val += (ord($string[$i+1]) & 0x3F) << 12;
-					$val += (ord($string[$i+2]) & 0x3F) << 6;
-					$val += (ord($string[$i+3]) & 0x3F);
-					$new_string .= \'&#\' . $val . \';\';
-					$i += 4;
-				}
-			}
-			return $new_string;'),
-		'htmltrim' => create_function('$string', '
-			global $smcFunc;
-			return preg_replace(\'~^(?:[ \t\n\r\x0B\x00' . $space_chars . ']|&nbsp;)+|(?:[ \t\n\r\x0B\x00' . $space_chars . ']|&nbsp;)+$~' . ($utf8 ? 'u' : '') . '\', \'\', ' . implode('$string', $ent_check) . ');'),
-		'strlen' => create_function('$string', '
-			global $smcFunc;
-			return strlen(preg_replace(\'~' . $ent_list . ($utf8 ? '|.~u' : '~') . '\', \'_\', ' . implode('$string', $ent_check) . '));'),
-		'strpos' => create_function('$haystack, $needle, $offset = 0', '
-			global $smcFunc;
-			$haystack_arr = preg_split(\'~(&#' . (empty($modSettings['disableEntityCheck']) ? '\d{1,7}' : '021') . ';|&quot;|&amp;|&lt;|&gt;|&nbsp;|.)~' . ($utf8 ? 'u' : '') . '\', ' . implode('$haystack', $ent_check) . ', -1, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
-			$haystack_size = count($haystack_arr);
+		'entity_fix' => function($string)
+		{
+			$num = $string[0] === 'x' ? hexdec(substr($string, 1)) : (int) $string;
+			return $num < 0x20 || $num > 0x10FFFF || ($num >= 0xD800 && $num <= 0xDFFF) || $num === 0x202E || $num === 0x202D ? '' : '&#' . $num . ';';
+		},
+		'htmlspecialchars' => function($string, $quote_style = ENT_COMPAT, $charset = 'ISO-8859-1') use ($ent_check, $utf8, $fix_utf8mb4)
+		{
+			return $fix_utf8mb4($ent_check(htmlspecialchars($string, $quote_style, $utf8 ? 'UTF-8' : $charset), true));
+		},
+		'fix_utf8mb4' => $fix_utf8mb4,
+		'htmltrim' => function($string) use ($utf8, $ent_check)
+		{
+			// Preg_replace space characters depend on the character set in use
+			$space_chars = $utf8 ? '\p{Z}\p{C}' : '\x00-\x20\x80-\xA0';
+
+			return preg_replace('~^(?:[' . $space_chars . ']|&nbsp;)+|(?:[' . $space_chars . ']|&nbsp;)+$~' . ($utf8 ? 'u' : ''), '', $ent_check($string));
+		},
+		'strlen' => function($string) use ($ent_list, $utf8, $ent_check)
+		{
+			return strlen(preg_replace('~' . $ent_list . ($utf8 ? '|.~u' : '~'), '_', $ent_check($string)));
+		},
+		'strpos' => function($haystack, $needle, $offset = 0) use ($utf8, $ent_check, $ent_list, $modSettings)
+		{
+			$haystack_arr = preg_split('~(' . $ent_list . '|.)~' . ($utf8 ? 'u' : ''), $ent_check($haystack), -1, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
+
 			if (strlen($needle) === 1)
 			{
 				$result = array_search($needle, array_slice($haystack_arr, $offset));
@@ -232,11 +257,11 @@ function reloadSettings()
 			}
 			else
 			{
-				$needle_arr = preg_split(\'~(&#' . (empty($modSettings['disableEntityCheck']) ? '\d{1,7}' : '021') . ';|&quot;|&amp;|&lt;|&gt;|&nbsp;|.)~' . ($utf8 ? 'u' : '') . '\',  ' . implode('$needle', $ent_check) . ', -1, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
+				$needle_arr = preg_split('~(' . $ent_list . '|.)~' . ($utf8 ? 'u' : '') . '', $ent_check($needle), -1, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
 				$needle_size = count($needle_arr);
 
 				$result = array_search($needle_arr[0], array_slice($haystack_arr, $offset));
-				while (is_int($result))
+				while ((int) $result === $result)
 				{
 					$offset += $result;
 					if (array_slice($haystack_arr, $offset, $needle_size) === $needle_arr)
@@ -244,38 +269,55 @@ function reloadSettings()
 					$result = array_search($needle_arr[0], array_slice($haystack_arr, ++$offset));
 				}
 				return false;
-			}'),
-		'substr' => create_function('$string, $start, $length = null', '
-			global $smcFunc;
-			$ent_arr = preg_split(\'~(&#' . (empty($modSettings['disableEntityCheck']) ? '\d{1,7}' : '021') . ';|&quot;|&amp;|&lt;|&gt;|&nbsp;|.)~' . ($utf8 ? 'u' : '') . '\', ' . implode('$string', $ent_check) . ', -1, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
-			return $length === null ? implode(\'\', array_slice($ent_arr, $start)) : implode(\'\', array_slice($ent_arr, $start, $length));'),
-		'strtolower' => $utf8 ? (function_exists('mb_strtolower') ? create_function('$string', '
-			return mb_strtolower($string, \'UTF-8\');') : create_function('$string', '
+			}
+		},
+		'substr' => function($string, $start, $length = null) use ($utf8, $ent_check, $ent_list, $modSettings)
+		{
+			$ent_arr = preg_split('~(' . $ent_list . '|.)~' . ($utf8 ? 'u' : '') . '', $ent_check($string), -1, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
+			return $length === null ? implode('', array_slice($ent_arr, $start)) : implode('', array_slice($ent_arr, $start, $length));
+		},
+		'strtolower' => $utf8 ? function($string) use ($sourcedir)
+		{
+			if (!function_exists('mb_strtolower'))
+			{
+				require_once($sourcedir . '/Subs-Charset.php');
+				return utf8_strtolower($string);
+			}
+
+			return mb_strtolower($string, 'UTF-8');
+		} : 'strtolower',
+		'strtoupper' => $utf8 ? function($string)
+		{
 			global $sourcedir;
-			require_once($sourcedir . \'/Subs-Charset.php\');
-			return utf8_strtolower($string);')) : 'strtolower',
-		'strtoupper' => $utf8 ? (function_exists('mb_strtoupper') ? create_function('$string', '
-			return mb_strtoupper($string, \'UTF-8\');') : create_function('$string', '
-			global $sourcedir;
-			require_once($sourcedir . \'/Subs-Charset.php\');
-			return utf8_strtoupper($string);')) : 'strtoupper',
-		'truncate' => create_function('$string, $length', (empty($modSettings['disableEntityCheck']) ? '
-			global $smcFunc;
-			$string = ' . implode('$string', $ent_check) . ';' : '') . '
-			preg_match(\'~^(' . $ent_list . '|.){\' . $smcFunc[\'strlen\'](substr($string, 0, $length)) . \'}~'.  ($utf8 ? 'u' : '') . '\', $string, $matches);
+
+			if (!function_exists('mb_strtolower'))
+			{
+				require_once($sourcedir . '/Subs-Charset.php');
+				return utf8_strtoupper($string);
+			}
+
+			return mb_strtoupper($string, 'UTF-8');
+		} : 'strtoupper',
+		'truncate' => function($string, $length) use ($utf8, $ent_check, $ent_list, &$smcFunc)
+		{
+			$string = $ent_check($string);
+			preg_match('~^(' . $ent_list . '|.){' . $smcFunc['strlen'](substr($string, 0, $length)) . '}~' . ($utf8 ? 'u' : ''), $string, $matches);
 			$string = $matches[0];
 			while (strlen($string) > $length)
-				$string = preg_replace(\'~(?:' . $ent_list . '|.)$~'.  ($utf8 ? 'u' : '') . '\', \'\', $string);
-			return $string;'),
-		'ucfirst' => $utf8 ? create_function('$string', '
-			global $smcFunc;
-			return $smcFunc[\'strtoupper\']($smcFunc[\'substr\']($string, 0, 1)) . $smcFunc[\'substr\']($string, 1);') : 'ucfirst',
-		'ucwords' => $utf8 ? create_function('$string', '
-			global $smcFunc;
-			$words = preg_split(\'~([\s\r\n\t]+)~\', $string, -1, PREG_SPLIT_DELIM_CAPTURE);
+				$string = preg_replace('~(?:' . $ent_list . '|.)$~' . ($utf8 ? 'u' : ''), '', $string);
+			return $string;
+		},
+		'ucfirst' => $utf8 ? function($string) use (&$smcFunc)
+		{
+			return $smcFunc['strtoupper']($smcFunc['substr']($string, 0, 1)) . $smcFunc['substr']($string, 1);
+		} : 'ucfirst',
+		'ucwords' => $utf8 ? function($string) use (&$smcFunc)
+		{
+			$words = preg_split('~([\s\r\n\t]+)~', $string, -1, PREG_SPLIT_DELIM_CAPTURE);
 			for ($i = 0, $n = count($words); $i < $n; $i += 2)
-				$words[$i] = $smcFunc[\'ucfirst\']($words[$i]);
-			return implode(\'\', $words);') : 'ucwords',
+				$words[$i] = $smcFunc['ucfirst']($words[$i]);
+			return implode('', $words);
+		} : 'ucwords',
 	);
 
 	// Setting the timezone is a requirement for some functions in PHP >= 5.1.
@@ -335,6 +377,8 @@ function loadUserSettings()
 {
 	global $modSettings, $user_settings, $sourcedir, $smcFunc;
 	global $cookiename, $user_info, $language;
+	global $boardurl, $image_proxy_enabled, $image_proxy_secret;
+	global $cookie_no_auth_secret;
 
 	// Check first the integration, then the cookie, and last the session.
 	if (count($integration_ids = call_integration_hook('integrate_verify_user')) > 0)
@@ -391,6 +435,9 @@ function loadUserSettings()
 			$user_settings = $smcFunc['db_fetch_assoc']($request);
 			$smcFunc['db_free_result']($request);
 
+			// if (!empty($user_settings['avatar']))
+			// 	$user_settings['avatar'] = get_proxied_url($user_settings['avatar']);
+
 			if (!empty($modSettings['cache_enable']) && $modSettings['cache_enable'] >= 2)
 				cache_put_data('user_settings-' . $id_member, $user_settings, 60);
 		}
@@ -403,7 +450,7 @@ function loadUserSettings()
 				$check = true;
 			// SHA-1 passwords should be 40 characters long.
 			elseif (strlen($password) == 40)
-				$check = sha1($user_settings['passwd'] . $user_settings['password_salt']) == $password;
+				$check = empty($cookie_no_auth_secret) ? hash_hmac('sha1', sha1($user_settings['passwd'] . $user_settings['password_salt']), get_auth_secret()) == $password : sha1($user_settings['passwd'] . $user_settings['password_salt']) == $password;
 			else
 				$check = false;
 
@@ -953,7 +1000,7 @@ function loadPermissions()
 function loadMemberData($users, $is_name = false, $set = 'normal')
 {
 	global $user_profile, $modSettings, $board_info, $smcFunc;
-
+	global $boardurl, $image_proxy_enabled, $image_proxy_secret, $user_info;
 	// Can't just look for no users :P.
 	if (empty($users))
 		return false;
@@ -1040,6 +1087,14 @@ function loadMemberData($users, $is_name = false, $set = 'normal')
 		$new_loaded_ids = array();
 		while ($row = $smcFunc['db_fetch_assoc']($request))
 		{
+			// If the image proxy is enabled, we still want the original URL when they're editing the profile...
+			if (isset($row['avatar']))
+				$row['avatar_original'] = $row['avatar'];
+
+			// Take care of proxying avatar if required, do this here for maximum reach
+			// if (!empty($row['avatar']))
+			// 	$row['avatar'] = get_proxied_url($row['avatar']);
+
 			$new_loaded_ids[] = $row['id_member'];
 			$loaded_ids[] = $row['id_member'];
 			$row['options'] = array();
@@ -1188,9 +1243,9 @@ function loadMemberContext($user, $display_custom_fields = false)
 		'location' => $profile['location'],
 		'icq' => $profile['icq'] != '' && (empty($modSettings['guest_hideContacts']) || !$user_info['is_guest']) ? array(
 			'name' => $profile['icq'],
-			'href' => 'http://www.icq.com/whitepages/about_me.php?uin=' . $profile['icq'],
-			'link' => '<a class="icq new_win" href="http://www.icq.com/whitepages/about_me.php?uin=' . $profile['icq'] . '" target="_blank" title="' . $txt['icq_title'] . ' - ' . $profile['icq'] . '"><img src="http://status.icq.com/online.gif?img=5&amp;icq=' . $profile['icq'] . '" alt="' . $txt['icq_title'] . ' - ' . $profile['icq'] . '" width="18" height="18" /></a>',
-			'link_text' => '<a class="icq extern" href="http://www.icq.com/whitepages/about_me.php?uin=' . $profile['icq'] . '" title="' . $txt['icq_title'] . ' - ' . $profile['icq'] . '">' . $profile['icq'] . '</a>',
+			'href' => 'https://www.icq.com/whitepages/about_me.php?uin=' . $profile['icq'],
+			'link' => '<a class="icq new_win" href="https://www.icq.com/whitepages/about_me.php?uin=' . $profile['icq'] . '" target="_blank" title="' . $txt['icq_title'] . ' - ' . $profile['icq'] . '"><img src="https://status.icq.com/online.gif?img=5&amp;icq=' . $profile['icq'] . '" alt="' . $txt['icq_title'] . ' - ' . $profile['icq'] . '" width="18" height="18" /></a>',
+			'link_text' => '<a class="icq extern" href="https://www.icq.com/whitepages/about_me.php?uin=' . $profile['icq'] . '" title="' . $txt['icq_title'] . ' - ' . $profile['icq'] . '">' . $profile['icq'] . '</a>',
 		) : array('name' => '', 'add' => '', 'href' => '', 'link' => '', 'link_text' => ''),
 		'aim' => $profile['aim'] != '' && (empty($modSettings['guest_hideContacts']) || !$user_info['is_guest']) ? array(
 			'name' => $profile['aim'],
@@ -1200,23 +1255,23 @@ function loadMemberContext($user, $display_custom_fields = false)
 		) : array('name' => '', 'href' => '', 'link' => '', 'link_text' => ''),
 		'yim' => $profile['yim'] != '' && (empty($modSettings['guest_hideContacts']) || !$user_info['is_guest']) ? array(
 			'name' => $profile['yim'],
-			'href' => 'http://edit.yahoo.com/config/send_webmesg?.target=' . urlencode($profile['yim']),
-			'link' => '<a class="yim" href="http://edit.yahoo.com/config/send_webmesg?.target=' . urlencode($profile['yim']) . '" title="' . $txt['yim_title'] . ' - ' . $profile['yim'] . '"><img src="http://opi.yahoo.com/online?u=' . urlencode($profile['yim']) . '&amp;m=g&amp;t=0" alt="' . $txt['yim_title'] . ' - ' . $profile['yim'] . '" /></a>',
-			'link_text' => '<a class="yim" href="http://edit.yahoo.com/config/send_webmesg?.target=' . urlencode($profile['yim']) . '" title="' . $txt['yim_title'] . ' - ' . $profile['yim'] . '">' . $profile['yim'] . '</a>'
+			'href' => 'https://edit.yahoo.com/config/send_webmesg?.target=' . urlencode($profile['yim']),
+			'link' => '<a class="yim" href="https://edit.yahoo.com/config/send_webmesg?.target=' . urlencode($profile['yim']) . '" title="' . $txt['yim_title'] . ' - ' . $profile['yim'] . '"><img src="https://opi.yahoo.com/online?u=' . urlencode($profile['yim']) . '&amp;m=g&amp;t=0" alt="' . $txt['yim_title'] . ' - ' . $profile['yim'] . '" /></a>',
+			'link_text' => '<a class="yim" href="https://edit.yahoo.com/config/send_webmesg?.target=' . urlencode($profile['yim']) . '" title="' . $txt['yim_title'] . ' - ' . $profile['yim'] . '">' . $profile['yim'] . '</a>'
 		) : array('name' => '', 'href' => '', 'link' => '', 'link_text' => ''),
 		'msn' => $profile['msn'] !='' && (empty($modSettings['guest_hideContacts']) || !$user_info['is_guest']) ? array(
 			'name' => $profile['msn'],
-			'href' => 'http://members.msn.com/' . $profile['msn'],
-			'link' => '<a class="msn new_win" href="http://members.msn.com/' . $profile['msn'] . '" title="' . $txt['msn_title'] . ' - ' . $profile['msn'] . '"><img src="' . $settings['images_url'] . '/msntalk.gif" alt="' . $txt['msn_title'] . ' - ' . $profile['msn'] . '" /></a>',
-			'link_text' => '<a class="msn new_win" href="http://members.msn.com/' . $profile['msn'] . '" title="' . $txt['msn_title'] . ' - ' . $profile['msn'] . '">' . $profile['msn'] . '</a>'
+			'href' => 'https://members.msn.com/' . $profile['msn'],
+			'link' => '<a class="msn new_win" href="https://members.msn.com/' . $profile['msn'] . '" title="' . $txt['msn_title'] . ' - ' . $profile['msn'] . '"><img src="' . $settings['images_url'] . '/msntalk.gif" alt="' . $txt['msn_title'] . ' - ' . $profile['msn'] . '" /></a>',
+			'link_text' => '<a class="msn new_win" href="https://members.msn.com/' . $profile['msn'] . '" title="' . $txt['msn_title'] . ' - ' . $profile['msn'] . '">' . $profile['msn'] . '</a>'
 		) : array('name' => '', 'href' => '', 'link' => '', 'link_text' => ''),
 		'real_posts' => $profile['posts'],
 		'posts' => $profile['posts'] > 500000 ? $txt['geek'] : comma_format($profile['posts']),
 		'avatar' => array(
 			'name' => $profile['avatar'],
-			'image' => $profile['avatar'] == '' ? ($profile['id_attach'] > 0 ? '<img class="avatar" src="' . (empty($profile['attachment_type']) ? $scripturl . '?action=dlattach;attach=' . $profile['id_attach'] . ';type=avatar' : $modSettings['custom_avatar_url'] . '/' . $profile['filename']) . '" alt="" />' : '') : (stristr($profile['avatar'], 'http://') ? '<img class="avatar" src="' . $profile['avatar'] . '"' . $avatar_width . $avatar_height . ' alt="" />' : '<img class="avatar" src="' . $modSettings['avatar_url'] . '/' . htmlspecialchars($profile['avatar']) . '" alt="" />'),
-			'href' => $profile['avatar'] == '' ? ($profile['id_attach'] > 0 ? (empty($profile['attachment_type']) ? $scripturl . '?action=dlattach;attach=' . $profile['id_attach'] . ';type=avatar' : $modSettings['custom_avatar_url'] . '/' . $profile['filename']) : '') : (stristr($profile['avatar'], 'http://') ? $profile['avatar'] : $modSettings['avatar_url'] . '/' . $profile['avatar']),
-			'url' => $profile['avatar'] == '' ? '' : (stristr($profile['avatar'], 'http://') ? $profile['avatar'] : $modSettings['avatar_url'] . '/' . $profile['avatar'])
+			'image' => $profile['avatar'] == '' ? ($profile['id_attach'] > 0 ? '<img class="avatar" src="' . (empty($profile['attachment_type']) ? $scripturl . '?action=dlattach;attach=' . $profile['id_attach'] . ';type=avatar' : $modSettings['custom_avatar_url'] . '/' . $profile['filename']) . '" alt="" />' : '') : ((stristr($profile['avatar'], 'http://') || stristr($profile['avatar'], 'https://')) ? '<img class="avatar" src="' . $profile['avatar'] . '"' . $avatar_width . $avatar_height . ' alt="" />' : '<img class="avatar" src="' . $modSettings['avatar_url'] . '/' . htmlspecialchars($profile['avatar']) . '" alt="" />'),
+			'href' => $profile['avatar'] == '' ? ($profile['id_attach'] > 0 ? (empty($profile['attachment_type']) ? $scripturl . '?action=dlattach;attach=' . $profile['id_attach'] . ';type=avatar' : $modSettings['custom_avatar_url'] . '/' . $profile['filename']) : '') : ((stristr($profile['avatar'], 'http://') || stristr($profile['avatar'], 'https://')) ? $profile['avatar'] : $modSettings['avatar_url'] . '/' . $profile['avatar']),
+			'url' => $profile['avatar'] == '' ? '' : ((stristr($profile['avatar'], 'http://') || stristr($profile['avatar'], 'https://')) ? $profile['avatar'] : $modSettings['avatar_url'] . '/' . $profile['avatar'])
 		),
 		'last_login' => empty($profile['last_login']) ? $txt['never'] : timeformat($profile['last_login']),
 		'last_login_timestamp' => empty($profile['last_login']) ? 0 : forum_time(0, $profile['last_login']),
@@ -1482,6 +1537,36 @@ function loadTheme($id_theme = 0, $initialize = true)
 	if (!$initialize)
 		return;
 
+	// Perhaps we've changed the agreement or privacy policy? Only redirect if:
+	// 1. They're not a guest or admin
+	// 2. This isn't called from SSI
+	// 3. This isn't an XML request
+	// 4. They're not trying to do any of the following actions:
+	// 4a. View or accept the agreement and/or policy
+	// 4b. Login or logout
+	// 4c. Get a feed (RSS, ATOM, etc.)
+	if (!$user_info['is_guest'] && !$user_info['is_admin'] && SMF != 'SSI' && !isset($_REQUEST['xml']) && (!isset($_REQUEST['action']) || !in_array($_REQUEST['action'], array('agreement', 'acceptagreement', 'login2', 'logout', '.xml'))))
+	{
+		$agreement_lang = !empty($modSettings['agreement_updated_' . $user_info['language']]) ? $user_info['language'] : 'default';
+		$policy_lang = !empty($modSettings['policy_' . $user_info['language']]) ? $user_info['language'] : $language;
+
+		// Do they need to accept the latest registration agreement?
+		if (!empty($modSettings['requireAgreement']) && !empty($modSettings['agreement_updated_' . $agreement_lang]) && (empty($options['agreement_accepted']) || $modSettings['agreement_updated_' . $agreement_lang] > $options['agreement_accepted']))
+		{
+			$agreement_subaction = 'agreement';
+		}
+
+		// Do they need to consent to the latest privacy policy?
+		if (!empty($modSettings['requirePolicyAgreement']) && !empty($modSettings['policy_updated_' . $policy_lang]) && (empty($options['policy_accepted']) || $modSettings['policy_updated_' . $policy_lang] > $options['policy_accepted']))
+		{
+			$agreement_subaction = !empty($agreement_subaction) ? 'both' : 'policy';
+		}
+
+		// Send them to the right place
+		if (!empty($agreement_subaction))
+			redirectexit('action=agreement;sa=' . $agreement_subaction);
+	}
+
 	// Check to see if they're accessing it from the wrong place.
 	if (isset($_SERVER['HTTP_HOST']) || isset($_SERVER['SERVER_NAME']))
 	{
@@ -1514,7 +1599,9 @@ function loadTheme($id_theme = 0, $initialize = true)
 				redirectexit('wwwRedirect');
 			else
 			{
-				list ($k, $v) = each($_GET);
+				reset($_GET);
+				$k = key($_GET);
+				$v = $_GET[$k];
 
 				if ($k != 'wwwRedirect')
 					redirectexit('wwwRedirect;' . $k . '=' . $v);
@@ -1587,32 +1674,6 @@ function loadTheme($id_theme = 0, $initialize = true)
 	// Some basic information...
 	if (!isset($context['html_headers']))
 		$context['html_headers'] = '';
-	
-	// Auto Embed Twitter
-	global $boardurl;
-	$context['html_headers'] .=  '
-  
-	<script type="text/javascript">
-		$(document).ready(function() {
-
-		var oTwitter = $(\'a[href*="twitter.com"][href*="/status"]\');
-		if (oTwitter.length > 0) {
-			oTwitter.each(function() {
-				var oHolder = $(this);
-				var sStr = $(this).attr(\'href\');
-				sStr = sStr.replace(/\/+$/, "");
-				sStr = sStr.replace(/\?.+/, "");
-				sStr = sStr.substr(sStr.lastIndexOf(\'/\') + 1);
-				$.getJSON("' . $boardurl .'/tweet-cache.php?id=" + sStr, function(data) {
-					oHolder.before(data.html);
-				});
-			});
-		}
-
-		});
-	</script>';
-	//end Auto Embed Twitter
-			
 
 	$context['menu_separator'] = !empty($settings['use_image_buttons']) ? ' ' : ' | ';
 	$context['session_var'] = $_SESSION['session_var'];
@@ -2420,6 +2481,11 @@ function loadSession()
 		// Use database sessions? (they don't work in 4.1.x!)
 		if (!empty($modSettings['databaseSession_enable']) && @version_compare(PHP_VERSION, '4.2.0') != -1)
 		{
+			@ini_set('session.serialize_handler', 'php_serialize');
+
+			if (ini_get('session.serialize_handler') != 'php_serialize')
+				@ini_set('session.serialize_handler', 'php');
+
 			session_set_save_handler('sessionOpen', 'sessionClose', 'sessionRead', 'sessionWrite', 'sessionDestroy', 'sessionGC');
 			@ini_set('session.gc_probability', '1');
 		}
@@ -2485,7 +2551,7 @@ function sessionRead($session_id)
 	list ($sess_data) = $smcFunc['db_fetch_row']($result);
 	$smcFunc['db_free_result']($result);
 
-	return $sess_data;
+	return $sess_data != null ? $sess_data : '';
 }
 
 function sessionWrite($session_id, $data)
@@ -2516,7 +2582,7 @@ function sessionWrite($session_id, $data)
 			array('session_id')
 		);
 
-	return $result;
+	return true;
 }
 
 function sessionDestroy($session_id)
@@ -2527,13 +2593,15 @@ function sessionDestroy($session_id)
 		return false;
 
 	// Just delete the row...
-	return $smcFunc['db_query']('', '
+	$smcFunc['db_query']('', '
 		DELETE FROM {db_prefix}sessions
 		WHERE session_id = {string:session_id}',
 		array(
 			'session_id' => $session_id,
 		)
 	);
+
+	return true;
 }
 
 function sessionGC($max_lifetime)
@@ -2545,13 +2613,15 @@ function sessionGC($max_lifetime)
 		$max_lifetime = max($modSettings['databaseSession_lifetime'], 60);
 
 	// Clean up ;).
-	return $smcFunc['db_query']('', '
+	$smcFunc['db_query']('', '
 		DELETE FROM {db_prefix}sessions
 		WHERE last_update < {int:last_update}',
 		array(
 			'last_update' => time() - $max_lifetime,
 		)
 	);
+
+	return $smcFunc['db_affected_rows']() != 0;
 }
 
 // Load up a database connection.
@@ -2771,9 +2841,16 @@ function cache_get_data($key, $ttl = 120)
 	elseif (function_exists('xcache_get') && ini_get('xcache.var_size') > 0)
 		$value = xcache_get($key);
 	// Otherwise it's SMF data!
-	elseif (file_exists($cachedir . '/data_' . $key . '.php') && filesize($cachedir . '/data_' . $key . '.php') > 10)
+	elseif (file_exists($cachedir . '/data_' . $key . '.php'))
 	{
+		// Turns out that include does not honor locking, but we need it to.
+		// This can be accomplished by placing a small wrapper around it:
+		$tmp = fopen($cachedir . '/data_' . $key . '.php', 'rb');
+		@flock($tmp, LOCK_SH);
 		@include($cachedir . '/data_' . $key . '.php');
+		@flock($tmp, LOCK_UN);
+		fclose($tmp);
+
 		if (!empty($expired) && isset($value))
 		{
 			@unlink($cachedir . '/data_' . $key . '.php');
@@ -2812,6 +2889,36 @@ function get_memcached_server($level = 3)
 
 	if (!$memcached && $level > 0)
 		get_memcached_server($level - 1);
+}
+
+function get_auth_secret()
+{
+	global $auth_secret, $sourcedir;
+
+	if (empty($auth_secret))
+	{
+		// Best.
+		if (function_exists('random_bytes'))
+			$auth_secret = bin2hex(random_bytes(32));
+
+		// Equally good, if installed.
+		elseif (function_exists('mcrypt_create_iv'))
+			$auth_secret = bin2hex(mcrypt_create_iv(32));
+
+		// Good enough.
+		elseif (function_exists('openssl_random_pseudo_bytes'))
+			$auth_secret = bin2hex(openssl_random_pseudo_bytes(32));
+
+		// Less than ideal, but we're out of options.
+		else
+			$auth_secret = hash('sha256', mt_rand());
+
+		// It is important to store this in Settings.php, not the database.
+		require_once($sourcedir . '/Subs-Admin.php');
+		updateSettingsFile(array('auth_secret' => '\'' . $auth_secret . '\''));
+	}
+
+	return $auth_secret;
 }
 
 ?>

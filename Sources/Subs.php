@@ -1606,18 +1606,24 @@ function parse_bbc($message, $smileys = true, $cache_id = '', $parse_tags = arra
 				'tag' => 'nsfw',
 				'before' => '<figure class="nsfw"><figcaption><span><strong>NSFW</strong> content. </span><a>Click to show.</a></figcaption><div class="holder" style="display:none;">',
 				'after' => '</div></figure>',
-                'block_level' => true,
+				'block_level' => true,
 			),
 			array(
 				'tag' => 'video',
 				'type' => 'unparsed_content',
-				'content' => '<video controls autoplay loop muted style="max-width:100%; height:auto; margin:10px 10px 10px 0;" ><source src="$1" /></video>',
+				'content' => '<video controls autoplay loop muted style="max-width:100%; height:auto; margin:10px 10px 10px 0;" ><source src="$1" /></video>'
 			),
 			array(
-                'tag' => 'spoiler',
-                'before' => '<span class="spoiler">',
-                'after' => '</span>',
-               ),
+				'tag' => 'toot',
+				'type' => 'unparsed_content',
+				'content' => '<div class="toot-holder">
+												<iframe src="$1/embed" class="mastodon-embed" width="444" height="320"></iframe>
+											</div>
+											<script src="https://mastodon.social/embed.js" type="text/javascript"></script>',
+				'block_level' => true,
+				'disallow_children' => array('email', 'ftp', 'url', 'iurl'),
+				'disabled_after' => ' ($1)',
+			),
 		);
 
 		// Let mods add new BBC without hassle.

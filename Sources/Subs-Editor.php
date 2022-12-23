@@ -1608,21 +1608,27 @@ function create_control_richedit($editorOptions)
 				'after' => '[/ftp]',
 				'description' => $txt['ftp']
 			),
-            array(
+			array(
 				'image' => 'nsfw',
 				'code' => 'nsfw',
 				'before' => '[nsfw]',
 				'after' => '[/nsfw]',
 				'description' => 'NSFW content'
 			),
-            array(
+			array(
+				'image' => 'toot',
+				'code' => 'toot',
+				'before' => '[toot]',
+				'after' => '[/toot]',
+				'description' => 'Mastodon Toot'
+			),
+			array(
 				'image' => 'spoiler',
 				'code' => 'spoiler',
 				'before' => '[spoiler]',
 				'after' => '[/spoiler]',
 				'description' => 'Spoiler'
 			),
-			array(),
 			array(
 				'image' => 'glow',
 				'code' => 'glow',
