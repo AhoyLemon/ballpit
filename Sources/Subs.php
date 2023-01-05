@@ -1614,6 +1614,11 @@ function parse_bbc($message, $smileys = true, $cache_id = '', $parse_tags = arra
 				'content' => '<video controls autoplay loop muted style="max-width:100%; height:auto; margin:10px 10px 10px 0;" ><source src="$1" /></video>'
 			),
 			array(
+				'tag' => 'spoiler',
+				'before' => '<span class="spoiler">',
+				'after' => '</span>'
+			),
+			array(
 				'tag' => 'toot',
 				'type' => 'unparsed_content',
 				'content' => '<div class="toot-holder">
