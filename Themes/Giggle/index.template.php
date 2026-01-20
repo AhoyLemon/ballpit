@@ -95,14 +95,18 @@ function template_html_above()
 
   echo '<!DOCTYPE html>
 
-<html>
+<html lang="en">
 
 <head>';
   
 
   echo '
     <meta charset="iso-8859-1">
-    <link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/ballpit.css?updated=2022-12-23" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/ballpit.css?updated=2026-01-19" />
     <link rel="stylesheet" type="text/css" href="/Themes/Giggle/css/dark.css?updated=2022-07-09" />';
 
   echo '
@@ -151,7 +155,6 @@ function template_html_above()
 
   // Here comes the JavaScript bits!
   echo '
-	<link href="https://fonts.googleapis.com/css?family=Cabin:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 	<script type="text/javascript" src="/Themes/default/scripts/script.js?fin20"></script>';
 
   echo '
@@ -186,7 +189,7 @@ function template_html_above()
 		var ajax_notification_cancel_text = "', $txt['modify_cancel'], '";
 
 	// ]]></script>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>';
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>';
 
 
 
@@ -431,17 +434,40 @@ function template_body_above()
 
 		         </div>
 
-			<a class="hamburger">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+			<a class="hamburger" aria-label="open mobile menu" aria-controls="bar">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-hidden="true">
           <path class="circle" id="HamburgerCircle" d="M50 96C24.6 96 4 75.4 4 50S24.6 4 50 4s46 20.6 46 46-20.6 46-46 46zm0-86.2C27.8 9.8 9.8 27.8 9.8 50s18 40.3 40.2 40.3S90.3 72.2 90.3 50 72.2 9.8 50 9.8z" />
           <path class="lines" id="HamburgerLines" d="M67.3 38.5H32.8c-1.6 0-2.9-1.3-2.9-2.9s1.3-2.9 2.9-2.9h34.5c1.6 0 2.9 1.3 2.9 2.9s-1.4 2.9-2.9 2.9zM67.3 52.9H32.8c-1.6 0-2.9-1.3-2.9-2.9s1.3-2.9 2.9-2.9h34.5c1.6 0 2.9 1.3 2.9 2.9s-1.4 2.9-2.9 2.9zM67.3 67.3H32.8c-1.6 0-2.9-1.3-2.9-2.9s1.3-2.9 2.9-2.9h34.5c1.6 0 2.9 1.3 2.9 2.9s-1.4 2.9-2.9 2.9z" />
           <path class="x" id="HamburgerX" d="M54.1 50l10.2-10.2c1.1-1.1 1.1-2.9 0-4.1s-2.9-1.1-4.1 0L50 45.9 39.8 35.8c-1.1-1.1-2.9-1.1-4.1 0s-1.1 2.9 0 4.1L45.9 50 35.8 60.2c-1.1 1.1-1.1 2.9 0 4.1 1.1 1.1 2.9 1.1 4.1 0L50 54.1l10.2 10.2c1.1 1.1 2.9 1.1 4.1 0 1.1-1.1 1.1-2.9 0-4.1L54.1 50z" />
         </svg>
       </a>
 			<div id="logo">
-
         <a href="'.$scripturl.'" title="">
-          <img src="/img/logo6b.png" alt="Ball P.it Logo" class="logo-image" />
+          <img src="/img/headers/';
+  
+  // Array of logo filenames to rotate through
+  $logos = array(
+    'logo5c.png',
+    'logo6b.png',
+    'logo7.png',
+    'logo8.png',
+    'logo9.png'
+    // Add more logo filenames as needed
+  );
+  
+  // Calculate which logo to show based on days since a specific date
+  // Using January 19, 2026 as day 0
+  $startDate = strtotime('2026-01-19');
+  $currentDate = time();
+  $daysSinceStart = floor(($currentDate - $startDate) / (60 * 60 * 24));
+  
+  // Use modulo to cycle through the array
+  $logoIndex = $daysSinceStart % count($logos);
+  $currentLogo = $logos[$logoIndex];
+  
+  echo $currentLogo;
+  
+  echo '" alt="(randomly chosen) Ball P.it Logo" class="logo-image" />
         </a>
 
 			</div>
