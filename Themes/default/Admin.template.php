@@ -7,7 +7,7 @@
  * @copyright 2011 Simple Machines
  * @license http://www.simplemachines.org/about/smf/license.php BSD
  *
- * @version 2.0
+ * @version 2.0.16
  */
 
 // This is the administration center home.
@@ -886,8 +886,14 @@ function template_show_settings()
 
 				// Show a check box.
 				if ($config_var['type'] == 'check')
+				{
+					if (!empty($config_var['needs_default']))
+						echo '
+							<input type="hidden" name="', $config_var['name'], '" value="0" />';
+
 					echo '
 							<input type="checkbox"', $javascript, $disabled, ' name="', $config_var['name'], '" id="', $config_var['name'], '"', ($config_var['value'] ? ' checked="checked"' : ''), ' value="1" class="input_check" />';
+				}
 				// Escape (via htmlspecialchars.) the text box.
 				elseif ($config_var['type'] == 'password')
 					echo '
@@ -1358,8 +1364,15 @@ function template_core_features()
 			// Change the image, alternative text and the title.
 			document.getElementById("switch_" + itemID).src = \'', $settings['images_url'], '/admin/switch_\' + (itemValueHandle.value == 1 ? \'on\' : \'off\') + \'.png\';
 			document.getElementById("switch_" + itemID).alt = itemValueHandle.value == 1 ? \'', $txt['core_settings_switch_off'], '\' : \'', $txt['core_settings_switch_on'], '\';
-			document.getElementById("switch_" + itemID).title = itemValueHandle.value == 1 ? \'', $txt['core_settings_switch_off'], '\' : \'', $txt['core_settings_switch_on'], '\';
+			document.getElementById("switch_" + itemID).title = itemValueHandle.value == 1 ? \'', $txt['core_settings_switch_off'], '\' : \'', $txt['core_settings_switch_on'], '\';';
 
+	if (!empty($context['show_privacy_policy_warning']))
+		echo '
+			if (itemID == "gdpr" && itemValueHandle.value == 1) {
+				alert("' . $txt['core_settings_privacy_policy_warning'] . '");
+			}';
+
+	echo '
 			// Don\'t reload.
 			return false;
 		}

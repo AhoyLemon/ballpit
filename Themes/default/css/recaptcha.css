@@ -1,0 +1,8 @@
+div.g-recaptcha div {
+    margin: 1em auto;
+}
+
+#admincenter #recaptcha_public_key, #admincenter #recaptcha_private_key {
+    width: 75%;
+    max-width: 50ex;
+}

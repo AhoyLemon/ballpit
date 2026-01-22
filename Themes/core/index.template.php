@@ -7,7 +7,7 @@
  * @copyright 2011 Simple Machines
  * @license http://www.simplemachines.org/about/smf/license.php BSD
  *
- * @version 2.0
+ * @version 2.0.16
  */
 
 /*	This template is, perhaps, the most important template in the theme. It
@@ -288,7 +288,7 @@ function template_body_above()
 					<input type="text" name="openid_identifier" id="openid_url" size="25" class="input_text openid_login" />';
 
 		echo '
-					<input type="hidden" name="hash_passwrd" value="" />
+					<input type="hidden" name="hash_passwrd" value="" /><input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 				</form>';
 	}
 

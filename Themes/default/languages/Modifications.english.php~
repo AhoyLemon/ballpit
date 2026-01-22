@@ -1,0 +1,9 @@
+<?php
+// Version: 2.0; Modifications
+
+// Begin Auto Embed Twitter Strings
+$txt['autotwitter_tweeterror'] = 'Tweet error (does not exist)';
+$txt['autotwitter_blankid'] = 'Tweet error (blank ID)';
+// END Auto Embed Twitter Strings			
+
+?>

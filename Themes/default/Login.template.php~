@@ -7,7 +7,7 @@
  * @copyright 2011 Simple Machines
  * @license http://www.simplemachines.org/about/smf/license.php BSD
  *
- * @version 2.0
+ * @version 2.0.15
  */
 
 // This is just the basic "login" form.
@@ -69,7 +69,7 @@ function template_login()
 	echo '
 				</dl>
 				<p><input type="submit" value="', $txt['login'], '" class="button_submit" /></p>
-				<p class="smalltext"><a href="', $scripturl, '?action=reminder">', $txt['forgot_your_password'], '</a></p>
+				<p class="smalltext"><a href="', $scripturl, '?action=reminder">', $txt['forgot_your_password'], '</a></p><input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 				<input type="hidden" name="hash_passwrd" value="" />
 			</div>
 			<span class="lowerframe"><span></span></span>
@@ -131,7 +131,7 @@ function template_kick_guest()
 					<dd><input type="checkbox" name="cookieneverexp" class="input_check" onclick="this.form.cookielength.disabled = this.checked;" /></dd>
 				</dl>
 				<p class="centertext"><input type="submit" value="', $txt['login'], '" class="button_submit" /></p>
-				<p class="centertext smalltext"><a href="', $scripturl, '?action=reminder">', $txt['forgot_your_password'], '</a></p>
+				<p class="centertext smalltext"><a href="', $scripturl, '?action=reminder">', $txt['forgot_your_password'], '</a></p><input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 			</div>
 			<span class="lowerframe"><span></span></span>
 			<input type="hidden" name="hash_passwrd" value="" />
@@ -180,7 +180,7 @@ function template_maintenance()
 			<p class="centertext"><input type="submit" value="', $txt['login'], '" class="button_submit" /></p>
 		</div>
 		<span class="lowerframe"><span></span></span>
-		<input type="hidden" name="hash_passwrd" value="" />
+		<input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" /><input type="hidden" name="hash_passwrd" value="" />
 	</div>
 </form>';
 }
@@ -196,6 +196,11 @@ function template_admin_login()
 
 <form action="', $scripturl, $context['get_data'], '" method="post" accept-charset="', $context['character_set'], '" name="frmLogin" id="frmLogin" onsubmit="hashAdminPassword(this, \'', $context['user']['username'], '\', \'', $context['session_id'], '\');">
 	<div class="tborder login" id="admin_login">
+		<div class="cat_bar">
+			<h3 class="catbg">
+				<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/icons/login_sm.gif" alt="" class="icon" /> ', $txt['login'], '</span>
+			</h3>
+		</div>
 		<span class="upperframe"><span></span></span>
 		<div class="roundframe centertext">';
 

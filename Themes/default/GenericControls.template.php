@@ -286,6 +286,8 @@ function template_control_verification($verify_id, $display_type = 'all', $reset
 	// How many items are there to display in total.
 	$total_items = count($verify_context['questions']) + ($verify_context['show_visual'] ? 1 : 0);
 
+	$total_items += ($verify_context['use_recaptcha'] ? 1 : 0);
+
 	// If we've gone too far, stop.
 	if ($verify_context['tracking'] > $total_items)
 		return false;
@@ -301,8 +303,16 @@ function template_control_verification($verify_id, $display_type = 'all', $reset
 			echo '
 			<div id="verification_control_', $i, '" class="verification_control">';
 
+
+        if ($i == 0 && $verify_context['use_recaptcha'])
+        {
+            // Render the reCAPTCHA Widget. Also, add a hidden form element so we pass back the "*_vv" values expected
+            //by some of the CAPTCHA-checking code in SMF to trigger the verification routines.
+            echo '<div class="g-recaptcha" data-sitekey="', $modSettings['recaptcha_public_key'], '" data-theme="', $modSettings['recaptcha_theme'] ,'"></div>
+              <input type="hidden" name="', $verify_id, '_vv[recaptcha]" value="true">';
+        }
 		// Do the actual stuff - image first?
-		if ($i == 0 && $verify_context['show_visual'])
+		elseif ($i == 0 && $verify_context['show_visual'])
 		{
 			if ($context['use_graphic_library'])
 				echo '

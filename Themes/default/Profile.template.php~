@@ -7,7 +7,7 @@
  * @copyright 2011 Simple Machines
  * @license http://www.simplemachines.org/about/smf/license.php BSD
  *
- * @version 2.0
+ * @version 2.0.14
  */
 
 // Template for the profile side bar - goes before any other profile template.
@@ -46,14 +46,14 @@ function template_profile_below()
 // This template displays users details without any option to edit them.
 function template_summary()
 {
-	global $context, $settings, $options, $scripturl, $modSettings, $txt, $boardurl;
+	global $context, $settings, $options, $scripturl, $modSettings, $txt;
 
 	// Display the basic information about the user
 	echo '
 <div id="profileview" class="flow_auto">
 	<div class="cat_bar">
 		<h3 class="catbg">
-			<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/icons/profile_sm.gif" alt="" class="icon" />', $txt['summary'], '</span>
+			<span class="ie6_header floatleft"><img src="', $settings['images_url'], '/icons/user_talking.png" alt="" class="icon" />', $txt['summary'], '</span>
 		</h3>
 	</div>
 	<div id="basicinfo">
@@ -67,12 +67,12 @@ function template_summary()
 	// What about if we allow email only via the forum??
 	if ($context['member']['show_email'] === 'yes' || $context['member']['show_email'] === 'no_through_forum' || $context['member']['show_email'] === 'yes_permission_override')
 		echo '
-					<li><a href="', $scripturl, '?action=emailuser;sa=email;uid=', $context['member']['id'], '" title="', $context['member']['show_email'] == 'yes' || $context['member']['show_email'] == 'yes_permission_override' ? $context['member']['email'] : '', '" rel="nofollow"><img src="', $settings['images_url'], '/email_sm.gif" alt="', $txt['email'], '" /></a></li>';
+					<li><a href="', $scripturl, '?action=emailuser;sa=email;uid=', $context['member']['id'], '" title="', $context['member']['show_email'] == 'yes' || $context['member']['show_email'] == 'yes_permission_override' ? $context['member']['email'] : '', '" rel="nofollow"><img src="', $settings['images_url'], '/icons/16/mail.png" alt="', $txt['email'], '" /></a></li>';
 
 	// Don't show an icon if they haven't specified a website.
 	if ($context['member']['website']['url'] !== '' && !isset($context['disabled_fields']['website']))
 		echo '
-					<li><a href="', $context['member']['website']['url'], '" title="' . $context['member']['website']['title'] . '" target="_blank" class="new_win">', ($settings['use_image_buttons'] ? '<img src="' . $settings['images_url'] . '/www_sm.gif" alt="' . $context['member']['website']['title'] . '" />' : $txt['www']), '</a></li>';
+					<li><a href="', $context['member']['website']['url'], '" title="' . $context['member']['website']['title'] . '" target="_blank" class="new_win">', ($settings['use_image_buttons'] ? '<img src="' . $settings['images_url'] . '/icons/16/website.png" alt="' . $context['member']['website']['title'] . '" />' : $txt['www']), '</a></li>';
 
 	// Are there any custom profile fields for the summary?
 	if (!empty($context['custom_fields']))
@@ -89,7 +89,7 @@ function template_summary()
 				', !isset($context['disabled_fields']['aim']) && !empty($context['member']['aim']['link']) ? '<li>' . $context['member']['aim']['link'] . '</li>' : '', '
 				', !isset($context['disabled_fields']['yim']) && !empty($context['member']['yim']['link']) ? '<li>' . $context['member']['yim']['link'] . '</li>' : '', '
 			</ul>
-			<span id="userstatus">', $context['can_send_pm'] ? '<a href="' . $context['member']['online']['href'] . '" title="' . $context['member']['online']['label'] . '" rel="nofollow">' : '', $settings['use_image_buttons'] ? '<img src="' . $context['member']['online']['image_href'] . '" alt="' . $context['member']['online']['text'] . '" align="middle" />' : $context['member']['online']['text'], $context['can_send_pm'] ? '</a>' : '', $settings['use_image_buttons'] ? '<span class="smalltext"> ' . $context['member']['online']['text'] . '</span>' : '';
+			<span id="userstatus">', $context['can_send_pm'] ? '<img src="' . $context['member']['online']['image_href'] . '" alt="' . $context['member']['online']['text'] . '" align="middle" />' : $context['member']['online']['text'], $settings['use_image_buttons'] ? '<span class="smalltext"> ' . $context['member']['online']['text'] . '</span>' : '';
 
 	// Can they add this member as a buddy?
 	if (!empty($context['can_have_buddy']) && !$context['user']['is_owner'])
@@ -284,20 +284,6 @@ function template_summary()
 					<dt>', $txt['lastLoggedIn'], ': </dt>
 					<dd>', $context['member']['last_login'], '</dd>
 				</dl>';
-				// SteamProfile Mod by roco
-				if(!empty($context['member']['options']['steamprofile']))
-				{
-				echo '
-							<dt>Steam ', $txt['steamprofile_profile'], ' status: </dt>
-							<dd>
-								<script type="text/javascript" src="', $boardurl, '/steamprofile/jquery-1.3.2.min.js"></script>
-								<script type="text/javascript" src="', $boardurl, '/steamprofile/steamprofile.js"></script>
-								<div class="steamprofile" title="' . $context['member']['options']['steamprofile'] . '" style="width:250px; margin:0 0;"></div>
-							</dd>';
-				}
-		
-			echo '
-			</dl>';
 
 	// Are there any custom profile fields for the summary?
 	if (!empty($context['custom_fields']))
@@ -1141,7 +1127,7 @@ function template_statPanel()
 // Template for editing profile options.
 function template_edit_options()
 {
-	global $context, $settings, $options, $scripturl, $modSettings, $txt, $boardurl;
+	global $context, $settings, $options, $scripturl, $modSettings, $txt;
 
 	// The main header!
 	echo '
@@ -1305,19 +1291,6 @@ function template_edit_options()
 
 	}
 
-	// Steam Profile Mod by Roco
-	if(!empty($context['member']['options']['steamprofile']))
-		{
-		echo '
-				<dl>
-					<dt><b>Steam ', $txt['steamprofile_profile'], ' ', $txt['steamprofile_view'], ':</b><div class="smalltext">', $txt['steamprofile_view_desc'], ' -&#8250;</div></dt>
-					<dd>
-						<script type="text/javascript" src="' ,$boardurl , '/steamprofile/jquery-1.3.2.min.js"></script>
-						<script type="text/javascript" src="' ,$boardurl , '/steamprofile/steamprofile.js"></script>
-						<div class="steamprofile" title="' . $context['member']['options']['steamprofile'] . '" style="width:250px; float:left;"></div>
-					</dd>
-				</dl>';
-		}
 	// Any closing HTML?
 	if (!empty($context['profile_posthtml']))
 		echo '
@@ -2743,7 +2716,7 @@ function template_profile_avatar_select()
 		echo '
 								<div id="avatar_external">
 									<div class="smalltext">', $txt['avatar_by_url'], '</div>
-									<input type="text" name="userpicpersonal" size="45" value="', $context['member']['avatar']['external'], '" onfocus="selectRadioByName(document.forms.creator.avatar_choice, \'external\');" onchange="if (typeof(previewExternalAvatar) != \'undefined\') previewExternalAvatar(this.value);" class="input_text" />
+									<input type="text" name="userpicpersonal" size="45" value="', $context['member']['avatar']['external_original'], '" onfocus="selectRadioByName(document.forms.creator.avatar_choice, \'external\');" onchange="if (typeof(previewExternalAvatar) != \'undefined\') previewExternalAvatar(this.value);" class="input_text" />
 								</div>';
 	}
 

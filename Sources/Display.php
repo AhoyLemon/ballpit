@@ -8,7 +8,7 @@
  * @copyright 2011 Simple Machines
  * @license http://www.simplemachines.org/about/smf/license.php BSD
  *
- * @version 2.0.7
+ * @version 2.0.18
  */
 
 if (!defined('SMF'))
@@ -710,9 +710,9 @@ function Display()
 			'has_voted' => !empty($pollinfo['has_voted']),
 			'starter' => array(
 				'id' => $pollinfo['id_member'],
-				'name' => $row['poster_name'],
+				'name' => $pollinfo['poster_name'],
 				'href' => $pollinfo['id_member'] == 0 ? '' : $scripturl . '?action=profile;u=' . $pollinfo['id_member'],
-				'link' => $pollinfo['id_member'] == 0 ? $row['poster_name'] : '<a href="' . $scripturl . '?action=profile;u=' . $pollinfo['id_member'] . '">' . $row['poster_name'] . '</a>'
+				'link' => $pollinfo['id_member'] == 0 ? $pollinfo['poster_name'] : '<a href="' . $scripturl . '?action=profile;u=' . $pollinfo['id_member'] . '">' . $pollinfo['poster_name'] . '</a>'
 			)
 		);
 
@@ -736,7 +736,7 @@ function Display()
 		// 4. you've waited long enough for the poll to expire. (whether hide_results is 1 or 2.)
 		$context['allow_poll_view'] = allowedTo('moderate_board') || $pollinfo['hide_results'] == 0 || ($pollinfo['hide_results'] == 1 && $context['poll']['has_voted']) || $context['poll']['is_expired'];
 		$context['poll']['show_results'] = $context['allow_poll_view'] && (isset($_REQUEST['viewresults']) || isset($_REQUEST['viewResults']));
-		$context['show_view_results_button'] = $context['allow_vote'] && (!$context['allow_poll_view'] || !$context['poll']['show_results'] || !$context['poll']['has_voted']);
+		$context['show_view_results_button'] = $context['allow_vote'] && $context['allow_poll_view'] && !$context['poll']['show_results'];
 
 		// You're allowed to change your vote if:
 		// 1. the poll did not expire, and
@@ -1418,9 +1418,10 @@ function Download()
 
 	// Convert the file to UTF-8, cuz most browsers dig that.
 	$utf8name = !$context['utf8'] && function_exists('iconv') ? iconv($context['character_set'], 'UTF-8', $real_filename) : (!$context['utf8'] && function_exists('mb_convert_encoding') ? mb_convert_encoding($real_filename, 'UTF-8', $context['character_set']) : $real_filename);
-	$fixchar = create_function('$n', '
+	$fixchar = function($n)
+	{
 		if ($n < 32)
-			return \'\';
+			return '';
 		elseif ($n < 128)
 			return chr($n);
 		elseif ($n < 2048)
@@ -1428,7 +1429,8 @@ function Download()
 		elseif ($n < 65536)
 			return chr(224 | $n >> 12) . chr(128 | $n >> 6 & 63) . chr(128 | $n & 63);
 		else
-			return chr(240 | $n >> 18) . chr(128 | $n >> 12 & 63) . chr(128 | $n >> 6 & 63) . chr(128 | $n & 63);');
+			return chr(240 | $n >> 18) . chr(128 | $n >> 12 & 63) . chr(128 | $n >> 6 & 63) . chr(128 | $n & 63);
+	};
 
 	$disposition = !isset($_REQUEST['image']) ? 'attachment' : 'inline';
 
@@ -1461,11 +1463,11 @@ function Download()
 	if (!empty($modSettings['attachmentRecodeLineEndings']) && !isset($_REQUEST['image']) && in_array($file_ext, array('txt', 'css', 'htm', 'html', 'php', 'xml')))
 	{
 		if (strpos($_SERVER['HTTP_USER_AGENT'], 'Windows') !== false)
-			$callback = create_function('$buffer', 'return preg_replace(\'~[\r]?\n~\', "\r\n", $buffer);');
+			$callback = function($buffer){return preg_replace('~[\r]?\n~', "\r\n", $buffer);};
 		elseif (strpos($_SERVER['HTTP_USER_AGENT'], 'Mac') !== false)
-			$callback = create_function('$buffer', 'return preg_replace(\'~[\r]?\n~\', "\r", $buffer);');
+			$callback = function($buffer){return preg_replace('~[\r]?\n~', "\r", $buffer);};
 		else
-			$callback = create_function('$buffer', 'return preg_replace(\'~[\r]?\n~\', "\n", $buffer);');
+			$callback = function($buffer){return preg_replace('~[\r]?\n~', "\n", $buffer);};
 	}
 
 	// Since we don't do output compression for files this large...
@@ -1552,7 +1554,7 @@ function loadAttachmentContext($id_msg)
 						if (!empty($modSettings['currentAttachmentUploadDir']))
 						{
 							if (!is_array($modSettings['attachmentUploadDir']))
-								$modSettings['attachmentUploadDir'] = @unserialize($modSettings['attachmentUploadDir']);
+								$modSettings['attachmentUploadDir'] = safe_unserialize($modSettings['attachmentUploadDir']);
 							$path = $modSettings['attachmentUploadDir'][$modSettings['currentAttachmentUploadDir']];
 							$id_folder_thumb = $modSettings['currentAttachmentUploadDir'];
 						}

@@ -7,7 +7,7 @@
  * @copyright 2011 Simple Machines
  * @license http://www.simplemachines.org/about/smf/license.php BSD
  *
- * @version 2.0
+ * @version 2.0.16
  */
 
 function template_sendbody()
@@ -139,7 +139,7 @@ function template_stats()
 	echo '<', '?xml version="1.0" encoding="', $context['character_set'], '"?', '>
 <smf>';
 	foreach ($context['yearly'] as $year)
-		foreach ($year['months'] as $month);
+		foreach ($year['months'] as $month)
 		{
 			echo '
 	<month id="', $month['date']['year'], $month['date']['month'], '">';

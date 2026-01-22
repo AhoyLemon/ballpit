@@ -7,7 +7,7 @@
  * @copyright 2011 Simple Machines
  * @license http://www.simplemachines.org/about/smf/license.php BSD
  *
- * @version 2.0
+ * @version 2.0.16
  */
 
 // Form for editing current news on the site.
@@ -80,7 +80,7 @@ function template_edit_news()
 
 function template_email_members()
 {
-	global $context, $settings, $options, $txt, $scripturl;
+	global $context, $settings, $options, $txt, $scripturl, $modSettings;
 
 	// This is some javascript for the simple/advanced toggling stuff.
 	echo '
@@ -143,14 +143,19 @@ function template_email_members()
 			<div class="windowbg2" id="advanced_settings_div" style="display: none;">
 				<span class="topslice"><span></span></span>
 				<div class="content">
-					<dl class="settings">
+					<dl class="settings">';
+
+	if (empty($modSettings['force_gdpr']))
+		echo '
 						<dt>
 							<strong>', $txt['admin_news_select_email'], ':</strong><br />
 							<span class="smalltext">', $txt['admin_news_select_email_desc'], '</span>
 						</dt>
 						<dd>
 							<textarea name="emails" rows="5" cols="30" style="' . ($context['browser']['is_ie8'] ? 'width: 635px; max-width: 98%; min-width: 98%' : 'width: 98%') . ';"></textarea>
-						</dd>
+						</dd>';
+
+	echo '
 						<dt>
 							<strong>', $txt['admin_news_select_members'], ':</strong><br />
 							<span class="smalltext">', $txt['admin_news_select_members_desc'], '</span>
@@ -184,7 +189,10 @@ function template_email_members()
 							<input type="text" name="exclude_members" id="exclude_members" value="" size="30" class="input_text" />
 							<span id="exclude_members_container"></span>
 						</dd>
-					</dl>
+					</dl>';
+
+	if (empty($modSettings['force_gdpr']))
+		echo '
 					<hr class="bordercolor" />
 					<dl class="settings">
 						<dt>
@@ -194,7 +202,10 @@ function template_email_members()
 						<dd>
 							<input type="checkbox" name="email_force" id="email_force" value="1" class="input_check" />
 						</dd>
-					</dl><br class="clear" />
+					</dl>';
+
+	echo '
+					<br class="clear" />
 				</div>
 				<span class="botslice"><span></span></span>
 			</div>

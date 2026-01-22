@@ -7,7 +7,7 @@
  * @copyright 2011 Simple Machines
  * @license http://www.simplemachines.org/about/smf/license.php BSD
  *
- * @version 2.0
+ * @version 2.0.19
  */
 
 /*	This template is, perhaps, the most important template in the theme. It
@@ -147,12 +147,6 @@ function template_html_above()
 		echo '
 	<link rel="alternate" type="application/rss+xml" title="', $context['forum_name_html_safe'], ' - ', $txt['rss'], '" href="', $scripturl, '?type=rss;action=.xml" />';
 
-	// If we're viewing a topic, these should be the previous and next topics, respectively.
-	if (!empty($context['current_topic']))
-		echo '
-	<link rel="prev" href="', $scripturl, '?topic=', $context['current_topic'], '.0;prev_next=prev" />
-	<link rel="next" href="', $scripturl, '?topic=', $context['current_topic'], '.0;prev_next=next" />';
-
 	// If we're in a board, or a topic for that matter, the index will be the board's index.
 	if (!empty($context['current_board']))
 		echo '
@@ -241,7 +235,7 @@ function template_body_above()
 					<br /><input type="text" name="openid_identifier" id="openid_url" size="25" class="input_text openid_login" />';
 
 		echo '
-					<input type="hidden" name="hash_passwrd" value="" />
+					<input type="hidden" name="hash_passwrd" value="" /><input type="hidden" name="', $context['session_var'], '" value="', $context['session_id'], '" />
 				</form>';
 	}
 

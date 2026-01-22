@@ -7,7 +7,7 @@
  * @copyright 2011 Simple Machines
  * @license http://www.simplemachines.org/about/smf/license.php BSD
  *
- * @version 2.0.10
+ * @version 2.0.18
  */
 
 function template_main()
@@ -305,7 +305,7 @@ function template_results()
 
 			echo '
 			<div class="search_results_posts">
-			<div class="', $message['alternate'] == 0 ? 'windowbg' : 'windowbg2', ' core_posts">
+			<div class="', empty($message['alternate']) ? 'windowbg' : 'windowbg2', ' core_posts">
 				<span class="topslice"><span></span></span>
 				<div class="content flow_auto">';
 

@@ -1,0 +1,334 @@
+[02-Feb-2013 02:20:34 UTC] PHP Parse error:  syntax error, unexpected T_STRING, expecting ',' or ';' in /home/hirelem/public_html/ballpit/Themes/Giggle/index.template.php on line 238
+[02-Feb-2013 02:21:24 UTC] PHP Parse error:  syntax error, unexpected T_STRING, expecting ',' or ';' in /home/hirelem/public_html/ballpit/Themes/Giggle/index.template.php on line 238
+[02-Feb-2013 02:22:36 UTC] PHP Parse error:  syntax error, unexpected T_STRING, expecting ',' or ';' in /home/hirelem/public_html/ballpit/Themes/Giggle/index.template.php on line 238
+[02-Feb-2013 02:25:21 UTC] PHP Parse error:  syntax error, unexpected $end in /home/hirelem/public_html/ballpit/Themes/Giggle/index.template.php on line 428
+[02-Feb-2013 02:26:22 UTC] PHP Parse error:  syntax error, unexpected $end in /home/hirelem/public_html/ballpit/Themes/Giggle/index.template.php on line 428
+[02-Feb-2013 02:26:33 UTC] PHP Parse error:  syntax error, unexpected $end in /home/hirelem/public_html/ballpit/Themes/Giggle/index.template.php on line 428
+[02-Feb-2013 02:28:27 UTC] PHP Parse error:  syntax error, unexpected $end in /home/hirelem/public_html/ballpit/Themes/Giggle/index.template.php on line 428
+[02-Feb-2013 02:35:38 UTC] PHP Parse error:  syntax error, unexpected $end in /home/hirelem/public_html/ballpit/Themes/Giggle/index.template.php on line 428
+[02-Feb-2013 03:02:58 UTC] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required '/path/to/forum/SSI.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/hirelem/public_html/ballpit/Themes/Giggle/index.template.php on line 2
+[02-Feb-2013 03:03:01 UTC] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required '/path/to/forum/SSI.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/hirelem/public_html/ballpit/Themes/Giggle/index.template.php on line 2
+[02-Feb-2013 03:03:02 UTC] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required '/path/to/forum/SSI.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/hirelem/public_html/ballpit/Themes/Giggle/index.template.php on line 2
+[02-Feb-2013 03:03:05 UTC] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required '/path/to/forum/SSI.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/hirelem/public_html/ballpit/Themes/Giggle/index.template.php on line 2
+[02-Feb-2013 03:03:06 UTC] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required '/path/to/forum/SSI.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/hirelem/public_html/ballpit/Themes/Giggle/index.template.php on line 2
+[02-Feb-2013 03:03:09 UTC] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required '/path/to/forum/SSI.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/hirelem/public_html/ballpit/Themes/Giggle/index.template.php on line 2
+[02-Feb-2013 03:03:11 UTC] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required '/path/to/forum/SSI.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/hirelem/public_html/ballpit/Themes/Giggle/index.template.php on line 2
+[02-Feb-2013 03:03:13 UTC] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required '/path/to/forum/SSI.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/hirelem/public_html/ballpit/Themes/Giggle/index.template.php on line 2
+[02-Feb-2013 03:03:17 UTC] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required '/path/to/forum/SSI.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/hirelem/public_html/ballpit/Themes/Giggle/index.template.php on line 2
+[02-Feb-2013 03:03:34 UTC] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required '/path/to/forum/SSI.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/hirelem/public_html/ballpit/Themes/Giggle/index.template.php on line 2
+[02-Feb-2013 03:03:38 UTC] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required '/path/to/forum/SSI.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/hirelem/public_html/ballpit/Themes/Giggle/index.template.php on line 2
+[02-Feb-2013 03:03:41 UTC] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required '/path/to/forum/SSI.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/hirelem/public_html/ballpit/Themes/Giggle/index.template.php on line 2
+[02-Feb-2013 03:03:41 UTC] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required '/path/to/forum/SSI.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/hirelem/public_html/ballpit/Themes/Giggle/index.template.php on line 2
+[02-Feb-2013 03:03:43 UTC] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required '/path/to/forum/SSI.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/hirelem/public_html/ballpit/Themes/Giggle/index.template.php on line 2
+[02-Feb-2013 03:03:48 UTC] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required '/path/to/forum/SSI.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/hirelem/public_html/ballpit/Themes/Giggle/index.template.php on line 2
+[02-Feb-2013 03:03:54 UTC] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required '/path/to/forum/SSI.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/hirelem/public_html/ballpit/Themes/Giggle/index.template.php on line 2
+[02-Feb-2013 03:03:54 UTC] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required '/path/to/forum/SSI.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/hirelem/public_html/ballpit/Themes/Giggle/index.template.php on line 2
+[02-Feb-2013 03:03:55 UTC] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required '/path/to/forum/SSI.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/hirelem/public_html/ballpit/Themes/Giggle/index.template.php on line 2
+[06-Feb-2013 00:56:23 UTC] PHP Parse error:  syntax error, unexpected '<' in /home/hirelem/public_html/ballpit/Themes/Giggle/index.template.php on line 166
+[06-Feb-2013 00:56:29 UTC] PHP Parse error:  syntax error, unexpected '<' in /home/hirelem/public_html/ballpit/Themes/Giggle/index.template.php on line 166
+[06-Feb-2013 00:56:31 UTC] PHP Parse error:  syntax error, unexpected '<' in /home/hirelem/public_html/ballpit/Themes/Giggle/index.template.php on line 166
+[06-Feb-2013 00:56:34 UTC] PHP Parse error:  syntax error, unexpected '<' in /home/hirelem/public_html/ballpit/Themes/Giggle/index.template.php on line 166
+[06-Feb-2013 00:56:39 UTC] PHP Parse error:  syntax error, unexpected '<' in /home/hirelem/public_html/ballpit/Themes/Giggle/index.template.php on line 166
+[09-Feb-2013 00:00:23 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[09-Feb-2013 00:00:23 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[09-Feb-2013 00:00:23 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[09-Feb-2013 00:00:23 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[09-Feb-2013 00:00:23 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[09-Feb-2013 05:26:41 UTC] PHP Warning:  require(/home/hirelem/public_html/ballpit/cache/data_b58e372a2c44354e876faa8f6897d95b-SMF-modSettings.php) [<a href='function.require'>function.require</a>]: failed to open stream: No such file or directory in /home/hirelem/public_html/ballpit/Sources/Load.php on line 2699
+[09-Feb-2013 05:26:41 UTC] PHP Fatal error:  require() [<a href='function.require'>function.require</a>]: Failed opening required '/home/hirelem/public_html/ballpit/cache/data_b58e372a2c44354e876faa8f6897d95b-SMF-modSettings.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/hirelem/public_html/ballpit/Sources/Load.php on line 2699
+[10-Feb-2013 00:02:18 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[10-Feb-2013 00:02:18 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[10-Feb-2013 00:02:18 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[10-Feb-2013 00:02:18 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[10-Feb-2013 00:02:18 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[10-Feb-2013 18:55:02 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/hirelem/public_html/ballpit/Themes/Giggle/Search.template.php on line 223
+[11-Feb-2013 00:03:07 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[11-Feb-2013 00:03:07 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[11-Feb-2013 00:03:07 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[11-Feb-2013 00:03:07 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[11-Feb-2013 00:03:07 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[12-Feb-2013 00:07:58 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[12-Feb-2013 00:07:58 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[12-Feb-2013 00:07:58 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[12-Feb-2013 00:07:58 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[12-Feb-2013 00:07:58 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[13-Feb-2013 00:01:52 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[13-Feb-2013 00:01:52 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[13-Feb-2013 00:01:52 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[13-Feb-2013 00:01:52 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[13-Feb-2013 00:01:52 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[14-Feb-2013 00:07:01 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[14-Feb-2013 00:07:01 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[14-Feb-2013 00:07:01 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[14-Feb-2013 00:07:01 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[14-Feb-2013 00:07:01 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[15-Feb-2013 00:00:06 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[15-Feb-2013 00:00:06 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[15-Feb-2013 00:00:06 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[15-Feb-2013 00:00:06 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[15-Feb-2013 00:00:06 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[16-Feb-2013 00:00:06 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[16-Feb-2013 00:00:06 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[16-Feb-2013 00:00:06 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[16-Feb-2013 00:00:06 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[16-Feb-2013 00:00:06 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[17-Feb-2013 00:00:10 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[17-Feb-2013 00:00:10 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[17-Feb-2013 00:00:10 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[17-Feb-2013 00:00:10 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[17-Feb-2013 00:00:10 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[18-Feb-2013 00:01:22 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[18-Feb-2013 00:01:22 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[18-Feb-2013 00:01:22 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[18-Feb-2013 00:01:22 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[18-Feb-2013 00:01:22 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[19-Feb-2013 00:00:34 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[19-Feb-2013 00:00:34 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[19-Feb-2013 00:00:34 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[19-Feb-2013 00:00:34 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[19-Feb-2013 00:00:34 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[20-Feb-2013 00:05:42 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[20-Feb-2013 00:05:42 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[20-Feb-2013 00:05:42 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[20-Feb-2013 00:05:42 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[20-Feb-2013 00:05:42 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[21-Feb-2013 00:00:59 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[21-Feb-2013 00:00:59 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[21-Feb-2013 00:00:59 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[21-Feb-2013 00:00:59 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[21-Feb-2013 00:00:59 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[22-Feb-2013 00:04:02 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[22-Feb-2013 00:04:02 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[22-Feb-2013 00:04:02 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[22-Feb-2013 00:04:02 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[22-Feb-2013 00:04:02 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[22-Feb-2013 06:54:27 UTC] PHP Warning:  require(/home/hirelem/public_html/ballpit/cache/data_591febfd7a10ebe528ca1fdbae5a76fd-SMF-modSettings.php) [<a href='function.require'>function.require</a>]: failed to open stream: No such file or directory in /home/hirelem/public_html/ballpit/Sources/Load.php on line 2699
+[22-Feb-2013 06:54:27 UTC] PHP Fatal error:  require() [<a href='function.require'>function.require</a>]: Failed opening required '/home/hirelem/public_html/ballpit/cache/data_591febfd7a10ebe528ca1fdbae5a76fd-SMF-modSettings.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/hirelem/public_html/ballpit/Sources/Load.php on line 2699
+[23-Feb-2013 00:01:23 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[23-Feb-2013 00:01:23 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[23-Feb-2013 00:01:23 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[23-Feb-2013 00:01:23 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[23-Feb-2013 00:01:23 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[24-Feb-2013 00:05:10 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[24-Feb-2013 00:05:10 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[24-Feb-2013 00:05:10 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[24-Feb-2013 00:05:10 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[24-Feb-2013 00:05:10 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[25-Feb-2013 00:00:58 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[25-Feb-2013 00:00:58 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[25-Feb-2013 00:00:58 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[25-Feb-2013 00:00:58 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[25-Feb-2013 00:00:58 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[26-Feb-2013 00:00:15 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[26-Feb-2013 00:00:15 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[26-Feb-2013 00:00:15 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[26-Feb-2013 00:00:15 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[26-Feb-2013 00:00:15 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[27-Feb-2013 00:02:10 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[27-Feb-2013 00:02:10 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[27-Feb-2013 00:02:10 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[27-Feb-2013 00:02:10 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[27-Feb-2013 00:02:10 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[28-Feb-2013 00:01:25 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[28-Feb-2013 00:01:25 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[28-Feb-2013 00:01:25 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[28-Feb-2013 00:01:25 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[28-Feb-2013 00:01:25 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[01-Mar-2013 00:00:29 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[01-Mar-2013 00:00:29 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[01-Mar-2013 00:00:29 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[01-Mar-2013 00:00:29 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[01-Mar-2013 00:00:29 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[02-Mar-2013 00:00:54 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[02-Mar-2013 00:00:54 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[02-Mar-2013 00:00:54 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[02-Mar-2013 00:00:54 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[02-Mar-2013 00:00:54 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[03-Mar-2013 00:02:22 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[03-Mar-2013 00:02:22 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[03-Mar-2013 00:02:22 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[03-Mar-2013 00:02:22 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[03-Mar-2013 00:02:22 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[04-Mar-2013 00:02:45 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[04-Mar-2013 00:02:45 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[04-Mar-2013 00:02:45 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[04-Mar-2013 00:02:45 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[04-Mar-2013 00:02:45 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[05-Mar-2013 00:00:14 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[05-Mar-2013 00:00:14 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[05-Mar-2013 00:00:14 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[05-Mar-2013 00:00:14 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[05-Mar-2013 00:00:14 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[05-Mar-2013 03:32:56 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/hirelem/public_html/ballpit/Sources/Errors.php on line 346
+[05-Mar-2013 03:32:56 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/hirelem/public_html/ballpit/Sources/Errors.php on line 347
+[05-Mar-2013 03:32:56 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/hirelem/public_html/ballpit/Sources/Errors.php on line 348
+[05-Mar-2013 03:32:56 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/hirelem/public_html/ballpit/Sources/Errors.php on line 351
+[05-Mar-2013 03:32:56 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/hirelem/public_html/ballpit/Sources/Errors.php on line 352
+[05-Mar-2013 03:32:56 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/hirelem/public_html/ballpit/Sources/Errors.php on line 353
+[05-Mar-2013 03:34:46 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/hirelem/public_html/ballpit/Sources/Errors.php on line 346
+[05-Mar-2013 03:34:46 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/hirelem/public_html/ballpit/Sources/Errors.php on line 347
+[05-Mar-2013 03:34:46 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/hirelem/public_html/ballpit/Sources/Errors.php on line 348
+[05-Mar-2013 03:34:46 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/hirelem/public_html/ballpit/Sources/Errors.php on line 351
+[05-Mar-2013 03:34:46 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/hirelem/public_html/ballpit/Sources/Errors.php on line 352
+[05-Mar-2013 03:34:46 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/hirelem/public_html/ballpit/Sources/Errors.php on line 353
+[06-Mar-2013 00:01:42 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[06-Mar-2013 00:01:42 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[06-Mar-2013 00:01:42 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[06-Mar-2013 00:01:42 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[06-Mar-2013 00:01:42 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[07-Mar-2013 00:00:53 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[07-Mar-2013 00:00:53 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[07-Mar-2013 00:00:53 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[07-Mar-2013 00:00:53 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[07-Mar-2013 00:00:53 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[08-Mar-2013 00:00:33 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[08-Mar-2013 00:00:33 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[08-Mar-2013 00:00:33 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[08-Mar-2013 00:00:33 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[08-Mar-2013 00:00:33 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[09-Mar-2013 00:04:11 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[09-Mar-2013 00:04:11 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[09-Mar-2013 00:04:11 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[09-Mar-2013 00:04:11 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[09-Mar-2013 00:04:11 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[10-Mar-2013 00:01:08 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[10-Mar-2013 00:01:09 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[10-Mar-2013 00:01:09 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[10-Mar-2013 00:01:09 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[10-Mar-2013 00:01:09 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[11-Mar-2013 00:00:26 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[11-Mar-2013 00:00:26 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[11-Mar-2013 00:00:26 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[11-Mar-2013 00:00:26 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[11-Mar-2013 00:00:26 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[11-Mar-2013 23:00:07 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[11-Mar-2013 23:00:07 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[11-Mar-2013 23:00:07 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[11-Mar-2013 23:00:07 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[11-Mar-2013 23:00:07 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[12-Mar-2013 04:51:26 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/hirelem/public_html/ballpit/Sources/Errors.php on line 346
+[12-Mar-2013 04:51:26 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/hirelem/public_html/ballpit/Sources/Errors.php on line 347
+[12-Mar-2013 04:51:26 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/hirelem/public_html/ballpit/Sources/Errors.php on line 348
+[12-Mar-2013 04:51:26 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/hirelem/public_html/ballpit/Sources/Errors.php on line 351
+[12-Mar-2013 04:51:26 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/hirelem/public_html/ballpit/Sources/Errors.php on line 352
+[12-Mar-2013 04:51:26 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/hirelem/public_html/ballpit/Sources/Errors.php on line 353
+[12-Mar-2013 23:00:11 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[12-Mar-2013 23:00:11 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[12-Mar-2013 23:00:11 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[12-Mar-2013 23:00:11 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[12-Mar-2013 23:00:11 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[13-Mar-2013 23:04:23 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[13-Mar-2013 23:04:23 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[13-Mar-2013 23:04:23 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[13-Mar-2013 23:04:23 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[13-Mar-2013 23:04:23 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[14-Mar-2013 23:04:30 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[14-Mar-2013 23:04:30 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[14-Mar-2013 23:04:30 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[14-Mar-2013 23:04:30 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[14-Mar-2013 23:04:30 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[15-Mar-2013 23:03:25 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[15-Mar-2013 23:03:25 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[15-Mar-2013 23:03:25 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[15-Mar-2013 23:03:25 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[15-Mar-2013 23:03:25 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[16-Mar-2013 23:02:40 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[16-Mar-2013 23:02:40 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[16-Mar-2013 23:02:40 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[16-Mar-2013 23:02:40 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[16-Mar-2013 23:02:40 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[17-Mar-2013 23:04:21 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[17-Mar-2013 23:04:21 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[17-Mar-2013 23:04:21 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[17-Mar-2013 23:04:21 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[17-Mar-2013 23:04:21 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[18-Mar-2013 07:17:57 UTC] PHP Warning:  require(/home/hirelem/public_html/ballpit/cache/data_ae8fa45401063bb85c132752f7ba4be9-SMF-modSettings.php) [<a href='function.require'>function.require</a>]: failed to open stream: No such file or directory in /home/hirelem/public_html/ballpit/Sources/Load.php on line 2699
+[18-Mar-2013 07:17:57 UTC] PHP Fatal error:  require() [<a href='function.require'>function.require</a>]: Failed opening required '/home/hirelem/public_html/ballpit/cache/data_ae8fa45401063bb85c132752f7ba4be9-SMF-modSettings.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/hirelem/public_html/ballpit/Sources/Load.php on line 2699
+[18-Mar-2013 23:04:30 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[18-Mar-2013 23:04:30 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[18-Mar-2013 23:04:30 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[18-Mar-2013 23:04:30 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[18-Mar-2013 23:04:30 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[19-Mar-2013 23:01:37 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[19-Mar-2013 23:01:37 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[19-Mar-2013 23:01:37 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[19-Mar-2013 23:01:37 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[19-Mar-2013 23:01:37 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[20-Mar-2013 23:04:00 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[20-Mar-2013 23:04:00 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[20-Mar-2013 23:04:00 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[20-Mar-2013 23:04:00 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[20-Mar-2013 23:04:00 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[21-Mar-2013 23:00:35 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[21-Mar-2013 23:00:35 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[21-Mar-2013 23:00:35 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[21-Mar-2013 23:00:35 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[21-Mar-2013 23:00:35 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[22-Mar-2013 23:00:42 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[22-Mar-2013 23:00:42 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[22-Mar-2013 23:00:42 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[22-Mar-2013 23:00:42 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[22-Mar-2013 23:00:42 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[23-Mar-2013 23:01:31 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[23-Mar-2013 23:01:31 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[23-Mar-2013 23:01:31 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[23-Mar-2013 23:01:31 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[23-Mar-2013 23:01:31 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[24-Mar-2013 23:06:06 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[24-Mar-2013 23:06:06 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[24-Mar-2013 23:06:06 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[24-Mar-2013 23:06:06 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[24-Mar-2013 23:06:06 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[25-Mar-2013 23:07:57 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[25-Mar-2013 23:07:57 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[25-Mar-2013 23:07:57 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[25-Mar-2013 23:07:57 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[25-Mar-2013 23:07:57 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[26-Mar-2013 23:07:00 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[26-Mar-2013 23:07:00 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[26-Mar-2013 23:07:00 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[26-Mar-2013 23:07:00 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[26-Mar-2013 23:07:00 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[27-Mar-2013 23:00:44 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[27-Mar-2013 23:00:44 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[27-Mar-2013 23:00:44 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[27-Mar-2013 23:00:44 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[27-Mar-2013 23:00:44 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[28-Mar-2013 23:01:35 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[28-Mar-2013 23:01:35 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[28-Mar-2013 23:01:35 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[28-Mar-2013 23:01:35 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[28-Mar-2013 23:01:35 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[29-Mar-2013 23:03:26 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[29-Mar-2013 23:03:26 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[29-Mar-2013 23:03:26 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[29-Mar-2013 23:03:26 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[29-Mar-2013 23:03:26 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[30-Mar-2013 23:05:57 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[30-Mar-2013 23:05:57 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[30-Mar-2013 23:05:57 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[30-Mar-2013 23:05:57 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[30-Mar-2013 23:05:57 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[31-Mar-2013 23:01:18 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[31-Mar-2013 23:01:18 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[31-Mar-2013 23:01:18 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[31-Mar-2013 23:01:18 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[31-Mar-2013 23:01:18 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[01-Apr-2013 17:40:28 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/hirelem/public_html/ballpit/Sources/Errors.php on line 346
+[01-Apr-2013 17:40:28 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/hirelem/public_html/ballpit/Sources/Errors.php on line 347
+[01-Apr-2013 17:40:28 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/hirelem/public_html/ballpit/Sources/Errors.php on line 348
+[01-Apr-2013 17:40:28 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/hirelem/public_html/ballpit/Sources/Errors.php on line 351
+[01-Apr-2013 17:40:28 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/hirelem/public_html/ballpit/Sources/Errors.php on line 352
+[01-Apr-2013 17:40:28 UTC] PHP Warning:  Cannot modify header information - headers already sent in /home/hirelem/public_html/ballpit/Sources/Errors.php on line 353
+[01-Apr-2013 23:01:38 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[01-Apr-2013 23:01:38 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[01-Apr-2013 23:01:38 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[01-Apr-2013 23:01:38 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[01-Apr-2013 23:01:38 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[02-Apr-2013 23:00:12 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 622
+[02-Apr-2013 23:00:12 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1257
+[02-Apr-2013 23:00:12 UTC] PHP Notice:  Undefined index: utf8 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1259
+[02-Apr-2013 23:00:12 UTC] PHP Notice:  Undefined index: server in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[02-Apr-2013 23:00:12 UTC] PHP Warning:  preg_replace() [<a href='function.preg-replace'>function.preg-replace</a>]: Compilation failed: invalid UTF-8 string at offset 7 in /home/hirelem/public_html/ballpit/Sources/Subs-Post.php on line 1279
+[09-Apr-2013 20:13:42 UTC] PHP Warning:  require(/home/hirelem/public_html/ballpit/cache/data_7a6a06dd5547dbf17dac6859c3610529-SMF-modSettings.php) [<a href='function.require'>function.require</a>]: failed to open stream: No such file or directory in /home/hirelem/public_html/ballpit/Sources/Load.php on line 2699
+[09-Apr-2013 20:13:42 UTC] PHP Fatal error:  require() [<a href='function.require'>function.require</a>]: Failed opening required '/home/hirelem/public_html/ballpit/cache/data_7a6a06dd5547dbf17dac6859c3610529-SMF-modSettings.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/hirelem/public_html/ballpit/Sources/Load.php on line 2699

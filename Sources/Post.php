@@ -8,7 +8,7 @@
  * @copyright 2011 Simple Machines
  * @license http://www.simplemachines.org/about/smf/license.php BSD
  *
- * @version 2.0.10
+ * @version 2.0.18
  */
 
 if (!defined('SMF'))
@@ -243,8 +243,8 @@ function Post()
 		// Set up the poll options.
 		$context['poll_options'] = array(
 			'max_votes' => empty($_POST['poll_max_votes']) ? '1' : max(1, $_POST['poll_max_votes']),
-			'hide' => empty($_POST['poll_hide']) ? 0 : $_POST['poll_hide'],
-			'expire' => !isset($_POST['poll_expire']) ? '' : $_POST['poll_expire'],
+			'hide' => empty($_POST['poll_hide']) ? 0 : (int) $_POST['poll_hide'],
+			'expire' => !isset($_POST['poll_expire']) ? '' : (int) $_POST['poll_expire'],
 			'change_vote' => isset($_POST['poll_change_vote']),
 			'guest_vote' => isset($_POST['poll_guest_vote']),
 			'guest_vote_enabled' => in_array(-1, $allowedVoteGroups['allowed']),
@@ -450,7 +450,7 @@ function Post()
 				{
 					if (!isset($_REQUEST['email']) || $_REQUEST['email'] == '')
 						$context['post_error']['no_email'] = true;
-					elseif (preg_match('~^[0-9A-Za-z=_+\-/][0-9A-Za-z=_\'+\-/\.]*@[\w\-]+(\.[\w\-]+)*(\.[\w]{2,6})$~', $_REQUEST['email']) == 0)
+					elseif (filter_var($_REQUEST['email'], FILTER_VALIDATE_EMAIL) === false)
 						$context['post_error']['bad_email'] = true;
 				}
 			}
@@ -895,7 +895,7 @@ function Post()
 		if (!empty($modSettings['currentAttachmentUploadDir']))
 		{
 			if (!is_array($modSettings['attachmentUploadDir']))
-				$modSettings['attachmentUploadDir'] = unserialize($modSettings['attachmentUploadDir']);
+				$modSettings['attachmentUploadDir'] = safe_unserialize($modSettings['attachmentUploadDir']);
 
 			// Just use the current path for temp files.
 			$current_attach_dir = $modSettings['attachmentUploadDir'][$modSettings['currentAttachmentUploadDir']];
@@ -1487,7 +1487,7 @@ function Post2()
 			{
 				if (!allowedTo('moderate_forum') && (!isset($_POST['email']) || $_POST['email'] == ''))
 					$post_errors[] = 'no_email';
-				if (!allowedTo('moderate_forum') && preg_match('~^[0-9A-Za-z=_+\-/][0-9A-Za-z=_\'+\-/\.]*@[\w\-]+(\.[\w\-]+)*(\.[\w]{2,6})$~', $_POST['email']) == 0)
+				if (!allowedTo('moderate_forum') && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === false)
 					$post_errors[] = 'bad_email';
 			}
 
@@ -1684,7 +1684,7 @@ function Post2()
 		if (!empty($modSettings['currentAttachmentUploadDir']))
 		{
 			if (!is_array($modSettings['attachmentUploadDir']))
-				$modSettings['attachmentUploadDir'] = unserialize($modSettings['attachmentUploadDir']);
+				$modSettings['attachmentUploadDir'] = safe_unserialize($modSettings['attachmentUploadDir']);
 
 			// The current directory, of course!
 			$current_attach_dir = $modSettings['attachmentUploadDir'][$modSettings['currentAttachmentUploadDir']];
@@ -2290,7 +2290,12 @@ function AnnouncementSend()
 				'TOPICSUBJECT' => $context['topic_subject'],
 				'MESSAGE' => $message,
 				'TOPICLINK' => $scripturl . '?topic=' . $topic . '.0',
+				'UNSUBSCRIBELINK' => $scripturl . '?action=notifyannouncements',
 			);
+
+			// Tokens allow people to unsubscribe without logging in
+			if (!empty($modSettings['notify_tokens']))
+				$replacements['UNSUBSCRIBELINK'] .= ';u={UNSUBSCRIBE_ID};token={UNSUBSCRIBE_TOKEN}';
 
 			$emaildata = loadEmailTemplate('new_announcement', $replacements, $cur_language);
 
@@ -2308,7 +2313,22 @@ function AnnouncementSend()
 
 	// For each language send a different mail - low priority...
 	foreach ($announcements as $lang => $mail)
-		sendmail($mail['recipients'], $mail['subject'], $mail['body'], null, null, false, 5);
+	{
+		if (!empty($modSettings['notify_tokens']))
+		{
+			foreach ($mail['recipients'] as $member_id => $member_email)
+			{
+				require_once($sourcedir . '/Notify.php');
+				$token = createUnsubscribeToken($member_id, $member_email, 'announcements');
+
+				$body = str_replace(array('{UNSUBSCRIBE_ID}', '{UNSUBSCRIBE_TOKEN}'), array($member_id, $token), $mail['body']);
+
+				sendmail($member_email, $mail['subject'], $body, null, null, false, 5);
+			}
+		}
+		else
+			sendmail($mail['recipients'], $mail['subject'], $mail['body'], null, null, false, 5);
+	}
 
 	$context['percentage_done'] = round(100 * $context['start'] / $modSettings['latestMember'], 1);
 
@@ -2435,6 +2455,15 @@ function notifyMembersBoard(&$topicData)
 
 			if (!$send_body)
 				unset($replacements['MESSAGE']);
+
+			// Make a token for the unsubscribe link
+			if (!empty($modSettings['notify_tokens']))
+			{
+				require_once($sourcedir . '/Notify.php');
+				$token = createUnsubscribeToken($rowmember['id_member'], $rowmember['email_address'], 'board', $rowmember['id_board']);
+
+				$replacements['UNSUBSCRIBELINK'] .= ';u=' . $rowmember['id_member'] . ';token=' . $token;
+			}
 
 			// Figure out which email to send off
 			$emailtype = '';
